@@ -452,7 +452,7 @@
         .toggleClass("active");
     });
     $(".cs_dashboard_nav li").on("click", function () {
-      $(this).addClass("active").siblings().slideToggle().removeClass("active");
+      $(this).addClass("active").removeClass("active");
     });
   }
   /*=====================================================================

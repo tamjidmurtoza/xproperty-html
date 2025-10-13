@@ -8515,7 +8515,7 @@ span.flatpickr-weekday {
   opacity: 0.75;
 }
 .cs_dashboard_nav li a {
-  display: inline-block;
+  display: block;
   padding: 12px 0;
 }
 .cs_dashboard_nav li span:first-child {
