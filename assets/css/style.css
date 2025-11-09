@@ -1686,8 +1686,9 @@ label {
 }
 
 .cs_bg_fixed {
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-size: cover;
 }
 
 .cs_bg_shape_1 {
