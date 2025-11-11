@@ -50,7 +50,6 @@
   $(window).on("scroll", function () {
     stickyHeader();
     showScrollUp();
-    aosInit();
   });
 
   $(function () {
