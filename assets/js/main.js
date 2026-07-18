@@ -113,7 +113,7 @@
   function mainNav() {
     $(".cs_nav").append('<span class="cs_menu_toggle"><span></span></span>');
     $(".menu-item-has-children").append(
-      '<span class="cs_menu_dropdown_toggle"><span></span></span>'
+      '<span class="cs_menu_dropdown_toggle"><span></span></span>',
     );
     $(".cs_menu_toggle").on("click", function () {
       $(this)
@@ -188,7 +188,7 @@
         var centerVar = Boolean(parseInt($ts.attr("data-center"), 10));
         // Variable Width
         var variableWidthVar = Boolean(
-          parseInt($ts.attr("data-variable-width"), 10)
+          parseInt($ts.attr("data-variable-width"), 10),
         );
         // Pagination
         var paginaiton = $(this)
@@ -216,9 +216,9 @@
           function (event, slick, currentSlide, nextSlide) {
             var i = (currentSlide ? currentSlide : 0) + 1;
             $status.html(
-              `<span class="cs_current_number">${i}</span> <span class="cs_slider_number_seperator"></span> <span class="cs_total_numbers">${slick.slideCount}</span>`
+              `<span class="cs_current_number">${i}</span> <span class="cs_slider_number_seperator"></span> <span class="cs_total_numbers">${slick.slideCount}</span>`,
             );
-          }
+          },
         );
         /* End Count Slide Number */
 
@@ -287,7 +287,7 @@
           selectedFlagClass +
           '" data-lang="' +
           selectedLang +
-          '"></span>'
+          '"></span>',
       );
       // Hide dropdown
       $(".cs_language_dropdown").hide();
@@ -381,7 +381,7 @@
           $("html").removeClass("overflow-hidden");
           $(".cs_video_popup_container iframe").attr("src", "about:blank");
           e.preventDefault();
-        }
+        },
       );
     }
   }
@@ -547,7 +547,7 @@
         {
           scrollTop: 0,
         },
-        0
+        0,
       );
     });
   }

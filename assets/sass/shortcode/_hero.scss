@@ -386,6 +386,8 @@
 
 .cs_hero.cs_style_7 {
   margin-top: 150px;
+  position: relative;
+  z-index: 1;
 
   .cs_location_map {
     width: 100%;
@@ -409,7 +411,7 @@
   .cs_property_search.cs_style_1 {
     width: min(100%, 946px);
     position: relative;
-    z-index: 2;
+    z-index: 5;
   }
 }
 
