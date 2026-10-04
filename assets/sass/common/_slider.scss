@@ -96,48 +96,48 @@
 
 .cs_slider_gap_24 {
   .slick-slide {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-inline-start: 12px;
+    padding-inline-end: 12px;
   }
 
   .slick-list {
-    margin-left: -12px;
-    margin-right: -12px;
+    margin-inline-start: -12px;
+    margin-inline-end: -12px;
   }
 }
 
 .cs_slider_gap_20 {
   .slick-slide {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 10px;
   }
 
   .slick-list {
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-inline-start: -10px;
+    margin-inline-end: -10px;
   }
 }
 
 .cs_slider_gap_30 {
   .slick-slide {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
   }
 
   .slick-list {
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-inline-start: -15px;
+    margin-inline-end: -15px;
   }
 
   @media (max-width: 991px) {
     .slick-slide {
-      padding-left: 12px;
-      padding-right: 12px;
+      padding-inline-start: 12px;
+      padding-inline-end: 12px;
     }
 
     .slick-list {
-      margin-left: -12px;
-      margin-right: -12px;
+      margin-inline-start: -12px;
+      margin-inline-end: -12px;
     }
   }
 }
@@ -166,8 +166,8 @@
   width: calc(100vw - 15%);
   position: absolute;
   top: 30%;
-  left: 50%;
-  transform: translate(-50%, -30%);
+  inset-inline-start: 50%;
+  transform: translate(calc(-50% * var(--cs-dir)), -30%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -182,21 +182,25 @@
   }
 
   .cs_left_arrow {
-    transform: translateX(40px);
+    transform: translateX(calc(40px * var(--cs-dir)));
 
-    svg {
-      transform: rotate(180deg);
+    .cs_svg_icon {
+      transform: scaleX(calc(-1 * var(--cs-dir)));
     }
   }
 
   .cs_right_arrow {
-    transform: translateX(-40px);
+    transform: translateX(calc(-40px * var(--cs-dir)));
+
+    .cs_svg_icon {
+      transform: scaleX(var(--cs-dir));
+    }
   }
 
   &.cs_type_1 {
     width: calc(100vw - 10%);
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(calc(-50% * var(--cs-dir)), -50%);
 
     .cs_left_arrow,
     .cs_right_arrow {
@@ -213,7 +217,7 @@
 
   &.cs_type_2 {
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(calc(-50% * var(--cs-dir)), -50%);
   }
 
   @media (max-width:1199px) {
@@ -358,9 +362,9 @@
 
 .cs_pagination.cs_style_4 {
   position: absolute;
-  left: 50%;
+  inset-inline-start: 50%;
   bottom: 74px;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% * var(--cs-dir)));
 
   .slick-dots {
     list-style: none;
@@ -386,16 +390,16 @@
         border: 1px solid var(--white-color);
         border-radius: inherit;
         position: absolute;
-        left: 50%;
+        inset-inline-start: 50%;
         top: 50%;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(0);
         transition: all 0.4s ease;
       }
     }
 
     .slick-active {
       &::before {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1);
       }
     }
   }
@@ -406,6 +410,12 @@
 =========================================================*/
 .cs_horizontal_slider_wrapper {
   overflow-x: hidden;
+
+  // Text sliders stop at 1920px on very wide screens; card sliders stay full width
+  &:has(.cs_slider_text_wrapper) {
+    max-width: 1920px;
+    margin-inline: auto;
+  }
 
   &:hover {
 
@@ -455,6 +465,6 @@
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(calc(-100% * var(--cs-dir)));
   }
 }

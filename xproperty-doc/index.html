@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentation for Xproperty – Real Estate & Property Listing HTML Template.">
+  <meta name="theme-color" content="#00cc61">
+  <title>Xproperty Documentation</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500;600;700&family=JetBrains+Mono:wght@400;600&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Icon sprite -->
+  <svg class="sprite" aria-hidden="true">
+    <defs>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3z"/><path d="M12 9v4M12 17h.01"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+      <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".8"/><circle cx="17.5" cy="10.5" r=".8"/><circle cx="8.5" cy="7.5" r=".8"/><circle cx="6.5" cy="12.5" r=".8"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.7-.8 1.7-1.7 0-.4-.2-.8-.5-1.1-.3-.3-.4-.7-.4-1.1 0-.9.7-1.7 1.7-1.7h2c3 0 5.5-2.5 5.5-5.5C22 6 17.5 2 12 2z"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+    </defs>
+  </svg>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- ================= Top bar ================= -->
+  <header class="topbar">
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="sidebar">
+      <svg class="ico"><use href="#i-menu"/></svg>
+    </button>
+    <a href="#introduction" class="brand" aria-label="Xproperty documentation home">
+      <img src="img/logo.svg" alt="Xproperty" class="logo-light" width="131" height="40">
+      <img src="img/logo-white.svg" alt="Xproperty" class="logo-dark" width="131" height="40">
+      <span class="badge">v1.0.0</span>
+    </a>
+    <label class="search">
+      <svg class="ico"><use href="#i-search"/></svg>
+      <input type="search" placeholder="Search the docs…" aria-label="Search the documentation" data-doc-search>
+      <kbd>/</kbd>
+    </label>
+    <div class="topbar-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+        <svg class="ico ico-moon"><use href="#i-moon"/></svg>
+        <svg class="ico ico-sun"><use href="#i-sun"/></svg>
+      </button>
+      <a href="../index.html" class="btn" target="_blank" rel="noopener">
+        <span class="btn-label">Live Preview</span> <svg class="ico"><use href="#i-external"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- ================= Sidebar ================= -->
+    <aside class="sidebar" id="sidebar" aria-label="Documentation">
+      <label class="search">
+        <svg class="ico"><use href="#i-search"/></svg>
+        <input type="search" placeholder="Search the docs…" aria-label="Search the documentation" data-doc-search>
+      </label>
+
+      <nav>
+        <div class="nav-group">
+          <h4>Getting Started</h4>
+          <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#installation">Installation</a></li>
+            <li><a href="#deployment">Deployment</a></li>
+            <li><a href="#structure">File Structure</a></li>
+            <li><a href="#pages">Pages</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <h4>Customisation</h4>
+          <ul>
+            <li><a href="#html">HTML Structure</a></li>
+            <li><a href="#logo">Logo &amp; Favicon</a></li>
+            <li><a href="#colors">Colors</a></li>
+            <li><a href="#fonts">Fonts</a></li>
+            <li><a href="#dark">Dark Version</a></li>
+            <li><a href="#scss">SCSS</a></li>
+            <li><a href="#utilities">Utility Classes</a></li>
+            <li><a href="#images">Images &amp; Backgrounds</a></li>
+            <li><a href="#icons">Icons</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <h4>Components</h4>
+          <ul>
+            <li><a href="#header">Header &amp; Menu</a></li>
+            <li><a href="#sliders">Sliders</a></li>
+            <li><a href="#tabs">Tabs</a></li>
+            <li><a href="#accordion">Accordion</a></li>
+            <li><a href="#gallery">Image Gallery</a></li>
+            <li><a href="#video">Video Popup</a></li>
+            <li><a href="#counters">Counters &amp; Ratings</a></li>
+            <li><a href="#form-fields">Selects &amp; Date Pickers</a></li>
+            <li><a href="#pricing">Pricing Toggle</a></li>
+            <li><a href="#contact-form">Contact Form</a></li>
+            <li><a href="#map">Google Map</a></li>
+            <li><a href="#language">Language Switcher</a></li>
+          </ul>
+        </div>
+        <div class="nav-group">
+          <h4>Reference</h4>
+          <ul>
+            <li><a href="#animations">Animations &amp; Scrolling</a></li>
+            <li><a href="#javascript">JavaScript</a></li>
+            <li><a href="#browsers">Browser Support</a></li>
+            <li><a href="#credits">Credits</a></li>
+            <li><a href="#changelog">Changelog</a></li>
+            <li><a href="#support">Support</a></li>
+          </ul>
+        </div>
+        <p class="nav-empty">No matching sections.</p>
+      </nav>
+    </aside>
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <!-- ================= Content ================= -->
+    <main class="content" id="main" tabindex="-1">
+
+      <!-- Introduction -->
+      <section class="doc-section" id="introduction">
+        <div class="hero">
+          <span class="badge">Version 1.0.0</span>
+          <h1>Xproperty Documentation</h1>
+          <p>Thank you for choosing Xproperty, a real estate and property listing HTML template built with Bootstrap 5,
+            SCSS and jQuery. This guide covers setup, customisation and every component the template ships with.</p>
+          <div class="hero-meta">
+            <span>Author: <strong>Laralink</strong></span>
+            <span>Bootstrap: <strong>5.3.8</strong></span>
+            <span>jQuery: <strong>4.0.0</strong></span>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card stat"><strong>10</strong><span>Home page demos</span></div>
+          <div class="card stat"><strong>23</strong><span>Inner pages</span></div>
+          <div class="card stat"><strong>8</strong><span>Dashboard screens</span></div>
+          <div class="card stat"><strong>11</strong><span>Bundled plugins</span></div>
+        </div>
+
+        <div class="cards">
+          <a href="#installation" class="card">
+            <span class="card-ico"><svg class="ico"><use href="#i-rocket"/></svg></span>
+            <strong>Quick start</strong><span>Open a page and start editing in minutes.</span>
+          </a>
+          <a href="#colors" class="card">
+            <span class="card-ico"><svg class="ico"><use href="#i-palette"/></svg></span>
+            <strong>Rebrand</strong><span>Change colors, fonts and the logo.</span>
+          </a>
+          <a href="#sliders" class="card">
+            <span class="card-ico"><svg class="ico"><use href="#i-layers"/></svg></span>
+            <strong>Components</strong><span>Sliders, tabs, galleries, forms and more.</span>
+          </a>
+          <a href="#support" class="card">
+            <span class="card-ico"><svg class="ico"><use href="#i-headset"/></svg></span>
+            <strong>Get help</strong><span>How to reach our support team.</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Requirements -->
+      <section class="doc-section" id="requirements">
+        <h2>Requirements</h2>
+        <p>Xproperty is plain HTML, CSS and JavaScript, so there are no server requirements. You only need:</p>
+        <ul>
+          <li>A code editor, such as <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a>.</li>
+          <li>A modern web browser to preview pages.</li>
+          <li>Optional: <a href="https://sass-lang.com/" target="_blank" rel="noopener">Dart Sass</a> (or Node.js) if you
+            want to edit the SCSS source.</li>
+          <li>Any web hosting that serves static files to go live.</li>
+        </ul>
+      </section>
+
+      <!-- Installation -->
+      <section class="doc-section" id="installation">
+        <h2>Installation</h2>
+        <ol class="steps">
+          <li>Unzip the package you downloaded.</li>
+          <li>Open <code>index.html</code> (or any other page) in your browser to preview it.</li>
+          <li>Edit the HTML in your code editor. Styles live in <code>assets/css/style.css</code> and scripts in
+            <code>assets/js/main.js</code>.</li>
+          <li>Replace the demo text and images with your own content.</li>
+        </ol>
+        <div class="callout">
+          <svg class="ico"><use href="#i-bulb"/></svg>
+          <p>Use a local server such as the VS Code <strong>Live Server</strong> extension while you edit. The page reloads
+            automatically on save, and embedded maps and videos behave the same as they will online.</p>
+        </div>
+      </section>
+
+      <!-- Deployment -->
+      <section class="doc-section" id="deployment">
+        <h2>Deployment</h2>
+        <p>Upload the contents of the template folder (all <code>.html</code> files and the <code>assets</code> folder) to
+          your hosting's public directory, usually <code>public_html</code> or <code>www</code>. Keep the folder structure
+          unchanged so relative paths keep working.</p>
+        <p>You can also deploy for free on static hosts such as Netlify, Vercel, GitHub Pages or Cloudflare Pages by dragging
+          in the folder or connecting a Git repository.</p>
+        <div class="callout callout-warn">
+          <svg class="ico"><use href="#i-alert"/></svg>
+          <p>Before going live, replace the demo Web3Forms access key in your forms (see <a href="#contact-form">Contact
+              Form</a>) and remove pages you don't use from the navigation menu.</p>
+        </div>
+      </section>
+
+      <!-- Structure -->
+      <section class="doc-section" id="structure">
+        <h2>File Structure</h2>
+<pre data-lang="Folder" class="tree"><code>xproperty/
+├── index.html … single-property-v2.html   33 HTML pages
+├── assets/
+│   ├── css/       style.css (main) + plugin stylesheets (*.min.css)
+│   ├── sass/      SCSS source for style.css
+│   │   ├── default/    _variable.scss, _typhography.scss
+│   │   ├── common/     header, footer, sidebar, spacing, slider, preloader…
+│   │   ├── shortcode/  hero, cards, property, profile, tabs, dark…
+│   │   └── style.scss  imports every partial
+│   ├── js/        main.js (template logic) + plugin scripts (*.min.js)
+│   ├── img/       images and icons
+│   ├── fonts/     Font Awesome 6 webfonts, Cabin and Raleway
+│   └── flags/     flag icons for the language switcher
+└── xproperty-doc/ this documentation</code></pre>
+      </section>
+
+      <!-- Pages -->
+      <section class="doc-section" id="pages">
+        <h2>Pages</h2>
+        <p>The template includes 33 pages: 10 home demos and 23 inner pages.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Group</th><th>Files</th></tr></thead>
+            <tbody>
+              <tr><td>Home demos (10)</td><td><code>index.html</code>, <code>home-v2.html</code> – <code>home-v6.html</code>,
+                <code>commercial-residence.html</code>, <code>apartment-complex.html</code>,
+                <code>single-property-v1.html</code>, <code>single-property-v2.html</code></td></tr>
+              <tr><td>Property (4)</td><td><code>property-listing-buy.html</code>, <code>property-listing-rent.html</code>,
+                <code>property-listing-search.html</code>, <code>property-details.html</code></td></tr>
+              <tr><td>Dashboard (8)</td><td><code>profile.html</code>, <code>my-property.html</code>, <code>add-property.html</code>,
+                <code>edit-property.html</code>, <code>favourite-property.html</code>, <code>profile-settings.html</code>,
+                <code>client-list.html</code>, <code>change-password.html</code></td></tr>
+              <tr><td>Company (5)</td><td><code>about-us.html</code>, <code>agents-list.html</code>, <code>pricing.html</code>,
+                <code>faq.html</code>, <code>contact.html</code></td></tr>
+              <tr><td>Blog (2)</td><td><code>blog.html</code>, <code>blog-details.html</code></td></tr>
+              <tr><td>Auth &amp; utility (4)</td><td><code>login.html</code>, <code>register.html</code>,
+                <code>forgot-password.html</code>, <code>error.html</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- HTML -->
+      <section class="doc-section" id="html">
+        <h2>HTML Structure</h2>
+        <p>Every page follows the same skeleton: preloader, header, page sections and footer. CSS loads in the
+          <code>&lt;head&gt;</code> and scripts load just before <code>&lt;/body&gt;</code>.</p>
+<pre data-lang="HTML"><code>&lt;body&gt;
+  &lt;div class="cs_preloader"&gt;…&lt;/div&gt;                     &lt;!-- Preloader --&gt;
+  &lt;header class="cs_site_header cs_sticky_header …"&gt;…&lt;/header&gt;
+
+  &lt;section&gt;…&lt;/section&gt;                                   &lt;!-- Page sections --&gt;
+
+  &lt;footer class="cs_footer …"&gt;…&lt;/footer&gt;
+
+  &lt;script src="assets/js/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;!-- plugin scripts … --&gt;
+  &lt;script src="assets/js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+        <p>Sections are self-contained. You can copy a section from one page to another as long as the target page loads the
+          same plugin files.</p>
+        <h3 id="preloader">Preloader</h3>
+        <p>The preloader fades out once the page has loaded. To remove it, delete the <code>cs_preloader</code> block from
+          the page.</p>
+      </section>
+
+      <!-- Logo -->
+      <section class="doc-section" id="logo">
+        <h2>Logo &amp; Favicon</h2>
+        <p>The logo is an <code>&lt;img&gt;</code> inside <code>.cs_site_brand</code> in the header (and again in the
+          footer). Replace the file or point the <code>src</code> to your own logo:</p>
+<pre data-lang="HTML"><code>&lt;a href="index.html" class="cs_site_brand"&gt;
+  &lt;img src="assets/img/logo.svg" alt="Your Company"&gt;
+&lt;/a&gt;</code></pre>
+        <p>Replace <code>assets/img/favicon.png</code> with your own icon (a square PNG, 32×32 or larger) to update the
+          browser-tab icon on every page.</p>
+      </section>
+
+      <!-- Colors -->
+      <section class="doc-section" id="colors">
+        <h2>Colors</h2>
+        <p>All colors are CSS variables at the top of <code>assets/css/style.css</code> (source:
+          <code>assets/sass/default/_variable.scss</code>). Change a value once and the whole site updates.</p>
+        <div class="swatches">
+          <div class="swatch"><i style="--c:#00CC61"></i><div><code>--accent-color</code><small>#00CC61</small></div></div>
+          <div class="swatch"><i style="--c:#1D1D1D"></i><div><code>--primary-color</code><small>#1D1D1D</small></div></div>
+          <div class="swatch"><i style="--c:#434343"></i><div><code>--secondary-color</code><small>#434343</small></div></div>
+          <div class="swatch"><i style="--c:#D1D1D1"></i><div><code>--border-color</code><small>#D1D1D1</small></div></div>
+          <div class="swatch"><i style="--c:#E2E2E2"></i><div><code>--gray-color</code><small>#E2E2E2</small></div></div>
+          <div class="swatch"><i style="--c:#F9F4F1"></i><div><code>--gray2-color</code><small>#F9F4F1</small></div></div>
+          <div class="swatch"><i style="--c:#FAFAFA"></i><div><code>--gray3-color</code><small>#FAFAFA</small></div></div>
+          <div class="swatch"><i style="--c:#FFFAF6"></i><div><code>--gray4-color</code><small>#FFFAF6</small></div></div>
+          <div class="swatch"><i style="--c:#FF0000"></i><div><code>--danger-color</code><small>#FF0000</small></div></div>
+        </div>
+<pre data-lang="CSS"><code>:root {
+  --accent-color: #00CC61;      /* brand color: buttons, links, highlights */
+  --primary-color: #1D1D1D;     /* headings and dark buttons */
+  --secondary-color: #434343;   /* body text */
+  --border-color: #D1D1D1;
+}</code></pre>
+      </section>
+
+      <!-- Fonts -->
+      <section class="doc-section" id="fonts">
+        <h2>Fonts</h2>
+        <p>The template uses <strong>Cabin</strong> for headings, <strong>Raleway</strong> for body text and
+          <strong>Carattere</strong> for decorative script text. They're loaded from Google Fonts with an
+          <code>@import</code> at the top of <code>style.css</code> (<code>_typhography.scss</code> in SCSS).</p>
+        <ol class="steps">
+          <li>Pick your fonts on <a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a> and copy
+            the embed URL.</li>
+          <li>Replace the <code>@import url(…)</code> line at the top of <code>style.css</code>.</li>
+          <li>Update the font variables:</li>
+        </ol>
+<pre data-lang="CSS"><code>:root {
+  --primary-font: "Cabin", sans-serif;      /* headings */
+  --secondary-font: "Raleway", sans-serif;  /* body text */
+  --ternary-font: "Carattere", cursive;     /* decorative */
+}</code></pre>
+      </section>
+
+      <!-- Dark -->
+      <section class="doc-section" id="dark">
+        <h2>Dark Version</h2>
+        <p>Add the <code>cs_dark</code> class to <code>&lt;body&gt;</code> to switch a page to the dark palette. It
+          redefines the color variables, so every component follows automatically.
+          <code>single-property-v1.html</code> and <code>single-property-v2.html</code> are examples.</p>
+<pre data-lang="HTML"><code>&lt;body class="cs_dark"&gt;</code></pre>
+        <p>Edit the dark palette in the <code>.cs_dark { … }</code> block of <code>_variable.scss</code> (or
+          <code>style.css</code>).</p>
+      </section>
+
+      <!-- SCSS -->
+      <section class="doc-section" id="scss">
+        <h2>SCSS</h2>
+        <p>SCSS is optional. <code>assets/sass/style.scss</code> imports every partial in this order: variables, typography,
+          spacing, general, header, footer, sidebar, slider, video modal, preloader, then the component partials and the dark
+          version. Compile it to <code>assets/css/style.css</code> with Dart Sass:</p>
+<pre data-lang="Terminal"><code>npx sass assets/sass/style.scss assets/css/style.css --watch</code></pre>
+        <div class="callout callout-warn">
+          <svg class="ico"><use href="#i-alert"/></svg>
+          <p>Compiling overwrites <code>style.css</code>. Pick one workflow: edit either the SCSS or the CSS, not both.</p>
+        </div>
+      </section>
+
+      <!-- Utilities -->
+      <section class="doc-section" id="utilities">
+        <h2>Utility Classes</h2>
+        <p>The template uses <code>cs_</code>-prefixed utilities alongside Bootstrap's own classes.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Class</th><th>What it does</th></tr></thead>
+            <tbody>
+              <tr><td><code>cs_height_{1–150}</code></td><td>Vertical spacer of that many pixels on screens ≥ 992px.</td></tr>
+              <tr><td><code>cs_height_lg_{1–100}</code></td><td>Spacer height on screens ≤ 991px. Use it together with
+                <code>cs_height_*</code>.</td></tr>
+              <tr><td><code>cs_mb_{1–70}</code></td><td>Margin-bottom in pixels.</td></tr>
+              <tr><td><code>cs_mb_lg_{1–50}</code></td><td>Margin-bottom on screens ≤ 991px.</td></tr>
+              <tr><td><code>cs_accent_color</code>, <code>cs_primary_color</code></td><td>Text color from the variables.</td></tr>
+              <tr><td><code>cs_accent_bg</code>, <code>cs_primary_bg</code>, <code>cs_gray2_bg</code></td><td>Background color
+                from the variables.</td></tr>
+              <tr><td><code>cs_primary_font</code>, <code>cs_secondary_font</code></td><td>Font family from the variables.</td></tr>
+            </tbody>
+          </table>
+        </div>
+<pre data-lang="HTML"><code>&lt;!-- 120px gap on desktop, 80px on tablet and mobile --&gt;
+&lt;div class="cs_height_120 cs_height_lg_80"&gt;&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- Images -->
+      <section class="doc-section" id="images">
+        <h2>Images &amp; Backgrounds</h2>
+        <p>Images are in <code>assets/img</code>. The simplest way to swap one is to replace the file with your own image of
+          the same name and similar dimensions.</p>
+        <h3 id="backgrounds">Background images</h3>
+        <p>Any element with a <code>data-src</code> attribute gets that image as its CSS background. Add
+          <code>cs_bg_filed</code> to make it cover the element.</p>
+<pre data-lang="HTML"><code>&lt;section class="cs_hero cs_bg_filed" data-src="assets/img/hero-bg-1.jpg"&gt;…&lt;/section&gt;</code></pre>
+      </section>
+
+      <!-- Icons -->
+      <section class="doc-section" id="icons">
+        <h2>Icons</h2>
+        <p>The full <a href="https://fontawesome.com/search?o=r&amp;m=free" target="_blank" rel="noopener">Font Awesome 6
+            Free</a> set is included (solid, regular and brands). Copy an icon's class name from their site:</p>
+<pre data-lang="HTML"><code>&lt;i class="fa-solid fa-house"&gt;&lt;/i&gt;
+&lt;i class="fa-regular fa-heart"&gt;&lt;/i&gt;
+&lt;i class="fa-brands fa-facebook-f"&gt;&lt;/i&gt;</code></pre>
+      </section>
+
+      <!-- Header -->
+      <section class="doc-section" id="header">
+        <h2>Header &amp; Menu</h2>
+        <p>The header has three areas: <code>cs_main_header_left</code> (logo), <code>cs_main_header_center</code>
+          (navigation) and <code>cs_main_header_right</code> (language, login and call-to-action).</p>
+        <ul>
+          <li><strong>Sticky header:</strong> keep <code>cs_sticky_header</code> on <code>&lt;header&gt;</code> and it gets
+            <code>cs_sticky_active</code> once the page scrolls. Remove the class to keep the header static.</li>
+          <li><strong>Dropdowns:</strong> add <code>menu-item-has-children</code> to an <code>&lt;li&gt;</code> that contains a
+            nested <code>&lt;ul&gt;</code>. On mobile, a toggle arrow is added automatically.</li>
+          <li><strong>Mobile menu:</strong> the hamburger button is generated by <code>main.js</code>. No extra markup is
+            needed.</li>
+        </ul>
+<pre data-lang="HTML"><code>&lt;li class="menu-item-has-children"&gt;
+  &lt;a href="#"&gt;Listing&lt;/a&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="property-listing-buy.html"&gt;Buy&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="property-listing-rent.html"&gt;Rent&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/li&gt;</code></pre>
+      </section>
+
+      <!-- Sliders -->
+      <section class="doc-section" id="sliders">
+        <h2>Sliders</h2>
+        <p>Sliders use Slick and are configured with data attributes on <code>.cs_slider_container</code>, so no JavaScript
+          changes are needed. Each slider lives inside a <code>.cs_slider</code> wrapper.</p>
+<pre data-lang="HTML"><code>&lt;div class="cs_slider"&gt;
+  &lt;div class="cs_slider_container"
+       data-autoplay="0" data-loop="1" data-speed="800"
+       data-center="0" data-variable-width="0"
+       data-slides-per-view="responsive"
+       data-xs-slides="1" data-sm-slides="2" data-md-slides="2"
+       data-lg-slides="3" data-add-slides="3"&gt;
+    &lt;div class="cs_slider_wrapper"&gt;
+      &lt;div class="cs_slide"&gt;…&lt;/div&gt;
+      &lt;div class="cs_slide"&gt;…&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cs_left_arrow"&gt;…&lt;/div&gt;   &lt;!-- optional arrows --&gt;
+  &lt;div class="cs_right_arrow"&gt;…&lt;/div&gt;
+  &lt;div class="cs_pagination"&gt;&lt;/div&gt;     &lt;!-- optional dots --&gt;
+&lt;/div&gt;</code></pre>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Attribute</th><th>Values</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>data-autoplay</code></td><td><code>0</code>, <code>1</code> or ms</td><td>Off, on (3s), or a custom
+                delay in milliseconds such as <code>5000</code>.</td></tr>
+              <tr><td><code>data-loop</code></td><td><code>0</code> / <code>1</code></td><td>Infinite loop.</td></tr>
+              <tr><td><code>data-speed</code></td><td>ms</td><td>Transition speed.</td></tr>
+              <tr><td><code>data-center</code></td><td><code>0</code> / <code>1</code></td><td>Center mode with partial
+                side slides.</td></tr>
+              <tr><td><code>data-variable-width</code></td><td><code>0</code> / <code>1</code></td><td>Slides keep their own
+                width.</td></tr>
+              <tr><td><code>data-fade-slide</code></td><td><code>0</code> / <code>1</code></td><td>Fade between slides
+                instead of sliding.</td></tr>
+              <tr><td><code>data-slides-per-view</code></td><td><code>1</code> or <code>responsive</code></td><td>Use
+                <code>responsive</code> to enable the breakpoint attributes below.</td></tr>
+              <tr><td><code>data-add-slides</code></td><td>number</td><td>Slides on screens ≥ 1400px.</td></tr>
+              <tr><td><code>data-lg-slides</code></td><td>number</td><td>Slides below 1400px.</td></tr>
+              <tr><td><code>data-md-slides</code></td><td>number</td><td>Slides below 1200px.</td></tr>
+              <tr><td><code>data-sm-slides</code></td><td>number</td><td>Slides below 992px.</td></tr>
+              <tr><td><code>data-xs-slides</code></td><td>number</td><td>Slides below 768px.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Add a <code>.cs_slider_number</code> element inside <code>.cs_slider</code> to show a “1 / 5” slide counter.</p>
+      </section>
+
+      <!-- Tabs -->
+      <section class="doc-section" id="tabs">
+        <h2>Tabs</h2>
+        <p>Each tab link's <code>href</code> points to the <code>id</code> of its panel. The <code>active</code> class marks
+          the open tab and panel.</p>
+<pre data-lang="HTML"><code>&lt;div class="cs_tabs"&gt;
+  &lt;ul class="cs_tab_links cs_style_1"&gt;
+    &lt;li class="active"&gt;&lt;a href="#sale"&gt;For Sale&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#rent"&gt;For Rent&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="cs_tab_body"&gt;
+    &lt;div class="cs_tab active" id="sale"&gt;…&lt;/div&gt;
+    &lt;div class="cs_tab" id="rent"&gt;…&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- Accordion -->
+      <section class="doc-section" id="accordion">
+        <h2>Accordion</h2>
+        <p>Used on the FAQ page. Add <code>active</code> to the item that should start open. Opening one item closes the
+          others.</p>
+<pre data-lang="HTML"><code>&lt;div class="cs_accordian cs_style_1 active"&gt;
+  &lt;div class="cs_accordian_head"&gt;
+    &lt;h3 class="cs_accordian_title"&gt;Your question?&lt;/h3&gt;
+    &lt;span class="cs_accordian_toggler"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="cs_accordian_body"&gt;Your answer.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- Gallery -->
+      <section class="doc-section" id="gallery">
+        <h2>Image Gallery</h2>
+        <p>Links with <code>cs_gallery_item</code> inside a <code>.cs_gallery_list</code> open in a lightGallery lightbox
+          with zoom, fullscreen and swipe. The link's <code>href</code> is the full-size image.</p>
+<pre data-lang="HTML"><code>&lt;div class="cs_gallery_list"&gt;
+  &lt;a href="assets/img/kitchen.jpg" class="cs_gallery_item"&gt;
+    &lt;img src="assets/img/kitchen.jpg" alt="Kitchen"&gt;
+  &lt;/a&gt;
+  &lt;a href="assets/img/bed-room.jpg" class="cs_gallery_item"&gt;
+    &lt;img src="assets/img/bed-room.jpg" alt="Bedroom"&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+        <div class="callout callout-info">
+          <svg class="ico"><use href="#i-info"/></svg>
+          <p>Thumbnails are turned off. To show them, set <code>thumbnail: true</code> in the <code>lightGallery()</code>
+            function of <code>main.js</code>.</p>
+        </div>
+      </section>
+
+      <!-- Video -->
+      <section class="doc-section" id="video">
+        <h2>Video Popup</h2>
+        <p>Add <code>cs_video_open</code> to a link whose <code>href</code> is a YouTube <strong>embed</strong> URL. Clicking
+          it plays the video in a popup.</p>
+<pre data-lang="HTML"><code>&lt;a href="https://www.youtube.com/embed/VIDEO_ID" class="cs_video_open"&gt;Play video&lt;/a&gt;</code></pre>
+      </section>
+
+      <!-- Counters -->
+      <section class="doc-section" id="counters">
+        <h2>Counters &amp; Ratings</h2>
+        <h3 id="counter">Animated counter</h3>
+        <p>Odometer counts up to <code>data-count-to</code> when the number scrolls into view.</p>
+<pre data-lang="HTML"><code>$&lt;span class="odometer" data-count-to="50"&gt;&lt;/span&gt;B+</code></pre>
+        <h3 id="rating">Star rating</h3>
+        <p>Set <code>data-rating</code> from 0 to 5. Decimals such as <code>4.5</code> work too.</p>
+<pre data-lang="HTML"><code>&lt;div class="cs_rating" data-rating="4.5"&gt;
+  &lt;div class="cs_rating_percentage"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <!-- Form fields -->
+      <section class="doc-section" id="form-fields">
+        <h2>Selects &amp; Date Pickers</h2>
+        <p>Any <code>&lt;select&gt;</code> with the <code>tom_select</code> class becomes a styled Tom Select dropdown.</p>
+<pre data-lang="HTML"><code>&lt;select class="tom_select"&gt;
+  &lt;option selected disabled&gt;Status&lt;/option&gt;
+  &lt;option value="sale"&gt;For Sale&lt;/option&gt;
+  &lt;option value="rent"&gt;For Rent&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+        <p>Flatpickr is attached to inputs with <code>id="datePicker"</code> (date) and <code>id="timePicker"</code>
+          (time). Change the date format in the <code>dateTimePicker()</code> function of <code>main.js</code>.</p>
+<pre data-lang="HTML"><code>&lt;input type="text" id="datePicker" placeholder="Select Date"&gt;
+&lt;input type="text" id="timePicker" placeholder="Select Time"&gt;</code></pre>
+      </section>
+
+      <!-- Pricing -->
+      <section class="doc-section" id="pricing">
+        <h2>Pricing Toggle</h2>
+        <p>The monthly/yearly switch on <code>pricing.html</code> shows elements with <code>monthlyPrice</code> /
+          <code>monthlyText</code> or <code>yearlyPrice</code> / <code>yearlyText</code>. Edit both values for each plan:</p>
+<pre data-lang="HTML"><code>$&lt;span class="monthlyPrice"&gt;199&lt;/span&gt;&lt;span class="yearlyPrice"&gt;1990&lt;/span&gt;</code></pre>
+      </section>
+
+      <!-- Contact form -->
+      <section class="doc-section" id="contact-form">
+        <h2>Contact Form</h2>
+        <p>Forms with <code>id="cs_form"</code> are sent with AJAX to <a href="https://web3forms.com" target="_blank"
+            rel="noopener">Web3Forms</a>, a free form backend that needs no server code. The response message appears in
+          <code>#cs_result</code>.</p>
+        <ol class="steps">
+          <li>Create a free access key at web3forms.com using the email address that should receive messages.</li>
+          <li>Paste the key into the hidden <code>access_key</code> input of each form.</li>
+          <li>Make sure the form contains an element with <code>id="cs_result"</code> for the status message.</li>
+        </ol>
+<pre data-lang="HTML"><code>&lt;form id="cs_form" class="cs_contact_form"&gt;
+  &lt;input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"&gt;
+  &lt;input type="text" name="name" placeholder="Name" required&gt;
+  &lt;input type="email" name="email" placeholder="Email" required&gt;
+  &lt;textarea name="message" placeholder="Message"&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+  &lt;div id="cs_result"&gt;&lt;/div&gt;
+&lt;/form&gt;</code></pre>
+        <div class="callout callout-warn">
+          <svg class="ico"><use href="#i-alert"/></svg>
+          <p>Replace the demo access key before going live, or messages won't reach your inbox.</p>
+        </div>
+      </section>
+
+      <!-- Map -->
+      <section class="doc-section" id="map">
+        <h2>Google Map</h2>
+        <p>Maps are standard Google Maps embeds. To show your location:</p>
+        <ol class="steps">
+          <li>Search for your address on <a href="https://maps.google.com" target="_blank" rel="noopener">Google Maps</a>.</li>
+          <li>Click <strong>Share → Embed a map</strong> and copy the URL inside <code>src="…"</code>.</li>
+          <li>Replace the <code>src</code> of the map <code>&lt;iframe&gt;</code> on the page.</li>
+        </ol>
+      </section>
+
+      <!-- Language -->
+      <section class="doc-section" id="language">
+        <h2>Language Switcher</h2>
+        <p>The header includes a flag dropdown (EN, DE, ES, CN, AR, BD) built with flag-icon CSS. It's a UI component only:
+          connect each option to your translated pages or i18n solution.</p>
+        <p>To add a language, copy a button in <code>.cs_language_dropdown</code> and change the
+          <code>flag-icon-xx</code> class (two-letter country code) and <code>data-lang</code> value.</p>
+      </section>
+
+      <!-- Animations -->
+      <section class="doc-section" id="animations">
+        <h2>Animations &amp; Scrolling</h2>
+        <h3 id="aos">Scroll animations (AOS)</h3>
+        <p>Elements animate in when they have a <code>data-aos</code> attribute. See the
+          <a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener">AOS docs</a> for all effects.</p>
+<pre data-lang="HTML"><code>&lt;div data-aos="fade-up" data-aos-delay="100"&gt;…&lt;/div&gt;</code></pre>
+        <p>To disable all scroll animations, remove <code>aosInit();</code> from the init list in <code>main.js</code> and
+          delete the <code>data-aos</code> attributes.</p>
+        <h3 id="lenis">Smooth scrolling (Lenis)</h3>
+        <p>Lenis adds inertial smooth scrolling. To use the browser's native scrolling, remove <code>smoothScroll();</code>
+          from the init list in <code>main.js</code>.</p>
+      </section>
+
+      <!-- JS -->
+      <section class="doc-section" id="javascript">
+        <h2>JavaScript</h2>
+        <p><code>assets/js/main.js</code> starts each feature only when its markup is on the page. Its table of contents:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Feature</th><th>#</th><th>Feature</th></tr></thead>
+            <tbody>
+              <tr><td>01</td><td>Preloader</td><td>13</td><td>Accordion</td></tr>
+              <tr><td>02</td><td>Mobile Menu</td><td>14</td><td>Heart &amp; sidebar toggles</td></tr>
+              <tr><td>03</td><td>Sticky Header</td><td>15</td><td>Date &amp; Time Picker</td></tr>
+              <tr><td>04</td><td>Dynamic Background</td><td>16</td><td>Apartment Finder</td></tr>
+              <tr><td>05</td><td>Slick Slider</td><td>17</td><td>Pricing Toggle</td></tr>
+              <tr><td>06</td><td>Language Select</td><td>18</td><td>Light Gallery</td></tr>
+              <tr><td>07</td><td>Search Modal Toggle</td><td>19</td><td>Load More</td></tr>
+              <tr><td>08</td><td>Smooth Scroll (Lenis)</td><td>20</td><td>Data Table</td></tr>
+              <tr><td>09</td><td>Counter Animation</td><td>21</td><td>Scroll Up</td></tr>
+              <tr><td>10</td><td>Video Popup</td><td>22</td><td>Contact Form</td></tr>
+              <tr><td>11</td><td>Star Rating</td><td>23</td><td>AOS Animation</td></tr>
+              <tr><td>12</td><td>Tabs</td><td></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3 id="script-order">Script order</h3>
+        <p>Keep jQuery first and <code>main.js</code> last. If you remove a plugin file from a page, also remove its
+          initialisation call from <code>main.js</code>, or the browser console will show an error.</p>
+      </section>
+
+      <!-- Browsers -->
+      <section class="doc-section" id="browsers">
+        <h2>Browser Support</h2>
+        <p>Xproperty supports the latest versions of Chrome, Firefox, Safari and Edge on desktop and mobile. Internet
+          Explorer is not supported.</p>
+      </section>
+
+      <!-- Credits -->
+      <section class="doc-section" id="credits">
+        <h2>Credits</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Library</th><th>Version</th><th>Used for</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap</a></td><td>5.3.8</td><td>Grid &amp; utilities (CSS only)</td></tr>
+              <tr><td><a href="https://jquery.com/" target="_blank" rel="noopener">jQuery</a></td><td>4.0.0</td><td>DOM helpers for main.js</td></tr>
+              <tr><td><a href="https://kenwheeler.github.io/slick/" target="_blank" rel="noopener">Slick</a></td><td>—</td><td>Carousels</td></tr>
+              <tr><td><a href="https://michalsnik.github.io/aos/" target="_blank" rel="noopener">AOS</a></td><td>—</td><td>Scroll animations</td></tr>
+              <tr><td><a href="https://lenis.darkroom.engineering/" target="_blank" rel="noopener">Lenis</a></td><td>1.3.26</td><td>Smooth scrolling</td></tr>
+              <tr><td><a href="https://github.hubspot.com/odometer/" target="_blank" rel="noopener">Odometer</a></td><td>0.4.8</td><td>Animated counters</td></tr>
+              <tr><td><a href="https://flatpickr.js.org/" target="_blank" rel="noopener">Flatpickr</a></td><td>4.6.13</td><td>Date pickers</td></tr>
+              <tr><td><a href="https://tom-select.js.org/" target="_blank" rel="noopener">Tom Select</a></td><td>2.6.2</td><td>Select dropdowns</td></tr>
+              <tr><td><a href="https://sachinchoolur.github.io/lightGallery/" target="_blank" rel="noopener">lightGallery</a></td><td>1.6.12</td><td>Image lightbox</td></tr>
+              <tr><td><a href="https://datatables.net/" target="_blank" rel="noopener">DataTables</a></td><td>3.1.3</td><td>Client list table</td></tr>
+              <tr><td><a href="https://fontawesome.com/" target="_blank" rel="noopener">Font Awesome Free</a></td><td>6.7.2</td><td>Icons</td></tr>
+              <tr><td><a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener">flag-icons</a></td><td>—</td><td>Language switcher flags</td></tr>
+              <tr><td><a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a></td><td>—</td><td>Cabin, Raleway, Carattere</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Changelog -->
+      <section class="doc-section" id="changelog">
+        <h2>Changelog</h2>
+        <div class="changelog-entry">
+          <div><span class="badge">v1.0.0</span></div>
+          <div>
+            <strong>Initial release</strong>
+            <ul>
+              <li><span class="tag">New</span>10 home demos, 23 inner pages and a user dashboard.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support -->
+      <section class="doc-section" id="support">
+        <h2>Support</h2>
+        <p>If something isn't covered here, contact us through the support tab on the item page of the marketplace where you
+          purchased Xproperty. To help us answer quickly, please include:</p>
+        <ul>
+          <li>Your purchase code.</li>
+          <li>The page name and a short description of the issue.</li>
+          <li>A screenshot or a link to your live site, if possible.</li>
+        </ul>
+      </section>
+
+      <footer class="doc-footer">
+        <span>&copy; Xproperty by Laralink. Documentation for version 1.0.0.</span>
+        <a href="#introduction">Back to top</a>
+      </footer>
+    </main>
+  </div>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">
+    <svg class="ico"><use href="#i-arrow-up"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

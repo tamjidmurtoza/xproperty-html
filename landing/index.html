@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Xproperty is a modern real estate & property listing HTML template with 10 home demos, 23 inner pages, a user dashboard and fully responsive Bootstrap 5 + SCSS code.">
+  <title>Xproperty - Real Estate &amp; Property Listing HTML Template</title>
+  <meta name="theme-color" content="#00cc61">
+  <!-- Social share preview (use absolute URLs once the page is live) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Xproperty">
+  <meta property="og:title" content="Xproperty - Real Estate &amp; Property Listing HTML Template">
+  <meta property="og:description" content="10 home demos, 23 inner pages, a user dashboard and clean Bootstrap 5 + SCSS code for real estate websites.">
+  <meta property="og:image" content="assets/img/screens/home-1-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Xproperty - Real Estate &amp; Property Listing HTML Template">
+  <meta name="twitter:description" content="10 home demos, 23 inner pages, a user dashboard and clean Bootstrap 5 + SCSS code for real estate websites.">
+  <meta name="twitter:image" content="assets/img/screens/home-1-hero.jpg">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Icon sprite -->
+  <svg width="0" height="0" class="lp-sprite" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
+      <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+      <symbol id="i-file-code" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M10 13l-2 2 2 2M14 17l2-2-2-2"/></symbol>
+      <symbol id="i-palette" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".8"/><circle cx="17.5" cy="10.5" r=".8"/><circle cx="8.5" cy="7.5" r=".8"/><circle cx="6.5" cy="12.5" r=".8"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.55-2.5 5.55-5.55C21.97 6.01 17.46 2 12 2z"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></symbol>
+      <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+      <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4z"/></symbol>
+      <symbol id="i-mouse" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M12 7v4"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7z"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+      <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2 2h2l2.7 12.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L22 7H5.1"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></symbol>
+      <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    </defs>
+  </svg>
+  <a href="#main" class="lp-skip">Skip to content</a>
+  <div class="lp-progress" aria-hidden="true"><span></span></div>
+  <!-- ================= Header ================= -->
+  <header class="lp-header" id="lpHeader">
+    <div class="lp-container lp-header-inner">
+      <a href="#home" class="lp-logo" aria-label="Xproperty home">
+        <img src="assets/img/logo.svg" alt="Xproperty" width="147" height="45">
+      </a>
+      <nav class="lp-nav" id="lpNav" aria-label="Primary">
+        <a href="#demos">Demos</a>
+        <a href="#pages">Inner Pages</a>
+        <a href="#features">Features</a>
+        <a href="#responsive">Responsive</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#faq">FAQ</a>
+        <a href="#buy" class="lp-btn lp-btn-dark lp-nav-cta">Purchase Now</a>
+      </nav>
+      <div class="lp-header-actions">
+        <a href="#buy" class="lp-btn lp-btn-dark lp-btn-sm">
+          <svg class="lp-ico"><use href="#i-cart"/></svg> Purchase Now
+        </a>
+        <button class="lp-burger" id="lpBurger" aria-label="Toggle menu" aria-expanded="false" aria-controls="lpNav">
+          <svg class="lp-ico lp-ico-open"><use href="#i-menu"/></svg>
+          <svg class="lp-ico lp-ico-close"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ================= Hero ================= -->
+    <section class="lp-hero" id="home">
+      <div class="lp-hero-bg" aria-hidden="true">
+        <span class="lp-blob lp-blob-1"></span>
+        <span class="lp-blob lp-blob-2"></span>
+        <span class="lp-grid"></span>
+      </div>
+      <div class="lp-container">
+        <div class="lp-hero-text">
+          <a href="#demos" class="lp-pill" data-reveal="fade-down">
+            <span class="lp-pill-tag">New</span> 10 unique home demos &middot; Bootstrap 5.3
+            <svg class="lp-ico"><use href="#i-arrow"/></svg>
+          </a>
+          <h1 class="lp-hero-title" data-reveal="fade-up" data-delay="100">
+            The Real Estate Template Built to
+            <span class="lp-rotator" aria-live="polite">
+              <span class="lp-rotator-word is-active">Sell Homes</span>
+              <span class="lp-rotator-word">List Rentals</span>
+              <span class="lp-rotator-word">Win Clients</span>
+              <span class="lp-rotator-word">Grow Agencies</span>
+            </span>
+          </h1>
+          <p class="lp-hero-sub" data-reveal="fade-up" data-delay="200">
+            <strong>Xproperty</strong> is a modern property listing &amp; real estate HTML template &mdash;
+            10 polished homepages, 33 ready-made pages, a full user dashboard and clean, well-structured
+            Bootstrap&nbsp;5 + SCSS code. Launch a professional agency or listing website in days, not months.
+          </p>
+          <div class="lp-hero-cta" data-reveal="fade-up" data-delay="300">
+            <a href="#demos" class="lp-btn lp-btn-accent lp-btn-lg">
+              Explore Live Demos <svg class="lp-ico"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="#buy" class="lp-btn lp-btn-ghost lp-btn-lg">
+              <svg class="lp-ico"><use href="#i-cart"/></svg> Purchase Template
+            </a>
+          </div>
+          <ul class="lp-hero-tech" data-reveal="fade-up" data-delay="400">
+            <li><span class="lp-dot" style="--c:#e34f26"></span>HTML5</li>
+            <li><span class="lp-dot" style="--c:#7952b3"></span>Bootstrap 5</li>
+            <li><span class="lp-dot" style="--c:#cd6799"></span>SCSS</li>
+            <li><span class="lp-dot" style="--c:#0769ad"></span>jQuery 4.0</li>
+            <li><span class="lp-dot" style="--c:#00CC61"></span>AOS Animations</li>
+          </ul>
+        </div>
+
+        <div class="lp-hero-visual" data-reveal="zoom-in" data-delay="250">
+          <div class="lp-browser lp-hero-browser" data-tilt>
+            <div class="lp-browser-bar">
+              <span></span><span></span><span></span>
+              <div class="lp-browser-url"><svg class="lp-ico"><use href="#i-lock"/></svg> xproperty.com</div>
+            </div>
+            <div class="lp-hero-slides">
+              <img src="assets/img/screens/home-1-hero.jpg" alt="Xproperty home demo 1" class="is-active">
+              <img src="assets/img/screens/home-2-hero.jpg" alt="Xproperty home demo 2" loading="lazy">
+              <img src="assets/img/screens/home-6-hero.jpg" alt="Xproperty home demo 6" loading="lazy">
+              <img src="assets/img/screens/home-5-hero.jpg" alt="Xproperty home demo 5" loading="lazy">
+            </div>
+          </div>
+
+          <div class="lp-phone lp-hero-phone lp-float">
+            <div class="lp-phone-notch"></div>
+            <img src="assets/img/screens/mobile-home.jpg" alt="Xproperty on mobile">
+          </div>
+
+          <div class="lp-float-card lp-fc-1 lp-float-slow">
+            <span class="lp-fc-icon"><svg class="lp-ico"><use href="#i-layers"/></svg></span>
+            <div><strong><span data-count="33">0</span></strong><small>Ready pages</small></div>
+          </div>
+          <div class="lp-float-card lp-fc-2 lp-float">
+            <span class="lp-fc-icon lp-fc-dark"><svg class="lp-ico"><use href="#i-phone"/></svg></span>
+            <div><strong>100%</strong><small>Responsive</small></div>
+          </div>
+          <div class="lp-float-card lp-fc-3 lp-float-slow">
+            <span class="lp-stars">
+              <svg class="lp-ico"><use href="#i-star"/></svg><svg class="lp-ico"><use href="#i-star"/></svg><svg class="lp-ico"><use href="#i-star"/></svg><svg class="lp-ico"><use href="#i-star"/></svg><svg class="lp-ico"><use href="#i-star"/></svg>
+            </span>
+            <small>Clean &amp; pixel-perfect</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Marquee ================= -->
+    <section class="lp-marquee" aria-label="Template highlights">
+      <div class="lp-marquee-track">
+        <div class="lp-marquee-group">
+          <span>Property Listings</span><i></i><span>Buy &amp; Rent Search</span><i></i><span>Agent Profiles</span><i></i><span>User Dashboard</span><i></i><span>Image Galleries</span><i></i><span>Pricing Plans</span><i></i><span>Blog &amp; News</span><i></i><span>Language Switcher</span><i></i>
+        </div>
+        <div class="lp-marquee-group" aria-hidden="true">
+          <span>Property Listings</span><i></i><span>Buy &amp; Rent Search</span><i></i><span>Agent Profiles</span><i></i><span>User Dashboard</span><i></i><span>Image Galleries</span><i></i><span>Pricing Plans</span><i></i><span>Blog &amp; News</span><i></i><span>Language Switcher</span><i></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Stats ================= -->
+    <section class="lp-section lp-stats-sec">
+      <div class="lp-container">
+        <div class="lp-stats">
+          <div class="lp-stat" data-reveal="fade-up">
+            <strong><span data-count="10">0</span></strong>
+            <span>Unique Home Demos</span>
+          </div>
+          <div class="lp-stat" data-reveal="fade-up" data-delay="100">
+            <strong><span data-count="33">0</span></strong>
+            <span>HTML Pages Included</span>
+          </div>
+          <div class="lp-stat" data-reveal="fade-up" data-delay="200">
+            <strong><span data-count="8">0</span></strong>
+            <span>Dashboard Screens</span>
+          </div>
+          <div class="lp-stat" data-reveal="fade-up" data-delay="300">
+            <strong><span data-count="6">0</span></strong>
+            <span>Language Switcher Flags</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Demos ================= -->
+    <section class="lp-section lp-demos" id="demos">
+      <div class="lp-container">
+        <div class="lp-head" data-reveal="fade-up">
+          <span class="lp-eyebrow">Homepage Demos</span>
+          <h2 class="lp-title">10 Stunning Homepages, <span class="lp-accent-text">One Template</span></h2>
+          <p class="lp-lead">Every homepage is a different take on real-estate browsing &mdash; pick the one that fits your brand
+            and mix sections freely. Hover a card to preview the full page.</p>
+        </div>
+
+        <div class="lp-demo-grid">
+          <article class="lp-demo" data-reveal="fade-up">
+            <a href="../index.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 01 demo">
+              <img src="assets/img/screens/home-1-full.jpg" alt="Home 01 – Classic City Search" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">01</span><h3>Classic City Search</h3></div>
+              <p>Skyline hero with centered buy/rent search bar.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up" data-delay="100">
+            <a href="../home-v2.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 02 demo">
+              <span class="lp-badge">Popular</span>
+              <img src="assets/img/screens/home-2-full.jpg" alt="Home 02 – Luxury Slider" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">02</span><h3>Luxury Slider</h3></div>
+              <p>Full-width slider with a sale/rent search card.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up" data-delay="200">
+            <a href="../home-v3.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 03 demo">
+              <img src="assets/img/screens/home-3-full.jpg" alt="Home 03 – Minimal Architecture" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">03</span><h3>Minimal Architecture</h3></div>
+              <p>Bright, airy layout with tabbed property search.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up">
+            <a href="../home-v4.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 04 demo">
+              <img src="assets/img/screens/home-4-full.jpg" alt="Home 04 – Featured Spotlight" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">04</span><h3>Featured Spotlight</h3></div>
+              <p>Property-type categories and a featured listing slider.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up" data-delay="100">
+            <a href="../home-v5.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 05 demo">
+              <img src="assets/img/screens/home-5-full.jpg" alt="Home 05 – Split Hero" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">05</span><h3>Split Hero</h3></div>
+              <p>Warm split-screen hero pairing copy with imagery.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up" data-delay="200">
+            <a href="../home-v6.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 06 demo">
+              <span class="lp-badge lp-badge-dark">New</span>
+              <img src="assets/img/screens/home-6-full.jpg" alt="Home 06 – Dark Glass" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">06</span><h3>Dark Glass</h3></div>
+              <p>Moody hero with a floating glassmorphism header.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up">
+            <a href="../commercial-residence.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 07 demo">
+              <img src="assets/img/screens/home-7-full.jpg" alt="Home 07 – Commercial Residence" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">07</span><h3>Commercial Residence</h3></div>
+              <p>Agency hero with sale/rent tabs for recent listings.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up" data-delay="100">
+            <a href="../apartment-complex.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 08 demo">
+              <img src="assets/img/screens/home-8-full.jpg" alt="Home 08 – Apartment Complex" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">08</span><h3>Apartment Complex</h3></div>
+              <p>Showcase hero for a single apartment building.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up" data-delay="200">
+            <a href="../single-property-v1.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 09 demo">
+              <img src="assets/img/screens/home-9-full.jpg" alt="Home 09 – Single Property v1" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">09</span><h3>Single Property v1</h3></div>
+              <p>Dark luxury slider with a centered-logo header.</p>
+            </div>
+          </article>
+
+          <article class="lp-demo" data-reveal="fade-up">
+            <a href="../single-property-v2.html" target="_blank" rel="noopener" class="lp-demo-shot" aria-label="Open Home 10 demo">
+              <span class="lp-badge lp-badge-dark">New</span>
+              <img src="assets/img/screens/home-10-full.jpg" alt="Home 10 – Single Property v2" loading="lazy">
+              <span class="lp-demo-overlay"><span class="lp-btn lp-btn-accent">View Demo <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></span></span>
+            </a>
+            <div class="lp-demo-info">
+              <div><span class="lp-demo-num">10</span><h3>Single Property v2</h3></div>
+              <p>One-listing page with price, specs card and gallery.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Inner pages ================= -->
+    <section class="lp-section lp-soft" id="pages">
+      <div class="lp-container">
+        <div class="lp-head" data-reveal="fade-up">
+          <span class="lp-eyebrow">Inner Pages</span>
+          <h2 class="lp-title">Every Page a Property Business Needs</h2>
+          <p class="lp-lead">From listings and property details to agents, pricing and authentication &mdash; it&rsquo;s all
+            designed, coded and ready to plug into your backend.</p>
+        </div>
+
+        <div class="lp-filter" role="tablist" aria-label="Filter pages" data-reveal="fade-up">
+          <button class="is-active" data-filter="all" role="tab" aria-selected="true">All Pages</button>
+          <button data-filter="property" role="tab" aria-selected="false">Property</button>
+          <button data-filter="dashboard" role="tab" aria-selected="false">Dashboard</button>
+          <button data-filter="company" role="tab" aria-selected="false">Company</button>
+          <button data-filter="blog" role="tab" aria-selected="false">Blog</button>
+          <button data-filter="auth" role="tab" aria-selected="false">Auth &amp; Utility</button>
+        </div>
+
+        <div class="lp-page-grid" id="lpPageGrid">
+          <!-- Cards rendered from data in main.js for easy maintenance -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Features ================= -->
+    <section class="lp-section" id="features">
+      <div class="lp-container">
+        <div class="lp-head" data-reveal="fade-up">
+          <span class="lp-eyebrow">Core Features</span>
+          <h2 class="lp-title">Packed With Everything You Need</h2>
+          <p class="lp-lead">Thoughtful components and battle-tested libraries, wired together so you can focus on your
+            listings &mdash; not on boilerplate.</p>
+        </div>
+
+        <div class="lp-feature-grid">
+          <div class="lp-feature" data-reveal="fade-up">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-phone"/></svg></span>
+            <h3>Fully Responsive</h3>
+            <p>Pixel-perfect on phones, tablets, laptops and wide screens with mobile-first layouts.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="80">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-layers"/></svg></span>
+            <h3>Bootstrap 5.3</h3>
+            <p>Built on the latest Bootstrap grid and utilities &mdash; familiar, flexible and easy to extend.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="160">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-palette"/></svg></span>
+            <h3>SCSS &amp; Color Variables</h3>
+            <p>Organised SCSS partials and CSS variables &mdash; rebrand the whole site by changing a few colors.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="240">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-search"/></svg></span>
+            <h3>Advanced Property Search</h3>
+            <p>Buy/rent tabs, location input and an advanced filter modal for type, beds, baths and more.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-image"/></svg></span>
+            <h3>Lightbox Galleries</h3>
+            <p>Beautiful property photo galleries powered by lightGallery with zoom, fullscreen and swipe.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="80">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-play"/></svg></span>
+            <h3>Smooth Animations</h3>
+            <p>AOS scroll reveals, Lenis smooth scrolling and Odometer counters for a premium feel.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="160">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-table"/></svg></span>
+            <h3>Data Tables</h3>
+            <p>Sortable, searchable and paginated client table in the user dashboard, powered by DataTables.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="240">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-calendar"/></svg></span>
+            <h3>Date Pickers &amp; Selects</h3>
+            <p>Flatpickr date inputs and Tom Select dropdowns for polished, user-friendly forms.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-globe"/></svg></span>
+            <h3>Language Switcher</h3>
+            <p>Built-in flag dropdown (EN, DE, ES, CN, AR, BD) ready for multilingual audiences.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="80">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-sliders"/></svg></span>
+            <h3>Slick Carousels</h3>
+            <p>Touch-friendly sliders for featured properties, testimonials, partners and hero banners.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="160">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-type"/></svg></span>
+            <h3>Google Fonts &amp; Icons</h3>
+            <p>Elegant Cabin &amp; Raleway typography with the full Font Awesome 6 icon set.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="240">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-file-code"/></svg></span>
+            <h3>Clean, Semantic Code</h3>
+            <p>Readable, consistently named markup with a commented stylesheet table of contents.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-moon"/></svg></span>
+            <h3>Dark Version</h3>
+            <p>Add one <code>cs_dark</code> class to the body and the whole page switches to a dark palette.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="80">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-mail"/></svg></span>
+            <h3>Working Contact Form</h3>
+            <p>AJAX contact form wired to Web3Forms &mdash; receive messages by email without any server code.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="160">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-zap"/></svg></span>
+            <h3>Sticky Header &amp; Preloader</h3>
+            <p>A header that sticks on scroll, plus a page preloader and scroll-to-top button on every page.</p>
+          </div>
+          <div class="lp-feature" data-reveal="fade-up" data-delay="240">
+            <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-book"/></svg></span>
+            <h3>Detailed Documentation</h3>
+            <p>Step-by-step guide covering setup, colors, sliders, forms and every script in the template.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Responsive ================= -->
+    <section class="lp-section lp-dark" id="responsive">
+      <div class="lp-dark-glow" aria-hidden="true"></div>
+      <div class="lp-container lp-split">
+        <div class="lp-split-text" data-reveal="fade-right">
+          <span class="lp-eyebrow lp-eyebrow-light">Mobile Ready</span>
+          <h2 class="lp-title">Looks Flawless on <span class="lp-accent-text">Every Screen</span></h2>
+          <p class="lp-lead">More than half of property searches happen on a phone. Xproperty adapts every section &mdash;
+            navigation, search forms, listing cards and the dashboard &mdash; for a fast, thumb-friendly experience.</p>
+          <ul class="lp-checklist">
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Collapsible mobile menu with nested dropdowns</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Stacked, touch-friendly search forms</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Fluid listing cards &amp; galleries</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Tested on modern Chrome, Safari, Firefox &amp; Edge</li>
+          </ul>
+          <div class="lp-device-icons">
+            <span><svg class="lp-ico"><use href="#i-monitor"/></svg>Desktop</span>
+            <span><svg class="lp-ico"><use href="#i-briefcase"/></svg>Laptop</span>
+            <span><svg class="lp-ico"><use href="#i-phone"/></svg>Mobile</span>
+          </div>
+        </div>
+        <div class="lp-phones" data-reveal="fade-left">
+          <div class="lp-phone lp-phone-a"><div class="lp-phone-notch"></div><img src="assets/img/screens/mobile-details.jpg" alt="Property details on mobile" loading="lazy"></div>
+          <div class="lp-phone lp-phone-b"><div class="lp-phone-notch"></div><img src="assets/img/screens/mobile-home.jpg" alt="Homepage on mobile" loading="lazy"></div>
+          <div class="lp-phone lp-phone-c"><div class="lp-phone-notch"></div><img src="assets/img/screens/mobile-dashboard.jpg" alt="Dashboard on mobile" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Dashboard ================= -->
+    <section class="lp-section" id="dashboard">
+      <div class="lp-container lp-split lp-split-rev">
+        <div class="lp-dash-visual" data-reveal="fade-right">
+          <div class="lp-browser">
+            <div class="lp-browser-bar"><span></span><span></span><span></span><div class="lp-browser-url"><svg class="lp-ico"><use href="#i-lock"/></svg> xproperty.com/my-property</div></div>
+            <div class="lp-dash-tabs-view">
+              <img src="assets/img/screens/my-property.jpg" alt="My Property dashboard" class="is-active" data-dash="my">
+              <img src="assets/img/screens/add-property.jpg" alt="Add Property form" data-dash="add" loading="lazy">
+              <img src="assets/img/screens/profile.jpg" alt="Profile page" data-dash="profile" loading="lazy">
+              <img src="assets/img/screens/client-list.jpg" alt="Client list" data-dash="clients" loading="lazy">
+            </div>
+          </div>
+        </div>
+        <div class="lp-split-text" data-reveal="fade-left">
+          <span class="lp-eyebrow">User Dashboard</span>
+          <h2 class="lp-title">A Complete Panel for Owners &amp; Agents</h2>
+          <p class="lp-lead">Give your users a professional back-office out of the box. Manage listings, publish new
+            properties, track favourites and keep clients organised.</p>
+          <div class="lp-dash-list" role="tablist" aria-label="Dashboard screens">
+            <button class="is-active" data-dash-target="my" data-url="my-property" role="tab" aria-selected="true">
+              <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-home"/></svg></span>
+              <span><strong>My Properties</strong><small>Status, views &amp; quick actions per listing</small></span>
+            </button>
+            <button data-dash-target="add" data-url="add-property" role="tab" aria-selected="false">
+              <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-plus"/></svg></span>
+              <span><strong>Add Property</strong><small>Detailed form with media &amp; amenities</small></span>
+            </button>
+            <button data-dash-target="profile" data-url="profile" role="tab" aria-selected="false">
+              <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-user"/></svg></span>
+              <span><strong>Profile &amp; Settings</strong><small>Personal info, password &amp; preferences</small></span>
+            </button>
+            <button data-dash-target="clients" data-url="client-list" role="tab" aria-selected="false">
+              <span class="lp-feature-ico"><svg class="lp-ico"><use href="#i-users"/></svg></span>
+              <span><strong>Clients &amp; Agents</strong><small>Searchable client list powered by DataTables</small></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Use cases ================= -->
+    <section class="lp-section lp-soft">
+      <div class="lp-container">
+        <div class="lp-head" data-reveal="fade-up">
+          <span class="lp-eyebrow">Perfect For</span>
+          <h2 class="lp-title">Made for Every Kind of Property Business</h2>
+        </div>
+        <div class="lp-usecases">
+          <div class="lp-usecase" data-reveal="fade-up">
+            <svg class="lp-ico"><use href="#i-building"/></svg>
+            <h3>Real Estate Agencies</h3>
+            <p>Showcase your portfolio, agents and services with a trustworthy brand presence.</p>
+          </div>
+          <div class="lp-usecase" data-reveal="fade-up" data-delay="100">
+            <svg class="lp-ico"><use href="#i-key"/></svg>
+            <h3>Rental Platforms</h3>
+            <p>Dedicated rent listings, search filters and owner dashboards for rental marketplaces.</p>
+          </div>
+          <div class="lp-usecase" data-reveal="fade-up" data-delay="200">
+            <svg class="lp-ico"><use href="#i-briefcase"/></svg>
+            <h3>Independent Brokers</h3>
+            <p>A personal, premium website that turns visitors into qualified leads.</p>
+          </div>
+          <div class="lp-usecase" data-reveal="fade-up" data-delay="300">
+            <svg class="lp-ico"><use href="#i-pin"/></svg>
+            <h3>Property Developers</h3>
+            <p>Present apartment complexes and commercial residences with rich detail pages.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Why / Included ================= -->
+    <section class="lp-section">
+      <div class="lp-container lp-why">
+        <div class="lp-why-text" data-reveal="fade-right">
+          <span class="lp-eyebrow">Why Xproperty</span>
+          <h2 class="lp-title">Save Weeks of Design &amp; Development</h2>
+          <p class="lp-lead">Instead of starting from a blank canvas, start from a template that already looks premium and
+            behaves well. Everything is consistent, reusable and easy to customise.</p>
+          <a href="#buy" class="lp-btn lp-btn-dark lp-btn-lg">Get Xproperty <svg class="lp-ico"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="lp-why-grid">
+          <div class="lp-why-card" data-reveal="fade-up">
+            <svg class="lp-ico"><use href="#i-zap"/></svg>
+            <h3>Fast Setup</h3>
+            <p>Static HTML &mdash; open in a browser and start editing. No build step required.</p>
+          </div>
+          <div class="lp-why-card" data-reveal="fade-up" data-delay="100">
+            <svg class="lp-ico"><use href="#i-shield"/></svg>
+            <h3>Consistent System</h3>
+            <p>Reusable <code>cs_</code> utility classes keep spacing, type and colors uniform.</p>
+          </div>
+          <div class="lp-why-card" data-reveal="fade-up" data-delay="200">
+            <svg class="lp-ico"><use href="#i-refresh"/></svg>
+            <h3>Easy to Customise</h3>
+            <p>Swap images, recolor via variables and rearrange sections without breaking layouts.</p>
+          </div>
+          <div class="lp-why-card" data-reveal="fade-up" data-delay="300">
+            <svg class="lp-ico"><use href="#i-headset"/></svg>
+            <h3>Dedicated Support</h3>
+            <p>Questions about setup or customisation? <a href="../xproperty-doc/index.html#support" target="_blank" rel="noopener" class="lp-link">Get in touch</a> &mdash; our team is happy to help.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= What's included ================= -->
+    <section class="lp-section lp-soft" id="included">
+      <div class="lp-container lp-split">
+        <div class="lp-split-text" data-reveal="fade-right">
+          <span class="lp-eyebrow">What&rsquo;s Included</span>
+          <h2 class="lp-title">Everything in the Download</h2>
+          <p class="lp-lead">A complete, well-organised package. Every file you see in the demo is in the zip, ready to edit.</p>
+          <ul class="lp-checklist lp-checklist-light">
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> 33 HTML pages (10 homes + 23 inner pages)</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Compiled CSS and full SCSS source</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Commented JavaScript and all plugin files</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Font Awesome icons, flag icons and font files</li>
+            <li><svg class="lp-ico"><use href="#i-check"/></svg> Offline HTML documentation</li>
+          </ul>
+          <a href="../xproperty-doc/index.html" target="_blank" rel="noopener" class="lp-btn lp-btn-dark lp-btn-lg lp-included-btn">
+            <svg class="lp-ico"><use href="#i-book"/></svg> Read the Documentation
+          </a>
+        </div>
+        <div class="lp-included" data-reveal="fade-left">
+          <div class="lp-tree" aria-label="Package file structure">
+            <div class="lp-tree-head"><svg class="lp-ico"><use href="#i-folder"/></svg> xproperty</div>
+<pre>├── 33 × .html pages
+├── assets/
+│   ├── css/      style.css + plugins
+│   ├── sass/     default · common · shortcode
+│   ├── js/       main.js + plugins
+│   ├── img/      images &amp; icons
+│   ├── fonts/    Font Awesome, Cabin, Raleway
+│   └── flags/    language flags
+└── xproperty-doc/</pre>
+          </div>
+          <div class="lp-credits">
+            <h3>Built with</h3>
+            <ul class="lp-chips">
+              <li>Bootstrap 5.3</li><li>jQuery 4.0</li><li>Slick</li><li>AOS</li><li>Lenis</li><li>Odometer</li>
+              <li>Flatpickr</li><li>Tom Select</li><li>lightGallery</li><li>DataTables</li><li>Font Awesome 6</li><li>flag-icons</li>
+            </ul>
+          </div>
+          <div class="lp-changelog">
+            <div><span class="lp-pill-tag">v1.0.0</span><strong>Initial release</strong></div>
+            <a href="../xproperty-doc/index.html#changelog" target="_blank" rel="noopener" class="lp-link">Changelog</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section class="lp-section" id="faq">
+      <div class="lp-container lp-faq-wrap">
+        <div class="lp-head lp-head-left" data-reveal="fade-right">
+          <span class="lp-eyebrow">FAQ</span>
+          <h2 class="lp-title">Frequently Asked Questions</h2>
+          <p class="lp-lead">Everything you need to know before getting started with Xproperty.</p>
+        </div>
+        <div class="lp-faq" data-reveal="fade-left">
+          <details class="lp-faq-item" open>
+            <summary>What do I get with Xproperty?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>You get 10 homepage demos, 23 inner pages (listings, property details, agents, blog,
+                pricing, FAQ, contact, auth pages and a user dashboard), all CSS/SCSS source files, JavaScript, fonts and
+                icons.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Do I need a build tool to use it?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>No. Xproperty is plain HTML, CSS and JavaScript. Open any page in your browser and
+                start editing. If you prefer SCSS, the source files are included so you can compile with any Sass tool.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Can I change the colors and fonts?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>Yes. Colors and fonts are defined as CSS variables at the top of the stylesheet
+                (e.g. <code>--accent-color</code>, <code>--primary-font</code>). Change them once and the entire site updates.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Can I integrate it with WordPress, Laravel or React?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>Absolutely. The clean, component-like markup makes it straightforward to convert into
+                templates for any CMS or framework of your choice.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Is the template mobile friendly?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>Every page is fully responsive and tested across modern browsers and device sizes,
+                from small phones to large desktop displays.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Is there a dark version?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>Yes. Add the <code>cs_dark</code> class to the <code>&lt;body&gt;</code> tag and the page
+                switches to the dark palette. See the Single Property demos for examples.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Does the contact form work without a backend?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>Yes. Forms are sent with AJAX to Web3Forms. Create a free access key, paste it into the
+                form and messages arrive in your inbox &mdash; no PHP or server setup needed.</p></div>
+          </details>
+          <details class="lp-faq-item">
+            <summary>Is documentation included?<span class="lp-faq-ico"></span></summary>
+            <div class="lp-faq-body"><p>Yes. The package includes HTML documentation covering setup, file structure, colors,
+                sliders, forms and scripts. <a href="../xproperty-doc/index.html" target="_blank" rel="noopener" class="lp-link">Open the documentation</a>.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="lp-cta-sec" id="buy">
+      <div class="lp-container">
+        <div class="lp-cta" data-reveal="zoom-in">
+          <div class="lp-cta-glow" aria-hidden="true"></div>
+          <div class="lp-cta-text">
+            <span class="lp-eyebrow lp-eyebrow-light">Ready to launch?</span>
+            <h2 class="lp-title">Build Your Real Estate Website With Xproperty Today</h2>
+            <p class="lp-lead">Join agencies and developers who chose a modern, conversion-focused template.</p>
+            <div class="lp-hero-cta">
+              <a href="#buy" class="lp-btn lp-btn-accent lp-btn-lg" data-purchase><svg class="lp-ico"><use href="#i-cart"/></svg> Purchase Now</a>
+              <a href="../index.html" target="_blank" rel="noopener" class="lp-btn lp-btn-outline-light lp-btn-lg">Live Preview <svg class="lp-ico"><use href="#i-arrow-ur"/></svg></a>
+            </div>
+          </div>
+          <div class="lp-cta-shots" aria-hidden="true">
+            <img src="assets/img/screens/home-4-hero.jpg" alt="" loading="lazy">
+            <img src="assets/img/screens/home-2-hero.jpg" alt="" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="lp-footer">
+    <div class="lp-container lp-footer-inner">
+      <div class="lp-footer-brand">
+        <img src="assets/img/logo-white.svg" alt="Xproperty" width="147" height="45">
+        <p>Modern property listing &amp; real estate HTML template.</p>
+      </div>
+      <nav class="lp-footer-nav" aria-label="Footer">
+        <a href="#demos">Demos</a>
+        <a href="#pages">Pages</a>
+        <a href="#features">Features</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#included">What&rsquo;s Included</a>
+        <a href="#faq">FAQ</a>
+        <a href="../xproperty-doc/index.html" target="_blank" rel="noopener">Documentation</a>
+        <a href="../xproperty-doc/index.html#support" target="_blank" rel="noopener">Support</a>
+      </nav>
+    </div>
+    <div class="lp-container lp-footer-bottom">
+      <p>&copy; <span id="lpYear">2026</span> Xproperty. All rights reserved.</p>
+      <p>Version 1.0.0 &middot; Made with care for real estate businesses.</p>
+    </div>
+  </footer>
+
+  <button class="lp-to-top" id="lpToTop" aria-label="Back to top">
+    <svg class="lp-ico"><use href="#i-arrow-up"/></svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

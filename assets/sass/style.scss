@@ -22,26 +22,28 @@
 19. Tabs
 20. Profile
 21. Dark Version
+22. RTL Support
 --------------------------------------------------------------*/
 
-@import 'default/variable';
-@import 'default/typhography';
-@import 'common/spacing';
-@import 'common/general';
-@import 'common/header';
-@import 'common/footer';
-@import 'common/sidebar';
-@import 'common/slider';
-@import 'common/video-modal';
-@import 'common/preloader';
-@import 'shortcode/hero';
-@import 'shortcode/about';
-@import 'shortcode/components';
-@import 'shortcode/cards';
-@import 'shortcode/iconbox';
-@import 'shortcode/post';
-@import 'shortcode/testimonial';
-@import 'shortcode/property';
-@import 'shortcode/tabs';
-@import 'shortcode/profile';
-@import 'shortcode/dark';
+@use 'default/variable';
+@use 'default/typhography';
+@use 'common/spacing';
+@use 'common/general';
+@use 'common/header';
+@use 'common/footer';
+@use 'common/sidebar';
+@use 'common/slider';
+@use 'common/video-modal';
+@use 'common/preloader';
+@use 'shortcode/hero';
+@use 'shortcode/about';
+@use 'shortcode/components';
+@use 'shortcode/cards';
+@use 'shortcode/iconbox';
+@use 'shortcode/post';
+@use 'shortcode/testimonial';
+@use 'shortcode/property';
+@use 'shortcode/tabs';
+@use 'shortcode/profile';
+@use 'shortcode/dark';
+@use 'default/rtl';

@@ -21,7 +21,7 @@
       opacity: 0.95;
       border-radius: inherit;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
       top: 0;
       transition: all 0.4s ease;
     }
@@ -36,7 +36,10 @@
     }
 
     &:first-child {
-      border-radius: 10px 0 0 0;
+      border-start-start-radius: 10px;
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+      border-end-start-radius: 0;
     }
 
     a {
@@ -50,11 +53,17 @@
   &.cs_type_1 {
     li {
       &:first-child {
-        border-radius: 10px 0 0 0;
+        border-start-start-radius: 10px;
+        border-start-end-radius: 0;
+        border-end-end-radius: 0;
+        border-end-start-radius: 0;
       }
 
       &:last-child {
-        border-radius: 0 10px 0 0;
+        border-start-start-radius: 0;
+        border-start-end-radius: 10px;
+        border-end-end-radius: 0;
+        border-end-start-radius: 0;
       }
     }
   }
@@ -169,7 +178,7 @@
   transition: all 0.3s ease;
 
   li {
-    padding-left: 64px;
+    padding-inline-start: 64px;
     position: relative;
     font-size: 39px;
     line-height: 1.28em;
@@ -182,22 +191,22 @@
     &::after {
       position: absolute;
       bottom: 40px;
-      left: 0;
+      inset-inline-start: 0;
     }
 
     &::before {
       counter-increment: section;
       content: counters(section, "") ".";
-      left: 30px;
+      inset-inline-start: 30px;
     }
 
     &:not(:empty):not(:nth-child(n + 10))::after {
       content: counter(item);
-      left: 0;
+      inset-inline-start: 0;
     }
 
     &:nth-child(n + 10)::before {
-      left: 0;
+      inset-inline-start: 0;
     }
 
     &:first-child {
@@ -219,7 +228,7 @@
   @media (max-width: 1199px) {
     li {
       font-size: 31px;
-      padding-left: 50px;
+      padding-inline-start: 50px;
 
       &::before,
       &::after {
@@ -227,7 +236,7 @@
       }
 
       &::before {
-        left: 20px;
+        inset-inline-start: 20px;
       }
 
       a {
@@ -264,7 +273,7 @@
       opacity: 0.05;
       border-radius: inherit;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
       top: 0;
       transition: all 0.3s ease;
     }
@@ -290,7 +299,10 @@
     position: relative;
 
     &.cs_type_1 {
-      border-radius: 0 10px 10px 10px;
+      border-start-start-radius: 0;
+      border-start-end-radius: 10px;
+      border-end-end-radius: 10px;
+      border-end-start-radius: 10px;
     }
   }
 

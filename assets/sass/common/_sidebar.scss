@@ -17,7 +17,7 @@
         background-color: var(--secondary-color);
         opacity: 0.3;
         position: absolute;
-        left: 0;
+        inset-inline-start: 0;
         bottom: 0;
       }
     }
@@ -43,7 +43,7 @@
         font-weight: 900;
         opacity: 0.5;
         position: absolute;
-        right: 15px;
+        inset-inline-end: 15px;
         top: 50%;
         transform: translateY(-50%);
       }
@@ -154,12 +154,12 @@
         background-repeat: no-repeat;
         background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
         transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-        background-position: 100% calc(100% - 0px);
+        background-position: var(--cs-x-end) calc(100% - 0px);
         background-size: 0 1px;
 
         &:hover {
           background-size: 100% 1px;
-          background-position: 0 calc(100% - 0px);
+          background-position: var(--cs-x-start) calc(100% - 0px);
         }
       }
     }
@@ -194,7 +194,7 @@
       cursor: pointer;
       position: absolute;
       top: 15px;
-      right: 20px;
+      inset-inline-end: 20px;
       transition: all 0.3s ease-in-out;
 
       &:hover {
@@ -256,7 +256,7 @@
     }
 
     .cs_input_icon {
-      right: 15px;
+      inset-inline-end: 15px;
       top: 10px;
     }
   }

@@ -17,11 +17,11 @@
   }
 
   &::before {
-    right: 100%;
+    inset-inline-end: 100%;
   }
 
   &::after {
-    left: 100%;
+    inset-inline-start: 100%;
   }
 }
 
@@ -50,7 +50,7 @@
   li {
     font-family: var(--primary-font);
     color: var(--primary-color);
-    padding-left: 26px;
+    padding-inline-start: 26px;
     position: relative;
     border-bottom: 1px solid var(--border-color);
     transition: all 0.4s ease;
@@ -75,7 +75,7 @@
 
     span:first-child {
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
       top: 12px;
     }
   }
@@ -112,7 +112,7 @@
         font-size: 14px;
         color: var(--white-color);
         bottom: 0;
-        right: 15px;
+        inset-inline-end: 15px;
         cursor: pointer;
       }
     }
@@ -152,25 +152,26 @@
 
   thead {
     background-color: var(--gray3-color);
-    padding-left: 20px;
+    padding-inline-start: 20px;
   }
 
   td,
   th {
     border-top: 0;
-    padding-left: 20px;
+    padding-inline-start: 20px;
   }
 
   td {
     border-top: 0;
-    padding: 20px 20px 20px 0;
+    padding-block: 20px 20px;
+    padding-inline: 0 20px;
     vertical-align: middle;
     text-align: center;
   }
 
   tr {
     .property_thumbnail {
-      padding-left: 20px;
+      padding-inline-start: 20px;
     }
 
     &:nth-child(even) {
@@ -183,7 +184,7 @@
   }
 
   .cs_property_info {
-    text-align: left;
+    text-align: start;
 
     a {
       display: inline-block;
@@ -192,12 +193,12 @@
           currentColor 0,
           currentColor 100%);
       transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-      background-position: 100% calc(100% - 0px);
+      background-position: var(--cs-x-end) calc(100% - 0px);
       background-size: 0 1px;
 
       &:hover {
         background-size: 100% 1px;
-        background-position: 0 calc(100% - 0px);
+        background-position: var(--cs-x-start) calc(100% - 0px);
       }
     }
   }
@@ -254,7 +255,7 @@
     background-color: var(--accent-color);
     opacity: 0.07;
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
   }
 }
@@ -304,7 +305,7 @@
   .cs_actions_btns {
     position: absolute;
     top: 30px;
-    right: 0;
+    inset-inline-end: 0;
   }
 
   @media (max-width: 400px) {
@@ -331,13 +332,6 @@
     color: var(--heading-color);
   }
 
-  .tom_select {
-    border-color: var(--heading-color);
-    background-image: linear-gradient(45deg, transparent 50%, #152046 50%),
-      linear-gradient(135deg, #152046 50%, transparent 50%),
-      linear-gradient(to right, #ccc, #ccc);
-  }
-
   .cs_notification_wrapper {
     padding: 20px 30px 24px;
 
@@ -349,7 +343,7 @@
       background-color: var(--accent-color);
       opacity: 0.07;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
       top: 0;
     }
 
@@ -386,8 +380,8 @@
       width: 100%;
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      inset-inline-start: 50%;
+      transform: translate(calc(-50% * var(--cs-dir)), -50%);
       pointer-events: none;
     }
 
@@ -429,7 +423,7 @@
 
     label {
       margin-bottom: 0;
-      margin-right: 10px;
+      margin-inline-end: 10px;
     }
   }
 
@@ -482,39 +476,43 @@
   }
 }
 
-.dataTables_length {
-  padding-left: 20px;
+.dt-container .dt-length {
+  padding-inline-start: 20px;
+
+  select {
+    margin: 0 6px;
+  }
 }
 
-.dataTables_wrapper .dataTables_filter input {
+.dt-container .dt-search input {
   border: 1px solid var(--border-color);
   outline: 0;
   border-radius: 10px;
   padding: 5px;
   background-color: transparent;
   color: inherit;
-  margin-left: 10px;
+  margin-inline-start: 10px;
 
   &:focus {
     border-color: var(--primary-color);
   }
 }
 
-.dataTables_filter {
-  padding-right: 20px;
+.dt-container .dt-search {
+  padding-inline-end: 20px;
 }
 
-.dataTables_wrapper .dataTables_info {
+.dt-container .dt-info {
   padding-top: 20px !important;
-  margin-left: 20px;
+  margin-inline-start: 20px;
 }
 
-.dataTables_wrapper .dataTables_paginate {
+.dt-container .dt-paging {
   padding-top: 20px !important;
 
-  .paginate_button {
+  .dt-paging-button {
     line-height: 1.6em;
-    margin-left: 10px;
+    margin-inline-start: 10px;
     padding: 5px 15px !important;
   }
 }

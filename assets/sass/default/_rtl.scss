@@ -1,0 +1,126 @@
+/*===============================================================
+ 22. RTL Support
+=================================================================*/
+[dir="rtl"] {
+  --cs-dir: -1;
+  --cs-start: right;
+  --cs-end: left;
+  --cs-x-start: 100%;
+  --cs-x-end: 0%;
+  --primary-font: "Cabin", "Cairo", sans-serif;
+  --secondary-font: "Raleway", "Cairo", sans-serif;
+
+  .fa-arrow-right,
+  .fa-arrow-left,
+  .fa-chevron-right,
+  .fa-chevron-left,
+  .fa-angle-right,
+  .fa-angle-left,
+  .fa-arrow-right-from-bracket {
+    transform: scaleX(-1);
+  }
+
+  // Numbers mixed with keep LTR order
+  .cs_counter_number {
+    direction: ltr;
+  }
+
+  .cs_counter:not(.text-center) .cs_counter_number {
+    text-align: right;
+  }
+
+  a[href^="tel:"] {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  // Browsers keep email/tel/url fields LTR; align them to the RTL side
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"] {
+    text-align: right;
+  }
+
+  .cs_newsletter_form.cs_style_1 input {
+    padding-left: 30px;
+  }
+
+  // Icon-font arrows drawn in pseudo elements
+  .cs_footer.cs_style_1 .cs_footer_menu a::before {
+    content: "\f053";
+  }
+
+  // Round "view" buttons hold an up-right arrow icon; point it up-left
+  .cs_btn.cs_style_1.cs_radius_100 .cs_svg_icon {
+    transform: scaleX(-1);
+  }
+
+  .cs_newsletter_form.cs_style_1 .cs_send_icon i {
+    display: inline-block;
+    transform: scaleX(-1);
+  }
+
+  // DataTables pushes its toolbar cells apart with physical auto margins
+  @media (min-width: 768px) {
+    div.dt-container div.dt-layout-row div.dt-layout-cell {
+      &.dt-layout-start {
+        margin-right: 0;
+        margin-left: auto;
+      }
+
+      &.dt-layout-end {
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+  }
+
+  // Star letter-spacing trails on the right; shift it out of view like LTR does
+  .cs_rating::before,
+  .cs_rating_percentage::before {
+    inset-inline-start: -7px;
+  }
+}
+
+/*=======================================================
+ Direction Switch Button
+=========================================================*/
+.cs_dir_switch {
+  position: fixed;
+  top: 50%;
+  inset-inline-end: 0;
+  z-index: 998; // below the header (999) so the mobile menu covers it
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  border-start-start-radius: 10px;
+  border-end-start-radius: 10px;
+  // Fixed colors: --white-color / --primary-color swap in dark mode
+  background-color: #1d1d1d;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
+
+  button {
+    min-width: 46px;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 7px;
+    background-color: #434343;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #5a5a5a;
+    }
+
+    &.active {
+      background-color: #fff;
+      color: #1d1d1d;
+      cursor: default;
+    }
+  }
+}

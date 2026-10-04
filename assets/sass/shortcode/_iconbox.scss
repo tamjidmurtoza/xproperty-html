@@ -9,13 +9,13 @@
     height: 70px;
     flex: none;
 
-    svg {
+    .cs_svg_icon {
       transition: all 1s ease;
     }
   }
 
   &:hover {
-    .cs_iconbox_icon svg {
+    .cs_iconbox_icon .cs_svg_icon {
       transform: rotateY(360deg);
     }
   }
@@ -54,9 +54,9 @@
       border-radius: inherit;
       opacity: 0;
       position: absolute;
-      left: 50%;
+      inset-inline-start: 50%;
       top: 50%;
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(0);
       transition: all 0.4s ease;
     }
 
@@ -72,7 +72,7 @@
       color: var(--white-color);
 
       &::before {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1);
         opacity: 1;
       }
     }
@@ -99,6 +99,7 @@
 
     img {
       transition: inherit;
+      border-radius: 0;
     }
   }
 
@@ -106,12 +107,12 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
     transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-    background-position: 100% calc(100% - 0px);
+    background-position: var(--cs-x-end) calc(100% - 0px);
     background-size: 0 1px;
 
     &:hover {
       background-size: 100% 1px;
-      background-position: 0 calc(100% - 0px);
+      background-position: var(--cs-x-start) calc(100% - 0px);
     }
   }
 
@@ -128,7 +129,7 @@
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      left: 0;
+      inset-inline-start: 0;
       top: 0;
       transition: all 0.8s ease;
     }
@@ -145,7 +146,7 @@
     }
 
     .cs_arrow_shape_1 {
-      left: 77%;
+      inset-inline-start: 77%;
       top: 22px;
       overflow: hidden;
     }
@@ -176,7 +177,7 @@
   @media (max-width: 1399px) {
     &.cs_type_2 {
       .cs_arrow_shape_1 {
-        left: 67%;
+        inset-inline-start: 67%;
       }
     }
   }
@@ -185,10 +186,10 @@
     &.cs_type_2 {
       .cs_arrow_shape_1 {
         top: 32px;
-        left: 77%;
+        inset-inline-start: 77%;
 
         svg {
-          margin-left: -120px;
+          margin-inline-start: -120px;
         }
       }
     }
@@ -225,8 +226,8 @@
       border-radius: inherit;
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
+      inset-inline-start: 50%;
+      transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1);
       transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
     }
 
@@ -242,7 +243,7 @@
       border-color: var(--primary-color);
 
       &::before {
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(0);
       }
     }
   }

@@ -75,7 +75,7 @@
     scrollUp();
     aosInit();
     $(".tom_select").each(function () {
-      new TomSelect(this, {
+      const select = new TomSelect(this, {
         create: false,
         onDropdownOpen: function (dropdown) {
           dropdown.classList.add("active");
@@ -84,6 +84,8 @@
           dropdown.classList.remove("active");
         },
       });
+      // Tom Select's RTL padding rules expect the class on the control too
+      select.control.classList.toggle("rtl", select.rtl);
     });
     if ($.exists(".cs_getting_year")) {
       const date = new Date();
@@ -238,6 +240,7 @@
           slidesToShow: slidesPerView,
           variableWidth: variableWidthVar,
           swipeToSlide: true,
+          rtl: $("html").attr("dir") === "rtl",
           responsive: [
             {
               breakpoint: 1400,
@@ -291,6 +294,13 @@
       );
       // Hide dropdown
       $(".cs_language_dropdown").hide();
+    });
+
+    // Close dropdown on outside click
+    $(document).on("click", function (e) {
+      if (!$(e.target).closest(".cs_language_select").length) {
+        $(".cs_language_dropdown").slideUp(250);
+      }
     });
   }
   /*======================================================================
@@ -535,6 +545,9 @@
   function dataTable() {
     $("#clientsListTable").DataTable({
       responsive: true,
+      language: {
+        lengthMenu: "Show _MENU_ entries",
+      },
     });
   }
   /*==================================================================

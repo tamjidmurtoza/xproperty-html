@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
   z-index: 100000000;
 
@@ -13,7 +13,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     background-color: var(--white-color);
   }
@@ -31,10 +31,10 @@
       background-color: var(--primary-color);
       border-radius: inherit;
       position: absolute;
-      left: 50%;
+      inset-inline-start: 50%;
       top: 50%;
       opacity: 0.5;
-      transform: translate(-50%, -50%) scale(0);
+      transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(0);
       animation: preloaderAnimation 3s linear infinite;
     }
 
@@ -51,6 +51,6 @@
 @keyframes preloaderAnimation {
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1);
   }
 }

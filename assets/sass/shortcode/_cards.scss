@@ -15,7 +15,7 @@
       border-radius: inherit;
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
       transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
     }
 
@@ -47,7 +47,7 @@
     height: 40px;
     padding: 10px;
     top: 30px;
-    right: 30px;
+    inset-inline-end: 30px;
     pointer-events: fill;
   }
 
@@ -61,7 +61,7 @@
   .cs_property_price {
     padding: 10px 14px;
     backdrop-filter: blur(20px);
-    left: 15px;
+    inset-inline-start: 15px;
     top: 15px;
 
     small {
@@ -80,11 +80,11 @@
 
     li {
       span:first-child {
-        margin-right: 14px;
+        margin-inline-end: 14px;
       }
 
       &:not(:first-child) {
-        padding-left: 10%;
+        padding-inline-start: 10%;
         position: relative;
 
         &::before {
@@ -95,7 +95,7 @@
           opacity: 0.3;
           position: absolute;
           top: 50%;
-          left: 0;
+          inset-inline-start: 0;
           transform: translateY(-50%);
         }
       }
@@ -114,13 +114,13 @@
   }
 
   .cs_property_location_text {
-    padding-left: 28px;
+    padding-inline-start: 28px;
     position: relative;
 
     span {
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
     }
   }
 
@@ -132,12 +132,12 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
     transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-    background-position: 100% calc(100% - 0px);
+    background-position: var(--cs-x-end) calc(100% - 0px);
     background-size: 0 2px;
 
     &:hover {
       background-size: 100% 2px;
-      background-position: 0 calc(100% - 0px);
+      background-position: var(--cs-x-start) calc(100% - 0px);
     }
   }
 
@@ -148,7 +148,7 @@
     .cs_property_features {
       li {
         &:not(:first-child) {
-          padding-left: 8%;
+          padding-inline-start: 8%;
         }
       }
     }
@@ -183,7 +183,7 @@
 
       li {
         &:not(:first-child) {
-          padding-left: 8%;
+          padding-inline-start: 8%;
         }
       }
 
@@ -194,8 +194,8 @@
         height: 1px;
         background-color: var(--gray-color);
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        inset-inline-start: 50%;
+        transform: translateX(calc(-50% * var(--cs-dir)));
       }
 
       &::before {
@@ -215,7 +215,7 @@
 
     .cs_card_badge {
       top: 24px;
-      left: 24px;
+      inset-inline-start: 24px;
       padding: 1px 9px;
       background: rgba(29, 29, 29, 0.3);
       backdrop-filter: blur(25px);
@@ -229,7 +229,7 @@
     }
 
     .cs_property_info_header {
-      padding-right: 65px;
+      padding-inline-end: 65px;
       flex-direction: column;
     }
 
@@ -239,7 +239,7 @@
       padding: 10px;
       position: absolute;
       top: 5px;
-      right: 0;
+      inset-inline-end: 0;
       border: 0;
     }
 
@@ -284,7 +284,7 @@
 
       li {
         &:not(:first-child) {
-          padding-left: 8%;
+          padding-inline-start: 8%;
         }
       }
 
@@ -294,9 +294,9 @@
         height: 1px;
         background-color: var(--gray-color);
         position: absolute;
-        left: 50%;
+        inset-inline-start: 50%;
         bottom: 0;
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% * var(--cs-dir)));
       }
     }
   }
@@ -308,7 +308,7 @@
 
     .cs_card_badge {
       top: 24px;
-      left: 24px;
+      inset-inline-start: 24px;
       padding: 1px 9px;
       background: rgba(29, 29, 29, 0.3);
       backdrop-filter: blur(25px);
@@ -316,16 +316,17 @@
 
     .cs_card_content {
       width: calc(100% - 20px);
-      padding: 11px 17px 12px 25px;
+      padding-block: 11px 12px;
+      padding-inline: 25px 17px;
       background: rgba(29, 29, 29, 0.6);
       backdrop-filter: blur(25px);
       position: absolute;
-      left: 10px;
+      inset-inline-start: 10px;
       bottom: 10px;
     }
 
     .cs_property_info_header {
-      padding-right: 65px;
+      padding-inline-end: 65px;
       flex-direction: column;
     }
 
@@ -340,7 +341,7 @@
       padding: 10px;
       position: absolute;
       top: 5px;
-      right: 0;
+      inset-inline-end: 0;
     }
 
     .cs_property_features {
@@ -372,7 +373,7 @@
     .cs_property_features {
       li {
         &:not(:first-child) {
-          padding-left: 12%;
+          padding-inline-start: 12%;
 
           &::before {
             content: "\f621";
@@ -404,11 +405,11 @@
     .cs_property_features {
       li {
         span:first-child {
-          margin-right: 6px;
+          margin-inline-end: 6px;
         }
 
         &:not(:first-child) {
-          padding-left: 7%;
+          padding-inline-start: 7%;
         }
       }
     }
@@ -433,7 +434,7 @@
       .cs_property_features {
         li {
           &:not(:first-child) {
-            padding-left: 4%;
+            padding-inline-start: 4%;
           }
         }
       }
@@ -446,7 +447,7 @@
 
       .cs_card_badge {
         top: 24px;
-        left: 24px;
+        inset-inline-start: 24px;
         padding: 1px 9px;
         background: rgba(29, 29, 29, 0.3);
         backdrop-filter: blur(25px);
@@ -460,7 +461,7 @@
       }
 
       .cs_property_info_header {
-        padding-right: 65px;
+        padding-inline-end: 65px;
         flex-direction: column;
       }
 
@@ -470,14 +471,14 @@
         padding: 10px;
         position: absolute;
         top: 5px;
-        right: 0;
+        inset-inline-end: 0;
         border: 0;
       }
 
       .cs_property_features {
         li {
           &:not(:first-child) {
-            padding-left: 0;
+            padding-inline-start: 0;
 
             &::before {
               display: none;
@@ -491,7 +492,7 @@
       .cs_property_features {
         li {
           &:not(:first-child) {
-            padding-left: 4%;
+            padding-inline-start: 4%;
           }
         }
       }
@@ -501,7 +502,7 @@
       .cs_property_features {
         li {
           &:not(:first-child) {
-            padding-left: 0;
+            padding-inline-start: 0;
           }
 
           &::before {
@@ -515,7 +516,7 @@
       .cs_property_features {
         li {
           &:not(:first-child) {
-            padding-left: 9%;
+            padding-inline-start: 9%;
           }
         }
       }
@@ -551,7 +552,7 @@
 
       .cs_card_badge {
         top: 24px;
-        left: 24px;
+        inset-inline-start: 24px;
         padding: 1px 9px;
         background: rgba(29, 29, 29, 0.3);
         backdrop-filter: blur(25px);
@@ -592,14 +593,14 @@
         rgba(42, 42, 42, 0.5) 0%,
         rgba(42, 42, 42, 0) 30%);
     border-radius: inherit;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     z-index: 1;
   }
 
   .cs_card_text {
     padding: 15px 20px 16px;
-    left: 30px;
+    inset-inline-start: 30px;
     bottom: 30px;
   }
 
@@ -616,7 +617,7 @@
       border-radius: 15px;
       background: rgba(29, 29, 29, 0.1);
       backdrop-filter: blur(20px);
-      left: 30px;
+      inset-inline-start: 30px;
       bottom: 40px;
     }
   }
@@ -633,7 +634,7 @@
     }
 
     .cs_card_text {
-      left: 10px;
+      inset-inline-start: 10px;
       top: 8px;
     }
   }
@@ -659,9 +660,9 @@
     width: 100%;
     height: 100%;
     padding-top: 60%;
-    padding-left: 40%;
+    padding-inline-start: 40%;
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
   }
 
@@ -670,12 +671,15 @@
     height: 100%;
     min-height: auto;
     border-top: 10px solid var(--white-color);
-    border-left: 10px solid var(--white-color);
-    border-radius: 0 0 20px 0;
+    border-inline-start: 10px solid var(--white-color);
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+    border-end-end-radius: 20px;
+    border-end-start-radius: 0;
   }
 
   .cs_card_content {
-    padding-left: 120px;
+    padding-inline-start: 120px;
   }
 
   .cs_card_title {
@@ -692,13 +696,13 @@
 
   @media (max-width: 1399px) {
     .cs_card_content {
-      padding-left: 40px;
+      padding-inline-start: 40px;
     }
   }
 
   @media (max-width: 1199px) {
     .cs_card_content {
-      padding-left: 0px;
+      padding-inline-start: 0px;
     }
 
     .cs_card_title {
@@ -764,7 +768,7 @@
     border-radius: inherit;
     background: linear-gradient(0deg, #1d1d1d 0%, rgba(29, 29, 29, 0) 80%);
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     z-index: 1;
   }
@@ -785,7 +789,7 @@
   }
 
   .cs_iconbox_info {
-    left: 30px;
+    inset-inline-start: 30px;
     bottom: 24px;
     z-index: 3;
   }
@@ -830,13 +834,13 @@
   }
 
   .cs_property_location_text {
-    padding-left: 28px;
+    padding-inline-start: 28px;
     position: relative;
 
     span {
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
     }
   }
 
@@ -857,7 +861,7 @@
       width: calc(50% - 10px);
 
       span:first-child {
-        margin-right: 10px;
+        margin-inline-end: 10px;
       }
     }
   }
@@ -891,7 +895,7 @@
       border-radius: inherit;
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
       transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
     }
 
@@ -918,7 +922,7 @@
     }
 
     .cs_card_badge {
-      left: 0;
+      inset-inline-start: 0;
       top: 24px;
       padding: 1px 9px;
       background: rgba(29, 29, 29, 0.3);
@@ -939,19 +943,19 @@
 
     li {
       span:first-child {
-        margin-right: 14px;
+        margin-inline-end: 14px;
       }
     }
   }
 
   .cs_property_location_text {
-    padding-left: 28px;
+    padding-inline-start: 28px;
     position: relative;
 
     span {
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
     }
   }
 
@@ -959,12 +963,12 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
     transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-    background-position: 100% calc(100% - 0px);
+    background-position: var(--cs-x-end) calc(100% - 0px);
     background-size: 0 2px;
 
     &:hover {
       background-size: 100% 2px;
-      background-position: 0 calc(100% - 0px);
+      background-position: var(--cs-x-start) calc(100% - 0px);
     }
   }
 
@@ -982,7 +986,7 @@
     .cs_property_features {
       li {
         span:first-child {
-          margin-right: 6px;
+          margin-inline-end: 6px;
         }
       }
     }
@@ -1015,12 +1019,12 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
     transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-    background-position: 100% calc(100% - 0px);
+    background-position: var(--cs-x-end) calc(100% - 0px);
     background-size: 0 2px;
 
     &:hover {
       background-size: 100% 2px;
-      background-position: 0 calc(100% - 0px);
+      background-position: var(--cs-x-start) calc(100% - 0px);
     }
   }
 
@@ -1063,23 +1067,23 @@
     background-repeat: no-repeat;
     background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
     transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-    background-position: 100% calc(100% - 0px);
+    background-position: var(--cs-x-end) calc(100% - 0px);
     background-size: 0 2px;
 
     &:hover {
       background-size: 100% 2px;
-      background-position: 0 calc(100% - 0px);
+      background-position: var(--cs-x-start) calc(100% - 0px);
     }
   }
 
   .cs_property_location_text {
-    padding-left: 28px;
+    padding-inline-start: 28px;
     position: relative;
 
     span {
       position: absolute;
       top: 0;
-      left: 0;
+      inset-inline-start: 0;
     }
   }
 
@@ -1101,11 +1105,11 @@
       position: relative;
 
       span:first-child {
-        margin-right: 14px;
+        margin-inline-end: 14px;
       }
 
       &:not(:first-child) {
-        padding-left: 10%;
+        padding-inline-start: 10%;
 
         &::before {
           content: "\f621";
@@ -1119,7 +1123,7 @@
           opacity: 1;
           position: absolute;
           top: 0;
-          left: 0;
+          inset-inline-start: 0;
         }
       }
     }
@@ -1141,11 +1145,11 @@
 
       li {
         span:first-child {
-          margin-right: 6px;
+          margin-inline-end: 6px;
         }
 
         &:not(:first-child) {
-          padding-left: 0;
+          padding-inline-start: 0;
 
           &::before {
             display: none;
@@ -1166,7 +1170,7 @@
     height: 100%;
     background: linear-gradient(180deg, rgba(67, 67, 67, 0) 0%, #1d1d1d 100%);
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     z-index: 0;
   }
@@ -1174,8 +1178,8 @@
   .cs_card_arrow {
     position: absolute;
     top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+    inset-inline-start: 40%;
+    transform: translate(calc(-50% * var(--cs-dir)), -50%);
     opacity: 0;
     z-index: 1;
     transition: all 0.3s ease;
@@ -1192,7 +1196,7 @@
 
     &:hover {
       .cs_card_arrow {
-        left: 50%;
+        inset-inline-start: 50%;
         opacity: 1;
       }
     }
@@ -1258,7 +1262,7 @@
   flex-direction: column;
   align-items: center;
   gap: 37px;
-  padding-left: 100px;
+  padding-inline-start: 100px;
 
   .cs_card_thumbnail {
     width: 100%;
@@ -1284,7 +1288,7 @@
   }
 
   @media (max-width: 1199px) {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 }
 

@@ -7,7 +7,7 @@
 
   .cs_quote_icon {
     top: 50%;
-    right: 0;
+    inset-inline-end: 0;
     transform: translateY(-50%);
   }
 
@@ -68,14 +68,14 @@
     padding: 50px;
     position: absolute;
     top: -80px;
-    right: -80px;
+    inset-inline-end: -80px;
     z-index: 0;
 
     svg {
       width: 100%;
       height: 100%;
       position: absolute;
-      left: 0;
+      inset-inline-start: 0;
       top: 0;
       animation: focusAnimation 20s linear infinite;
     }
@@ -89,7 +89,7 @@
   @media (max-width: 1550px) {
     .cs_testimonial_rating_info {
       top: -50px;
-      right: -40px;
+      inset-inline-end: -40px;
     }
   }
 

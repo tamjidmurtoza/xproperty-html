@@ -16,6 +16,12 @@
   --primary-font: "Cabin", sans-serif;
   --secondary-font: "Raleway", sans-serif;
   --ternary-font: "Carattere", cursive;
+  /* Direction helpers (flipped in _rtl.scss) */
+  --cs-dir: 1;
+  --cs-start: left;
+  --cs-end: right;
+  --cs-x-start: 0%;
+  --cs-x-end: 100%;
 }
 
 .cs_dark {

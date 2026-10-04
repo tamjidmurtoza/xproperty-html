@@ -1,0 +1,17 @@
+{
+  // Kilo worktrees hold old copies of assets/sass/style.scss; skip them
+  "liveSassCompile.settings.excludeItems": [
+    "/**/node_modules/**",
+    "/.vscode/**",
+    "/.kilo/**"
+  ],
+  // "~" = relative to each .scss file, so assets/sass/style.scss -> assets/css/style.css
+  // and no other style.scss in the workspace can overwrite it
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css"
+    }
+  ]
+}
