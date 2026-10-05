@@ -690,8 +690,15 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
+.ts-control,
+.full .ts-control,
+.ts-wrapper.single.input-active .ts-control {
+  background-color: var(--white-color);
+}
+
 .ts-dropdown {
   border: 0;
+  background-color: var(--white-color);
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.2s ease, transform 0.3s ease;
@@ -702,6 +709,32 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  // Thin, subtle scrollbar. Chrome skips the ::-webkit rules when
+  // scrollbar-width is set, so that is only for browsers without them (Firefox)
+  .ts-dropdown-content {
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-color) transparent;
+    }
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: var(--border-color);
+    }
   }
 
   .option {
@@ -729,6 +762,8 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
 
   .ts-control {
     padding: 8px 15px;
+    color: var(--primary-color);
+    border-color: var(--border-color);
     border-radius: 20px;
     font-size: 16px;
     line-height: 1.7em;
@@ -1159,12 +1194,12 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
     position: absolute;
     inset-inline-start: 0;
     bottom: -14px;
-    border-top: 3px solid var(--gray-color);
+    border-top: 3px solid var(--gray-text-color);
     transform: rotate(calc(-3deg * var(--cs-dir)));
   }
 
   &.cs_underline_white::after {
-    border-color: var(--white-color);
+    border-color: #fff;
   }
 }
 
@@ -1469,6 +1504,8 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
 .cs_form_field {
   outline: 0;
   padding: 8px 15px;
+  color: var(--primary-color);
+  background-color: var(--white-color);
   border: 1px solid var(--border-color);
 }
 
@@ -1621,7 +1658,8 @@ span.flatpickr-weekday {
     color: var(--secondary-color);
   }
 
-  .cs_country .ts-control::after {
+  .cs_country .ts-control::after,
+  .cs_role .ts-control::after {
     content: "\f078";
     font-family: "Font Awesome 6 Free";
     font-size: 12px;

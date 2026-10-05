@@ -35,7 +35,7 @@
       }
 
       &:hover {
-        color: var(--white-color);
+        color: #fff;
       }
     }
   }
@@ -56,7 +56,7 @@
     }
 
     a:hover {
-      color: var(--white-color);
+      color: #fff;
     }
 
     .cs_contact_icon {
@@ -105,7 +105,7 @@
       flex-wrap: wrap;
 
       a:hover {
-        color: var(--white-color);
+        color: #fff;
       }
     }
   }
@@ -310,22 +310,22 @@
     .cs_newsletter_form {
       input {
         background-color: transparent;
-        color: var(--gray-color);
-        border-color: var(--gray-color);
+        color: var(--gray-text-color);
+        border-color: var(--gray-text-color);
 
         &::placeholder {
-          color: var(--gray-color);
+          color: var(--gray-text-color);
         }
 
         &:focus {
-          border-color: var(--white-color);
+          border-color: #fff;
         }
       }
 
       .cs_btn.cs_style_1 {
         &:hover {
-          border-color: var(--gray-color);
-          color: var(--gray-color);
+          border-color: var(--gray-text-color);
+          color: var(--gray-text-color);
         }
       }
     }
@@ -447,7 +447,7 @@
     content: "";
     width: 100%;
     height: 1px;
-    background-color: var(--gray-color);
+    background-color: var(--gray-text-color);
     opacity: 0.3;
     position: absolute;
     inset-inline-start: 0;
@@ -459,11 +459,11 @@
     padding: 0 0 15px;
     border: 0;
     outline: 0;
-    color: var(--gray-color);
+    color: var(--gray-text-color);
     background-color: transparent;
 
     &::placeholder {
-      color: var(--gray-color);
+      color: var(--gray-text-color);
     }
   }
 
@@ -490,6 +490,7 @@
     border: 1px solid var(--secondary-color);
     border-radius: 20px;
     color: var(--secondary-color);
+    background-color: var(--white-color);
 
     &::placeholder {
       color: var(--secondary-color);

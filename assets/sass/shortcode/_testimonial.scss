@@ -13,7 +13,7 @@
 
   blockquote {
     font-size: 16px;
-    color: var(--gray-color);
+    color: var(--gray-text-color);
     font-style: normal;
     position: relative;
     z-index: 1;
@@ -50,7 +50,7 @@
 
   blockquote {
     font-size: 39px;
-    color: var(--white-color);
+    color: #fff;
     font-family: var(--primary-font);
     font-style: normal;
   }
@@ -63,6 +63,7 @@
   }
 
   .cs_testimonial_rating_info {
+    color: #1d1d1d; // on the fixed cream star
     width: 160px;
     height: 160px;
     padding: 50px;
@@ -158,7 +159,7 @@
 
     blockquote,
     small {
-      color: var(--white-color);
+      color: #fff;
     }
   }
 }

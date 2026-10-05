@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="keywords" content="property approvals, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Property Approvals - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Site Admin dashboard · Property Approvals. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu cs_open cs_has_active">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="true">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="financials.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active">3 New</span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">8 properties waiting for approval</span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">12 new users signed up today</span>
+                        <span class="d-block cs_fs_14">30 min ago</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice #INV-2041 paid ($49)</span>
+                        <span class="d-block cs_fs_14">2 hours ago</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Property Approvals</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Property Approvals</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Start Property Approvals -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#approvalTable" aria-label="Filter">
+                <li><button type="button" data-filter="pending" aria-pressed="true" class="active">Pending <span>8</span></button></li>
+                <li><button type="button" data-filter="active" aria-pressed="false">Active <span>1,248</span></button></li>
+                <li><button type="button" data-filter="rejected" aria-pressed="false">Rejected <span>14</span></button></li>
+              </ul>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" placeholder="Search properties" aria-label="Search properties">
+                </form>
+                <div class="cs_select cs_select_sm">
+                  <select aria-label="Filter by listing type">
+                    <option>All types</option>
+                    <option>For Sale</option>
+                    <option>For Rent</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table" id="approvalTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">Submitted By</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Submitted</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="pending">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-2.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Shangri la Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Central Area, Singapore</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Amanda Jones</span><br><span class="cs_fs_14">Agent</span></td>
+                    <td>For Rent</td>
+                    <td><span class="cs_primary_color cs_semibold">$4,800 / mo</span></td>
+                    <td>Oct 04, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Approve Shangri la Apartment" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Reject Shangri la Apartment" data-tooltip="Reject"><i class="fa-solid fa-xmark"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Shangri la Apartment" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
+                  </tr>
+                  <tr data-status="pending">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-8.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Gilliard Office Building</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> New York, USA</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Michael Chen</span><br><span class="cs_fs_14">Owner</span></td>
+                    <td>For Rent</td>
+                    <td><span class="cs_primary_color cs_semibold">$12,500 / mo</span></td>
+                    <td>Oct 03, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Approve Gilliard Office Building" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Reject Gilliard Office Building" data-tooltip="Reject"><i class="fa-solid fa-xmark"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Gilliard Office Building" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
+                  </tr>
+                  <tr data-status="pending">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-9.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Palm Grove Residence</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Daniel Brooks</span><br><span class="cs_fs_14">Agent</span></td>
+                    <td>For Sale</td>
+                    <td><span class="cs_primary_color cs_semibold">$2,150,000</span></td>
+                    <td>Oct 03, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Approve Palm Grove Residence" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Reject Palm Grove Residence" data-tooltip="Reject"><i class="fa-solid fa-xmark"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Palm Grove Residence" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
+                  </tr>
+                  <tr data-status="pending">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-10.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Maple Street Townhouse</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Toronto, Canada</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Taylor Reed</span><br><span class="cs_fs_14">Owner</span></td>
+                    <td>For Sale</td>
+                    <td><span class="cs_primary_color cs_semibold">$695,000</span></td>
+                    <td>Oct 01, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Approve Maple Street Townhouse" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Reject Maple Street Townhouse" data-tooltip="Reject"><i class="fa-solid fa-xmark"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Maple Street Townhouse" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-1.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Beach View Villa</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Amanda Jones</span><br><span class="cs_fs_14">Agent</span></td>
+                    <td>For Sale</td>
+                    <td><span class="cs_primary_color cs_semibold">$1,250,000</span></td>
+                    <td>Sep 20, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active">Active</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Feature Beach View Villa" data-tooltip="Feature"><i class="fa-regular fa-star"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Beach View Villa" data-tooltip="View"><i class="fa-regular fa-eye"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Unpublish Beach View Villa" data-tooltip="Unpublish"><i class="fa-solid fa-ban"></i></button></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-6.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Blue Seagull Beach House</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Queensland, Australia</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Michael Chen</span><br><span class="cs_fs_14">Owner</span></td>
+                    <td>For Sale</td>
+                    <td><span class="cs_primary_color cs_semibold">$1,080,000</span></td>
+                    <td>Jul 02, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active">Active</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Feature Blue Seagull Beach House" data-tooltip="Feature"><i class="fa-regular fa-star"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Blue Seagull Beach House" data-tooltip="View"><i class="fa-regular fa-eye"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Unpublish Blue Seagull Beach House" data-tooltip="Unpublish"><i class="fa-solid fa-ban"></i></button></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-7.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">East Tower Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Ethan Wilson</span><br><span class="cs_fs_14">Agent</span></td>
+                    <td>For Rent</td>
+                    <td><span class="cs_primary_color cs_semibold">$2,900 / mo</span></td>
+                    <td>Jun 11, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active">Active</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Feature East Tower Apartment" data-tooltip="Feature"><i class="fa-regular fa-star"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View East Tower Apartment" data-tooltip="View"><i class="fa-regular fa-eye"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Unpublish East Tower Apartment" data-tooltip="Unpublish"><i class="fa-solid fa-ban"></i></button></div></td>
+                  </tr>
+                  <tr data-status="rejected">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-16.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lakeside Cabin</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Ontario, Canada</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color">Casey Morgan</span><br><span class="cs_fs_14">Owner</span></td>
+                    <td>For Sale</td>
+                    <td><span class="cs_primary_color cs_semibold">$310,000</span></td>
+                    <td>Sep 28, 2026</td>
+                    <td><span class="cs_status_badge cs_status_expired">Rejected</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Restore Lakeside Cabin" data-tooltip="Restore"><i class="fa-solid fa-rotate-left"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Lakeside Cabin" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="7">Nothing here. You are all caught up!</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="cs_dashboard_pagination">
+              <p class="mb-0">Showing 1&ndash;8 of 1,270 properties</p>
+              <ul>
+                <li><a href="#" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#" class="active" aria-current="page">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- End Property Approvals -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/data-tables.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="keywords" content="review moderation, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Review Moderation - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+   <!-- Site Admin dashboard  -->
+  <body class="cs_dashboard">
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li class="active">
+                <a href="reviews.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="financials.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active">3 New</span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">8 properties waiting for approval</span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">12 new users signed up today</span>
+                        <span class="d-block cs_fs_14">30 min ago</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice #INV-2041 paid ($49)</span>
+                        <span class="d-block cs_fs_14">2 hours ago</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Review Moderation</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Reviews</li>
+              </ul>
+            </div>
+            <a href="site-settings.html#reviews" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10">
+              <span><i class="fa-solid fa-sliders"></i></span>
+              <span>Moderation Settings</span>
+            </a>
+          </div>
+
+          <div class="row cs_gap_y_24">
+            <div class="col-xl-4">
+              <div class="cs_sticky_card">
+                <!-- Start Site Rating -->
+                <div class="cs_dashboard_card" data-aos="fade-up">
+                  <div class="cs_card_head">
+                    <div>
+                      <h2 class="cs_fs_20 cs_semibold mb-0">Site-wide Rating</h2>
+                    </div>
+                  </div>
+                  <div class="cs_rating_summary">
+                    <p class="cs_rating_score cs_primary_color cs_primary_font cs_semibold">4.6</p>
+                    <div class="cs_rating" data-rating="4.6"><div class="cs_rating_percentage"></div></div>
+                    <p class="cs_fs_14 mb-0">Based on 3,412 published reviews</p>
+                  </div>
+                  <ul class="cs_rating_bars">
+                    <li><span>5 star</span><div class="cs_progress"><span style="width: 71%"></span></div><span>2,423</span></li>
+                    <li><span>4 star</span><div class="cs_progress"><span style="width: 17%"></span></div><span>580</span></li>
+                    <li><span>3 star</span><div class="cs_progress"><span style="width: 7%"></span></div><span>239</span></li>
+                    <li><span>2 star</span><div class="cs_progress"><span style="width: 3%"></span></div><span>102</span></li>
+                    <li><span>1 star</span><div class="cs_progress"><span style="width: 2%"></span></div><span>68</span></li>
+                  </ul>
+                </div>
+                <!-- End Site Rating -->
+                <div class="cs_height_24 cs_height_lg_24"></div>
+                <!-- Start Moderation Queue -->
+                <div class="cs_dashboard_card" data-aos="fade-up" data-aos-delay="100">
+                  <div class="cs_card_head">
+                    <div>
+                      <h2 class="cs_fs_20 cs_semibold mb-0">Moderation Queue</h2>
+                    </div>
+                  </div>
+                  <ul class="cs_usage_list">
+                    <li><div class="cs_usage_top"><span>Pending approval</span><span class="cs_primary_color cs_semibold">12</span></div><div class="cs_progress"><span style="width: 60%"></span></div></li>
+                    <li><div class="cs_usage_top"><span>Reported by users</span><span class="cs_primary_color cs_semibold">5</span></div><div class="cs_progress"><span style="width: 25%"></span></div></li>
+                    <li><div class="cs_usage_top"><span>Hidden</span><span class="cs_primary_color cs_semibold">3</span></div><div class="cs_progress"><span style="width: 15%"></span></div></li>
+                  </ul>
+                </div>
+                <!-- End Moderation Queue -->
+              </div>
+            </div>
+            <div class="col-xl-8">
+              <!-- Start All Reviews -->
+              <div class="cs_dashboard_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold mb-0">All Reviews</h2>
+                  </div>
+                  <div class="cs_select cs_select_sm">
+                    <select aria-label="Filter reviews">
+                      <option>All reviews</option>
+                      <option>Pending</option>
+                      <option>Reported</option>
+                      <option>Published</option>
+                      <option>Hidden</option>
+                    </select>
+                  </div>
+                </div>
+                <ul class="cs_review_list">
+                  <li class="cs_review_item">
+                    <div class="cs_review_head">
+                      <img src="../assets/img/avatar-2.jpg" alt="">
+                      <div class="cs_review_head_info">
+                        <h3 class="cs_fs_16 cs_semibold cs_mb_3">Sophia Turner <span class="cs_status_badge cs_status_pending">Pending</span></h3>
+                        <div class="cs_review_meta">
+                          <div class="cs_rating" data-rating="5"><div class="cs_rating_percentage"></div></div>
+                          <span>Agent: Amanda Jones</span>
+                          <span>Oct 05, 2026</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mb-0">Very professional and honest about the pros and cons of each unit. Highly recommended for renters too.</p>
+                    <div class="cs_review_actions">
+                      <button type="button"><i class="fa-solid fa-check"></i> Approve</button>
+                      <button type="button"><i class="fa-regular fa-eye-slash"></i> Hide</button>
+                      <button type="button" class="cs_danger_color"><i class="fa-regular fa-trash-can"></i> Delete</button>
+                    </div>
+                  </li>
+                  <li class="cs_review_item">
+                    <div class="cs_review_head">
+                      <img src="../assets/img/avatar-4.jpg" alt="">
+                      <div class="cs_review_head_info">
+                        <h3 class="cs_fs_16 cs_semibold cs_mb_3">Ethan Wilson <span class="cs_status_badge cs_status_expired">Reported</span></h3>
+                        <div class="cs_review_meta">
+                          <div class="cs_rating" data-rating="1"><div class="cs_rating_percentage"></div></div>
+                          <span>Property: Northern Apartment</span>
+                          <span>Oct 02, 2026</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mb-0">Total scam, the photos are fake. Call me on my number for a better deal on this place.</p>
+                    <div class="cs_review_reply">
+                      <p class="cs_fs_14 cs_semibold cs_primary_color cs_mb_3">Reported by Michael Chen (Owner)</p>
+                      <p class="cs_fs_14 mb-0">Contains personal contact details and false claims. The photos were taken last month.</p>
+                    </div>
+                    <div class="cs_review_actions">
+                      <button type="button"><i class="fa-solid fa-check"></i> Keep</button>
+                      <button type="button"><i class="fa-regular fa-eye-slash"></i> Hide</button>
+                      <button type="button" class="cs_danger_color"><i class="fa-regular fa-trash-can"></i> Delete</button>
+                    </div>
+                  </li>
+                  <li class="cs_review_item">
+                    <div class="cs_review_head">
+                      <img src="../assets/img/avatar-1.jpg" alt="">
+                      <div class="cs_review_head_info">
+                        <h3 class="cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks <span class="cs_status_badge cs_status_active">Published</span></h3>
+                        <div class="cs_review_meta">
+                          <div class="cs_rating" data-rating="5"><div class="cs_rating_percentage"></div></div>
+                          <span>Agent: Amanda Jones</span>
+                          <span>Oct 03, 2026</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mb-0">Amanda made buying our first villa painless. She answered every question within the hour and negotiated a great price.</p>
+                    <div class="cs_review_actions">
+                      <button type="button"><i class="fa-regular fa-eye-slash"></i> Hide</button>
+                      <button type="button" class="cs_danger_color"><i class="fa-regular fa-trash-can"></i> Delete</button>
+                    </div>
+                  </li>
+                  <li class="cs_review_item">
+                    <div class="cs_review_head">
+                      <img src="../assets/img/avatar-3.jpg" alt="">
+                      <div class="cs_review_head_info">
+                        <h3 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen <span class="cs_status_badge cs_status_active">Published</span></h3>
+                        <div class="cs_review_meta">
+                          <div class="cs_rating" data-rating="4"><div class="cs_rating_percentage"></div></div>
+                          <span>Property: Beach View Villa</span>
+                          <span>Sep 29, 2026</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mb-0">Lovely villa with a great view. The kitchen could use an update, but the listing was accurate.</p>
+                    <div class="cs_review_actions">
+                      <button type="button"><i class="fa-regular fa-eye-slash"></i> Hide</button>
+                      <button type="button" class="cs_danger_color"><i class="fa-regular fa-trash-can"></i> Delete</button>
+                    </div>
+                  </li>
+                </ul>
+                <div class="cs_dashboard_pagination">
+                  <p class="mb-0">Showing 1&ndash;4 of 3,432 reviews</p>
+                  <ul>
+                    <li><a href="#" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></a></li>
+                    <li><a href="#" class="active" aria-current="page">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End All Reviews -->
+            </div>
+          </div>
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/data-tables.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

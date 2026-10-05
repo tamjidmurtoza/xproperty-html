@@ -2,6 +2,9 @@
  18. Property and Property Details
 =================================================================*/
 .cs_flor_diagram {
+  background-color: #1d1d1d; // plan.svg is white line art, so keep it dark in both modes
+  border-radius: 10px;
+
   img {
     width: 100%;
   }

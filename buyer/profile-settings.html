@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="keywords" content="profile settings, buyer dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Profile Settings - Buyer Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Buyer dashboard · Profile Settings. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-2.jpg" alt="Sophia Turner">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Sophia Turner</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Buyer</span>
+            </div>
+          </div>
+          <!-- Start Buyer Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="saved-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-heart"></i>
+                  <span class="cs_menu_text">Saved Properties</span>
+                  <span class="cs_menu_badge">18</span>
+                </a>
+              </li>
+              <li>
+                <a href="saved-searches.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-bookmark"></i>
+                  <span class="cs_menu_text">Saved Searches</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li class="active">
+                <a href="profile-settings.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Buyer Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" placeholder="Search saved homes, searches, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active">3 New</span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-house-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">3 new homes match "Bali villas"</span>
+                        <span class="d-block cs_fs_14">10 min ago</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-tag"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Price drop on East Tower Apartment</span>
+                        <span class="d-block cs_fs_14">1 hour ago</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-calendar-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Tour tomorrow at 10:00</span>
+                        <span class="d-block cs_fs_14">Today, 08:30</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-2.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Sophia Turner</span>
+                  <span class="d-block cs_fs_14">Buyer</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="saved-properties.html"><i class="fa-regular fa-heart"></i>Saved Properties</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Profile Settings</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Profile Settings</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row cs_gap_y_24">
+            <div class="col-xl-4">
+              <div class="cs_sticky_card">
+                <!-- Start Profile Card -->
+                <div class="cs_dashboard_card cs_profile_card" data-aos="fade-up">
+                  <div class="cs_profile_card_thumb">
+                    <img src="../assets/img/avatar-2.jpg" alt="Sophia Turner">
+                    <label for="avatarUpload" aria-label="Change photo"><i class="fa-solid fa-camera"></i></label>
+                    <input type="file" id="avatarUpload" accept="image/*">
+                  </div>
+                  <h2 class="cs_fs_20 cs_semibold cs_mb_5">Sophia Turner</h2>
+                  <span class="cs_status_badge cs_status_active">Buyer</span>
+                  <ul class="cs_profile_card_info">
+                    <li><i class="fa-regular fa-envelope"></i>sophia.turner@mail.com</li>
+                    <li><i class="fa-solid fa-phone"></i>+65 8123 4567</li>
+                    <li><i class="fa-solid fa-location-dot"></i>Singapore</li>
+                    <li><i class="fa-regular fa-calendar"></i>Member since January 2025</li>
+                  </ul>
+                </div>
+                <!-- End Profile Card -->
+              </div>
+            </div>
+            <div class="col-xl-8">
+              <!-- Start Personal Information -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Personal Information</h2>
+                    <p class="cs_fs_14 mb-0">This is shown on your public profile</p>
+                  </div>
+                </div>
+                <form action="#" class="cs_dashboard_form">
+                  <div class="row cs_gap_y_24">
+                    <div class="col-md-6">
+                      <label class="cs_form_label" for="field98">First Name</label>
+                      <input type="text" id="field98" class="cs_form_field" placeholder="First name" value="Sophia">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="cs_form_label" for="field99">Last Name</label>
+                      <input type="text" id="field99" class="cs_form_field" placeholder="Last name" value="Turner">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="cs_form_label" for="field100">Email</label>
+                      <input type="email" id="field100" class="cs_form_field" placeholder="you@example.com" value="sophia.turner@mail.com">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="cs_form_label" for="field101">Phone</label>
+                      <input type="tel" id="field101" class="cs_form_field" placeholder="+1 (555) 000-0000" value="+65 8123 4567">
+                    </div>
+                    <div class="col-12">
+                      <label class="cs_form_label" for="field102">Address</label>
+                      <input type="text" id="field102" class="cs_form_field" placeholder="Street, city, country" value="Singapore">
+                    </div>
+                    <div class="col-12">
+                      <label class="cs_form_label" for="field103">About Me</label>
+                      <textarea id="field103" class="cs_form_field" placeholder="Tell people a little about yourself...">Looking for a 2-bedroom apartment close to the city centre.</textarea>
+                    </div>
+                  </div>
+                  <div class="cs_form_actions">
+                    <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10"><span>Cancel</span></button>
+                    <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Save Changes</span></button>
+                  </div>
+                </form>
+              </div>
+              <!-- End Personal Information -->
+              <div class="cs_height_24 cs_height_lg_24"></div>
+              <!-- Start Change Password -->
+              <div class="cs_dashboard_card" id="password" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Change Password</h2>
+                    <p class="cs_fs_14 mb-0">Use at least 8 characters with a number and a symbol</p>
+                  </div>
+                </div>
+                <form action="#" class="cs_dashboard_form">
+                  <div class="row cs_gap_y_24">
+                    <div class="col-12">
+                      <label class="cs_form_label" for="field104">Current Password</label>
+                      <input type="password" id="field104" class="cs_form_field" placeholder="Current password">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="cs_form_label" for="field105">New Password</label>
+                      <input type="password" id="field105" class="cs_form_field" placeholder="New password">
+                    </div>
+                    <div class="col-md-6">
+                      <label class="cs_form_label" for="field106">Confirm New Password</label>
+                      <input type="password" id="field106" class="cs_form_field" placeholder="Repeat new password">
+                    </div>
+                  </div>
+                  <div class="cs_form_actions">
+                    <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Update Password</span></button>
+                  </div>
+                </form>
+              </div>
+              <!-- End Change Password -->
+              <div class="cs_height_24 cs_height_lg_24"></div>
+              <!-- Start Notifications -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Notifications</h2>
+                    <p class="cs_fs_14 mb-0">Choose what we email you about</p>
+                  </div>
+                </div>
+                <ul class="cs_setting_list">
+                  <li>
+                    <div>
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">New matches</h4>
+                      <p class="cs_fs_14 mb-0">When a home matches one of your saved searches</p>
+                    </div>
+                    <label class="cs_toggle_switch">
+                      <input type="checkbox" checked aria-label="New matches">
+                      <span></span>
+                    </label>
+                  </li>
+                  <li>
+                    <div>
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Price drops</h4>
+                      <p class="cs_fs_14 mb-0">When a saved property gets cheaper</p>
+                    </div>
+                    <label class="cs_toggle_switch">
+                      <input type="checkbox" checked aria-label="Price drops">
+                      <span></span>
+                    </label>
+                  </li>
+                  <li>
+                    <div>
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Messages</h4>
+                      <p class="cs_fs_14 mb-0">When an agent replies to you</p>
+                    </div>
+                    <label class="cs_toggle_switch">
+                      <input type="checkbox" checked aria-label="Messages">
+                      <span></span>
+                    </label>
+                  </li>
+                  <li>
+                    <div>
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Tour reminders</h4>
+                      <p class="cs_fs_14 mb-0">A day before a scheduled tour</p>
+                    </div>
+                    <label class="cs_toggle_switch">
+                      <input type="checkbox" checked aria-label="Tour reminders">
+                      <span></span>
+                    </label>
+                  </li>
+                  <li>
+                    <div>
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Newsletter</h4>
+                      <p class="cs_fs_14 mb-0">Market reports and tips</p>
+                    </div>
+                    <label class="cs_toggle_switch">
+                      <input type="checkbox" aria-label="Newsletter">
+                      <span></span>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <!-- End Notifications -->
+              <div class="cs_height_24 cs_height_lg_24"></div>
+              <!-- Start Delete Account -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Delete Account</h2>
+                    <p class="cs_fs_14 mb-0">This permanently removes your profile and data</p>
+                  </div>
+                </div>
+                <button type="button" class="cs_btn cs_style_1 cs_btn_danger cs_medium cs_radius_10"><span><i class="fa-solid fa-trash-can"></i></span><span>Delete My Account</span></button>
+              </div>
+              <!-- End Delete Account -->
+            </div>
+          </div>
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/data-tables.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

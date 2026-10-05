@@ -1,0 +1,3086 @@
+/*==============================================================
+  21. Dashboard
+================================================================*/
+.cs_dashboard {
+  --cs-sidebar-width: 280px;
+  --cs-sidebar-mini-width: 88px;
+  --cs-topbar-height: 80px;
+  --cs-dashboard-bg: var(--gray3-color);
+  --cs-card-bg: var(--white-color);
+  --cs-card-shadow: 0 0 15px 0 rgba(27, 27, 27, 0.05);
+  --cs-success-color: #00CC61;
+  --cs-warning-color: #F5A524;
+  --cs-info-color: #2F80ED;
+  --cs-sidebar-speed: 0.35s;
+  background-color: var(--cs-dashboard-bg);
+}
+
+.cs_dark .cs_dashboard {
+  --cs-dashboard-bg: #141414;
+  --cs-card-bg: #1d1d1d;
+  --gray3-color: #262626;
+  --cs-card-shadow: none;
+}
+
+/* Soft tint helper: colored text on a 10% background of the same color.
+   Uses ::after so it also works on <i> icons (Font Awesome draws on ::before) */
+@mixin cs-tint($color) {
+  color: $color;
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0.1;
+    z-index: -1;
+  }
+}
+
+/*------------------------------------------
+ Layout grid
+--------------------------------------------*/
+.cs_dashboard_wrapper {
+  min-height: 100vh;
+}
+
+.cs_dashboard_main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: var(--cs-sidebar-width);
+  transition: margin var(--cs-sidebar-speed) ease;
+
+  .cs_sidebar_collapsed & {
+    margin-inline-start: var(--cs-sidebar-mini-width);
+  }
+
+  @media (max-width: 1199px) {
+
+    &,
+    .cs_sidebar_collapsed & {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+.cs_dashboard_content {
+  flex: 1;
+  padding: 30px;
+
+  @media (max-width: 575px) {
+    padding: 20px 15px;
+  }
+}
+
+/*------------------------------------------
+ Sidebar
+--------------------------------------------*/
+.cs_dashboard_sidebar {
+  width: var(--cs-sidebar-width);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cs-card-bg);
+  border-inline-end: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  inset-inline-start: 0;
+  z-index: 1001;
+  transition: width var(--cs-sidebar-speed) ease, transform var(--cs-sidebar-speed) ease,
+    box-shadow var(--cs-sidebar-speed) ease;
+
+  .cs_sidebar_head {
+    height: var(--cs-topbar-height);
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+  }
+
+  .cs_sidebar_brand {
+    display: flex;
+    align-items: center;
+    flex: none;
+
+    img {
+      height: 34px;
+      width: auto;
+    }
+  }
+
+  // Only the logo icon part shows in mini mode (logo-mark is optional)
+  .cs_sidebar_brand_mini {
+    display: none;
+  }
+
+  .cs_sidebar_close {
+    width: 36px;
+    height: 36px;
+    flex: none;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+  }
+
+  .cs_sidebar_body {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px 16px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .cs_sidebar_footer {
+    flex: none;
+    padding: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 1199px) {
+    transform: translateX(calc(-100% * var(--cs-dir)));
+    box-shadow: none;
+
+    .cs_sidebar_open & {
+      transform: translateX(0);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .cs_sidebar_close {
+      display: flex;
+    }
+  }
+}
+
+/* User card at the top of the sidebar */
+.cs_sidebar_user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+
+  .cs_sidebar_user_thumb {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    &::after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--cs-success-color);
+      border: 2px solid var(--cs-card-bg);
+      position: absolute;
+      bottom: 0;
+      inset-inline-end: 0;
+    }
+  }
+
+  .cs_sidebar_user_info {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cs_sidebar_user_role {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 22px;
+    @include cs-tint(var(--accent-color));
+  }
+}
+
+/* Menu */
+.cs_dashboard_menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+
+  .cs_menu_label {
+    display: block;
+    padding: 18px 14px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    white-space: nowrap;
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  .cs_menu_link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 14px;
+    border-radius: 10px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-align: start;
+    white-space: nowrap;
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background-color: var(--primary-color);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover {
+      color: var(--primary-color);
+
+      &::before {
+        opacity: 0.05;
+      }
+    }
+  }
+
+  .cs_menu_icon {
+    width: 22px;
+    flex: none;
+    font-size: 17px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+
+  .cs_menu_link:hover .cs_menu_icon,
+  .cs_menu_link:focus-visible .cs_menu_icon {
+    transform: translateX(calc(2px * var(--cs-dir)));
+  }
+
+  .cs_menu_text {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cs_menu_arrow {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+  }
+
+  li.active>.cs_menu_link {
+    color: var(--white-color);
+    // Slides from the old page's active link to the new one (page transitions)
+    view-transition-name: cs-menu-active;
+
+    &::before {
+      background-color: var(--primary-color);
+      opacity: 1;
+    }
+
+    .cs_menu_badge {
+      color: var(--primary-color);
+      background-color: var(--white-color);
+    }
+  }
+
+  // Parent of the current page inside a submenu
+  li.cs_has_active>.cs_menu_link {
+    color: var(--primary-color);
+  }
+
+  li.cs_open>.cs_menu_link .cs_menu_arrow {
+    transform: rotate(180deg);
+  }
+
+  .cs_logout_link {
+    color: var(--danger-color);
+
+    &:hover {
+      color: var(--danger-color);
+    }
+  }
+}
+
+/* Submenu (collapsed by default, opened with li.cs_open).
+   main.js animates the height between 0 and the measured content height */
+.cs_submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 36px;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: height 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.35s;
+
+  .cs_open>& {
+    height: auto;
+    visibility: visible;
+  }
+
+  // Vertical padding on the items, so height 0 really is 0
+  li:first-child {
+    padding-top: 4px;
+  }
+
+  li:last-child {
+    padding-bottom: 4px;
+  }
+
+  // Items fade and slide in one after another
+  li {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .cs_open>& li {
+    opacity: 1;
+    transform: none;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{0.04s * $i};
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &,
+    li {
+      transition: none !important;
+    }
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 14px;
+    font-size: 15px;
+    color: var(--secondary-color);
+    position: relative;
+    white-space: nowrap;
+
+    &::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--border-color);
+      position: absolute;
+      inset-inline-start: -6px;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.3s ease;
+    }
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+
+      &::before {
+        background-color: var(--accent-color);
+      }
+    }
+  }
+}
+
+/* Badges: counts & listing status */
+.cs_menu_badge {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+}
+
+.cs_status_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: nowrap;
+  @include cs-tint(var(--secondary-color));
+
+  &.cs_status_active {
+    @include cs-tint(var(--cs-success-color));
+  }
+
+  &.cs_status_pending {
+    @include cs-tint(var(--cs-warning-color));
+  }
+
+  &.cs_status_expired {
+    @include cs-tint(var(--danger-color));
+  }
+
+  &.cs_status_info {
+    @include cs-tint(var(--cs-info-color));
+  }
+}
+
+/* Upgrade / package card in the sidebar footer */
+.cs_sidebar_package {
+  padding: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  @include cs-tint(var(--accent-color));
+
+  >* {
+    color: var(--primary-color);
+  }
+
+  .cs_progress {
+    margin: 10px 0 12px;
+  }
+}
+
+/* Progress bar (package usage, rating bars) */
+.cs_progress {
+  height: 6px;
+  border-radius: 3px;
+  background-color: var(--border-color);
+  overflow: hidden;
+
+  span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--accent-color);
+  }
+}
+
+/* Mobile overlay behind the offcanvas sidebar */
+.cs_sidebar_overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--cs-sidebar-speed) ease;
+
+  @media (max-width: 1199px) {
+    .cs_sidebar_open & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+/* Desktop mini sidebar: icons only, full width again on hover */
+@media (min-width: 1200px) {
+  .cs_sidebar_collapsed {
+    .cs_dashboard_sidebar:not(:hover) {
+      width: var(--cs-sidebar-mini-width);
+
+      .cs_sidebar_head {
+        padding: 0;
+        justify-content: center;
+      }
+
+      .cs_sidebar_brand {
+        display: none;
+      }
+
+      .cs_sidebar_brand_mini {
+        display: flex;
+      }
+
+      .cs_sidebar_user {
+        padding: 0;
+        border: 0;
+        justify-content: center;
+      }
+
+      .cs_sidebar_user_info,
+      .cs_menu_text,
+      .cs_menu_arrow,
+      .cs_menu_badge,
+      .cs_sidebar_package {
+        display: none;
+      }
+
+      .cs_menu_label {
+        height: 1px;
+        padding: 0;
+        margin: 14px 10px;
+        font-size: 0;
+        background-color: var(--border-color);
+      }
+
+      .cs_menu_link {
+        justify-content: center;
+      }
+
+      .cs_submenu {
+        display: none;
+      }
+    }
+
+    .cs_dashboard_sidebar:hover {
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
+    }
+  }
+}
+
+/*------------------------------------------
+ Topbar
+--------------------------------------------*/
+.cs_dashboard_topbar {
+  height: var(--cs-topbar-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 0 30px;
+  background-color: var(--cs-card-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  .cs_topbar_left,
+  .cs_topbar_right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cs_topbar_left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 575px) {
+    padding: 0 15px;
+    gap: 8px;
+
+    .cs_topbar_right {
+      gap: 8px;
+    }
+  }
+}
+
+/* Square icon button used for toggle / bell / theme */
+.cs_topbar_btn {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--primary-color);
+  font-size: 17px;
+  position: relative;
+
+  &:hover {
+    border-color: var(--primary-color);
+  }
+
+  .cs_dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--danger-color);
+    border: 2px solid var(--cs-card-bg);
+    position: absolute;
+    top: 9px;
+    inset-inline-end: 10px;
+  }
+
+  @media (max-width: 400px) {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+}
+
+.cs_sidebar_toggle {
+  .fa-bars-staggered {
+    transition: transform 0.3s ease;
+  }
+
+  // Point the icon the other way while the sidebar is mini
+  .cs_sidebar_collapsed & .fa-bars-staggered {
+    transform: scaleX(-1);
+  }
+}
+
+[dir="rtl"] .cs_sidebar_toggle .fa-bars-staggered {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"].cs_sidebar_collapsed .cs_sidebar_toggle .fa-bars-staggered {
+  transform: none;
+}
+
+/* Search */
+.cs_topbar_search {
+  width: min(100%, 420px);
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 44px;
+    padding: 0 16px;
+    padding-inline-start: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--primary-color);
+    outline: 0;
+
+    &::placeholder {
+      color: var(--secondary-color);
+      opacity: 0.8;
+    }
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+  }
+
+  i {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 16px;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.cs_search_toggle {
+  display: none;
+
+  @media (max-width: 767px) {
+    display: inline-flex;
+  }
+}
+
+// Mobile: search drops below the topbar when toggled
+@media (max-width: 767px) {
+  .cs_search_open .cs_topbar_search {
+    display: block;
+    width: auto;
+    padding: 12px 15px;
+    background-color: var(--cs-card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+  }
+
+  .cs_search_open .cs_topbar_search i {
+    inset-inline-start: 31px;
+  }
+}
+
+/* Color mode switch: shows the icon of the current mode (set by main.js on <html>) */
+.cs_theme_switch {
+
+  .fa-sun,
+  .fa-moon {
+    display: none;
+  }
+
+  [data-color-mode="light"] & {
+    .fa-desktop {
+      display: none;
+    }
+
+    .fa-sun {
+      display: inline-block;
+    }
+  }
+
+  [data-color-mode="dark"] & {
+    .fa-desktop {
+      display: none;
+    }
+
+    .fa-moon {
+      display: inline-block;
+    }
+  }
+}
+
+/* Dropdowns (notifications & profile) */
+.cs_topbar_dropdown {
+  position: relative;
+
+  .cs_dropdown_panel {
+    width: 320px;
+    padding: 0;
+    background-color: var(--cs-card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: calc(100% + 12px);
+    inset-inline-end: 0;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: all 0.25s ease;
+  }
+
+  &.cs_active .cs_dropdown_panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .cs_dropdown_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cs_dropdown_foot {
+    display: block;
+    padding: 12px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--primary-color);
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+
+  @media (max-width: 400px) {
+    position: static;
+
+    .cs_dropdown_panel {
+      width: auto;
+      inset-inline: 15px;
+    }
+  }
+}
+
+.cs_notification_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 320px;
+  overflow-y: auto;
+
+  li:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  a {
+    display: flex;
+    gap: 12px;
+    padding: 14px 20px;
+
+    &:hover {
+      background-color: var(--gray3-color);
+    }
+  }
+
+  .cs_notification_icon {
+    width: 38px;
+    height: 38px;
+    flex: none;
+    border-radius: 50%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include cs-tint(var(--accent-color));
+
+    &.cs_icon_warning {
+      @include cs-tint(var(--cs-warning-color));
+    }
+
+    &.cs_icon_info {
+      @include cs-tint(var(--cs-info-color));
+    }
+  }
+}
+
+.cs_profile_toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: start;
+
+  img {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 991px) {
+    .cs_profile_toggle_info {
+      display: none;
+    }
+  }
+}
+
+.cs_profile_dropdown .cs_dropdown_panel {
+  width: 240px;
+}
+
+.cs_profile_dropdown_list {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+
+  a,
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: var(--secondary-color);
+    text-align: start;
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+      background-color: var(--gray3-color);
+    }
+  }
+
+  i {
+    width: 18px;
+    text-align: center;
+  }
+
+  .cs_list_label {
+    display: block;
+    padding: 8px 12px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .cs_divider {
+    height: 1px;
+    margin: 8px 4px;
+    background-color: var(--border-color);
+  }
+}
+
+/*------------------------------------------
+ Page heading
+--------------------------------------------*/
+.cs_dashboard_heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px 30px;
+  margin-bottom: 30px;
+}
+
+.cs_dashboard_breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+
+  li:not(:last-child)::after {
+    content: "/";
+    margin-inline-start: 8px;
+    opacity: 0.5;
+  }
+
+  a:hover {
+    color: var(--accent-color);
+  }
+}
+
+/*------------------------------------------
+ Cards
+--------------------------------------------*/
+.cs_dashboard_card {
+  padding: 24px;
+  background-color: var(--cs-card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: var(--cs-card-shadow);
+
+  .cs_card_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-bottom: 20px;
+  }
+
+  .cs_card_link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+    white-space: nowrap;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
+
+  @media (max-width: 575px) {
+    padding: 20px 15px;
+  }
+}
+
+// Equal-height cards in a row; stacked cards keep their own height
+.row>[class*="col"]>.cs_dashboard_card:only-child {
+  height: 100%;
+}
+
+/* Summary stat card */
+.cs_stat_card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  .cs_stat_top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+  }
+
+  .cs_stat_icon {
+    width: 54px;
+    height: 54px;
+    flex: none;
+    border-radius: 10px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .cs_stat_value {
+    font-size: 31px;
+    line-height: 1.2em;
+    margin: 4px 0 0;
+  }
+
+  .cs_stat_trend {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+  }
+
+  .cs_trend {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    line-height: 24px;
+
+    &.cs_trend_up {
+      @include cs-tint(var(--cs-success-color));
+    }
+
+    &.cs_trend_down {
+      @include cs-tint(var(--danger-color));
+    }
+  }
+
+  &:hover .cs_stat_icon {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+/* Segmented period filter (7D / 30D / 12M) */
+.cs_segmented {
+  display: inline-flex;
+  padding: 4px;
+  border: 1px solid var(--border-color);
+  gap: 3px;
+  border-radius: 10px;
+
+  button {
+    padding: 4px 14px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--secondary-color);
+    background-color: var(--gray2-color);
+
+    &:hover {
+      color: var(--primary-color);
+    }
+
+    &.active {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+/* Chart */
+.cs_chart_legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 14px;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.cs_chart_legend,
+.cs_chart_tooltip {
+  .cs_legend_mark {
+    flex: none;
+    width: 18px;
+    height: 0;
+    border-top: 3px solid var(--accent-color);
+
+    &.cs_legend_dashed {
+      border-top: 2px dashed var(--secondary-color);
+      opacity: 0.6;
+    }
+  }
+}
+
+// SVG chart drawn by main.js (Analytics Charts)
+.cs_chart_wrap {
+  position: relative;
+  min-height: 330px;
+
+  svg {
+    display: block;
+    overflow: visible;
+    direction: ltr; // time runs left to right in both layouts
+    touch-action: pan-y;
+  }
+}
+
+.cs_chart_axis text {
+  font-family: var(--secondary-font);
+  font-size: 12px;
+  fill: var(--secondary-color);
+}
+
+.cs_chart_grid,
+.cs_chart_baseline,
+.cs_chart_crosshair {
+  stroke: var(--border-color);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+.cs_chart_grid {
+  stroke-dasharray: 4;
+}
+
+.cs_chart_stop {
+  stop-color: var(--accent-color);
+}
+
+.cs_chart_line {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cs_chart_line_prev {
+  stroke: var(--secondary-color);
+  stroke-width: 2;
+  stroke-dasharray: 5;
+  opacity: 0.6;
+}
+
+.cs_chart_marker {
+  fill: var(--accent-color);
+  stroke: var(--cs-card-bg);
+  stroke-width: 2;
+}
+
+.cs_chart_marker_prev {
+  fill: var(--secondary-color);
+}
+
+.cs_chart_hover {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cs_chart_tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  min-width: 190px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--secondary-color);
+  background-color: var(--cs-card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.cs_chart_tooltip_title {
+  margin-bottom: 6px;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.cs_chart_tooltip_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+  }
+
+  strong {
+    margin-inline-start: auto;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+}
+
+.cs_chart_active {
+  .cs_chart_hover {
+    visibility: visible;
+  }
+
+  .cs_chart_tooltip {
+    opacity: 1;
+  }
+}
+
+/* Recent messages list */
+.cs_message_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  a {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+
+    &:hover .cs_message_name {
+      color: var(--accent-color);
+    }
+  }
+
+  li:first-child a {
+    padding-top: 0;
+  }
+
+  li:last-child a {
+    padding-bottom: 0;
+  }
+
+  img {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .cs_message_body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cs_message_top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .cs_message_name {
+    transition: color 0.3s ease;
+  }
+
+  .cs_message_text {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .cs_unread .cs_message_name::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-inline-start: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    vertical-align: middle;
+  }
+}
+
+/* Table wrapper: scrolls (scrollbar hidden) only below 1200px */
+.cs_dashboard_content .overflow-x-auto {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 1200px) {
+    overflow-x: visible !important;
+  }
+}
+
+/* Activity table */
+.cs_dashboard_table {
+  min-width: 720px;
+  margin-bottom: 0;
+
+  th,
+  td {
+    border-top: 0;
+    padding: 14px 16px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  thead th {
+    font-family: var(--primary-font);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+
+    &:first-child {
+      border-start-start-radius: 10px;
+      border-end-start-radius: 10px;
+    }
+
+    &:last-child {
+      border-start-end-radius: 10px;
+      border-end-end-radius: 10px;
+    }
+  }
+
+  tbody tr:not(:last-child) td {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cs_table_property {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    img {
+      width: 64px;
+      height: 48px;
+      flex: none;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+}
+
+/* Icon action button (tables, feature lists). Label comes from data-tooltip */
+.cs_table_action {
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--primary-color);
+  position: relative;
+
+  &:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  &.cs_action_approve:hover {
+    background-color: var(--cs-success-color);
+    border-color: var(--cs-success-color);
+    color: #fff;
+  }
+
+  &.cs_action_reject:hover {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: #fff;
+  }
+
+  // Tooltip bubble + arrow, shown on hover and keyboard focus
+  &[data-tooltip] {
+    &::before,
+    &::after {
+      position: absolute;
+      left: 50%;
+      bottom: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate(-50%, 4px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      z-index: 5;
+    }
+
+    &::before {
+      content: "";
+      margin-bottom: 2px;
+      border: 5px solid transparent;
+      border-top-color: var(--primary-color);
+    }
+
+    &::after {
+      content: attr(data-tooltip);
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      font-family: var(--secondary-font);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.4;
+      white-space: nowrap;
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    &:hover,
+    &:focus-visible {
+      &::before,
+      &::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, 0);
+      }
+    }
+  }
+}
+
+/* Row of table action buttons (edit / approve / reject) */
+.cs_table_actions {
+  display: inline-flex;
+  gap: 8px;
+}
+
+/* Table row action menu: 3-dot toggle opens a vertical icon list, tooltips on the start side */
+.cs_action_menu {
+  position: relative;
+  display: inline-flex;
+
+  .cs_action_menu_list {
+    position: absolute;
+    top: calc(100% + 6px);
+    inset-inline-end: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--white-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  &.cs_active {
+    .cs_action_menu_toggle {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    .cs_action_menu_list {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  // Tooltip at the start side, vertically centered
+  .cs_action_menu_list .cs_table_action[data-tooltip] {
+
+    &::before,
+    &::after {
+      left: auto;
+      bottom: auto;
+      top: 50%;
+      inset-inline-end: 100%;
+      transform: translate(calc(4px * var(--cs-dir)), -50%);
+    }
+
+    &::before {
+      margin: 0;
+      margin-inline-end: 2px;
+      border-color: transparent;
+      border-inline-start-color: var(--primary-color);
+    }
+
+    &::after {
+      margin: 0;
+      margin-inline-end: 12px;
+    }
+
+    &:hover,
+    &:focus-visible {
+
+      &::before,
+      &::after {
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}
+
+// Last rows open the menu upward so it stays inside the table
+.cs_dashboard_table tbody tr:nth-last-child(-n+2) .cs_action_menu .cs_action_menu_list {
+  top: auto;
+  bottom: calc(100% + 6px);
+  transform: translateY(4px);
+}
+
+.cs_dashboard_table tbody tr:nth-last-child(-n+2) .cs_action_menu.cs_active .cs_action_menu_list {
+  transform: translateY(0);
+}
+
+/* Saved property card (Buyer) */
+.cs_saved_property {
+  height: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+
+  .cs_saved_property_thumb {
+    display: block;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .cs_status_badge {
+      position: absolute;
+      top: 12px;
+      inset-inline-start: 12px;
+      background-color: var(--cs-card-bg);
+    }
+  }
+
+  .cs_saved_property_remove {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--danger-color);
+    background-color: var(--cs-card-bg);
+    position: absolute;
+    top: 12px;
+    inset-inline-end: 12px;
+  }
+
+  .cs_saved_property_info {
+    padding: 16px;
+  }
+
+  .cs_saved_property_meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    font-size: 14px;
+    line-height: 1.4;
+    font-variant-numeric: lining-nums;
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    i {
+      width: 16px;
+      flex: none;
+      text-align: center;
+      color: var(--primary-color);
+    }
+  }
+
+  &:hover .cs_saved_property_thumb img {
+    transform: scale(1.06);
+  }
+}
+
+/*==============================================================
+  Dashboard Pages
+  Components used by the inner pages of every role folder
+================================================================*/
+
+/* Filter tabs with counts (listings, approvals, users) */
+.cs_filter_tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--secondary-color);
+
+    span {
+      min-width: 22px;
+      padding: 0 6px;
+      border-radius: 11px;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      background-color: var(--gray3-color);
+      color: var(--primary-color);
+    }
+
+    &:hover {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+
+    &.active {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+
+      span {
+        color: var(--primary-color);
+        background-color: var(--white-color);
+      }
+    }
+  }
+}
+
+/* Search + sort row above tables and grids */
+.cs_table_toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+
+  .cs_toolbar_right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .cs_topbar_search {
+    display: block;
+    width: 260px;
+
+    @media (max-width: 575px) {
+      width: 100%;
+    }
+  }
+
+  .cs_select {
+    min-width: 170px;
+  }
+}
+
+.cs_dashboard_pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 24px;
+  font-size: 14px;
+
+  ul {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+
+    &:hover,
+    &.active {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+}
+
+/* Table cell: round avatar + name + email */
+.cs_table_user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  img {
+    width: 42px;
+    height: 42px;
+    flex: none;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.cs_empty_row td {
+  padding: 40px 16px !important;
+  text-align: center !important;
+}
+
+/*------------------------------------------
+ Forms
+--------------------------------------------*/
+.cs_dashboard_form {
+  .cs_form_section:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .cs_form_section_title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+
+    i {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 15px;
+      @include cs-tint(var(--accent-color));
+    }
+  }
+
+  .cs_form_label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  .cs_form_field {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--primary-color);
+
+    &::placeholder {
+      color: var(--secondary-color);
+      opacity: 0.7;
+    }
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+  }
+
+  textarea.cs_form_field {
+    height: auto;
+    min-height: 140px;
+    padding-top: 12px;
+    resize: vertical;
+  }
+
+  .cs_form_hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    opacity: 0.8;
+  }
+}
+
+/* Native select with an icon-font arrow (works in dark mode and RTL) */
+.cs_select {
+  position: relative;
+
+  select {
+    width: 100%;
+    height: 50px;
+    padding: 0 15px;
+    padding-inline-end: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--primary-color);
+    outline: 0;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+
+    option {
+      color: var(--primary-color);
+      background-color: var(--cs-card-bg);
+    }
+  }
+
+  &::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 11px;
+    color: var(--secondary-color);
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  &.cs_select_sm select {
+    height: 44px;
+  }
+
+  // Tom Select version (main.js turns every .cs_select select into one)
+  &::after {
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+
+  &:has(.ts-wrapper.dropdown-active)::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .ts-wrapper {
+    width: 100%;
+    --ts-pr-min: 40px; // Tom Select pads the arrow side with !important, so set its variable
+  }
+
+  .ts-control {
+    height: 50px;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--primary-color);
+    white-space: nowrap;
+
+    .item {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    input {
+      color: var(--primary-color);
+    }
+  }
+
+  .ts-wrapper.focus .ts-control {
+    border-color: var(--primary-color);
+  }
+
+  &.cs_select_sm .ts-control {
+    height: 44px;
+  }
+
+  .ts-dropdown {
+    margin-top: 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--cs-card-bg);
+    box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    transform: translateY(8px);
+
+    &.active {
+      transform: translateY(0);
+    }
+
+    .ts-dropdown-content {
+      max-height: 260px;
+      padding: 6px;
+    }
+
+    .option {
+      padding: 9px 12px;
+      border-radius: 6px;
+      font-size: 15px;
+      color: var(--secondary-color);
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &.active {
+        color: var(--primary-color);
+        background-color: var(--gray3-color);
+      }
+
+      &.selected {
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* Input with a leading icon (price, social links) */
+.cs_input_icon_wrap {
+  position: relative;
+
+  i {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 16px;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    pointer-events: none;
+  }
+
+  .cs_form_field {
+    padding-inline-start: 42px;
+  }
+}
+
+/* File upload drop zone */
+.cs_upload_box {
+  position: relative;
+  padding: 40px 20px;
+  border: 2px dashed var(--border-color);
+  border-radius: 10px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+
+  input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .cs_upload_icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 22px;
+    @include cs-tint(var(--accent-color));
+  }
+
+  &:hover,
+  &.cs_dragover {
+    border-color: var(--accent-color);
+  }
+}
+
+.cs_upload_previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+
+  div {
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  button {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: var(--danger-color);
+    background-color: var(--cs-card-bg);
+    position: absolute;
+    top: 6px;
+    inset-inline-end: 6px;
+  }
+}
+
+.cs_checkbox_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px 20px;
+}
+
+/* On / off switch */
+.cs_toggle_switch {
+  display: inline-flex;
+  flex: none;
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  span {
+    width: 44px;
+    height: 24px;
+    border-radius: 12px;
+    background-color: var(--border-color);
+    position: relative;
+    transition: background-color 0.3s ease;
+
+    &::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: absolute;
+      top: 3px;
+      inset-inline-start: 3px;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  input:checked+span {
+    background-color: var(--accent-color);
+
+    &::before {
+      transform: translateX(calc(20px * var(--cs-dir)));
+    }
+  }
+
+  input:focus-visible+span {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+}
+
+/* Setting row: text on one side, switch on the other */
+.cs_setting_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.cs_form_actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* Outline button variant of .cs_btn.cs_style_1 */
+.cs_btn.cs_style_1.cs_btn_outline {
+  color: var(--primary-color);
+  background-color: transparent;
+
+  &::before {
+    background-color: var(--primary-color);
+  }
+
+  &:hover {
+    color: var(--white-color);
+  }
+}
+
+.cs_btn.cs_style_1.cs_btn_danger {
+  color: var(--danger-color);
+  border-color: var(--danger-color);
+  background-color: transparent;
+
+  &::before {
+    background-color: var(--danger-color);
+  }
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+/* Sticky side card on form pages */
+.cs_sticky_card {
+  position: sticky;
+  top: calc(var(--cs-topbar-height) + 30px);
+}
+
+.cs_checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    gap: 12px;
+
+    &:not(:last-child) {
+      margin-bottom: 14px;
+    }
+
+    i {
+      width: 22px;
+      height: 22px;
+      flex: none;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 11px;
+      @include cs-tint(var(--accent-color));
+    }
+  }
+}
+
+/*------------------------------------------
+ Messages (chat)
+--------------------------------------------*/
+.cs_chat {
+  height: calc(100vh - var(--cs-topbar-height) - 170px);
+  min-height: 560px;
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+
+  .cs_chat_sidebar {
+    width: 340px;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    border-inline-end: 1px solid var(--border-color);
+  }
+
+  .cs_chat_sidebar_head {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+
+    .cs_topbar_search {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .cs_chat_list {
+    flex: 1;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+  }
+
+  .cs_chat_item {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: start;
+
+    img {
+      width: 46px;
+      height: 46px;
+      flex: none;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    &:hover {
+      background-color: var(--gray3-color);
+    }
+
+    &.active {
+      background-color: var(--gray3-color);
+      box-shadow: inset 3px 0 0 var(--accent-color);
+    }
+  }
+
+  [dir="rtl"] & .cs_chat_item.active {
+    box-shadow: inset -3px 0 0 var(--accent-color);
+  }
+
+  .cs_chat_item_body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cs_chat_item_top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .cs_chat_item_text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    span:first-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .cs_chat_main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cs_chat_head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+
+    img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .cs_chat_head_info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cs_chat_back {
+      display: none;
+    }
+  }
+
+  .cs_chat_property {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 20px 0;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+
+    img {
+      width: 56px;
+      height: 42px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+  }
+
+  .cs_chat_thread {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .cs_chat_day {
+    align-self: center;
+    font-size: 12px;
+    padding: 2px 12px;
+    border-radius: 20px;
+    background-color: var(--gray3-color);
+  }
+
+  .cs_chat_bubble {
+    max-width: min(75%, 520px);
+    padding: 12px 16px;
+    border-radius: 14px;
+    border-end-start-radius: 4px;
+    background-color: var(--gray3-color);
+    color: var(--primary-color);
+
+    time {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    &.cs_out {
+      align-self: flex-end;
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-radius: 14px;
+      border-end-end-radius: 4px;
+    }
+  }
+
+  .cs_chat_form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    border-top: 1px solid var(--border-color);
+
+    input {
+      flex: 1;
+      min-width: 0;
+      height: 46px;
+      padding: 0 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      background-color: transparent;
+      color: var(--primary-color);
+      outline: 0;
+
+      &:focus {
+        border-color: var(--primary-color);
+      }
+    }
+
+    .cs_chat_send {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+
+  // Mobile: list first, thread slides over it
+  @media (max-width: 991px) {
+    position: relative;
+
+    .cs_chat_sidebar {
+      width: 100%;
+      border-inline-end: 0;
+    }
+
+    .cs_chat_main {
+      position: absolute;
+      inset: 0;
+      background-color: var(--cs-card-bg);
+      transform: translateX(calc(100% * var(--cs-dir)));
+      transition: transform 0.3s ease;
+    }
+
+    &.cs_chat_open .cs_chat_main {
+      transform: translateX(0);
+    }
+
+    .cs_chat_head .cs_chat_back {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 575px) {
+    height: calc(100vh - var(--cs-topbar-height) - 150px);
+
+    .cs_chat_bubble {
+      max-width: 88%;
+    }
+  }
+}
+
+/*------------------------------------------
+ Reviews
+--------------------------------------------*/
+.cs_rating_summary {
+  text-align: center;
+
+  .cs_rating_score {
+    font-size: 61px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .cs_rating {
+    margin: 0 auto 8px;
+  }
+}
+
+.cs_rating_bars {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  .cs_progress {
+    flex: 1;
+  }
+
+  span:first-child {
+    width: 46px;
+    flex: none;
+    white-space: nowrap;
+  }
+
+  span:last-child {
+    width: 30px;
+    flex: none;
+    text-align: end;
+  }
+}
+
+.cs_review_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  >li {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border-color);
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+}
+
+.cs_review_item {
+  .cs_review_head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+
+    img {
+      width: 52px;
+      height: 52px;
+      flex: none;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .cs_review_head_info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cs_review_meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    font-size: 14px;
+  }
+
+  .cs_rating {
+    width: 90px;
+    font-size: 13px;
+    letter-spacing: 4px;
+    height: 20px;
+  }
+
+  .cs_review_reply {
+    margin-top: 14px;
+    margin-inline-start: 66px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border-inline-start: 3px solid var(--accent-color);
+    background-color: var(--gray3-color);
+  }
+
+  .cs_review_actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    margin-inline-start: 66px;
+    font-size: 14px;
+    font-weight: 500;
+
+    button {
+      color: var(--primary-color);
+
+      &:hover {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  @media (max-width: 575px) {
+
+    .cs_review_reply,
+    .cs_review_actions {
+      margin-inline-start: 0;
+    }
+  }
+}
+
+/* Dashboard modal (native <dialog>, opened with [data-modal-open]) */
+.cs_dash_modal {
+  width: min(100% - 30px, 560px);
+  max-height: calc(100vh - 40px);
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  color: var(--secondary-color);
+  background-color: var(--cs-card-bg);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity 0.25s ease, transform 0.25s ease, overlay 0.25s allow-discrete, display 0.25s allow-discrete;
+
+  &[open] {
+    opacity: 1;
+    transform: none;
+
+    @starting-style {
+      opacity: 0;
+      transform: translateY(16px) scale(0.98);
+    }
+  }
+
+  &::backdrop {
+    background-color: rgba(17, 17, 17, 0.5);
+    backdrop-filter: blur(2px);
+  }
+
+  .cs_dash_modal_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cs_dash_modal_close {
+    width: 36px;
+    height: 36px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--primary-color);
+
+    &:hover {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+
+  .cs_dash_modal_body {
+    padding: 24px;
+
+    fieldset {
+      border: 0;
+      padding: 0;
+    }
+
+    legend {
+      float: none;
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+
+  .cs_dash_modal_foot {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  // Who / what is being reviewed
+  .cs_review_subject {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    background-color: var(--gray3-color);
+
+    img {
+      width: 52px;
+      height: 52px;
+      flex: none;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+/* Clickable star rating (radios in 5 → 1 order, shown 1 → 5) */
+.cs_star_input {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+
+  label {
+    font-size: 26px;
+    line-height: 1;
+    color: var(--border-color);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.12);
+    }
+  }
+
+  input:checked~label {
+    color: var(--accent-color);
+  }
+
+  // While hovering, preview the hovered value instead of the saved one
+  &:hover input~label {
+    color: var(--border-color);
+  }
+
+  &:hover label:hover,
+  &:hover label:hover~label {
+    color: var(--accent-color);
+  }
+
+  input:focus-visible+label {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/*------------------------------------------
+ Plans, billing & payments
+--------------------------------------------*/
+.cs_plan_card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  position: relative;
+
+  .cs_plan_price {
+    font-size: 39px;
+    line-height: 1.2;
+    margin: 10px 0 4px;
+
+    small {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--secondary-color);
+    }
+  }
+
+  .cs_plan_features {
+    flex: 1;
+    list-style: none;
+    margin: 20px 0 24px;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--border-color);
+
+    li {
+      display: flex;
+      gap: 10px;
+      font-size: 15px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      i {
+        margin-top: 5px;
+        font-size: 13px;
+        color: var(--accent-color);
+      }
+
+      &.cs_disabled {
+        opacity: 0.5;
+
+        i {
+          color: var(--secondary-color);
+        }
+      }
+    }
+  }
+
+  .cs_btn {
+    width: 100%;
+  }
+
+  .cs_plan_tag {
+    position: absolute;
+    top: 20px;
+    inset-inline-end: 20px;
+  }
+
+  &.cs_current {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 1px var(--primary-color);
+  }
+}
+
+// Package editor: editable feature rows + "Add Feature" field
+.cs_feature_list {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  .cs_form_field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cs_toggle_switch,
+  .cs_table_action {
+    flex: none;
+  }
+}
+
+.cs_feature_add {
+  display: flex;
+  gap: 12px;
+
+  .cs_form_field {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cs_btn {
+    flex: none;
+  }
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+  }
+}
+
+.cs_usage_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li:not(:last-child) {
+    margin-bottom: 18px;
+  }
+
+  .cs_usage_top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+}
+
+.cs_payment_card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  >i {
+    width: 54px;
+    height: 38px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 26px;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+  }
+
+  div {
+    flex: 1;
+  }
+}
+
+/*------------------------------------------
+ Profile settings
+--------------------------------------------*/
+.cs_profile_card {
+  text-align: center;
+
+  .cs_profile_card_thumb {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 16px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--gray3-color);
+    }
+
+    label {
+      width: 34px;
+      height: 34px;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 14px;
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border: 3px solid var(--cs-card-bg);
+      position: absolute;
+      bottom: 0;
+      inset-inline-end: 4px;
+      cursor: pointer;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  .cs_profile_card_info {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--border-color);
+    text-align: start;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      word-break: break-word;
+
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+
+      i {
+        width: 18px;
+        flex: none;
+        text-align: center;
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+
+/* Settings page: sticky section nav */
+.cs_settings_nav {
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 14px;
+    border-radius: 8px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--secondary-color);
+
+    i {
+      width: 18px;
+      text-align: center;
+    }
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+      background-color: var(--gray3-color);
+    }
+  }
+}
+
+.cs_settings_section {
+  scroll-margin-top: calc(var(--cs-topbar-height) + 30px);
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+/*------------------------------------------
+ Footer
+--------------------------------------------*/
+.cs_dashboard_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 20px 30px;
+  font-size: 14px;
+  border-top: 1px solid var(--border-color);
+
+  a:hover {
+    color: var(--accent-color);
+  }
+
+  @media (max-width: 575px) {
+    padding: 20px 15px;
+    justify-content: center;
+    text-align: center;
+  }
+}
+/*------------------------------------------
+ Page transitions (dashboard pages opt in with
+ @view-transition in their <head>). Sidebar and topbar
+ stay in place, only the content fades and lifts in.
+--------------------------------------------*/
+.cs_dashboard {
+  .cs_dashboard_sidebar {
+    view-transition-name: cs-dashboard-sidebar;
+  }
+
+  .cs_dashboard_topbar {
+    view-transition-name: cs-dashboard-topbar;
+  }
+}
+
+::view-transition-old(root) {
+  animation: cs_page_out 0.18s ease both;
+}
+
+::view-transition-new(root) {
+  animation: cs_page_in 0.38s cubic-bezier(0.2, 0, 0, 1) both;
+}
+
+::view-transition-old(cs-dashboard-sidebar),
+::view-transition-new(cs-dashboard-sidebar),
+::view-transition-old(cs-dashboard-topbar),
+::view-transition-new(cs-dashboard-topbar) {
+  animation-duration: 0.2s;
+}
+
+::view-transition-group(cs-menu-active) {
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes cs_page_out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes cs_page_in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+// Preloader only on the first dashboard page of a visit (class set in <head>)
+.cs_preloader_skip .cs_preloader {
+  display: none;
+}

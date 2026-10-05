@@ -79,7 +79,13 @@
     flex-wrap: wrap;
 
     li {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
       span:first-child {
+        display: flex;
+        flex: none;
         margin-inline-end: 14px;
       }
 
@@ -942,7 +948,13 @@
     flex-wrap: wrap;
 
     li {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
       span:first-child {
+        display: flex;
+        flex: none;
         margin-inline-end: 14px;
       }
     }
@@ -1103,8 +1115,13 @@
 
     li {
       position: relative;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
 
       span:first-child {
+        display: flex;
+        flex: none;
         margin-inline-end: 14px;
       }
 

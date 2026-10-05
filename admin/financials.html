@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="keywords" content="financials and invoices, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Financials & Invoices - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Site Admin dashboard · Financials & Invoices. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="financials.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active">3 New</span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">8 properties waiting for approval</span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">12 new users signed up today</span>
+                        <span class="d-block cs_fs_14">30 min ago</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice #INV-2041 paid ($49)</span>
+                        <span class="d-block cs_fs_14">2 hours ago</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Financials & Invoices</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Financials</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="#" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10">
+                <span><i class="fa-solid fa-download"></i></span>
+                <span>Export Report</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Start Summary Cards -->
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Revenue This Month</p>
+                    <h2 class="cs_stat_value cs_semibold">$<span class="odometer" data-count-to="48560"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>5.1%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Year to Date</p>
+                    <h2 class="cs_stat_value cs_semibold">$<span class="odometer" data-count-to="412830"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-chart-line"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>18.6%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Outstanding</p>
+                    <h2 class="cs_stat_value cs_semibold">$<span class="odometer" data-count-to="3240"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-hourglass-half"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_down"><i class="fa-solid fa-arrow-trend-down"></i>9.2%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="300">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Refunds</p>
+                    <h2 class="cs_stat_value cs_semibold">$<span class="odometer" data-count-to="860"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-rotate-left"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_down"><i class="fa-solid fa-arrow-trend-down"></i>1.3%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Summary Cards -->
+
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xl-8">
+              <!-- Start Analytics Chart -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Revenue</h2>
+                    <p class="cs_fs_14 mb-0">Packages & subscriptions, this period vs the previous one</p>
+                  </div>
+                  <div class="cs_segmented cs_chart_period" role="group" aria-label="Chart period">
+                    <button type="button" data-period="7d" aria-pressed="false">7D</button>
+                    <button type="button" data-period="30d" aria-pressed="false">30D</button>
+                    <button type="button" data-period="12m" class="active" aria-pressed="true">12M</button>
+                  </div>
+                </div>
+                <ul class="cs_chart_legend">
+                  <li><span class="cs_legend_mark"></span>This period</li>
+                  <li><span class="cs_legend_mark cs_legend_dashed"></span>Previous period</li>
+                </ul>
+                <!-- SVG chart renders here: data-chart picks the dataset in assets/js/main.js -->
+                <div class="cs_chart_wrap" data-chart="revenue" role="img" aria-label="Area chart of revenue, this period compared with the previous period"></div>
+                <!-- Same numbers for screen readers -->
+                <table class="cs_chart_table visually-hidden">
+                  <caption>Revenue</caption>
+                  <thead><tr><th scope="col">Period</th><th scope="col">This period</th><th scope="col">Previous period</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <!-- End Analytics Chart -->
+            </div>
+            <div class="col-xl-4">
+              <!-- Start Revenue by Package -->
+              <div class="cs_dashboard_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Revenue by Package</h2>
+                    <p class="cs_fs_14 mb-0">This month</p>
+                  </div>
+                </div>
+                <ul class="cs_usage_list">
+                  <li><div class="cs_usage_top"><span>Premium</span><span class="cs_primary_color cs_semibold">$30,110 · 62%</span></div><div class="cs_progress"><span style="width: 62%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Enterprise</span><span class="cs_primary_color cs_semibold">$13,110 · 27%</span></div><div class="cs_progress"><span style="width: 27%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Featured add-ons</span><span class="cs_primary_color cs_semibold">$4,370 · 9%</span></div><div class="cs_progress"><span style="width: 9%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Other</span><span class="cs_primary_color cs_semibold">$970 · 2%</span></div><div class="cs_progress"><span style="width: 2%"></span></div></li>
+                </ul>
+              </div>
+              <!-- End Revenue by Package -->
+            </div>
+          </div>
+
+          <!-- Start Invoices -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_card_head">
+              <div>
+                <h2 class="cs_fs_20 cs_semibold mb-0">Invoices</h2>
+              </div>
+            </div>
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#invoiceTable" aria-label="Filter">
+                <li><button type="button" data-filter="all" aria-pressed="true" class="active">All <span>2310</span></button></li>
+                <li><button type="button" data-filter="paid" aria-pressed="false">Paid <span>2241</span></button></li>
+                <li><button type="button" data-filter="pending" aria-pressed="false">Pending <span>52</span></button></li>
+                <li><button type="button" data-filter="overdue" aria-pressed="false">Overdue <span>17</span></button></li>
+              </ul>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input type="search" placeholder="Search invoices" aria-label="Search invoices">
+                </form>
+
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table" id="invoiceTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Invoice</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="paid">
+                    <td><span class="cs_primary_color cs_semibold">#INV-2041</span></td>
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-5.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h3>
+                          <p class="cs_fs_14 mb-0"></p>
+                        </div>
+                      </div></td>
+                    <td>Premium · Monthly</td>
+                    <td>Oct 05, 2026</td>
+                    <td><span class="cs_primary_color cs_semibold">$49.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="#" class="cs_table_action" aria-label="Download #INV-2041" data-tooltip="Download"><i class="fa-solid fa-download"></i></a><button type="button" class="cs_table_action" aria-label="Send #INV-2041 to Amanda Jones" data-tooltip="Send invoice"><i class="fa-regular fa-paper-plane"></i></button></div></td>
+                  </tr>
+                  <tr data-status="paid">
+                    <td><span class="cs_primary_color cs_semibold">#INV-2040</span></td>
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-1.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks</h3>
+                          <p class="cs_fs_14 mb-0"></p>
+                        </div>
+                      </div></td>
+                    <td>Enterprise · Monthly</td>
+                    <td>Oct 05, 2026</td>
+                    <td><span class="cs_primary_color cs_semibold">$149.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="#" class="cs_table_action" aria-label="Download #INV-2040" data-tooltip="Download"><i class="fa-solid fa-download"></i></a><button type="button" class="cs_table_action" aria-label="Send #INV-2040 to Daniel Brooks" data-tooltip="Send invoice"><i class="fa-regular fa-paper-plane"></i></button></div></td>
+                  </tr>
+                  <tr data-status="pending">
+                    <td><span class="cs_primary_color cs_semibold">#INV-2039</span></td>
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-4.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Ethan Wilson</h3>
+                          <p class="cs_fs_14 mb-0"></p>
+                        </div>
+                      </div></td>
+                    <td>Premium · Monthly</td>
+                    <td>Oct 04, 2026</td>
+                    <td><span class="cs_primary_color cs_semibold">$49.00</span></td>
+                    <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="#" class="cs_table_action" aria-label="Download #INV-2039" data-tooltip="Download"><i class="fa-solid fa-download"></i></a><button type="button" class="cs_table_action" aria-label="Send #INV-2039 to Ethan Wilson" data-tooltip="Send invoice"><i class="fa-regular fa-paper-plane"></i></button></div></td>
+                  </tr>
+                  <tr data-status="paid">
+                    <td><span class="cs_primary_color cs_semibold">#INV-2038</span></td>
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-3.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h3>
+                          <p class="cs_fs_14 mb-0"></p>
+                        </div>
+                      </div></td>
+                    <td>Featured add-on</td>
+                    <td>Oct 03, 2026</td>
+                    <td><span class="cs_primary_color cs_semibold">$15.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="#" class="cs_table_action" aria-label="Download #INV-2038" data-tooltip="Download"><i class="fa-solid fa-download"></i></a><button type="button" class="cs_table_action" aria-label="Send #INV-2038 to Michael Chen" data-tooltip="Send invoice"><i class="fa-regular fa-paper-plane"></i></button></div></td>
+                  </tr>
+                  <tr data-status="overdue">
+                    <td><span class="cs_primary_color cs_semibold">#INV-2031</span></td>
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-7.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Taylor Reed</h3>
+                          <p class="cs_fs_14 mb-0"></p>
+                        </div>
+                      </div></td>
+                    <td>Premium · Monthly</td>
+                    <td>Sep 28, 2026</td>
+                    <td><span class="cs_primary_color cs_semibold">$49.00</span></td>
+                    <td><span class="cs_status_badge cs_status_expired">Overdue</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="#" class="cs_table_action" aria-label="Download #INV-2031" data-tooltip="Download"><i class="fa-solid fa-download"></i></a><button type="button" class="cs_table_action" aria-label="Send #INV-2031 to Taylor Reed" data-tooltip="Send invoice"><i class="fa-regular fa-paper-plane"></i></button></div></td>
+                  </tr>
+                  <tr data-status="paid">
+                    <td><span class="cs_primary_color cs_semibold">#INV-2027</span></td>
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-6.jpg" alt="">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Jordan Lee</h3>
+                          <p class="cs_fs_14 mb-0"></p>
+                        </div>
+                      </div></td>
+                    <td>Premium · Yearly</td>
+                    <td>Sep 26, 2026</td>
+                    <td><span class="cs_primary_color cs_semibold">$490.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="#" class="cs_table_action" aria-label="Download #INV-2027" data-tooltip="Download"><i class="fa-solid fa-download"></i></a><button type="button" class="cs_table_action" aria-label="Send #INV-2027 to Jordan Lee" data-tooltip="Send invoice"><i class="fa-regular fa-paper-plane"></i></button></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="7">No invoices with this status.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="cs_dashboard_pagination">
+              <p class="mb-0">Showing 1&ndash;6 of 2,310 invoices</p>
+              <ul>
+                <li><a href="#" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#" class="active" aria-current="page">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- End Invoices -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/data-tables.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

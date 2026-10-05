@@ -1,5 +1,5 @@
 /*===============================================================
- 22. RTL Support
+ 23. RTL Support
 =================================================================*/
 [dir="rtl"] {
   --cs-dir: -1;
@@ -21,8 +21,13 @@
   }
 
   // Numbers mixed with keep LTR order
-  .cs_counter_number {
+  .cs_counter_number,
+  .cs_stat_value {
     direction: ltr;
+  }
+
+  .cs_stat_value {
+    text-align: right;
   }
 
   .cs_counter:not(.text-center) .cs_counter_number {
@@ -85,20 +90,15 @@
 /*=======================================================
  Direction Switch Button
 =========================================================*/
+// Gear button on the screen edge; the settings box opens beside it
 .cs_dir_switch {
   position: fixed;
   top: 50%;
   inset-inline-end: 0;
   z-index: 998; // below the header (999) so the mobile menu covers it
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 4px;
-  border-start-start-radius: 10px;
-  border-end-start-radius: 10px;
-  // Fixed colors: --white-color / --primary-color swap in dark mode
-  background-color: #1d1d1d;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  align-items: center;
+  gap: 8px;
   transform: translateY(-50%);
 
   button {
@@ -122,5 +122,73 @@
       color: #1d1d1d;
       cursor: default;
     }
+  }
+}
+
+// Fixed colors: --white-color / --primary-color swap in dark mode
+.cs_settings_panel,
+.cs_dir_switch .cs_settings_toggle {
+  background-color: #1d1d1d;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cs_dir_switch .cs_settings_toggle {
+  padding: 13px 14px;
+  border-radius: 0;
+  border-start-start-radius: 10px;
+  border-end-start-radius: 10px;
+  font-size: 18px;
+
+  // Hidden while the box is open (main.js sets the hidden attribute)
+  &[hidden] {
+    display: none;
+  }
+}
+
+.cs_settings_panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  border-start-start-radius: 10px;
+  border-end-start-radius: 10px;
+
+  // Closed: main.js sets the hidden attribute
+  &[hidden] {
+    display: none;
+  }
+}
+
+// LTR | RTL and Device | Light | Dark rows (color row added by main.js)
+.cs_dir_group,
+.cs_mode_switch {
+  display: flex;
+  gap: 4px;
+
+  button {
+    flex: 1;
+  }
+}
+
+// Dashboard pages: LTR above RTL (no gear, box always visible)
+.cs_dashboard .cs_dir_group {
+  flex-direction: column;
+}
+
+.cs_mode_switch {
+  justify-content: space-between;
+  padding-top: 4px;
+  border-top: 1px solid #434343;
+
+  // Square icon buttons
+  .cs_dir_switch & button {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 0;
+    padding: 0;
   }
 }

@@ -38,6 +38,13 @@ body {
   }
 }
 
+// Dark mode from the color mode switch (class on <html>).
+// :where() keeps it low so .cs_dashboard keeps its own background
+html:where(.cs_dark),
+:where(.cs_dark) body {
+  background-color: #0a1119;
+}
+
 h1,
 h2,
 h3,

@@ -1,5 +1,5 @@
 /*===============================================================
- 21. Dark Version
+ 22. Dark Version
 =================================================================*/
 .cs_dark {
 
@@ -121,5 +121,294 @@
         background-color: var(--white-color);
       }
     }
+  }
+}
+
+/*---------------------------------------------------------------
+ Dark mode: shared fixes for every template page
+-----------------------------------------------------------------*/
+// Logo pair: the white version only shows in dark mode
+.cs_logo_dark {
+  display: none;
+}
+
+.cs_dark {
+  // Logo: dark wordmark in light mode, white one in dark (both in the markup)
+  .cs_logo_dark {
+    display: inline-block;
+  }
+
+  .cs_logo_light {
+    display: none;
+  }
+
+  // .cs_white_color is a fixed #fff, but .cs_primary_bg turns white here
+  .cs_iconbox_icon,
+  .cs_property_price,
+  .cs_property_badge,
+  .cs_category,
+  .cs_contact_icon {
+    &.cs_primary_bg.cs_white_color {
+      color: var(--white-color);
+    }
+  }
+
+  // Light photos behind text that turns white: darken them
+  .cs_page_header.cs_style_1 {
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-color: rgba(10, 17, 25, 0.6);
+    }
+  }
+
+  .cs_hero.cs_style_1:not(:has(.cs_hero_overlay)) {
+    background-color: #555;
+    background-blend-mode: multiply;
+  }
+
+  .cs_hero.cs_style_4 .cs_hero_thumbnail {
+    box-shadow: inset 0 160px 90px -60px rgba(0, 0, 0, 0.6);
+  }
+
+  // Map pattern section: dark copy of the SVG (its fill is baked in);
+  // !important beats the inline background-image set by main.js
+  .cs_bg_filed[data-src$="vector-bg-1.svg"] {
+    background-image: url(../img/vector-bg-1-dark.svg) !important;
+  }
+
+  // Hero slider wrapper (shows around / before the slides load)
+  .cs_slider > .cs_primary_bg {
+    background-color: var(--white-color);
+  }
+
+  // Light gray page sections: darker than the #1d1d1d cards on them
+  section.cs_gray3_bg {
+    background-color: #141414;
+  }
+
+  // Beige sections: #434343 is too bright as a section background
+  section.cs_gray2_bg,
+  footer.cs_gray2_bg {
+    background-color: var(--gray-color);
+  }
+
+  // Dark line art and logos
+  .cs_faq_thumbnail img[src$=".svg"] {
+    filter: invert(1);
+  }
+
+  // Maps: dark tiles
+  .cs_location_map iframe {
+    filter: invert(0.9) hue-rotate(180deg);
+  }
+
+  .cs_brand img {
+    filter: brightness(0) invert(1);
+    opacity: 0.7;
+  }
+
+  .cs_about_shape_1 img {
+    filter: invert(1);
+    opacity: 0.25;
+  }
+
+  // Tom Select
+  .ts-dropdown {
+    border: 1px solid var(--border-color);
+
+    .option.active,
+    .active {
+      color: var(--primary-color);
+      background-color: var(--gray-color);
+    }
+  }
+
+  // CTA outline button sits on a dark photo in both modes
+  .cs_cta.cs_style_1 .cs_btn.cs_style_1:not(.cs_white_bg) {
+    border-color: #fff;
+
+    &::before {
+      background-color: #fff;
+    }
+
+    &:hover {
+      color: #1d1d1d;
+    }
+  }
+
+  // Newsletter field on the dark footers (home-v3, home-v6)
+  .cs_newsletter_form.cs_style_2.cs_type_1 input {
+    background-color: var(--gray2-color);
+  }
+
+  // Advanced search modal backdrop
+  .cs_advanced_search_modal::before {
+    background-color: var(--black-color);
+    opacity: 0.6;
+  }
+
+  // Testimonials
+  .cs_testimonial.cs_style_1 {
+    border-color: var(--border-color);
+
+    &.cs_primary_bg {
+      background-color: var(--white-color);
+    }
+  }
+
+  // Icon boxes
+  .cs_iconbox.cs_style_3 .cs_iconbox_icon.cs_white_bg {
+    color: #1d1d1d;
+    background-color: #fff;
+    border-color: #fff;
+  }
+
+  .cs_iconbox.cs_style_4 .cs_iconbox_icon {
+    color: var(--white-color);
+  }
+
+  .cs_property_view_btn .cs_gray_bg {
+    background-color: var(--gray2-color);
+  }
+
+  // Pricing cards: keep them dark cards with a white button
+  .cs_pricing_table.cs_style_1.cs_primary_bg {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+
+    hr {
+      border-color: #fff;
+    }
+
+    .cs_pricing_btn {
+      color: #1d1d1d;
+      background-color: #fff;
+      border-color: #fff;
+    }
+
+    &:hover .cs_pricing_btn {
+      color: #fff;
+      background-color: transparent;
+    }
+  }
+
+  // Slider dots over dark photos
+  .cs_pagination.cs_style_3 .slick-dots {
+    li {
+      background-color: #fff;
+      border-color: #fff;
+    }
+
+    .slick-active {
+      background-color: #1d1d1d;
+    }
+  }
+
+  // Footer style 2 dividers
+  .cs_footer.cs_style_2 {
+    .cs_footer_top,
+    .cs_footer_main {
+      border-color: var(--border-color);
+    }
+  }
+
+  // Flatpickr date / time picker
+  .flatpickr-calendar {
+    background: var(--white-color);
+    box-shadow: 0 0 0 1px var(--border-color);
+
+    &.arrowTop::after {
+      border-bottom-color: var(--white-color);
+    }
+
+    &.arrowBottom::after {
+      border-top-color: var(--white-color);
+    }
+
+    &.hasTime .flatpickr-time {
+      border-top-color: var(--border-color);
+    }
+  }
+
+  .flatpickr-months .flatpickr-month,
+  .flatpickr-months .flatpickr-prev-month,
+  .flatpickr-months .flatpickr-next-month,
+  .flatpickr-current-month .flatpickr-monthDropdown-months,
+  .flatpickr-current-month input.cur-year,
+  .flatpickr-day,
+  .flatpickr-time input,
+  .flatpickr-time .flatpickr-am-pm,
+  .flatpickr-time .flatpickr-time-separator {
+    color: var(--primary-color);
+    fill: var(--primary-color);
+  }
+
+  .flatpickr-monthDropdown-months option {
+    background-color: var(--white-color);
+  }
+
+  .flatpickr-day.prevMonthDay,
+  .flatpickr-day.nextMonthDay,
+  .flatpickr-day.flatpickr-disabled {
+    color: var(--secondary-color);
+    opacity: 0.45;
+  }
+
+  .flatpickr-day:hover,
+  .flatpickr-day:focus,
+  .flatpickr-time input:hover,
+  .flatpickr-time input:focus,
+  .flatpickr-time .flatpickr-am-pm:hover {
+    background: var(--gray-color);
+    border-color: var(--gray-color);
+  }
+
+  .flatpickr-day.selected,
+  .flatpickr-day.selected:hover {
+    color: var(--white-color);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  // DataTables (client list)
+  .dt-container .dt-paging .dt-paging-button {
+    color: var(--primary-color) !important;
+
+    &.current,
+    &.current:hover {
+      color: var(--primary-color) !important;
+      background: var(--gray2-color) !important;
+      border-color: var(--border-color) !important;
+    }
+
+    &.disabled {
+      color: var(--secondary-color) !important;
+      opacity: 0.4;
+    }
+  }
+
+  .cs_user_data_table {
+    thead th {
+      border-bottom-color: var(--border-color) !important;
+    }
+
+    .dt-column-order {
+      color: var(--primary-color);
+    }
+
+    .btn-dark {
+      background-color: var(--gray2-color);
+      border-color: var(--gray2-color);
+    }
+  }
+
+  .cs_actions.text-success {
+    color: var(--accent-color) !important;
   }
 }

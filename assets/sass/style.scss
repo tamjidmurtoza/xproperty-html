@@ -21,8 +21,9 @@
 18. Property and Property Details
 19. Tabs
 20. Profile
-21. Dark Version
-22. RTL Support
+21. Dashboard
+22. Dark Version
+23. RTL Support
 --------------------------------------------------------------*/
 
 @use 'default/variable';
@@ -45,5 +46,6 @@
 @use 'shortcode/property';
 @use 'shortcode/tabs';
 @use 'shortcode/profile';
+@use 'shortcode/dashboard';
 @use 'shortcode/dark';
 @use 'default/rtl';
