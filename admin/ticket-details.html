@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Support ticket details and conversation in your Xproperty admin dashboard.">
+    <meta name="keywords" content="ticket details, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/ticket-details.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Ticket Details - Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Support ticket details and conversation in your Xproperty admin dashboard.">
+    <meta property="og:url" content="https://example.com/admin/ticket-details.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ticket Details - Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Support ticket details and conversation in your Xproperty admin dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Ticket Details - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Site Admin dashboard · Ticket Details. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog-posts.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="support-tickets.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
+                <a href="financials.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="listing-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Ticket Details</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="support-tickets.html">Support Tickets</a></li>
+                <li><bdi>#TCK-1042</bdi></li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="support-tickets.html" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10">
+                <span><i class="fa-solid fa-arrow-left"></i></span>
+                <span>All Tickets</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="row cs_gap_y_24">
+            <div class="col-xl-8">
+              <!-- Start Ticket Header -->
+              <div class="cs_dashboard_card cs_mb_24" data-aos="fade-up">
+                <div class="cs_ticket_badges">
+                  <span class="cs_status_badge"><bdi>#TCK-1042</bdi></span>
+                  <span class="cs_status_badge cs_status_info">Open</span>
+                  <span class="cs_status_badge cs_status_expired">High Priority</span>
+                  <span class="cs_status_badge">Listings</span>
+                </div>
+                <h2 class="cs_fs_25 cs_semibold cs_mb_10">Listing photos fail to upload for East Tower Apartment</h2>
+                <div class="cs_ticket_meta">
+                  <span><i class="fa-regular fa-user"></i>Opened by Daniel Brooks</span>
+                  <span><i class="fa-regular fa-calendar"></i>Oct 06, 2026, 08:42</span>
+                  <span><i class="fa-regular fa-comments"></i><bdi>4 messages</bdi></span>
+                </div>
+              </div>
+              <!-- End Ticket Header -->
+
+              <!-- Start Conversation -->
+              <div class="cs_dashboard_card cs_mb_24" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <h2 class="cs_fs_20 cs_semibold mb-0">Conversation</h2>
+                </div>
+                <ul class="cs_ticket_thread">
+                  <li class="cs_ticket_msg">
+                    <img src="../assets/img/avatar-1.jpg" alt="Daniel Brooks" loading="lazy">
+                    <div class="cs_ticket_msg_body">
+                      <div class="cs_ticket_msg_head">
+                        <div class="cs_ticket_msg_name">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Daniel Brooks</h3>
+                          <span class="cs_status_badge cs_status_info">Agent</span>
+                        </div>
+                        <time class="cs_fs_14" datetime="2026-10-06T08:42">Oct 06, 08:42</time>
+                      </div>
+                      <p>Hi team, I am trying to add new photos to the East Tower Apartment listing, but every upload stops at 90% and then shows "Upload failed". I tried Chrome and Safari and smaller images too.</p>
+                      <p>The listing goes live for an open house this Saturday, so I need the photos up as soon as possible.</p>
+                      <ul class="cs_ticket_files">
+                        <li>
+                          <a href="../assets/img/property-img-4.jpg" target="_blank" rel="noopener">
+                            <i class="fa-regular fa-file-image"></i>
+                            <span>upload-error.jpg<small><bdi>284 KB</bdi></small></span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="../assets/img/property-img-5.jpg" target="_blank" rel="noopener">
+                            <i class="fa-regular fa-file-image"></i>
+                            <span>living-room.jpg<small><bdi>2.4 MB</bdi></small></span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="cs_ticket_msg cs_ticket_msg_staff">
+                    <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson" loading="lazy">
+                    <div class="cs_ticket_msg_body">
+                      <div class="cs_ticket_msg_head">
+                        <div class="cs_ticket_msg_name">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Liam Johnson</h3>
+                          <span class="cs_status_badge cs_status_active">Support</span>
+                        </div>
+                        <time class="cs_fs_14" datetime="2026-10-06T09:05">Oct 06, 09:05</time>
+                      </div>
+                      <p>Hi Daniel, thanks for the screenshot. Could you tell me how many photos the listing already has? Our limit is 30 photos per listing, and the uploader currently shows a generic error when that limit is reached.</p>
+                    </div>
+                  </li>
+                  <li class="cs_ticket_msg">
+                    <img src="../assets/img/avatar-1.jpg" alt="Daniel Brooks" loading="lazy">
+                    <div class="cs_ticket_msg_body">
+                      <div class="cs_ticket_msg_head">
+                        <div class="cs_ticket_msg_name">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Daniel Brooks</h3>
+                          <span class="cs_status_badge cs_status_info">Agent</span>
+                        </div>
+                        <time class="cs_fs_14" datetime="2026-10-06T09:21">Oct 06, 09:21</time>
+                      </div>
+                      <p>It has 28 photos, and I am adding 6 more. So that could be it! Is there any way to raise the limit for this listing? It is a large penthouse with a roof terrace.</p>
+                    </div>
+                  </li>
+                  <li class="cs_ticket_msg cs_ticket_msg_staff cs_ticket_msg_note">
+                    <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson" loading="lazy">
+                    <div class="cs_ticket_msg_body">
+                      <div class="cs_ticket_msg_head">
+                        <div class="cs_ticket_msg_name">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Liam Johnson</h3>
+                          <span class="cs_status_badge cs_status_pending"><i class="fa-solid fa-lock"></i>Internal note</span>
+                        </div>
+                        <time class="cs_fs_14" datetime="2026-10-06T09:30">Oct 06, 09:30</time>
+                      </div>
+                      <p class="cs_fs_14">Only visible to staff. Daniel is on the Premium package, which allows 40 photos. The listing still uses the old Basic limit, so it needs a manual update in <a href="site-settings.html#listings" class="cs_accent_color">listing settings</a>.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <!-- End Conversation -->
+
+              <!-- Start Reply -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <h2 class="cs_fs_20 cs_semibold mb-0">Reply</h2>
+                </div>
+                <form action="#" class="cs_dashboard_form">
+                  <label class="visually-hidden" for="ticketReply">Your reply</label>
+                  <textarea id="ticketReply" class="cs_form_field" rows="5" placeholder="Write your reply to Daniel Brooks..." required></textarea>
+                  <div class="cs_ticket_reply_foot">
+                    <div class="cs_ticket_reply_tools">
+                      <label class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10 cs_ticket_attach">
+                        <span><i class="fa-solid fa-paperclip"></i></span>
+                        <span>Attach Files</span>
+                        <input name="attach_files" type="file" multiple aria-label="Attach files">
+                      </label>
+                      <label class="cs_ticket_note_toggle">
+                        <span class="cs_toggle_switch">
+                          <input name="send_as_internal_note" type="checkbox" aria-label="Send as internal note">
+                          <span></span>
+                        </span>
+                        <span aria-hidden="true">Internal note</span>
+                      </label>
+                    </div>
+                    <div class="cs_ticket_reply_btns">
+                      <button type="submit" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10"><span>Reply &amp; Close</span></button>
+                      <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10">
+                        <span><i class="fa-solid fa-paper-plane"></i></span>
+                        <span>Reply</span>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <!-- End Reply -->
+            </div>
+
+            <div class="col-xl-4">
+              <div class="cs_sticky_card">
+                <!-- Start Ticket Info -->
+                <div class="cs_dashboard_card cs_mb_24" data-aos="fade-up">
+                  <div class="cs_card_head">
+                    <h2 class="cs_fs_20 cs_semibold mb-0">Ticket Info</h2>
+                  </div>
+                  <div class="cs_table_user cs_mb_16">
+                    <img src="../assets/img/avatar-1.jpg" alt="Daniel Brooks" loading="lazy">
+                    <div>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3"><a href="../agent-details.html">Daniel Brooks</a></h3>
+                      <p class="cs_fs_14 mb-0">Requester</p>
+                    </div>
+                  </div>
+                  <ul class="cs_ticket_info">
+                    <li><span>Email</span><a href="mailto:daniel.brooks@mail.com">daniel.brooks@mail.com</a></li>
+                    <li><span>Role</span><span>Agent</span></li>
+                    <li><span>Package</span><span>Premium</span></li>
+                    <li><span>Created</span><span>Oct 06, 2026, 08:42</span></li>
+                    <li><span>Category</span><span>Listings</span></li>
+                    <li><span>Last Update</span><span><bdi>10 min ago</bdi></span></li>
+                  </ul>
+                </div>
+                <!-- End Ticket Info -->
+
+                <!-- Start Ticket Settings -->
+                <div class="cs_dashboard_card cs_mb_24" data-aos="fade-up">
+                  <form action="#" class="cs_dashboard_form">
+                    <div class="cs_card_head">
+                      <h2 class="cs_fs_20 cs_semibold mb-0">Manage Ticket</h2>
+                    </div>
+                    <div class="cs_mb_20">
+                      <label class="cs_form_label" for="ticketAssignee">Assignee</label>
+                      <div class="cs_select">
+                        <select id="ticketAssignee">
+                          <option>Unassigned</option>
+                          <option selected>Liam Johnson</option>
+                          <option>Jordan Lee</option>
+                          <option>Taylor Reed</option>
+                          <option>Casey Morgan</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cs_mb_20">
+                      <label class="cs_form_label" for="ticketPriority">Priority</label>
+                      <div class="cs_select">
+                        <select id="ticketPriority">
+                          <option>Low</option>
+                          <option>Medium</option>
+                          <option selected>High</option>
+                          <option>Urgent</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cs_mb_20">
+                      <label class="cs_form_label" for="ticketStatus">Status</label>
+                      <div class="cs_select">
+                        <select id="ticketStatus">
+                          <option selected>Open</option>
+                          <option>Pending</option>
+                          <option>Resolved</option>
+                        </select>
+                      </div>
+                    </div>
+                    <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10 w-100 justify-content-center"><span>Update Ticket</span></button>
+                  </form>
+                </div>
+                <!-- End Ticket Settings -->
+
+                <!-- Start Related Property -->
+                <div class="cs_dashboard_card" data-aos="fade-up">
+                  <div class="cs_card_head">
+                    <h2 class="cs_fs_20 cs_semibold mb-0">Related Property</h2>
+                    <a href="all-properties.html" class="cs_card_link">All Properties</a>
+                  </div>
+                  <a href="../property-details.html" class="cs_ticket_property">
+                    <img src="../assets/img/property-img-4.jpg" alt="East Tower Apartment" loading="lazy">
+                    <span>
+                      <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_mb_3">East Tower Apartment</span>
+                      <span class="d-block cs_fs_14"><bdi>$4,800<small>/month</small></bdi> &middot; New York</span>
+                    </span>
+                  </a>
+                </div>
+                <!-- End Related Property -->
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

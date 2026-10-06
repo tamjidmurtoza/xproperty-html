@@ -1,0 +1,22 @@
+{
+  "name": "xproperty-html",
+  "version": "1.1.0",
+  "description": "Xproperty - Real Estate & Property Listing HTML Template",
+  "private": true,
+  "author": "Laralink",
+  "scripts": {
+    "build:css": "sass assets/sass/style.scss assets/css/style.css --style=expanded --no-source-map && postcss assets/css/style.css --use autoprefixer --map --replace",
+    "watch:css": "sass assets/sass/style.scss assets/css/style.css --style=expanded --watch",
+    "build": "npm run build:css",
+    "start": "npx --yes serve . -l 3000"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.93.2"
+  }
+}

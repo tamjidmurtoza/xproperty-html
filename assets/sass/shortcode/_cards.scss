@@ -1,6 +1,4 @@
-/*===============================================================
- 14. Cards
-=================================================================*/
+/* 14. Cards */
 .cs_card.cs_style_1 {
   .cs_card_thumbnail {
     display: block;
@@ -30,7 +28,7 @@
     }
 
     &:hover {
-      .cs_card_img_font {
+      .cs_card_img_front {
         opacity: 0;
         transform: scale(1.05);
       }
@@ -49,6 +47,49 @@
     top: 30px;
     inset-inline-end: 30px;
     pointer-events: fill;
+  }
+
+  >.cs_save_btn,
+  >.cs_compare_btn {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    inset-inline-end: 15px;
+    z-index: 3;
+    border: 0;
+    font-size: 15px;
+    box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  >.cs_save_btn ~ .cs_compare_btn {
+    inset-inline-end: 63px;
+  }
+
+  >.cs_compare_btn {
+    &:hover,
+    &.active {
+      color: #fff;
+      background-color: var(--accent-color);
+    }
+  }
+
+  >.cs_save_btn {
+    &:hover,
+    &.active {
+      color: var(--danger-color);
+    }
+  }
+
+  &:has(>.cs_compare_btn),
+  &:has(>.cs_save_btn) {
+    position: relative;
+  }
+
+  // Card picked on the map (property-listing-map.html) 
+  &.cs_map_active .cs_card_thumbnail {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 3px;
   }
 
   .cs_property_info_header {
@@ -831,6 +872,14 @@
       border-radius: inherit;
       object-fit: cover;
     }
+
+    .cs_card_badge {
+      top: 24px;
+      inset-inline-start: 24px;
+      padding: 1px 9px;
+      background: rgba(29, 29, 29, 0.3);
+      backdrop-filter: blur(25px);
+    }
   }
 
   .cs_card_content {
@@ -851,9 +900,17 @@
   }
 
   .cs_property_price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 12px 0;
     border-top: 1px solid var(--gray-color);
     border-bottom: 1px solid var(--gray-color);
+
+    span {
+      display: flex;
+      flex: none;
+    }
   }
 
   .cs_property_features {
@@ -865,8 +922,12 @@
 
     li {
       width: calc(50% - 10px);
+      display: flex;
+      align-items: center;
 
       span:first-child {
+        display: flex;
+        flex: none;
         margin-inline-end: 10px;
       }
     }
@@ -916,7 +977,7 @@
     }
 
     &:hover {
-      .cs_card_img_font {
+      .cs_card_img_front {
         opacity: 0;
         transform: scale(1.05);
       }

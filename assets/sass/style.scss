@@ -21,7 +21,7 @@
 18. Property and Property Details
 19. Tabs
 20. Profile
-21. Dashboard
+21. Dashboard (+ new page partials: _new-public-a/b/c, _new-admin-a/b, _new-dash-a/b)
 22. Dark Version
 23. RTL Support
 --------------------------------------------------------------*/
@@ -47,5 +47,12 @@
 @use 'shortcode/tabs';
 @use 'shortcode/profile';
 @use 'shortcode/dashboard';
+@use 'shortcode/new-public-a';
+@use 'shortcode/new-public-b';
+@use 'shortcode/new-public-c';
+@use 'shortcode/new-admin-a';
+@use 'shortcode/new-admin-b';
+@use 'shortcode/new-dash-a';
+@use 'shortcode/new-dash-b';
 @use 'shortcode/dark';
 @use 'default/rtl';

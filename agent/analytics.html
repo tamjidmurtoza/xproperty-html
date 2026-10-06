@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Listing Analytics in your Xproperty agent dashboard.">
+    <meta name="keywords" content="agent dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/agent/analytics.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Listing Analytics - Agent Dashboard | Xproperty">
+    <meta property="og:description" content="Listing Analytics in your Xproperty agent dashboard.">
+    <meta property="og:url" content="https://example.com/agent/analytics.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Listing Analytics - Agent Dashboard | Xproperty">
+    <meta name="twitter:description" content="Listing Analytics in your Xproperty agent dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Listing Analytics - Agent Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Agent dashboard · Listing Analytics. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/team-img-5.jpg" alt="Amanda Jones">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Agent</span>
+            </div>
+          </div>
+          <!-- Start Agent Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="submit-property.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-square-plus"></i>
+                  <span class="cs_menu_text">Submit Property</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="my-listings.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">My Listings</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="my-listings.html#active">Active <span class="cs_status_badge cs_status_active">24</span></a></li>
+                  <li><a href="my-listings.html#pending">Pending <span class="cs_status_badge cs_status_pending">5</span></a></li>
+                  <li><a href="my-listings.html#expired">Expired <span class="cs_status_badge cs_status_expired">2</span></a></li>
+                  <li><a href="my-listings.html#draft">Drafts <span class="cs_status_badge">3</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="analytics.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-contract"></i>
+                  <span class="cs_menu_text">Documents &amp; Contracts</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">6</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li>
+                <a href="billing.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-credit-card"></i>
+                  <span class="cs_menu_text">My Package & Billing</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Agent Menu -->
+        </div>
+        <div class="cs_sidebar_footer">
+          <!-- Package usage -->
+          <div class="cs_sidebar_package cs_radius_10">
+            <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Premium Plan</p>
+            <div class="cs_progress"><span style="width: 68%"></span></div>
+            <p class="cs_fs_14 mb-0"><bdi>34 of 50 listings used</bdi> · <a href="billing.html" class="cs_semibold">Upgrade</a></p>
+          </div>
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search properties, leads, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">"Beach View Villa" was approved</span>
+                        <span class="d-block cs_fs_14"><bdi>2 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">New lead from Daniel Brooks</span>
+                        <span class="d-block cs_fs_14"><bdi>45 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>2 listings expire in 3 days</bdi></span>
+                        <span class="d-block cs_fs_14">Today, 09:12</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/team-img-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Amanda Jones</span>
+                  <span class="d-block cs_fs_14">Agent</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="billing.html"><i class="fa-solid fa-credit-card"></i>My Package & Billing</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Listing Analytics</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Listing Analytics</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10" data-export-table="#performanceTable" data-export-name="listing-performance.csv">
+                <span><i class="fa-solid fa-file-arrow-down"></i></span>
+                <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Start Summary Cards -->
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Total Views</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="19600"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-eye"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>28.9%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Saves</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="856"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-heart"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>8.1%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Inquiries</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="142"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_down"><i class="fa-solid fa-arrow-trend-down"></i>3.2%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="300">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Tours Booked</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="38"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-calendar-check"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>15.4%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Summary Cards -->
+
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xl-8">
+              <!-- Start Analytics Chart -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Views Over Time</h2>
+                    <p class="cs_fs_14 mb-0">All listings, this period vs the previous one</p>
+                  </div>
+                  <div class="cs_segmented cs_chart_period" role="group" aria-label="Chart period">
+                    <button type="button" data-period="7d" aria-pressed="false"><bdi>7D</bdi></button>
+                    <button type="button" data-period="30d" aria-pressed="false"><bdi>30D</bdi></button>
+                    <button type="button" data-period="12m" class="active" aria-pressed="true"><bdi>12M</bdi></button>
+                  </div>
+                </div>
+                <ul class="cs_chart_legend">
+                  <li><span class="cs_legend_mark"></span>This period</li>
+                  <li><span class="cs_legend_mark cs_legend_dashed"></span>Previous period</li>
+                </ul>
+                <div class="cs_chart_wrap" data-chart="views" role="img" aria-label="Area chart of listing views, this period compared with the previous period"></div>
+                <table class="cs_chart_table visually-hidden">
+                  <caption>Views Over Time</caption>
+                  <thead><tr><th scope="col">Period</th><th scope="col">This period</th><th scope="col">Previous period</th></tr></thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+              <!-- End Analytics Chart -->
+            </div>
+            <div class="col-xl-4">
+              <!-- Start Lead Sources -->
+              <div class="cs_dashboard_card h-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Lead Sources</h2>
+                    <p class="cs_fs_14 mb-0">Where inquiries came from, last 30 days</p>
+                  </div>
+                </div>
+                <ul class="cs_usage_list cs_lead_sources cs_mp_0">
+                  <li><div class="cs_usage_top"><span>Contact form</span><span class="cs_primary_color cs_semibold">42%</span></div><div class="cs_progress"><span style="width: 42%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Schedule a tour</span><span class="cs_primary_color cs_semibold">28%</span></div><div class="cs_progress"><span style="width: 28%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Phone call</span><span class="cs_primary_color cs_semibold">18%</span></div><div class="cs_progress"><span style="width: 18%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Website chat</span><span class="cs_primary_color cs_semibold">12%</span></div><div class="cs_progress"><span style="width: 12%"></span></div></li>
+                </ul>
+              </div>
+              <!-- End Lead Sources -->
+            </div>
+          </div>
+          <!-- Start Listing Performance -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <h2 class="cs_fs_20 cs_semibold mb-0">Performance by Listing</h2>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search" data-table-search="#performanceTable">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input name="search_listings" type="search" placeholder="Search listings" aria-label="Search listings">
+                </form>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table cs_table_fit" id="performanceTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">Views</th>
+                    <th scope="col">Saves</th>
+                    <th scope="col">Inquiries</th>
+                    <th scope="col">Tours</th>
+                    <th scope="col">Inquiry Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="all">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-1.jpg" alt="" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Beach View Villa</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</p>
+                        </div>
+                      </div></td>
+                    <td>4,218</td>
+                    <td>312</td>
+                    <td>41</td>
+                    <td>12</td>
+                    <td><div class="cs_conversion"><div class="cs_progress"><span style="width: 30%"></span></div><span class="cs_primary_color cs_semibold">1.0%</span></div></td>
+                  </tr>
+                  <tr data-status="all">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-5.jpg" alt="" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">The Cowboy Country House</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Florida, USA</p>
+                        </div>
+                      </div></td>
+                    <td>2,904</td>
+                    <td>198</td>
+                    <td>28</td>
+                    <td>8</td>
+                    <td><div class="cs_conversion"><div class="cs_progress"><span style="width: 30%"></span></div><span class="cs_primary_color cs_semibold">1.0%</span></div></td>
+                  </tr>
+                  <tr data-status="all">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-6.jpg" alt="" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Blue Seagull Beach House</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Queensland, Australia</p>
+                        </div>
+                      </div></td>
+                    <td>2,310</td>
+                    <td>176</td>
+                    <td>24</td>
+                    <td>6</td>
+                    <td><div class="cs_conversion"><div class="cs_progress"><span style="width: 30%"></span></div><span class="cs_primary_color cs_semibold">1.0%</span></div></td>
+                  </tr>
+                  <tr data-status="all">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-7.jpg" alt="" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">East Tower Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</p>
+                        </div>
+                      </div></td>
+                    <td>1,766</td>
+                    <td>94</td>
+                    <td>19</td>
+                    <td>7</td>
+                    <td><div class="cs_conversion"><div class="cs_progress"><span style="width: 33%"></span></div><span class="cs_primary_color cs_semibold">1.1%</span></div></td>
+                  </tr>
+                  <tr data-status="all">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-9.jpg" alt="" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Palm Grove Residence</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+                        </div>
+                      </div></td>
+                    <td>1,402</td>
+                    <td>76</td>
+                    <td>17</td>
+                    <td>3</td>
+                    <td><div class="cs_conversion"><div class="cs_progress"><span style="width: 36%"></span></div><span class="cs_primary_color cs_semibold">1.2%</span></div></td>
+                  </tr>
+                  <tr data-status="all">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-2.jpg" alt="" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Shangri la Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Central Area, Singapore</p>
+                        </div>
+                      </div></td>
+                    <td>980</td>
+                    <td>41</td>
+                    <td>13</td>
+                    <td>2</td>
+                    <td><div class="cs_conversion"><div class="cs_progress"><span style="width: 39%"></span></div><span class="cs_primary_color cs_semibold">1.3%</span></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="6">No listings match your search.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End Listing Performance -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

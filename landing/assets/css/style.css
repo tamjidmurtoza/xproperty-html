@@ -1472,6 +1472,24 @@ code {
   color: var(--muted);
 }
 
+.lp-dash-more {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: var(--accent-soft);
+  font-size: 15px;
+  color: var(--text);
+}
+
+.lp-dash-more strong {
+  color: var(--ink);
+}
+
+.lp-dash-more .lp-link {
+  display: inline-block;
+  margin-top: 6px;
+}
+
 /*==============================================================
   13. Use Cases & Why
 ==============================================================*/

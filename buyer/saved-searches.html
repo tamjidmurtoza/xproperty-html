@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Saved Searches in your Xproperty buyer dashboard.">
     <meta name="keywords" content="saved searches, buyer dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/buyer/saved-searches.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Saved Searches - Buyer Dashboard | Xproperty">
+    <meta property="og:description" content="Saved Searches in your Xproperty buyer dashboard.">
+    <meta property="og:url" content="https://example.com/buyer/saved-searches.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Saved Searches - Buyer Dashboard | Xproperty">
+    <meta name="twitter:description" content="Saved Searches in your Xproperty buyer dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
   <!-- Buyer dashboard · Saved Searches. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -91,6 +107,25 @@
                 </a>
               </li>
               <li>
+                <a href="tours.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">My Tours</span>
+                  <span class="cs_menu_badge">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">My Offers</span>
+                </a>
+              </li>
+              <li>
+                <a href="applications.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                </a>
+              </li>
+              <li>
                 <a href="messages.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-envelope"></i>
                   <span class="cs_menu_text">Messages</span>
@@ -101,6 +136,13 @@
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Account</span></li>
@@ -133,7 +175,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search saved homes, searches, messages..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search saved homes, searches, messages..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -155,29 +197,29 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-house-circle-check"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">3 new homes match "Bali villas"</span>
-                        <span class="d-block cs_fs_14">10 min ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>3 new homes match "Bali villas"</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>10 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-tag"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">Price drop on East Tower Apartment</span>
-                        <span class="d-block cs_fs_14">1 hour ago</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-calendar-check"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">Tour tomorrow at 10:00</span>
@@ -186,7 +228,7 @@
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -214,7 +256,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -235,17 +277,17 @@
           <!-- Start Saved Searches -->
           <div class="cs_dashboard_card" data-aos="fade-up">
             <div class="cs_table_toolbar">
-              <p class="cs_fs_16 mb-0"><span class="cs_primary_color cs_semibold">6</span> saved searches · we email you when new homes match</p>
+              <p class="cs_fs_16 mb-0"><span class="cs_primary_color cs_semibold" data-search-count>6</span> saved searches · we email you when new homes match</p>
               <div class="cs_toolbar_right">
-                <form action="#" class="cs_topbar_search" role="search">
+                <form action="#" class="cs_topbar_search" role="search" data-table-search="#savedSearchTable">
                   <i class="fa-solid fa-magnifying-glass"></i>
-                  <input type="search" placeholder="Search saved searches" aria-label="Search saved searches">
+                  <input name="search_saved_searches" type="search" placeholder="Search saved searches" aria-label="Search saved searches">
                 </form>
 
               </div>
             </div>
             <div class="overflow-x-auto">
-              <table class="cs_dashboard_table">
+              <table class="cs_dashboard_table" id="savedSearchTable" data-saved-searches>
                 <thead>
                   <tr>
                     <th scope="col">Search</th>
@@ -261,30 +303,30 @@
                     <td><h3 class="cs_fs_16 cs_semibold cs_mb_3">Bali villas</h3>
                       <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</p></td>
                     <td>Villa · 3+ beds · Under $1.5M</td>
-                    <td><span class="cs_status_badge cs_status_active">3 new</span></td>
+                    <td><span class="cs_status_badge cs_status_active"><bdi>3 new</bdi></span></td>
                     <td><div class="cs_select cs_select_sm">
-                        <select aria-label="Alert frequency for Bali villas">
+                        <select name="alert_frequency" aria-label="Alert frequency for Bali villas">
                           <option>Instant</option>
                           <option selected>Daily</option>
                           <option>Weekly</option>
                         </select>
                       </div></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" checked aria-label="Email alerts for Bali villas"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input name="email_alerts" type="checkbox" checked aria-label="Email alerts for Bali villas"><span></span></label></td>
                     <td class="text-end"><div class="cs_table_actions"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run Bali villas search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Bali villas search" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
                   </tr>
                   <tr>
                     <td><h3 class="cs_fs_16 cs_semibold cs_mb_3">Singapore rentals</h3>
                       <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Central Area, Singapore</p></td>
                     <td>Apartment · 2 beds · Under $5k / mo</td>
-                    <td><span class="cs_status_badge cs_status_active">12 new</span></td>
+                    <td><span class="cs_status_badge cs_status_active"><bdi>12 new</bdi></span></td>
                     <td><div class="cs_select cs_select_sm">
-                        <select aria-label="Alert frequency for Singapore rentals">
+                        <select name="alert_frequency" aria-label="Alert frequency for Singapore rentals">
                           <option selected>Instant</option>
                           <option>Daily</option>
                           <option>Weekly</option>
                         </select>
                       </div></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" checked aria-label="Email alerts for Singapore rentals"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input name="email_alerts" type="checkbox" checked aria-label="Email alerts for Singapore rentals"><span></span></label></td>
                     <td class="text-end"><div class="cs_table_actions"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run Singapore rentals search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Singapore rentals search" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
                   </tr>
                   <tr>
@@ -293,43 +335,43 @@
                     <td>House · 4+ beds · Garden</td>
                     <td><span class="cs_status_badge">No new</span></td>
                     <td><div class="cs_select cs_select_sm">
-                        <select aria-label="Alert frequency for Family homes NY">
+                        <select name="alert_frequency" aria-label="Alert frequency for Family homes NY">
                           <option>Instant</option>
                           <option>Daily</option>
                           <option selected>Weekly</option>
                         </select>
                       </div></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" checked aria-label="Email alerts for Family homes NY"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input name="email_alerts" type="checkbox" checked aria-label="Email alerts for Family homes NY"><span></span></label></td>
                     <td class="text-end"><div class="cs_table_actions"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run Family homes NY search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Family homes NY search" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
                   </tr>
                   <tr>
                     <td><h3 class="cs_fs_16 cs_semibold cs_mb_3">LA apartments</h3>
                       <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Los Angeles, USA</p></td>
                     <td>Apartment · Pool · Under $900k</td>
-                    <td><span class="cs_status_badge cs_status_active">5 new</span></td>
+                    <td><span class="cs_status_badge cs_status_active"><bdi>5 new</bdi></span></td>
                     <td><div class="cs_select cs_select_sm">
-                        <select aria-label="Alert frequency for LA apartments">
+                        <select name="alert_frequency" aria-label="Alert frequency for LA apartments">
                           <option>Instant</option>
                           <option selected>Daily</option>
                           <option>Weekly</option>
                         </select>
                       </div></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" aria-label="Email alerts for LA apartments"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input name="email_alerts" type="checkbox" aria-label="Email alerts for LA apartments"><span></span></label></td>
                     <td class="text-end"><div class="cs_table_actions"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run LA apartments search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete LA apartments search" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
                   </tr>
                   <tr>
                     <td><h3 class="cs_fs_16 cs_semibold cs_mb_3">Dubai investment</h3>
                       <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p></td>
                     <td>Any type · Under $2.5M</td>
-                    <td><span class="cs_status_badge cs_status_active">7 new</span></td>
+                    <td><span class="cs_status_badge cs_status_active"><bdi>7 new</bdi></span></td>
                     <td><div class="cs_select cs_select_sm">
-                        <select aria-label="Alert frequency for Dubai investment">
+                        <select name="alert_frequency" aria-label="Alert frequency for Dubai investment">
                           <option>Instant</option>
                           <option>Daily</option>
                           <option selected>Weekly</option>
                         </select>
                       </div></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" checked aria-label="Email alerts for Dubai investment"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input name="email_alerts" type="checkbox" checked aria-label="Email alerts for Dubai investment"><span></span></label></td>
                     <td class="text-end"><div class="cs_table_actions"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run Dubai investment search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Dubai investment search" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
                   </tr>
                   <tr>
@@ -338,15 +380,16 @@
                     <td>Apartment · Water view</td>
                     <td><span class="cs_status_badge">No new</span></td>
                     <td><div class="cs_select cs_select_sm">
-                        <select aria-label="Alert frequency for Sydney harbour">
+                        <select name="alert_frequency" aria-label="Alert frequency for Sydney harbour">
                           <option>Instant</option>
                           <option>Daily</option>
                           <option selected>Weekly</option>
                         </select>
                       </div></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" aria-label="Email alerts for Sydney harbour"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input name="email_alerts" type="checkbox" aria-label="Email alerts for Sydney harbour"><span></span></label></td>
                     <td class="text-end"><div class="cs_table_actions"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run Sydney harbour search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Sydney harbour search" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
                   </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="6">No saved searches yet. Use <strong>Save Search</strong> on any listing page to get alerts for new homes.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -375,7 +418,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

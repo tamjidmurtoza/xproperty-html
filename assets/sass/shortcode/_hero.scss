@@ -1,6 +1,4 @@
-/*===============================================================
-  11. All Hero Section
-=================================================================*/
+/* 11. All Hero Section */
 .cs_hero.cs_style_1 {
   --cs-glass-bg: rgba(255, 255, 255, 0.55);
   --cs-glass-border: rgba(255, 255, 255, 0.75);
@@ -89,7 +87,8 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    padding: 6px 18px 6px 6px;
+    padding-block: 6px;
+    padding-inline: 6px 18px;
     margin-bottom: 28px;
     font-size: 15px;
     font-weight: 500;
@@ -194,87 +193,6 @@
     color: var(--primary-color);
   }
 
-  // Stats strip
-  .cs_hero_stats {
-    display: flex;
-    align-items: center;
-    margin-top: 44px;
-    padding: 16px 10px;
-    background: var(--cs-glass-bg);
-    border: 1px solid var(--cs-glass-border);
-    border-radius: 20px;
-    box-shadow: var(--cs-glass-shadow);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .cs_hero_stat {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 28px;
-
-    &:not(:last-child) {
-      border-inline-end: 1px solid rgba(29, 29, 29, 0.12);
-    }
-
-    strong {
-      display: block;
-      font-family: var(--primary-font);
-      font-size: 22px;
-      line-height: 1.2em;
-      color: var(--primary-color);
-    }
-
-    span {
-      font-size: 14px;
-    }
-  }
-
-  .cs_stat_icon {
-    flex: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    font-size: 16px !important;
-    color: var(--white-color);
-    background: var(--primary-color);
-    border-radius: 12px;
-  }
-
-  .cs_hero_stat:nth-child(2) .cs_stat_icon {
-    color: #1d1d1d;
-    background: #FFC83D;
-  }
-
-  .cs_avatar_stack {
-    display: flex;
-
-    img,
-    >span {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 2px solid #fff;
-      object-fit: cover;
-
-      &:not(:first-child) {
-        margin-inline-start: -12px;
-      }
-    }
-
-    >span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: #fff;
-      background: #00CC61;
-    }
-  }
-
   // Floating glass cards
   .cs_hero_float {
     position: absolute;
@@ -297,7 +215,8 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 18px 10px 10px;
+    padding-block: 10px;
+    padding-inline: 10px 18px;
     background: var(--cs-glass-bg);
     border: 1px solid var(--cs-glass-border);
     border-radius: 18px;
@@ -377,30 +296,9 @@
   }
 
   @media (max-width:991px) {
+    height: auto;
+    max-height: none;
     padding: 150px 0 80px;
-
-    .cs_hero_stat {
-      padding: 0 18px;
-    }
-  }
-
-  @media (max-width:767px) {
-    .cs_hero_stats {
-      flex-wrap: wrap;
-      justify-content: center;
-      row-gap: 16px;
-    }
-
-    .cs_hero_stat:nth-child(2) {
-      border-inline-end: 0;
-    }
-
-    .cs_hero_stat:last-child {
-      width: 100%;
-      justify-content: center;
-      padding-top: 16px;
-      border-top: 1px solid rgba(29, 29, 29, 0.12);
-    }
   }
 
   @media (max-width:575px) {
@@ -423,18 +321,6 @@
 
     .cs_hero_desc {
       font-size: 16px;
-    }
-
-    .cs_hero_stats {
-      width: 100%;
-    }
-
-    .cs_hero_stat {
-      padding: 0 12px;
-
-      strong {
-        font-size: 18px;
-      }
     }
   }
 
@@ -462,16 +348,6 @@
 
   .cs_hero_popular a:hover {
     color: #1d1d1d;
-  }
-
-  .cs_hero_stat:not(:last-child),
-  .cs_hero_stat:last-child {
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .cs_avatar_stack img,
-  .cs_avatar_stack>span {
-    border-color: #1d1d1d;
   }
 }
 
@@ -518,7 +394,6 @@
     opacity: 0;
   }
 }
-
 
 .cs_hero.cs_style_2 {
   margin-top: 100px;
@@ -608,7 +483,6 @@
     }
   }
 }
-
 
 .cs_hero.cs_style_3 {
   width: 100%;
@@ -729,7 +603,6 @@
 
   .cs_hero_content {
     max-width: min(100%, 696px);
-    // Hidden from the inline-end side: inset(0 100% 0 0) in LTR, inset(0 0 0 100%) in RTL
     clip-path: inset(0 calc(50% + 50% * var(--cs-dir)) 0 calc(50% - 50% * var(--cs-dir)));
     transition: all 0.8s ease;
     transition-delay: 0.4s;
@@ -838,7 +711,6 @@
     }
   }
 
-
   @media (max-width:1199px) {
     margin-top: 80px;
     min-height: auto;
@@ -863,12 +735,18 @@
     justify-content: center;
   }
 
-  iframe {
+  iframe,
+  .cs_leaflet_map {
     width: 100%;
     height: 100%;
     position: absolute;
     inset-inline-start: 0;
     top: 0;
+    border-radius: inherit;
+  }
+
+  iframe,
+  .cs_leaflet_map .leaflet-tile-pane {
     filter: brightness(90%) grayscale(0.6);
   }
 
@@ -982,9 +860,7 @@
   }
 }
 
-/*========================================================
- Hero Component and Slider Component
-==========================================================*/
+/* Hero Component and Slider Component */
 .cs_slider.cs_style_2 {
   .cs_tabs {
     width: max-content;
@@ -1093,9 +969,7 @@
   }
 }
 
-/*========================================================
- Filter Tabs
-==========================================================*/
+/* Filter Tabs */
 .cs_tabs_container {
   margin-top: -88px;
 
@@ -1114,9 +988,7 @@
   }
 }
 
-/*========================================================
- Page Header
-==========================================================*/
+/* Page Header */
 .cs_page_header.cs_style_1 {
   width: 100%;
   height: 100%;
@@ -1148,7 +1020,6 @@
     }
   }
 }
-
 
 @keyframes circularRotation {
   100% {

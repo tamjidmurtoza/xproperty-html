@@ -1,6 +1,4 @@
-/*================================================================
-  01. Variables
-==================================================================*/
+/* 01. Variables */
 :root {
   --white-color: #fff;
   --black-color: #000;
@@ -9,15 +7,15 @@
   --secondary-color: #434343;
   --border-color: #D1D1D1;
   --gray-color: #E2E2E2;
-  --gray-text-color: #E2E2E2; // light text on dark surfaces; same in both modes
+  --gray-text-color: #E2E2E2;
   --gray2-color: #F9F4F1;
   --gray3-color: #FAFAFA;
   --gray4-color: #FFFAF6;
   --danger-color: #FF0000;
+  --web-wash: #fff;
   --primary-font: "Cabin", sans-serif;
   --secondary-font: "Raleway", sans-serif;
   --ternary-font: "Carattere", cursive;
-  /* Direction helpers (flipped in _rtl.scss) */
   --cs-dir: 1;
   --cs-start: left;
   --cs-end: right;
@@ -34,5 +32,5 @@
   --gray2-color: #434343;
   --gray3-color: #232323;
   --gray4-color: #232323;
-  color-scheme: dark; // native controls: select popups, checkboxes, scrollbars
+  color-scheme: dark;
 }

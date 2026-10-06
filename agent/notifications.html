@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Notifications in your Xproperty agent dashboard.">
+    <meta name="keywords" content="notifications, agent dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/agent/notifications.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Notifications - Agent Dashboard | Xproperty">
+    <meta property="og:description" content="Notifications in your Xproperty agent dashboard.">
+    <meta property="og:url" content="https://example.com/agent/notifications.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Notifications - Agent Dashboard | Xproperty">
+    <meta name="twitter:description" content="Notifications in your Xproperty agent dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Notifications - Agent Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Agent dashboard · Notifications. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/team-img-5.jpg" alt="Amanda Jones">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Agent</span>
+            </div>
+          </div>
+          <!-- Start Agent Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="submit-property.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-square-plus"></i>
+                  <span class="cs_menu_text">Submit Property</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="my-listings.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">My Listings</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="my-listings.html#active">Active <span class="cs_status_badge cs_status_active">24</span></a></li>
+                  <li><a href="my-listings.html#pending">Pending <span class="cs_status_badge cs_status_pending">5</span></a></li>
+                  <li><a href="my-listings.html#expired">Expired <span class="cs_status_badge cs_status_expired">2</span></a></li>
+                  <li><a href="my-listings.html#draft">Drafts <span class="cs_status_badge">3</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-contract"></i>
+                  <span class="cs_menu_text">Documents &amp; Contracts</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">6</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li>
+                <a href="billing.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-credit-card"></i>
+                  <span class="cs_menu_text">My Package & Billing</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Agent Menu -->
+        </div>
+        <div class="cs_sidebar_footer">
+          <!-- Package usage -->
+          <div class="cs_sidebar_package cs_radius_10">
+            <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Premium Plan</p>
+            <div class="cs_progress"><span style="width: 68%"></span></div>
+            <p class="cs_fs_14 mb-0"><bdi>34 of 50 listings used</bdi> · <a href="billing.html" class="cs_semibold">Upgrade</a></p>
+          </div>
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search properties, leads, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">"Beach View Villa" was approved</span>
+                        <span class="d-block cs_fs_14"><bdi>2 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">New lead from Daniel Brooks</span>
+                        <span class="d-block cs_fs_14"><bdi>45 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>2 listings expire in 3 days</bdi></span>
+                        <span class="d-block cs_fs_14">Today, 09:12</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/team-img-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Amanda Jones</span>
+                  <span class="d-block cs_fs_14">Agent</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="billing.html"><i class="fa-solid fa-credit-card"></i>My Package & Billing</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Notifications</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Notifications</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10 cs_notification_read_all">
+                <span><i class="fa-solid fa-check-double"></i></span>
+                <span>Mark all as read</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Start Notifications -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#notificationList" aria-label="Filter">
+                <li><button type="button" data-filter="all" aria-pressed="true" class="active">All <span data-notification-count="all">10</span></button></li>
+                <li><button type="button" data-filter="unread" aria-pressed="false">Unread <span data-notification-count="unread">3</span></button></li>
+                <li><button type="button" data-filter="read" aria-pressed="false">Read <span data-notification-count="read">7</span></button></li>
+              </ul>
+            </div>
+            <div id="notificationList">
+              <ul class="cs_notification_feed">
+                <li class="cs_notification_item" data-status="unread">
+                  <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="my-listings.html">"Beach View Villa" was approved</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Your listing is now live and visible to buyers.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i><bdi>2 min ago</bdi></span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_approve cs_notification_read" aria-label="Mark &quot;Beach View Villa was approved&quot; as read" data-tooltip="Mark as read"><i class="fa-solid fa-check"></i></button>
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;Beach View Villa was approved&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="unread">
+                  <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="messages.html">New lead from Daniel Brooks</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Daniel is interested in "Shangri la Apartment" and asked for a viewing.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i><bdi>45 min ago</bdi></span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_approve cs_notification_read" aria-label="Mark &quot;New lead from Daniel Brooks&quot; as read" data-tooltip="Mark as read"><i class="fa-solid fa-check"></i></button>
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;New lead from Daniel Brooks&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="unread">
+                  <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="my-listings.html"><bdi>2 listings expire in 3 days</bdi></a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Renew "Northern Apartment" and "Harbour Loft" to keep them live.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Today, 09:12</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_approve cs_notification_read" aria-label="Mark &quot;2 listings expire in 3 days&quot; as read" data-tooltip="Mark as read"><i class="fa-solid fa-check"></i></button>
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;2 listings expire in 3 days&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-envelope"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="messages.html">New message from Sophia Turner</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">"Could you share the HOA fees for this property?"</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Today, 08:02</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;New message from Sophia Turner&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon"><i class="fa-solid fa-star"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="reviews.html">New 5-star review</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Ethan Wilson reviewed you: "Very professional and quick to respond."</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Yesterday, 18:30</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;New 5-star review&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-circle-xmark"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="my-listings.html">"Cedar Ridge Cottage" was rejected</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Please add at least 5 photos and resubmit the listing.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Yesterday, 10:14</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;Cedar Ridge Cottage was rejected&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon"><i class="fa-solid fa-receipt"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="billing.html">Payment received</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Your Premium plan was renewed for $49.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Oct 03, 2026</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;Payment received&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-chart-simple"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="billing.html"><bdi>34 of 50 listings used</bdi></a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Upgrade your package to publish more listings.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Oct 02, 2026</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;34 of 50 listings used&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-eye"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="index.html">Your listings got 816 views today</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Views are up 12% compared to last week.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Oct 01, 2026</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;Your listings got 816 views today&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+                <li class="cs_notification_item" data-status="read">
+                  <span class="cs_notification_icon"><i class="fa-solid fa-user-check"></i></span>
+                  <div class="cs_notification_body">
+                    <h2 class="cs_fs_16 cs_semibold cs_mb_3"><a href="profile-settings.html">Profile verified</a></h2>
+                    <p class="cs_fs_14 cs_mb_5">Your agent licence was verified. A badge now shows on your profile.</p>
+                    <span class="cs_notification_time cs_fs_14"><i class="fa-regular fa-clock"></i>Sep 28, 2026</span>
+                  </div>
+                  <div class="cs_table_actions">
+                    <button type="button" class="cs_table_action cs_action_reject cs_notification_delete" aria-label="Delete &quot;Profile verified&quot;" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button>
+                  </div>
+                </li>
+              </ul>
+              <p class="cs_empty_row cs_notification_empty mb-0" style="display: none"><i class="fa-regular fa-bell-slash"></i>No notifications here. You are all caught up!</p>
+            </div>
+          </div>
+          <!-- End Notifications -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

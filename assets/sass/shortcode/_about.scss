@@ -1,6 +1,4 @@
-/*===============================================================
- 12. About Us Section and Page
-=================================================================*/
+/* 12. About Us Section and Page */
 .cs_about.cs_style_1 {
   .cs_about_img_wrapper {
     display: grid;
@@ -51,7 +49,7 @@
 
 .cs_about.cs_style_2 {
   .cs_about_thumbnail {
-    img {
+    >img {
       width: 100%;
       border-radius: inherit;
     }

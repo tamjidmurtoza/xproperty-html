@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*--------------------------------------------------------------
 >> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -22,17 +21,13 @@
 18. Property and Property Details
 19. Tabs
 20. Profile
-21. Dashboard
+21. Dashboard (+ new page partials: _new-public-a/b/c, _new-admin-a/b, _new-dash-a/b)
 22. Dark Version
 23. RTL Support
 --------------------------------------------------------------*/
-/*===============================================================
- 02. Typography
-=================================================================*/
+/* 02. Typography */
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Carattere&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
-/*================================================================
-  01. Variables
-==================================================================*/
+/* 01. Variables */
 :root {
   --white-color: #fff;
   --black-color: #000;
@@ -46,10 +41,10 @@
   --gray3-color: #FAFAFA;
   --gray4-color: #FFFAF6;
   --danger-color: #FF0000;
+  --web-wash: #fff;
   --primary-font: "Cabin", sans-serif;
   --secondary-font: "Raleway", sans-serif;
   --ternary-font: "Carattere", cursive;
-  /* Direction helpers (flipped in _rtl.scss) */
   --cs-dir: 1;
   --cs-start: left;
   --cs-end: right;
@@ -91,8 +86,7 @@ html::-webkit-scrollbar {
 
 body {
   height: auto;
-  overflow: auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 body.scroll_off {
   height: 100vh;
@@ -263,9 +257,7 @@ label {
   margin-bottom: 8px;
 }
 
-/*============================================================
-  03. Spacing
-==============================================================*/
+/* 03. Spacing */
 @media screen and (min-width: 992px) {
   .cs_height_1 {
     height: 1px;
@@ -1020,9 +1012,7 @@ label {
     height: 100px;
   }
 }
-/*==========================================
- Margin Bottom Spacing
-===========================================*/
+/* Margin Bottom Spacing */
 .cs_mb_1 {
   margin-bottom: 1px;
 }
@@ -1455,12 +1445,8 @@ label {
     margin-bottom: 50px;
   }
 }
-/*=================================================================
-  04. General
-===================================================================*/
-/*=====================================  
-  Classess for Fonts Size  
-=======================================*/
+/* 04. General */
+/* Classess for Fonts Size */
 .cs_fs_14 {
   font-size: 14px;
   line-height: 1.786em;
@@ -1581,9 +1567,7 @@ label {
   }
 }
 
-/*=====================================  
-  Classess for Fonts Weight
-=======================================*/
+/* Classess for Fonts Weight */
 .cs_light {
   font-weight: 300;
 }
@@ -1612,9 +1596,7 @@ label {
   font-weight: 900;
 }
 
-/*=====================================  
-  Classess for Fonts Color
-=======================================*/
+/* Classess for Fonts Color */
 .cs_accent_color {
   color: var(--accent-color);
 }
@@ -1643,9 +1625,7 @@ label {
   color: var(--danger-color);
 }
 
-/*=====================================  
-  Classess for Fonts Family 
-=======================================*/
+/* Classess for Fonts Family */
 .cs_primary_font {
   font-family: var(--primary-font);
 }
@@ -1658,9 +1638,7 @@ label {
   font-family: var(--ternary-font);
 }
 
-/*=============================================  
-  Classess for Background Size & Colors
-===============================================*/
+/* Classess for Background Size & Colors */
 .cs_accent_bg {
   background-color: var(--accent-color);
 }
@@ -1725,9 +1703,7 @@ label {
   -webkit-text-fill-color: transparent;
 }
 
-/*=============================================  
-  Classess for Border Radius
-===============================================*/
+/* Classess for Border Radius */
 .cs_radius_5 {
   border-radius: 5px;
 }
@@ -1760,9 +1736,7 @@ label {
   border-radius: 50%;
 }
 
-/*=============================================  
-  Classes for Utility Components
-===============================================*/
+/* Classes for Utility Components */
 .cs_mp_0 {
   list-style: none;
   margin: 0;
@@ -1808,9 +1782,7 @@ label {
   }
 }
 
-/*=============================================  
-  Bootstrap Classess 
-===============================================*/
+/* Bootstrap Classess */
 @media (min-width: 1400px) {
   .container {
     max-width: 1416px;
@@ -1860,9 +1832,7 @@ label {
   }
 }
 
-/*===========================================================  
-  Responsive For Common Component & Hide Elements
-=============================================================*/
+/* Responsive For Common Component & Hide Elements */
 @media (max-width: 991px) {
   br,
   .cs_counter_shape_1,
@@ -1872,9 +1842,25 @@ label {
     display: none;
   }
 }
-/*===================================================================
-  05. Header Sections
-=====================================================================*/
+/* Skip link */
+.cs_skip_link {
+  position: absolute;
+  top: -100px;
+  inset-inline-start: 16px;
+  z-index: 10000;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  transition: top 0.2s ease;
+}
+.cs_skip_link:focus {
+  top: 16px;
+  color: var(--white-color);
+}
+
+/* 05. Header Sections */
 .cs_site_header.cs_style_1 {
   position: fixed;
   top: 0;
@@ -1952,6 +1938,9 @@ label {
   justify-content: flex-end;
   gap: 25px;
 }
+.cs_site_header.cs_style_1 .cs_right_nav_list .cs_login {
+  white-space: nowrap;
+}
 .cs_site_header.cs_style_1 .cs_right_nav_list .cs_login:hover {
   opacity: 0.75;
 }
@@ -1962,7 +1951,7 @@ label {
   border-bottom: 1px solid var(--gray-color);
 }
 .cs_site_header.cs_style_1 {
-  /* =============== Language Switcher Styling ================ */
+  /* Language Switcher Styling */
 }
 .cs_site_header.cs_style_1 .cs_language_select {
   cursor: pointer;
@@ -2079,6 +2068,17 @@ label {
   }
   .cs_site_header.cs_style_1 .cs_dropdown_list a:hover {
     opacity: 0.75;
+  }
+  .cs_site_header.cs_style_1 .cs_dropdown_list.cs_dropdown_2col {
+    width: 440px;
+    -moz-columns: 2;
+         columns: 2;
+    -moz-column-gap: 0;
+         column-gap: 0;
+  }
+  .cs_site_header.cs_style_1 .cs_dropdown_list.cs_dropdown_2col li {
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
   }
   .cs_site_header.cs_style_1 .cs_close_nav {
     display: none;
@@ -2321,9 +2321,7 @@ label {
   }
 }
 
-/*====================================================
-   Mobile Menu Styling
-  ======================================================*/
+/* Mobile Menu Styling */
 .cs_menu_toggle {
   width: 30px;
   height: 27px;
@@ -2387,9 +2385,7 @@ label {
   display: none;
 }
 
-/*=======================================================================
- 06. Footer Section
-=========================================================================*/
+/* 06. Footer Section */
 .cs_footer.cs_style_1 .cs_footer_main {
   padding: 137px 0 100px;
 }
@@ -2713,9 +2709,7 @@ label {
   }
 }
 
-/*=======================================================
- Newsletter Form
-=========================================================*/
+/* Newsletter Form */
 .cs_newsletter_form.cs_style_1::before {
   content: "";
   width: 100%;
@@ -2807,9 +2801,7 @@ label {
   }
 }
 
-/*==============================================================
- 07. Sidebar
-================================================================*/
+/* 07. Sidebar */
 .cs_sidebar.cs_style_1 {
   width: min(100%, 400px);
   padding: 29px 35px 35px;
@@ -3029,9 +3021,7 @@ label {
   }
 }
 
-/*================================================================
-  08. Slider
-==================================================================*/
+/* 08. Slider */
 .cs_slider {
   position: relative;
 }
@@ -3147,9 +3137,7 @@ label {
   pointer-events: all;
 }
 
-/*=================================================
- Slider Arrows
-===================================================*/
+/* Slider Arrows */
 .cs_slider_arrows.cs_style_1 {
   width: calc(100vw - 15%);
   position: absolute;
@@ -3245,13 +3233,11 @@ label {
   transition: all 0.4s ease;
 }
 .cs_slider_arrows.cs_style_2 .slick-arrow:hover {
-  background-color: var(--white-color);
-  color: var(--primary-color);
+  background-color: #fff;
+  color: #1d1d1d;
 }
 
-/*=================================================
- Slider Paginations
-===================================================*/
+/* Slider Paginations */
 .cs_pagination.cs_style_1 .slick-dots {
   list-style: none;
   padding: 0;
@@ -3357,9 +3343,7 @@ label {
   transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1);
 }
 
-/*=======================================================
- Horizontal Slider
-=========================================================*/
+/* Horizontal Slider */
 .cs_horizontal_slider_wrapper {
   overflow-x: hidden;
 }
@@ -3407,9 +3391,7 @@ label {
     transform: translateX(calc(-100% * var(--cs-dir)));
   }
 }
-/*================================================================
-  09. Video Modal
-==================================================================*/
+/* 09. Video Modal */
 .cs_video_popup {
   position: fixed;
   z-index: 1000;
@@ -3573,9 +3555,7 @@ label {
 }
 
 /*End Video Popup*/
-/*===============================================================
- 10. Preloader
-==================================================================*/
+/* 10. Preloader */
 .cs_preloader {
   width: 100%;
   height: 100%;
@@ -3623,9 +3603,7 @@ label {
     transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1);
   }
 }
-/*===============================================================
-  11. All Hero Section
-=================================================================*/
+/* 11. All Hero Section */
 .cs_hero.cs_style_1 {
   --cs-glass-bg: rgba(255, 255, 255, 0.55);
   --cs-glass-border: rgba(255, 255, 255, 0.75);
@@ -3697,7 +3675,8 @@ label {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 18px 6px 6px;
+  padding-block: 6px;
+  padding-inline: 6px 18px;
   margin-bottom: 28px;
   font-size: 15px;
   font-weight: 500;
@@ -3788,77 +3767,6 @@ label {
   font-weight: 600;
   color: var(--primary-color);
 }
-.cs_hero.cs_style_1 .cs_hero_stats {
-  display: flex;
-  align-items: center;
-  margin-top: 44px;
-  padding: 16px 10px;
-  background: var(--cs-glass-bg);
-  border: 1px solid var(--cs-glass-border);
-  border-radius: 20px;
-  box-shadow: var(--cs-glass-shadow);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-}
-.cs_hero.cs_style_1 .cs_hero_stat {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 28px;
-}
-.cs_hero.cs_style_1 .cs_hero_stat:not(:last-child) {
-  border-inline-end: 1px solid rgba(29, 29, 29, 0.12);
-}
-.cs_hero.cs_style_1 .cs_hero_stat strong {
-  display: block;
-  font-family: var(--primary-font);
-  font-size: 22px;
-  line-height: 1.2em;
-  color: var(--primary-color);
-}
-.cs_hero.cs_style_1 .cs_hero_stat span {
-  font-size: 14px;
-}
-.cs_hero.cs_style_1 .cs_stat_icon {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 16px !important;
-  color: var(--white-color);
-  background: var(--primary-color);
-  border-radius: 12px;
-}
-.cs_hero.cs_style_1 .cs_hero_stat:nth-child(2) .cs_stat_icon {
-  color: #1d1d1d;
-  background: #FFC83D;
-}
-.cs_hero.cs_style_1 .cs_avatar_stack {
-  display: flex;
-}
-.cs_hero.cs_style_1 .cs_avatar_stack img,
-.cs_hero.cs_style_1 .cs_avatar_stack > span {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.cs_hero.cs_style_1 .cs_avatar_stack img:not(:first-child),
-.cs_hero.cs_style_1 .cs_avatar_stack > span:not(:first-child) {
-  margin-inline-start: -12px;
-}
-.cs_hero.cs_style_1 .cs_avatar_stack > span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  color: #fff;
-  background: #00CC61;
-}
 .cs_hero.cs_style_1 .cs_hero_float {
   position: absolute;
   z-index: 2;
@@ -3877,7 +3785,8 @@ label {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 18px 10px 10px;
+  padding-block: 10px;
+  padding-inline: 10px 18px;
   background: var(--cs-glass-bg);
   border: 1px solid var(--cs-glass-border);
   border-radius: 18px;
@@ -3952,26 +3861,9 @@ label {
 }
 @media (max-width: 991px) {
   .cs_hero.cs_style_1 {
+    height: auto;
+    max-height: none;
     padding: 150px 0 80px;
-  }
-  .cs_hero.cs_style_1 .cs_hero_stat {
-    padding: 0 18px;
-  }
-}
-@media (max-width: 767px) {
-  .cs_hero.cs_style_1 .cs_hero_stats {
-    flex-wrap: wrap;
-    justify-content: center;
-    row-gap: 16px;
-  }
-  .cs_hero.cs_style_1 .cs_hero_stat:nth-child(2) {
-    border-inline-end: 0;
-  }
-  .cs_hero.cs_style_1 .cs_hero_stat:last-child {
-    width: 100%;
-    justify-content: center;
-    padding-top: 16px;
-    border-top: 1px solid rgba(29, 29, 29, 0.12);
   }
 }
 @media (max-width: 575px) {
@@ -3987,15 +3879,6 @@ label {
   }
   .cs_hero.cs_style_1 .cs_hero_desc {
     font-size: 16px;
-  }
-  .cs_hero.cs_style_1 .cs_hero_stats {
-    width: 100%;
-  }
-  .cs_hero.cs_style_1 .cs_hero_stat {
-    padding: 0 12px;
-  }
-  .cs_hero.cs_style_1 .cs_hero_stat strong {
-    font-size: 18px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4017,14 +3900,6 @@ label {
 }
 .cs_dark .cs_hero.cs_style_1 .cs_hero_popular a:hover {
   color: #1d1d1d;
-}
-.cs_dark .cs_hero.cs_style_1 .cs_hero_stat:not(:last-child),
-.cs_dark .cs_hero.cs_style_1 .cs_hero_stat:last-child {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-.cs_dark .cs_hero.cs_style_1 .cs_avatar_stack img,
-.cs_dark .cs_hero.cs_style_1 .cs_avatar_stack > span {
-  border-color: #1d1d1d;
 }
 
 @keyframes csHeroFloat {
@@ -4366,12 +4241,17 @@ label {
   align-items: flex-end;
   justify-content: center;
 }
-.cs_hero.cs_style_7 iframe {
+.cs_hero.cs_style_7 iframe,
+.cs_hero.cs_style_7 .cs_leaflet_map {
   width: 100%;
   height: 100%;
   position: absolute;
   inset-inline-start: 0;
   top: 0;
+  border-radius: inherit;
+}
+.cs_hero.cs_style_7 iframe,
+.cs_hero.cs_style_7 .cs_leaflet_map .leaflet-tile-pane {
   filter: brightness(90%) grayscale(0.6);
 }
 .cs_hero.cs_style_7 .cs_property_search.cs_style_1 {
@@ -4468,9 +4348,7 @@ label {
   }
 }
 
-/*========================================================
- Hero Component and Slider Component
-==========================================================*/
+/* Hero Component and Slider Component */
 .cs_slider.cs_style_2 .cs_tabs {
   width: -moz-max-content;
   width: max-content;
@@ -4563,9 +4441,7 @@ label {
   }
 }
 
-/*========================================================
- Filter Tabs
-==========================================================*/
+/* Filter Tabs */
 .cs_tabs_container {
   margin-top: -88px;
 }
@@ -4581,9 +4457,7 @@ label {
   padding: 20px;
 }
 
-/*========================================================
- Page Header
-==========================================================*/
+/* Page Header */
 .cs_page_header.cs_style_1 {
   width: 100%;
   height: 100%;
@@ -4615,9 +4489,7 @@ label {
     transform: translate(calc(-50% * var(--cs-dir)), -50%) rotate(360deg);
   }
 }
-/*===============================================================
- 12. About Us Section and Page
-=================================================================*/
+/* 12. About Us Section and Page */
 .cs_about.cs_style_1 .cs_about_img_wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -4658,7 +4530,7 @@ label {
   }
 }
 
-.cs_about.cs_style_2 .cs_about_thumbnail img {
+.cs_about.cs_style_2 .cs_about_thumbnail > img {
   width: 100%;
   border-radius: inherit;
 }
@@ -4812,12 +4684,8 @@ label {
     opacity: 0;
   }
 }
-/*==============================================================
- 13. All Utility Componnents
-================================================================*/
-/*=============================================
-  SVG Icons (<img> + mask, colored by currentColor)
-===============================================*/
+/* 13. All Utility Componnents */
+/* SVG Icons (<img> + mask, colored by currentColor) */
 .cs_svg_icon {
   flex: none;
   border-radius: 0;
@@ -5040,9 +4908,7 @@ label {
   --cs-icon: url("../img/icons/ui/window.svg");
 }
 
-/*=============================================  
-  All Button And Input Field Components
-===============================================*/
+/* All Button And Input Field Components */
 .cs_btn.cs_style_1 {
   display: inline-flex;
   align-items: center;
@@ -5150,6 +5016,9 @@ label {
 .cs_player_btn.cs_style_3 > * {
   position: relative;
   z-index: 1;
+}
+.cs_player_btn.cs_style_3:hover.cs_white_color {
+  color: var(--white-color);
 }
 .cs_player_btn.cs_style_3:hover::before {
   animation-play-state: paused;
@@ -5320,9 +5189,7 @@ label {
   animation: circularRotation 20s linear infinite;
 }
 
-/*=============================================  
-  All Section Heading Components
-===============================================*/
+/* All Section Heading Components */
 .cs_section_heading.cs_style_1.cs_type_1 {
   display: flex;
   align-items: center;
@@ -5351,9 +5218,7 @@ label {
   }
 }
 
-/*=============================================  
-  Property Searchbox Component
-===============================================*/
+/* Property Searchbox Component */
 .cs_property_search.cs_style_1 {
   width: 100%;
   padding: 15px;
@@ -5576,6 +5441,9 @@ label {
   transform: translateY(0);
   pointer-events: auto;
 }
+.ts-dropdown .ts-dropdown-content {
+  overscroll-behavior: contain;
+}
 @supports not selector(::-webkit-scrollbar) {
   .ts-dropdown .ts-dropdown-content {
     scrollbar-width: thin;
@@ -5641,9 +5509,7 @@ label {
   }
 }
 
-/*=============================================  
-  Advanced Search Modal
-===============================================*/
+/* Advanced Search Modal */
 .cs_advanced_search_modal {
   width: 100%;
   height: 100vh;
@@ -5786,9 +5652,7 @@ label {
   }
 }
 
-/*=============================================
- Counter Components
-===============================================*/
+/* Counter Components */
 .cs_counter.cs_style_1 {
   max-width: 264px;
   margin: 0 auto;
@@ -5813,9 +5677,7 @@ label {
   inset-inline-start: -5px;
 }
 
-/*=============================================
- Rating Component
-===============================================*/
+/* Rating Component */
 .cs_rating_percentage,
 .cs_rating {
   overflow: hidden;
@@ -5852,9 +5714,7 @@ label {
   font-weight: 900;
 }
 
-/*=============================================
- Avatar Component
-===============================================*/
+/* Avatar Component */
 .cs_avatar.cs_style_1 {
   display: flex;
   gap: 20px;
@@ -5962,9 +5822,7 @@ label {
   }
 }
 
-/*=============================================
- All CTA Components
-===============================================*/
+/* All CTA Components */
 .cs_text_underline {
   display: inline-block;
   position: relative;
@@ -6038,9 +5896,7 @@ label {
   }
 }
 
-/*=============================================  
-  Video Block
-===============================================*/
+/* Video Block */
 .cs_video_block.cs_style_1 {
   min-height: 650px;
 }
@@ -6079,9 +5935,7 @@ label {
   }
 }
 
-/*=============================================
-  FAQ Components
-===============================================*/
+/* FAQ Components */
 .cs_faq_heading {
   width: min(100%, 460px);
 }
@@ -6149,7 +6003,7 @@ label {
   width: 8px;
   height: 8px;
   border: 1px solid var(--secondary-color);
-  border-inline-start: 0;
+  border-left: 0;
   border-top: 0;
   transform: rotate(45deg);
 }
@@ -6228,15 +6082,88 @@ label {
   }
 }
 
-/*=============================================
-  Form and input Components Contact Section
-===============================================*/
+/* Form and input Components Contact Section */
 .cs_form_field {
   outline: 0;
   padding: 8px 15px;
   color: var(--primary-color);
   background-color: var(--white-color);
   border: 1px solid var(--border-color);
+}
+
+/* Form validation (formValidation in main.js) */
+.cs_form_field.cs_invalid,
+.ts-wrapper.cs_invalid .ts-control,
+.cs_newsletter_form input.cs_invalid {
+  border-color: var(--danger-color) !important;
+}
+
+.cs_field_error {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: var(--danger-color);
+}
+
+.cs_password_field {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.cs_password_field input {
+  width: 100%;
+  padding-inline-end: 46px;
+}
+
+.cs_password_toggle {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 15px;
+  color: var(--secondary-color);
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 6px;
+  transform: translateY(-50%);
+  transition: color 0.3s ease;
+}
+.cs_password_toggle:hover {
+  color: var(--primary-color);
+}
+
+.cs_form_note {
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5em;
+  border-radius: 10px;
+}
+.cs_form_note.cs_success {
+  color: var(--primary-color);
+  background-color: rgba(0, 204, 97, 0.12);
+  border: 1px solid rgba(0, 204, 97, 0.4);
+}
+.cs_form_note.cs_error {
+  color: var(--danger-color);
+  background-color: rgba(255, 0, 0, 0.06);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+[data-auth-form] .cs_btn.cs_loading {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.cs_newsletter_note {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: var(--accent-color);
+}
+.cs_newsletter_note.cs_error {
+  color: #ff6b6b;
 }
 
 .cs_custom_checkbox {
@@ -6306,9 +6233,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/*===============================================
- Flatpickr Date and Time Taker
-=================================================*/
+/* Flatpickr Date and Time Taker */
 .flatpickr-months .flatpickr-month {
   height: 45px;
 }
@@ -6346,9 +6271,7 @@ span.flatpickr-weekday {
   border-color: var(--primary-color);
 }
 
-/*===============================================
- Contact Component And Section
-=================================================*/
+/* Contact Component And Section */
 .cs_contact_form .cs_form_field {
   display: block;
   width: 100%;
@@ -6409,18 +6332,23 @@ span.flatpickr-weekday {
 }
 @media (max-width: 767px) {
   .cs_contact_form_wrapper {
-    padding: 30px 20px 40px;
+    padding: 30px 15px 40px;
   }
 }
 
-.cs_location_map iframe {
+.cs_location_map iframe,
+.cs_location_map .cs_leaflet_map {
   width: 100%;
   min-height: 560px;
   border-radius: inherit;
+}
+.cs_location_map iframe,
+.cs_location_map .cs_leaflet_map .leaflet-tile-pane {
   filter: brightness(110%) grayscale(0.8);
 }
 @media (max-width: 991px) {
-  .cs_location_map iframe {
+  .cs_location_map iframe,
+  .cs_location_map .cs_leaflet_map {
     min-height: 350px;
   }
 }
@@ -6430,11 +6358,16 @@ span.flatpickr-weekday {
   height: 100%;
   min-height: 500px;
 }
-.cs_contact_map iframe {
+.cs_contact_map iframe,
+.cs_contact_map .cs_leaflet_map {
   display: block;
   transform: 0;
   width: 100%;
   height: 100%;
+  min-height: 500px;
+}
+.cs_contact_map iframe,
+.cs_contact_map .cs_leaflet_map .leaflet-tile-pane {
   filter: brightness(120%) grayscale(0.6);
 }
 .cs_contact_map img {
@@ -6448,14 +6381,13 @@ span.flatpickr-weekday {
     width: 100%;
     padding-top: 80px;
   }
-  .cs_contact_map iframe {
+  .cs_contact_map iframe,
+  .cs_contact_map .cs_leaflet_map {
     border-radius: 20px;
   }
 }
 
-/*=============================================
- Finding Apartments Area Section
-===============================================*/
+/* Finding Apartments Area Section */
 .cs_apartments_area {
   width: 100%;
   height: 100%;
@@ -6555,9 +6487,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*===========================================================
-  Pagination Box
-=============================================================*/
+/* Pagination Box */
 .cs_pagination_box {
   display: flex;
   justify-content: center;
@@ -6617,9 +6547,7 @@ span.flatpickr-weekday {
   transform: rotate(180deg);
 }
 
-/*=============================================
- Pricing Components and Section
-===============================================*/
+/* Pricing Components and Section */
 .cs_pricing_control li {
   display: flex;
   align-items: center;
@@ -6735,9 +6663,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=============================================
- All Shape Components
-===============================================*/
+/* All Shape Components */
 .cs_cloud_shape_1 {
   inset-inline-start: 20%;
   top: 10%;
@@ -6794,9 +6720,7 @@ span.flatpickr-weekday {
   inset-inline-end: 40px;
 }
 
-/*===========================================================  
-  All Common Animations
-=============================================================*/
+/* All Common Animations */
 @keyframes pulse-border {
   100% {
     transform: translate(calc(-50% * var(--cs-dir)), -50%) scale(1.6);
@@ -6824,9 +6748,41 @@ span.flatpickr-weekday {
     transform: translateY(50px) rotateY(180deg);
   }
 }
-/*===============================================================
- 14. Cards
-=================================================================*/
+/* Currency switcher */
+.cs_currency_select {
+  padding: 0;
+  padding-inline-end: 4px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.cs_currency_select option {
+  color: #1d1d1d;
+}
+.cs_currency_select:focus-visible {
+  outline: 1px dashed currentColor;
+  outline-offset: 3px;
+}
+
+/* Location search options */
+.ts-dropdown .cs_location_option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ts-dropdown .cs_location_option i {
+  font-size: 14px;
+  color: var(--accent-color);
+}
+.ts-dropdown .cs_location_option small {
+  margin-inline-start: auto;
+  font-size: 13px;
+  color: var(--secondary-color);
+}
+
+/* 14. Cards */
 .cs_card.cs_style_1 .cs_card_thumbnail {
   display: block;
   width: 100%;
@@ -6852,7 +6808,7 @@ span.flatpickr-weekday {
   opacity: 0;
   transform: scale(1.05);
 }
-.cs_card.cs_style_1 .cs_card_thumbnail:hover .cs_card_img_font {
+.cs_card.cs_style_1 .cs_card_thumbnail:hover .cs_card_img_front {
   opacity: 0;
   transform: scale(1.05);
 }
@@ -6867,6 +6823,35 @@ span.flatpickr-weekday {
   top: 30px;
   inset-inline-end: 30px;
   pointer-events: fill;
+}
+.cs_card.cs_style_1 > .cs_save_btn,
+.cs_card.cs_style_1 > .cs_compare_btn {
+  width: 40px;
+  height: 40px;
+  top: 15px;
+  inset-inline-end: 15px;
+  z-index: 3;
+  border: 0;
+  font-size: 15px;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+  transition: all 0.3s ease;
+}
+.cs_card.cs_style_1 > .cs_save_btn ~ .cs_compare_btn {
+  inset-inline-end: 63px;
+}
+.cs_card.cs_style_1 > .cs_compare_btn:hover, .cs_card.cs_style_1 > .cs_compare_btn.active {
+  color: #fff;
+  background-color: var(--accent-color);
+}
+.cs_card.cs_style_1 > .cs_save_btn:hover, .cs_card.cs_style_1 > .cs_save_btn.active {
+  color: var(--danger-color);
+}
+.cs_card.cs_style_1:has(> .cs_compare_btn), .cs_card.cs_style_1:has(> .cs_save_btn) {
+  position: relative;
+}
+.cs_card.cs_style_1.cs_map_active .cs_card_thumbnail {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
 }
 .cs_card.cs_style_1 .cs_property_info_header {
   display: flex;
@@ -7457,6 +7442,13 @@ span.flatpickr-weekday {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.cs_card.cs_style_6 .cs_card_thumbnail .cs_card_badge {
+  top: 24px;
+  inset-inline-start: 24px;
+  padding: 1px 9px;
+  background: rgba(29, 29, 29, 0.3);
+  backdrop-filter: blur(25px);
+}
 .cs_card.cs_style_6 .cs_card_content {
   display: flex;
   flex-direction: column;
@@ -7472,9 +7464,16 @@ span.flatpickr-weekday {
   inset-inline-start: 0;
 }
 .cs_card.cs_style_6 .cs_property_price {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 12px 0;
   border-top: 1px solid var(--gray-color);
   border-bottom: 1px solid var(--gray-color);
+}
+.cs_card.cs_style_6 .cs_property_price span {
+  display: flex;
+  flex: none;
 }
 .cs_card.cs_style_6 .cs_property_features {
   display: flex;
@@ -7485,8 +7484,12 @@ span.flatpickr-weekday {
 }
 .cs_card.cs_style_6 .cs_property_features li {
   width: calc(50% - 10px);
+  display: flex;
+  align-items: center;
 }
 .cs_card.cs_style_6 .cs_property_features li span:first-child {
+  display: flex;
+  flex: none;
   margin-inline-end: 10px;
 }
 @media (max-width: 768px) {
@@ -7530,7 +7533,7 @@ span.flatpickr-weekday {
   opacity: 0;
   transform: scale(1.05);
 }
-.cs_card.cs_style_7 .cs_card_thumbnail:hover .cs_card_img_font {
+.cs_card.cs_style_7 .cs_card_thumbnail:hover .cs_card_img_front {
   opacity: 0;
   transform: scale(1.05);
 }
@@ -7876,9 +7879,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*===============================================================
-  15. Iconbox
-=================================================================*/
+/* 15. Iconbox */
 .cs_iconbox.cs_style_1 {
   width: min(100%, 377px);
 }
@@ -7956,6 +7957,7 @@ span.flatpickr-weekday {
   width: min(100%, 336px);
   height: 100%;
   margin: 0 auto;
+  justify-content: flex-start;
 }
 .cs_iconbox.cs_style_3 .cs_iconbox_icon {
   width: 80px;
@@ -8011,8 +8013,8 @@ span.flatpickr-weekday {
   background-color: transparent;
   color: var(--white-color);
 }
-.cs_iconbox.cs_style_3:hover .cs_iconbox_icon img {
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(2%) hue-rotate(55deg) brightness(107%) contrast(101%);
+.cs_iconbox.cs_style_3:hover .cs_iconbox_icon img:not(.cs_svg_icon) {
+  filter: brightness(0) invert(1);
 }
 .cs_iconbox.cs_style_3:hover .cs_iconbox_bg {
   transform: scale(1.03);
@@ -8122,9 +8124,7 @@ span.flatpickr-weekday {
   text-wrap: nowrap;
 }
 
-/*===============================================================
- 16. Posts and Post Details
-=================================================================*/
+/* 16. Posts and Post Details */
 .cs_post.cs_style_1 {
   width: 100%;
   height: 100%;
@@ -8228,9 +8228,7 @@ span.flatpickr-weekday {
   background-position: var(--cs-x-start) calc(100% - 0px);
 }
 
-/*======================================================================
- Post Details Page Styling
-========================================================================*/
+/* Post Details Page Styling */
 .cs_post_details .cs_post_meta_wrapper {
   display: flex;
   align-items: center;
@@ -8344,9 +8342,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=======================================================
- Privacy Policy & Terms Content
-=========================================================*/
+/* Privacy Policy & Terms Content */
 .cs_policy_content h3 {
   font-size: 25px;
   margin-top: 40px;
@@ -8371,9 +8367,7 @@ span.flatpickr-weekday {
   font-weight: 500;
 }
 
-/*=======================================================
- Post Author
-=========================================================*/
+/* Post Author */
 .cs_post_author {
   padding: 50px 0;
   display: flex;
@@ -8416,9 +8410,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=======================================================
- Post Comment
-=========================================================*/
+/* Post Comment */
 .cs_comment_form .cs_form_field {
   width: 100%;
   padding: 12px 20px 13px;
@@ -8440,9 +8432,104 @@ span.flatpickr-weekday {
   }
 }
 
-/*===============================================================
- 17. Testimonials
-=================================================================*/
+/* Blog list layout (blog-list.html) */
+.cs_post.cs_style_1.cs_type_list {
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+.cs_post.cs_style_1.cs_type_list .cs_post_thumbnail {
+  width: 45%;
+  flex: none;
+  margin-bottom: 0;
+}
+.cs_post.cs_style_1.cs_type_list .cs_post_meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-bottom: 8px;
+}
+.cs_post.cs_style_1.cs_type_list .cs_post_meta span:not(:last-child) {
+  padding-inline-end: 14px;
+  position: relative;
+}
+.cs_post.cs_style_1.cs_type_list .cs_post_meta span:not(:last-child)::after {
+  content: "";
+  width: 1px;
+  height: 16px;
+  background-color: currentColor;
+  opacity: 0.4;
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 0;
+  transform: translateY(-50%);
+}
+.cs_post.cs_style_1.cs_type_list .cs_post_title {
+  margin-bottom: 10px;
+}
+.cs_post.cs_style_1.cs_type_list .cs_btn.cs_style_1 {
+  margin-top: 0;
+}
+@media (max-width: 575px) {
+  .cs_post.cs_style_1.cs_type_list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .cs_post.cs_style_1.cs_type_list .cs_post_thumbnail {
+    width: 100%;
+  }
+}
+
+/* Blog filters (category, tag, search) */
+.cs_sidebar.cs_style_2 .cs_tag_link.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.cs_sidebar.cs_style_2 [data-blog-filter=category].active {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.cs_blog_status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 30px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  background-color: var(--gray3-color);
+  border: 1px solid var(--gray-color);
+}
+.cs_blog_status strong {
+  color: var(--primary-color);
+}
+
+.cs_blog_chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.cs_blog_chip {
+  padding: 7px 18px;
+  font-size: 15px;
+  color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.cs_blog_chip:hover, .cs_blog_chip.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* 17. Testimonials */
 .cs_testimonial.cs_style_1 {
   padding: 50px;
   border: 1px solid var(--secondary-color);
@@ -8585,9 +8672,7 @@ span.flatpickr-weekday {
     transform: rotate(360deg);
   }
 }
-/*===============================================================
- 18. Property and Property Details
-=================================================================*/
+/* 18. Property and Property Details */
 .cs_flor_diagram {
   background-color: #1d1d1d;
   border-radius: 10px;
@@ -8609,9 +8694,7 @@ span.flatpickr-weekday {
   text-align: end;
 }
 
-/*=======================================================
- Property Gallery
-=========================================================*/
+/* Property Gallery */
 .cs_gallery_item {
   display: flex;
   width: 696px;
@@ -8712,9 +8795,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=======================================================
- Single Property Apartment 
-=========================================================*/
+/* Single Property Apartment */
 .cs_apartment_item {
   display: flex;
   align-items: center;
@@ -8791,9 +8872,7 @@ span.flatpickr-weekday {
   margin-bottom: 0;
 }
 
-/*=======================================================
- Property Explore Section
- ========================================================*/
+/* Property Explore Section */
 .cs_explore_list li {
   padding-block: 0 30px;
   padding-inline: 0 150px;
@@ -8850,9 +8929,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=======================================================
- Property Details
- ========================================================*/
+/* Property Details */
 .cs_property_details .cs_property_header {
   display: flex;
   justify-content: space-between;
@@ -8936,7 +9013,8 @@ span.flatpickr-weekday {
   margin-bottom: 0;
   border-bottom: 0;
 }
-.cs_single_property_content .cs_location_map iframe {
+.cs_single_property_content .cs_location_map iframe,
+.cs_single_property_content .cs_location_map .cs_leaflet_map .leaflet-tile-pane {
   filter: brightness(120%) grayscale(0.8);
 }
 .cs_single_property_content .cs_property_info_list {
@@ -9077,12 +9155,1504 @@ span.flatpickr-weekday {
   }
 }
 
-/*===============================================================
-  19. Tabs
-=================================================================*/
-/*====================================================
-  Tab Links Styling
- ======================================================*/
+/* Property Search: price range slider */
+.cs_range_slider {
+  height: 24px;
+  position: relative;
+}
+.cs_range_slider .cs_range_track {
+  height: 4px;
+  background-color: var(--gray-color);
+  position: absolute;
+  top: 50%;
+  inset-inline: 0;
+  transform: translateY(-50%);
+}
+.cs_range_slider .cs_range_fill {
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+  top: 0;
+}
+.cs_range_slider input[type=range] {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
+}
+.cs_range_slider input[type=range]::-webkit-slider-runnable-track {
+  background: transparent;
+}
+.cs_range_slider input[type=range]::-moz-range-track {
+  background: transparent;
+}
+.cs_range_slider input[type=range]::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  background-color: var(--white-color);
+  box-shadow: 0px 2px 8px 0px rgba(29, 29, 29, 0.2);
+  cursor: grab;
+  pointer-events: auto;
+  -webkit-transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
+  -webkit-appearance: none;
+}
+.cs_range_slider input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  background-color: var(--white-color);
+  box-shadow: 0px 2px 8px 0px rgba(29, 29, 29, 0.2);
+  cursor: grab;
+  pointer-events: auto;
+}
+.cs_range_slider input[type=range]:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  transform: scale(1.15);
+}
+.cs_range_slider input[type=range]:focus-visible {
+  outline: 0;
+}
+.cs_range_slider input[type=range]:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+.cs_range_slider input[type=range]:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Property Search: sort, grid / list view, empty state */
+.cs_property_list_actions {
+  display: flex;
+  align-items: center;
+  gap: 15px 20px;
+  flex-wrap: wrap;
+}
+
+.cs_view_toggle {
+  display: flex;
+  gap: 8px;
+}
+
+/* Save Search */
+.cs_save_search_wrap {
+  position: relative;
+}
+
+.cs_save_search_btn {
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  font-size: 15px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_save_search_btn:hover, .cs_save_search_btn.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.cs_save_search_panel {
+  width: 320px;
+  padding: 22px;
+  border: 1px solid var(--gray-color);
+  box-shadow: 0px 10px 40px 0px rgba(29, 29, 29, 0.15);
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-end: 0;
+  z-index: 30;
+}
+.cs_save_search_panel label[for=ssName] {
+  display: block;
+}
+.cs_save_search_panel .cs_form_field {
+  width: 100%;
+}
+@media (max-width: 575px) {
+  .cs_save_search_panel {
+    width: min(320px, 100vw - 30px);
+    inset-inline-end: auto;
+    inset-inline-start: 0;
+  }
+}
+
+.cs_ss_freq {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+.cs_ss_freq label {
+  margin: 0;
+  cursor: pointer;
+}
+.cs_ss_freq input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.cs_ss_freq span {
+  display: block;
+  padding: 7px 4px;
+  font-size: 14px;
+  text-align: center;
+  color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.cs_ss_freq input:checked + span {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.cs_ss_freq input:focus-visible + span {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.cs_ss_btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.cs_ss_cancel {
+  padding: 0;
+  color: var(--secondary-color);
+  background: none;
+  border: 0;
+}
+.cs_ss_cancel:hover {
+  color: var(--primary-color);
+}
+
+.cs_ss_done_icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 12px;
+  font-size: 20px;
+  color: #fff;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.cs_view_btn {
+  width: 45px;
+  height: 45px;
+  font-size: 16px;
+  color: var(--secondary-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_view_btn:hover, .cs_view_btn.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.cs_listing_grid.cs_list_view > .cs_listing_item {
+  width: 100%;
+}
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 .cs_card_thumbnail {
+  width: 45%;
+  height: 280px;
+  flex: none;
+  margin-bottom: 0;
+}
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 .cs_card_content {
+  flex: 1;
+  min-width: 0;
+}
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 .cs_property_info {
+  flex-wrap: wrap;
+}
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 > .cs_save_btn,
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 > .cs_compare_btn {
+  inset-inline-end: auto;
+  inset-inline-start: calc(45% - 55px);
+}
+.cs_listing_grid.cs_list_view .cs_card.cs_style_1 > .cs_save_btn ~ .cs_compare_btn {
+  inset-inline-start: calc(45% - 103px);
+}
+@media (max-width: 575px) {
+  .cs_listing_grid.cs_list_view .cs_card.cs_style_1 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 17px;
+  }
+  .cs_listing_grid.cs_list_view .cs_card.cs_style_1 .cs_card_thumbnail {
+    width: 100%;
+    height: 260px;
+  }
+  .cs_listing_grid.cs_list_view .cs_card.cs_style_1 > .cs_save_btn,
+  .cs_listing_grid.cs_list_view .cs_card.cs_style_1 > .cs_compare_btn {
+    inset-inline-start: auto;
+    inset-inline-end: 15px;
+  }
+  .cs_listing_grid.cs_list_view .cs_card.cs_style_1 > .cs_save_btn ~ .cs_compare_btn {
+    inset-inline-end: 63px;
+  }
+}
+
+.cs_listing_empty_in {
+  padding: 60px 30px;
+}
+.cs_listing_empty_in .cs_listing_empty_icon {
+  width: 70px;
+  height: 70px;
+  margin-inline: auto;
+  font-size: 26px;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.07);
+}
+.cs_listing_empty_in p {
+  max-width: 440px;
+  margin-inline: auto;
+}
+@media (max-width: 575px) {
+  .cs_listing_empty_in {
+    padding: 40px 20px;
+  }
+}
+
+.cs_sidebar.cs_style_1 .cs_filter_reset {
+  margin-top: 24px;
+}
+
+.cs_pagination_box .cs_pagination_arrow.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cs_advanced_search_modal .cs_advanced_search_content:has(.cs_advanced_search_footer) .cs_advanced_search_items {
+  height: calc(100vh - 330px);
+}
+.cs_advanced_search_modal .cs_advanced_search_footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 30px 50px 0;
+  border-top: 1px solid var(--gray-color);
+}
+@media (max-width: 991px) {
+  .cs_advanced_search_modal .cs_advanced_search_footer {
+    padding: 24px 20px 0;
+  }
+}
+
+/* Half-Map Listing (property-listing-map.html) */
+.cs_map_listing_in {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cs_map_listing_content {
+  width: 58%;
+  padding: 40px 40px 0;
+}
+.cs_map_listing_content .cs_card.cs_style_1 .cs_card_thumbnail {
+  height: 250px;
+}
+
+.cs_map_listing_map {
+  width: 42%;
+  height: calc(100vh - 80px);
+  position: sticky;
+  top: 80px;
+}
+
+.cs_map_filter {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.6fr) auto;
+  align-items: end;
+  gap: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.cs_map_filter label,
+.cs_map_filter .cs_map_filter_label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.6em;
+}
+.cs_map_filter .cs_range_values {
+  margin-inline-start: 4px;
+  font-weight: 400;
+  color: var(--secondary-color);
+}
+.cs_map_filter .ts-control {
+  padding: 8px 15px;
+  font-size: 16px;
+  line-height: 1.7em;
+  color: var(--primary-color);
+  border-color: var(--border-color);
+  border-radius: 10px;
+  background-color: var(--white-color);
+}
+.cs_map_filter .ts-control::after {
+  content: "\f078";
+  font-size: 10px;
+  font-weight: 900;
+  font-family: "Font Awesome 6 Free";
+  position: absolute;
+  inset-inline-end: 15px;
+}
+.cs_map_filter .ts-control input {
+  min-width: auto !important;
+}
+.cs_map_filter .cs_range_slider {
+  height: 45px;
+}
+.cs_map_filter .cs_filter_reset {
+  width: 45px;
+  height: 45px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_map_filter .cs_filter_reset:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+@media (max-width: 1599px) {
+  .cs_map_filter {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .cs_map_filter .cs_map_filter_price {
+    grid-column: auto/span 2;
+  }
+}
+@media (max-width: 575px) {
+  .cs_map_filter {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .cs_map_filter .cs_map_filter_price {
+    grid-column: auto/span 1;
+  }
+}
+
+.cs_map_search_toggle label {
+  color: var(--primary-color);
+}
+
+.cs_property_map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  direction: ltr;
+  font-family: var(--secondary-font);
+  background-color: var(--gray3-color);
+}
+.cs_property_map .leaflet-tile-pane {
+  filter: grayscale(0.4) contrast(0.95);
+}
+.cs_property_map .leaflet-bar {
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+}
+.cs_property_map .leaflet-bar a {
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  border-color: var(--border-color);
+}
+.cs_property_map .leaflet-bar a:hover {
+  background-color: var(--gray3-color);
+}
+.cs_property_map .leaflet-control-attribution {
+  color: var(--secondary-color);
+  background-color: var(--white-color);
+  opacity: 0.85;
+}
+.cs_property_map .leaflet-control-attribution a {
+  color: var(--primary-color);
+}
+.cs_property_map .leaflet-cluster-anim .leaflet-marker-icon,
+.cs_property_map .leaflet-cluster-anim .leaflet-marker-shadow {
+  transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+}
+.cs_property_map .leaflet-cluster-spider-leg {
+  transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
+}
+
+.cs_leaflet_map {
+  position: relative;
+  z-index: 0;
+  direction: ltr;
+  font-family: var(--secondary-font);
+  background-color: var(--gray3-color);
+  overflow: hidden;
+}
+.cs_leaflet_map .leaflet-bar {
+  border: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+}
+.cs_leaflet_map .leaflet-bar a {
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  border-color: var(--border-color);
+}
+.cs_leaflet_map .leaflet-popup-content-wrapper,
+.cs_leaflet_map .leaflet-popup-tip {
+  color: var(--secondary-color);
+  background-color: var(--white-color);
+}
+.cs_leaflet_map .leaflet-popup-content {
+  margin: 12px 16px;
+  line-height: 1.5em;
+}
+.cs_leaflet_map .leaflet-popup-content strong {
+  display: block;
+  font-family: var(--primary-font);
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+.cs_map_pin {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--accent-color);
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, calc(-100% - 6px)) rotate(-45deg);
+}
+.cs_map_pin i {
+  transform: rotate(45deg);
+}
+
+.cs_map_marker_wrap {
+  background: none;
+  border: 0;
+}
+
+.cs_map_marker {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  white-space: nowrap;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, calc(-100% - 8px));
+  transform-origin: 50% 100%;
+  transition: all 0.25s ease;
+}
+.cs_map_marker::after {
+  content: "";
+  border: 6px solid transparent;
+  border-top-color: var(--primary-color);
+  border-bottom: 0;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: inherit;
+}
+
+.cs_map_marker_wrap:hover .cs_map_marker,
+.cs_map_marker_wrap.cs_active .cs_map_marker {
+  color: #fff;
+  background-color: var(--accent-color);
+  transform: translate(-50%, calc(-100% - 8px)) scale(1.1);
+}
+.cs_map_marker_wrap:hover .cs_map_marker::after,
+.cs_map_marker_wrap.cs_active .cs_map_marker::after {
+  border-top-color: var(--accent-color);
+}
+
+.cs_map_cluster {
+  background: none;
+}
+.cs_map_cluster span {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--primary-font);
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 0 6px rgba(0, 204, 97, 0.25);
+  transition: all 0.25s ease;
+}
+.cs_map_cluster.cs_active span {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 6px rgba(29, 29, 29, 0.2);
+}
+
+.cs_map_popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: var(--white-color);
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.18);
+}
+.cs_map_popup .leaflet-popup-content {
+  width: 250px !important;
+  margin: 0;
+  line-height: 1.5em;
+}
+.cs_map_popup .leaflet-popup-tip {
+  background-color: var(--white-color);
+}
+
+.leaflet-container a.cs_map_popup_card {
+  display: block;
+  color: var(--secondary-color);
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_thumb {
+  display: block;
+  height: 140px;
+  position: relative;
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_price {
+  padding: 4px 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #1d1d1d;
+  border-radius: 8px;
+  position: absolute;
+  bottom: 10px;
+  inset-inline-start: 10px;
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_price small {
+  font-size: 12px;
+  font-weight: 400;
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px 14px 14px;
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_title {
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+.leaflet-container a.cs_map_popup_card .cs_map_popup_address,
+.leaflet-container a.cs_map_popup_card .cs_map_popup_meta {
+  font-size: 13px;
+}
+.leaflet-container a.cs_map_popup_card:hover .cs_map_popup_title {
+  color: var(--accent-color);
+}
+
+@media (max-width: 1399px) {
+  .cs_map_listing_content {
+    width: 55%;
+    padding-inline: 30px;
+  }
+  .cs_map_listing_map {
+    width: 45%;
+  }
+}
+@media (max-width: 1199px) {
+  .cs_map_listing_in {
+    flex-direction: column;
+  }
+  .cs_map_listing_content {
+    width: 100%;
+    padding: 30px 15px 0;
+  }
+  .cs_map_listing_map {
+    width: 100%;
+    height: 420px;
+    position: relative;
+    top: 0;
+    order: -1;
+  }
+}
+/* Price history (property-details.html) */
+.cs_price_history_svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.cs_price_history_svg .cs_grid_line {
+  stroke: var(--gray-color);
+  stroke-dasharray: 4 4;
+}
+.cs_price_history_svg .cs_axis_label {
+  font-size: 12px;
+  fill: var(--secondary-color);
+  font-family: var(--secondary-font);
+}
+.cs_price_history_svg .cs_price_line {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+.cs_price_history_svg .cs_price_dot {
+  fill: var(--white-color);
+  stroke: var(--accent-color);
+  stroke-width: 2.5;
+}
+
+.cs_price_history_table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+}
+.cs_price_history_table th,
+.cs_price_history_table td {
+  padding: 12px 14px;
+  text-align: start;
+  border-bottom: 1px solid var(--gray-color);
+}
+.cs_price_history_table th {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+.cs_price_history_table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.cs_price_history_table .cs_change {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.cs_price_history_table .cs_change i {
+  font-size: 12px;
+}
+.cs_price_history_table .cs_change.cs_down {
+  color: var(--danger-color);
+}
+.cs_price_history_table .cs_change.cs_up {
+  color: var(--accent-color);
+}
+
+/* Property reviews (property-details.html + dashboard reviews) */
+.cs_reviews_overview {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 24px 40px;
+}
+.cs_reviews_overview .cs_rating_score {
+  margin-bottom: 8px;
+}
+.cs_reviews_overview .cs_rating {
+  width: 120px;
+}
+.cs_reviews_overview .cs_rating_bars {
+  margin: 0;
+}
+@media (max-width: 575px) {
+  .cs_reviews_overview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs_review_list .cs_review_initials {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+.cs_review_list .cs_status_badge {
+  font-size: 12px;
+}
+
+.cs_property_reviews .cs_review_list {
+  margin-bottom: 30px;
+}
+
+.cs_review_form {
+  padding: 28px;
+}
+.cs_review_form .row {
+  margin-top: 16px;
+}
+@media (max-width: 767px) {
+  .cs_review_form {
+    padding: 22px 15px;
+  }
+}
+
+.cs_star_input {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+}
+.cs_star_input input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.cs_star_input label {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--border-color);
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.cs_star_input label:hover,
+.cs_star_input label:hover ~ label,
+.cs_star_input input:checked ~ label {
+  color: var(--accent-color);
+}
+.cs_star_input label:hover {
+  transform: scale(1.12);
+}
+.cs_star_input input:focus-visible + label {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.cs_reply_form {
+  margin-top: 14px;
+  margin-inline-start: 66px;
+}
+.cs_reply_form textarea {
+  width: 100%;
+  border-radius: 10px;
+}
+@media (max-width: 575px) {
+  .cs_reply_form {
+    margin-inline-start: 0;
+  }
+}
+
+.cs_reply_btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Property video tour + Recently Viewed */
+.cs_property_video_thumb {
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cs_property_video_thumb > img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.cs_property_video_thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.cs_property_video_thumb .cs_player_btn {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 575px) {
+  .cs_property_video_thumb {
+    height: 240px;
+  }
+  .cs_property_video_thumb .cs_player_btn.cs_style_3 {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+.cs_property_video_label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background-color: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  inset-inline-start: 16px;
+  bottom: 16px;
+  z-index: 2;
+}
+
+.cs_property_video_btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Mortgage Calculator page (mortgage-calculator.html) */
+.cs_mortgage_summary {
+  padding: 35px;
+}
+@media (min-width: 992px) {
+  .cs_mortgage_summary {
+    position: sticky;
+    top: 110px;
+  }
+}
+@media (max-width: 575px) {
+  .cs_mortgage_summary {
+    padding: 30px 20px;
+  }
+}
+
+.cs_mortgage_chart {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+@media (max-width: 400px) {
+  .cs_mortgage_chart {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.cs_mortgage_donut {
+  width: 140px;
+  height: 140px;
+  flex: none;
+  margin-inline: auto;
+  transform: scaleX(var(--cs-dir));
+}
+.cs_mortgage_donut circle {
+  transition: stroke-dasharray 0.4s ease, stroke-dashoffset 0.4s ease;
+}
+.cs_mortgage_donut .cs_donut_track {
+  stroke: var(--gray-color);
+}
+.cs_mortgage_donut .cs_donut_principal {
+  stroke: var(--primary-color);
+}
+.cs_mortgage_donut .cs_donut_tax {
+  stroke: var(--accent-color);
+}
+.cs_mortgage_donut .cs_donut_insurance {
+  stroke: #f5a623;
+}
+
+.cs_mortgage_legend,
+.cs_mortgage_totals {
+  flex: 1;
+}
+.cs_mortgage_legend li,
+.cs_mortgage_totals li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 0;
+  font-size: 15px;
+}
+
+.cs_mortgage_legend li span:first-child {
+  padding-inline-start: 18px;
+  position: relative;
+}
+.cs_mortgage_legend li span:first-child::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  inset-inline-start: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.cs_mortgage_legend li.cs_principal span:first-child::before {
+  background-color: var(--primary-color);
+}
+.cs_mortgage_legend li.cs_tax span:first-child::before {
+  background-color: var(--accent-color);
+}
+.cs_mortgage_legend li.cs_insurance span:first-child::before {
+  background-color: #f5a623;
+}
+
+.cs_mortgage_totals {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.cs_mortgage_tip_list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.cs_mortgage_tip_list li:not(:last-child) {
+  margin-bottom: 12px;
+}
+.cs_mortgage_tip_list li span {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  margin-top: 3px;
+  font-size: 11px;
+}
+
+/* Compare Bar (floating) and Compare Page */
+@keyframes csCompareShake {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  25% {
+    transform: translate(calc(-50% - 8px), 0);
+  }
+  75% {
+    transform: translate(calc(-50% + 8px), 0);
+  }
+}
+.cs_compare_bar {
+  width: min(100% - 30px, 760px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px;
+  padding-inline-end: 20px;
+  border: 1px solid var(--gray-color);
+  box-shadow: 0px 10px 40px 0px rgba(29, 29, 29, 0.18);
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, calc(100% + 40px));
+  transition: all 0.4s ease;
+}
+.cs_compare_bar.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.cs_compare_bar.cs_shake {
+  animation: csCompareShake 0.45s ease;
+}
+.cs_compare_bar .cs_compare_bar_items {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+.cs_compare_bar .cs_compare_bar_item {
+  width: 56px;
+  height: 56px;
+  position: relative;
+}
+.cs_compare_bar .cs_compare_bar_item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: inherit;
+}
+.cs_compare_bar .cs_compare_bar_item.cs_empty {
+  color: var(--border-color);
+  border: 1px dashed var(--border-color);
+}
+.cs_compare_bar .cs_compare_bar_remove {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  font-size: 10px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: 0;
+  position: absolute;
+  top: -6px;
+  inset-inline-end: -6px;
+  transition: all 0.3s ease;
+}
+.cs_compare_bar .cs_compare_bar_remove:hover {
+  color: #fff;
+  background-color: var(--danger-color);
+}
+.cs_compare_bar .cs_compare_bar_info {
+  flex: 1;
+  min-width: 0;
+}
+.cs_compare_bar .cs_compare_bar_title {
+  font-size: 18px;
+}
+.cs_compare_bar .cs_compare_bar_note {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+.cs_compare_bar .cs_compare_bar_btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.cs_compare_bar .cs_compare_clear {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+.cs_compare_bar .cs_compare_clear:hover {
+  text-decoration: underline;
+}
+.cs_compare_bar .cs_btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (max-width: 767px) {
+  .cs_compare_bar {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px;
+    bottom: 12px;
+  }
+  .cs_compare_bar .cs_compare_bar_info {
+    width: 100%;
+    flex: none;
+    order: -1;
+  }
+  .cs_compare_bar .cs_compare_bar_title {
+    display: none;
+  }
+  .cs_compare_bar .cs_compare_bar_item {
+    width: 46px;
+    height: 46px;
+  }
+  .cs_compare_bar .cs_compare_bar_btns {
+    margin-inline-start: auto;
+  }
+  .cs_compare_bar .cs_btn {
+    padding: 8px 16px;
+  }
+}
+
+body.cs_compare_open .cs_scrollup_btn {
+  bottom: 120px;
+}
+@media (max-width: 767px) {
+  body.cs_compare_open .cs_scrollup_btn {
+    bottom: 150px;
+  }
+}
+
+.cs_compare_header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.cs_compare_tools {
+  display: flex;
+  align-items: center;
+  gap: 15px 25px;
+  flex-wrap: wrap;
+}
+.cs_compare_tools .cs_custom_checkbox label {
+  color: var(--primary-color);
+}
+
+.cs_compare_table_wrap {
+  overflow-x: auto;
+  border: 1px solid var(--gray-color);
+}
+
+.cs_compare_table {
+  width: 100%;
+  min-width: 760px;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.cs_compare_table th,
+.cs_compare_table td {
+  padding: 16px 20px;
+  text-align: start;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--gray-color);
+}
+.cs_compare_table thead th {
+  padding-block: 24px;
+  vertical-align: top;
+}
+.cs_compare_table td {
+  color: var(--secondary-color);
+}
+.cs_compare_table td small {
+  font-size: 14px;
+}
+.cs_compare_table .cs_compare_label {
+  width: 200px;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+  position: sticky;
+  inset-inline-start: 0;
+  z-index: 1;
+}
+.cs_compare_table thead .cs_compare_label {
+  vertical-align: middle;
+}
+.cs_compare_table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.cs_compare_table tbody tr:not(.cs_compare_group):hover td {
+  background-color: var(--gray3-color);
+}
+.cs_compare_table .cs_compare_group th {
+  font-size: 18px;
+  background-color: var(--gray2-color);
+}
+.cs_compare_table .cs_best {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.cs_compare_table .cs_best_badge {
+  display: inline-block;
+  margin-inline-start: 8px;
+  padding: 1px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.6em;
+  color: #fff;
+  vertical-align: middle;
+}
+.cs_compare_table .cs_compare_yes {
+  width: 26px;
+  height: 26px;
+  font-size: 12px;
+  color: var(--accent-color);
+  background-color: rgba(0, 204, 97, 0.12);
+}
+.cs_compare_table .cs_compare_no {
+  color: var(--border-color);
+}
+@media (max-width: 767px) {
+  .cs_compare_table {
+    min-width: 640px;
+  }
+  .cs_compare_table .cs_compare_label {
+    width: 140px;
+  }
+  .cs_compare_table th,
+  .cs_compare_table td {
+    padding: 14px;
+  }
+}
+
+.cs_compare_property {
+  position: relative;
+}
+.cs_compare_property .cs_compare_thumb {
+  display: block;
+  height: 160px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.cs_compare_property .cs_compare_thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.cs_compare_property .cs_compare_thumb:hover img {
+  transform: scale(1.05);
+}
+.cs_compare_property h3 a:hover {
+  color: var(--accent-color);
+}
+.cs_compare_property .cs_compare_address {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+.cs_compare_property .cs_compare_remove {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 13px;
+  border: 0;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+  position: absolute;
+  top: 10px;
+  inset-inline-end: 10px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.cs_compare_property .cs_compare_remove:hover {
+  color: #fff;
+  background-color: var(--danger-color);
+}
+
+.cs_compare_add {
+  height: 160px;
+  gap: 10px;
+  justify-content: center;
+  font-weight: 500;
+  color: var(--secondary-color);
+  border: 1px dashed var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_compare_add span {
+  width: 44px;
+  height: 44px;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+.cs_compare_add:hover {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+/* Property Details: save / compare / share / print, tour type */
+.cs_property_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cs_property_action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  font-size: 15px;
+  line-height: 1.6em;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_property_action i {
+  font-size: 14px;
+}
+.cs_property_action:hover, .cs_property_action.active, .cs_property_action[aria-expanded=true] {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.cs_property_action.cs_save_toggle.active i {
+  color: var(--danger-color);
+}
+
+.cs_share_dropdown {
+  min-width: 200px;
+  padding: 8px;
+  border: 1px solid var(--gray-color);
+  box-shadow: 0px 10px 40px 0px rgba(29, 29, 29, 0.15);
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+}
+.cs_share_dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  font-size: 15px;
+  color: var(--secondary-color);
+  border-radius: 8px;
+}
+.cs_share_dropdown a i {
+  width: 18px;
+  text-align: center;
+  color: var(--primary-color);
+}
+.cs_share_dropdown a:hover {
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+
+.cs_share_wrap.active .cs_share_dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.cs_tour_type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.cs_tour_type_option {
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+}
+.cs_tour_type_option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.cs_tour_type_option span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 10px;
+  font-size: 15px;
+  color: var(--secondary-color);
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_tour_type_option input:checked + span {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.cs_tour_type_option input:focus-visible + span {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.cs_print_header {
+  display: none;
+}
+
+/* Print / PDF brochure (property details) */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+  .cs_dark {
+    --white-color: #fff;
+    --primary-color: #1D1D1D;
+    --secondary-color: #434343;
+    --border-color: #D1D1D1;
+    --gray-color: #E2E2E2;
+    --gray2-color: #F9F4F1;
+    --gray3-color: #FAFAFA;
+    --gray4-color: #FFFAF6;
+    color-scheme: light;
+  }
+  body {
+    background-color: #fff;
+  }
+  .cs_site_header,
+  .cs_footer,
+  .cs_preloader,
+  .cs_scrollup_btn,
+  .cs_dir_switch,
+  .cs_settings_panel,
+  .cs_compare_bar,
+  .flatpickr-calendar,
+  .cs_property_actions,
+  .cs_slider_arrows,
+  .cs_sidebar.cs_style_3,
+  .cs_location_map,
+  .cs_property_mortgage,
+  section.cs_slider,
+  [class*=cs_height_] {
+    display: none !important;
+  }
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .cs_print_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #D1D1D1;
+  }
+  .cs_print_header img {
+    height: 36px;
+  }
+  .cs_property_details .slick-slide:not(.slick-current) {
+    display: none !important;
+  }
+  .cs_property_details .slick-track {
+    width: 100% !important;
+    transform: none !important;
+  }
+  .cs_property_details .slick-current {
+    width: 100% !important;
+  }
+  .cs_property_details .cs_property_banner img {
+    max-height: 380px;
+  }
+  .cs_property_details ~ .row > [class*=col-] {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  .cs_single_property_content > div {
+    -moz-column-break-inside: avoid;
+         break-inside: avoid;
+  }
+}
+/* 19. Tabs */
+/* Tab Links Styling */
 .cs_tab_links.cs_style_1 {
   display: flex;
   transform: translateY(1px);
@@ -9302,9 +10872,7 @@ span.flatpickr-weekday {
   opacity: 0.1;
 }
 
-/*====================================================
- Tab Content Styling
-======================================================*/
+/* Tab Content Styling */
 .cs_tabs {
   position: relative;
 }
@@ -9334,9 +10902,7 @@ span.flatpickr-weekday {
   top: 0;
 }
 
-/*==============================================================
-  20. Profile
-================================================================*/
+/* 20. Profile */
 .cs_or_login span {
   padding: 0 12px;
   position: relative;
@@ -9357,26 +10923,7 @@ span.flatpickr-weekday {
   inset-inline-start: 100%;
 }
 
-/*------------------------------------------
- Profile page
---------------------------------------------*/
-.cs_profile_menu {
-  padding: 30px;
-  border: 1px solid var(--border-color);
-}
-.cs_profile_menu .cs_profile_thumbnail {
-  width: 150px;
-  height: 150px;
-  border: 5px solid var(--gray-color);
-}
-.cs_profile_menu .cs_profile_thumbnail img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: inherit;
-}
-
+/* Dashboard Nav */
 .cs_dashboard_nav li {
   font-family: var(--primary-font);
   color: var(--primary-color);
@@ -9404,224 +10951,27 @@ span.flatpickr-weekday {
   top: 12px;
 }
 
-.cs_profile {
-  width: min(100%, 860px);
-  padding: 30px 30px 40px;
-  margin: 0 auto;
-}
-.cs_profile .cs_avatar.cs_style_2 {
-  display: flex;
-  align-items: center;
-  gap: 20px 25px;
-  flex-wrap: wrap;
-}
-.cs_profile .cs_avatar.cs_style_2 .cs_avatar_icon {
-  width: 120px;
-  height: 120px;
-  background-color: transparent;
-}
-.cs_profile .cs_avatar.cs_style_2 .cs_avatar_icon img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: inherit;
-}
-.cs_profile .cs_avatar.cs_style_2 .cs_avatar_icon .cs_thumb_edit {
-  width: 30px;
-  height: 30px;
-  padding: 6px;
-  background-color: var(--primary-color);
-  font-size: 14px;
-  color: var(--white-color);
-  bottom: 0;
-  inset-inline-end: 15px;
-  cursor: pointer;
-}
-
-.cs_admin_iconbox {
-  align-items: center;
-  display: flex;
-  gap: 15px;
-  padding: 20px;
-  box-shadow: 0 0 15px 0 rgba(27, 27, 27, 0.1);
-}
-.cs_admin_iconbox .cs_admin_iconbox_icon {
-  border: 1px solid var(--border-color);
-  color: var(--primary-color);
-  flex: none;
-  font-size: 31px;
-  height: 65px;
-  width: 65px;
-}
-
-/*------------------------------------------
- Property Table 
---------------------------------------------*/
-.cs_property_list {
-  padding: 30px;
-}
-@media (max-width: 991px) {
-  .cs_property_list {
-    padding: 30px 15px;
-  }
-}
-
-.cs_property_table {
-  min-width: 800px;
-}
-.cs_property_table thead {
-  background-color: var(--gray3-color);
-  padding-inline-start: 20px;
-}
-.cs_property_table td,
-.cs_property_table th {
-  border-top: 0;
-  padding-inline-start: 20px;
-}
-.cs_property_table td {
-  border-top: 0;
-  padding-block: 20px 20px;
-  padding-inline: 0 20px;
-  vertical-align: middle;
-  text-align: center;
-}
-.cs_property_table tr .property_thumbnail {
-  padding-inline-start: 20px;
-}
-.cs_property_table tr:nth-child(even) {
-  background-color: var(--gray3-color);
-}
-.cs_property_table .cs_property_item {
-  display: none;
-}
-.cs_property_table .cs_property_info {
-  text-align: start;
-}
-.cs_property_table .cs_property_info a {
-  display: inline-block;
-  background-repeat: no-repeat;
-  background-image: linear-gradient(90deg, currentColor 0, currentColor 100%);
-  transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-  background-position: var(--cs-x-end) calc(100% - 0px);
-  background-size: 0 1px;
-}
-.cs_property_table .cs_property_info a:hover {
-  background-size: 100% 1px;
-  background-position: var(--cs-x-start) calc(100% - 0px);
-}
-.cs_property_table .property_thumbnail {
-  width: 160px;
-}
-.cs_property_table .property_thumbnail img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: inherit;
-  transition: all 0.5s ease-in-out;
-}
-.cs_property_table .property_thumbnail a {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.cs_property_table .property_thumbnail:hover img {
-  transform: scale(1.06);
-}
-.cs_property_table .cs_rating {
-  font-size: 14px;
-}
-
-.cs_change_password_form_wraper {
-  padding: 30px;
-}
-
-.cs_password_change_quote {
-  padding: 30px;
-  position: relative;
-}
-.cs_password_change_quote > * {
-  position: relative;
-  z-index: 1;
-}
-.cs_password_change_quote::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  background-color: var(--accent-color);
-  opacity: 0.07;
-  position: absolute;
-  inset-inline-start: 0;
-  top: 0;
-}
-
-/*------------------------------------------
- Dashboard Styling
---------------------------------------------*/
-.cs_dashboard_contentbox:not(:last-child) {
-  margin-bottom: 40px;
-}
-@media (max-width: 991px) {
-  .cs_dashboard_contentbox:not(:last-child) {
-    margin-bottom: 30px;
-  }
-}
-
-.cs_reviews_list li:not(:last-child) {
-  margin-bottom: 40px;
-}
-
-.cs_customer_review {
-  max-width: 650px;
-}
-.cs_customer_review .cs_review_header {
-  display: flex;
-  gap: 20px;
-}
-.cs_customer_review .cs_customer_icon {
-  flex: none;
-  width: 72px;
-  height: 72px;
-}
-.cs_customer_review .cs_customer_icon img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: inherit;
-}
-.cs_customer_review .cs_actions_btns {
-  position: absolute;
-  top: 30px;
-  inset-inline-end: 0;
-}
-@media (max-width: 400px) {
-  .cs_customer_review .cs_review_header {
-    flex-direction: column;
-  }
-  .cs_customer_review .cs_actions_btns {
-    top: 115px;
-  }
-}
-
-/*======================================================================
- Add New Property Styling
-========================================================================*/
+/* Add New Property Styling */
 .cs_add_property_container {
   max-width: 860px;
   padding: 40px 30px;
   margin: 0 auto;
 }
-.cs_add_property_container .cs_custom_select,
+@media (max-width: 767px) {
+  .cs_add_property_container {
+    padding-inline: 15px;
+  }
+}
 .cs_add_property_container .cs_form_field {
   color: var(--heading-color);
 }
 .cs_add_property_container .cs_notification_wrapper {
   padding: 20px 30px 24px;
+}
+@media (max-width: 767px) {
+  .cs_add_property_container .cs_notification_wrapper {
+    padding-inline: 15px;
+  }
 }
 .cs_add_property_container .cs_notification_wrapper::before {
   content: "";
@@ -9641,11 +10991,6 @@ span.flatpickr-weekday {
 }
 .cs_add_property_container .cs_submit_section:not(:last-child) {
   margin-bottom: 50px;
-}
-.cs_add_property_container .cs_other_features_list {
-  display: flex;
-  gap: 20px 30px;
-  flex-wrap: wrap;
 }
 .cs_add_property_container .cs_file_input_wrapper {
   border: 2px dashed var(--accent-color);
@@ -9687,103 +11032,251 @@ span.flatpickr-weekday {
   }
 }
 
-/*======================================================================
- Client list table Styling
-========================================================================*/
-.cs_clients_wrapper {
-  padding: 30px 0px;
-  text-wrap: nowrap;
-  overflow-x: auto;
+/* Coming Soon, Maintenance, Verify Email */
+.cs_util_page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
-.cs_user_data_table .form-check {
-  margin-bottom: 0;
-  min-height: 28px;
+.cs_util_logo {
+  display: inline-block;
 }
-.cs_user_data_table .form-check label {
-  margin-bottom: 0;
-  margin-inline-end: 10px;
+.cs_util_logo img {
+  height: 40px;
 }
-.cs_user_data_table .form-check-input {
-  width: 15px;
-  height: 15px;
-  box-shadow: none;
-  border-color: var(--primary-color);
-  background-color: transparent;
-  border-radius: 2px;
-  margin-top: 6px;
-  cursor: pointer;
+
+.cs_util_icon {
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.07);
 }
-.cs_user_data_table .form-check-input:focus {
-  box-shadow: none;
-  border-color: var(--primary-color);
+
+.cs_countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
-.cs_user_data_table .form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  box-shadow: none;
+.cs_countdown li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 8px 12px;
+  border: 1px solid var(--gray-color);
+  font-size: 14px;
+  line-height: 1.4em;
 }
-.cs_user_data_table tr.even {
-  background-color: var(--gray3-color);
+.cs_countdown [data-days],
+.cs_countdown [data-hours],
+.cs_countdown [data-minutes],
+.cs_countdown [data-seconds] {
+  line-height: 1.2em;
 }
-.cs_user_data_table tr th {
-  background-color: var(--gray3-color);
-  padding: 12px 20px !important;
+@media (max-width: 400px) {
+  .cs_countdown {
+    gap: 8px;
+  }
+  .cs_countdown li {
+    padding: 12px 4px 10px;
+  }
 }
-.cs_user_data_table tr .sorting_1,
-.cs_user_data_table tr td {
-  border-color: var(--border-color) !important;
-  box-shadow: none !important;
+
+.cs_util_progress_head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
 }
-.cs_user_data_table tbody td {
-  padding: 12px 20px !important;
+
+.cs_util_progress_bar {
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid var(--gray-color);
 }
-.cs_user_data_table td button {
+.cs_util_progress_bar span {
+  display: block;
+  height: 100%;
+}
+
+.cs_util_contact li {
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 6px;
+}
+.cs_util_contact li:not(:last-child) {
+  margin-bottom: 12px;
+}
+.cs_util_contact .cs_contact_icon {
+  width: 30px;
+  height: 30px;
+  margin-inline-end: 6px;
+  font-size: 13px;
+}
+
+.cs_otp_inputs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+.cs_otp_inputs input {
   width: 100%;
+  height: 60px;
+  padding: 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: var(--primary-font);
+}
+.cs_otp_inputs input:focus {
+  border-color: var(--primary-color);
+}
+@media (max-width: 400px) {
+  .cs_otp_inputs {
+    gap: 6px;
+  }
+  .cs_otp_inputs input {
+    height: 50px;
+  }
+}
+
+.cs_otp_resend {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+.cs_otp_resend:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Agent cards link + Agent Profile (agent-details.html) */
+.cs_team.cs_style_1 .cs_team_thumbnail > a {
+  display: block;
+  border-radius: inherit;
+}
+.cs_team.cs_style_1 .cs_team_title a:hover {
+  color: var(--accent-color);
+}
+
+.cs_agency_logo {
+  height: 140px;
+  padding: 30px;
+  border: 1px solid var(--gray-color);
+}
+.cs_agency_logo img {
+  max-width: 100%;
+  max-height: 56px;
+}
+
+.cs_agency_agents_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .cs_agent_sidebar {
+    position: sticky;
+    top: 110px;
+  }
+}
+
+.cs_agent_rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs_agent_rating .cs_rating,
+.cs_agent_review .cs_rating {
+  width: 120px;
+}
+
+.cs_agent_meta {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+}
+.cs_agent_meta li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 0;
+  font-size: 15px;
+}
+.cs_agent_meta li span:last-child {
+  text-align: end;
+}
+
+.cs_agent_stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.cs_agent_stats li {
   text-align: center;
 }
-
-.dt-container .dt-length {
-  padding-inline-start: 20px;
+.cs_agent_stats .cs_iconbox_icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto 8px;
+  font-size: 24px;
 }
-.dt-container .dt-length select {
-  margin: 0 6px;
+.cs_agent_stats p {
+  font-size: 15px;
 }
-
-.dt-container .dt-search input {
-  border: 1px solid var(--border-color);
-  outline: 0;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: transparent;
-  color: inherit;
-  margin-inline-start: 10px;
-}
-.dt-container .dt-search input:focus {
-  border-color: var(--primary-color);
+@media (max-width: 575px) {
+  .cs_agent_stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.dt-container .dt-search {
-  padding-inline-end: 20px;
+.cs_agent_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cs_agent_tags li {
+  padding: 6px 16px;
+  font-size: 15px;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+  border: 1px solid var(--gray-color);
 }
 
-.dt-container .dt-info {
-  padding-top: 20px !important;
-  margin-inline-start: 20px;
+.cs_agent_review_list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.dt-container .dt-paging {
-  padding-top: 20px !important;
+.cs_agent_review:not(:last-child) {
+  padding-bottom: 24px;
+  border-bottom: 1px dashed var(--border-color);
 }
-.dt-container .dt-paging .dt-paging-button {
-  line-height: 1.6em;
-  margin-inline-start: 10px;
-  padding: 5px 15px !important;
+.cs_agent_review .cs_agent_review_head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+.cs_agent_review .cs_agent_review_head img {
+  width: 52px;
+  height: 52px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  flex: none;
+}
+.cs_agent_review .cs_agent_review_info {
+  flex: 1;
+  min-width: 0;
 }
 
-/*==============================================================
-  21. Dashboard
-================================================================*/
+/* 21. Dashboard */
 .cs_dashboard {
   --cs-sidebar-width: 280px;
   --cs-sidebar-mini-width: 88px;
@@ -9805,11 +11298,7 @@ span.flatpickr-weekday {
   --cs-card-shadow: none;
 }
 
-/* Soft tint helper: colored text on a 10% background of the same color.
-   Uses ::after so it also works on <i> icons (Font Awesome draws on ::before) */
-/*------------------------------------------
- Layout grid
---------------------------------------------*/
+/* Layout grid */
 .cs_dashboard_wrapper {
   min-height: 100vh;
 }
@@ -9840,9 +11329,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*------------------------------------------
- Sidebar
---------------------------------------------*/
+/* Sidebar */
 .cs_dashboard_sidebar {
   width: var(--cs-sidebar-width);
   height: 100vh;
@@ -9918,7 +11405,6 @@ span.flatpickr-weekday {
   }
 }
 
-/* User card at the top of the sidebar */
 .cs_sidebar_user {
   display: flex;
   align-items: center;
@@ -10078,8 +11564,6 @@ span.flatpickr-weekday {
   color: var(--danger-color);
 }
 
-/* Submenu (collapsed by default, opened with li.cs_open).
-   main.js animates the height between 0 and the measured content height */
 .cs_submenu {
   list-style: none;
   margin: 0;
@@ -10163,7 +11647,6 @@ span.flatpickr-weekday {
   background-color: var(--accent-color);
 }
 
-/* Badges: counts & listing status */
 .cs_menu_badge {
   min-width: 22px;
   height: 22px;
@@ -10260,7 +11743,6 @@ span.flatpickr-weekday {
   z-index: -1;
 }
 
-/* Upgrade / package card in the sidebar footer */
 .cs_sidebar_package {
   padding: 16px;
   white-space: nowrap;
@@ -10285,7 +11767,6 @@ span.flatpickr-weekday {
   margin: 10px 0 12px;
 }
 
-/* Progress bar (package usage, rating bars) */
 .cs_progress {
   height: 6px;
   border-radius: 3px;
@@ -10316,7 +11797,7 @@ span.flatpickr-weekday {
   }
 }
 
-/* Desktop mini sidebar: icons only, full width again on hover */
+/* Desktop mini sidebar */
 @media (min-width: 1200px) {
   .cs_sidebar_collapsed .cs_dashboard_sidebar:not(:hover) {
     width: var(--cs-sidebar-mini-width);
@@ -10360,9 +11841,7 @@ span.flatpickr-weekday {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
   }
 }
-/*------------------------------------------
- Topbar
---------------------------------------------*/
+/* Topbar */
 .cs_dashboard_topbar {
   height: var(--cs-topbar-height);
   display: flex;
@@ -10396,7 +11875,6 @@ span.flatpickr-weekday {
   }
 }
 
-/* Square icon button used for toggle / bell / theme */
 .cs_topbar_btn {
   width: 44px;
   height: 44px;
@@ -10511,7 +11989,7 @@ span.flatpickr-weekday {
     inset-inline-start: 31px;
   }
 }
-/* Color mode switch: shows the icon of the current mode (set by main.js on <html>) */
+/* Color mode switch */
 .cs_theme_switch .fa-sun,
 .cs_theme_switch .fa-moon {
   display: none;
@@ -10600,7 +12078,9 @@ span.flatpickr-weekday {
 .cs_notification_list a:hover {
   background-color: var(--gray3-color);
 }
-.cs_notification_list .cs_notification_icon {
+
+/* Round tinted icon */
+.cs_notification_icon {
   width: 38px;
   height: 38px;
   flex: none;
@@ -10613,7 +12093,7 @@ span.flatpickr-weekday {
   position: relative;
   isolation: isolate;
 }
-.cs_notification_list .cs_notification_icon::after {
+.cs_notification_icon::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -10622,12 +12102,12 @@ span.flatpickr-weekday {
   opacity: 0.1;
   z-index: -1;
 }
-.cs_notification_list .cs_notification_icon.cs_icon_warning {
+.cs_notification_icon.cs_icon_warning {
   color: var(--cs-warning-color);
   position: relative;
   isolation: isolate;
 }
-.cs_notification_list .cs_notification_icon.cs_icon_warning::after {
+.cs_notification_icon.cs_icon_warning::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -10636,12 +12116,12 @@ span.flatpickr-weekday {
   opacity: 0.1;
   z-index: -1;
 }
-.cs_notification_list .cs_notification_icon.cs_icon_info {
+.cs_notification_icon.cs_icon_info {
   color: var(--cs-info-color);
   position: relative;
   isolation: isolate;
 }
-.cs_notification_list .cs_notification_icon.cs_icon_info::after {
+.cs_notification_icon.cs_icon_info::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -10649,6 +12129,113 @@ span.flatpickr-weekday {
   background-color: currentColor;
   opacity: 0.1;
   z-index: -1;
+}
+.cs_notification_icon.cs_icon_danger {
+  color: var(--danger-color);
+  position: relative;
+  isolation: isolate;
+}
+.cs_notification_icon.cs_icon_danger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: currentColor;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Notifications page */
+.cs_notification_feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.cs_notification_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+.cs_notification_item:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_notification_item:first-child {
+  border-start-start-radius: 10px;
+  border-start-end-radius: 10px;
+}
+.cs_notification_item:last-child {
+  border-end-start-radius: 10px;
+  border-end-end-radius: 10px;
+}
+.cs_notification_item[data-status=unread] {
+  background-color: var(--gray3-color);
+}
+.cs_notification_item[data-status=unread] h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-inline-end: 8px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+}
+.cs_notification_item .cs_notification_icon {
+  width: 46px;
+  height: 46px;
+  font-size: 17px;
+}
+.cs_notification_item .cs_notification_body {
+  flex: 1;
+  min-width: 0;
+}
+.cs_notification_item .cs_notification_body a:hover {
+  color: var(--accent-color);
+}
+.cs_notification_item .cs_notification_time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cs_notification_item .cs_table_actions {
+  flex: none;
+}
+@media (max-width: 575px) {
+  .cs_notification_item {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+  }
+  .cs_notification_item .cs_notification_body {
+    flex-basis: calc(100% - 58px);
+  }
+  .cs_notification_item .cs_table_actions {
+    margin-inline-start: 58px;
+  }
+}
+
+.cs_notification_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 50px 16px;
+  text-align: center;
+}
+.cs_notification_empty i {
+  font-size: 32px;
+  color: var(--border-color);
+}
+
+.cs_notification_read_all:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .cs_profile_toggle {
@@ -10701,24 +12288,14 @@ span.flatpickr-weekday {
   width: 18px;
   text-align: center;
 }
-.cs_profile_dropdown_list .cs_list_label {
-  display: block;
-  padding: 8px 12px 4px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.7;
-}
 .cs_profile_dropdown_list .cs_divider {
+  display: block;
   height: 1px;
   margin: 8px 4px;
   background-color: var(--border-color);
 }
 
-/*------------------------------------------
- Page heading
---------------------------------------------*/
+/* Page heading */
 .cs_dashboard_heading {
   display: flex;
   align-items: flex-end;
@@ -10746,9 +12323,7 @@ span.flatpickr-weekday {
   color: var(--accent-color);
 }
 
-/*------------------------------------------
- Cards
---------------------------------------------*/
+/* Cards */
 .cs_dashboard_card {
   padding: 24px;
   background-color: var(--cs-card-bg);
@@ -10812,6 +12387,7 @@ span.flatpickr-weekday {
   font-size: 31px;
   line-height: 1.2em;
   margin: 4px 0 0;
+  white-space: nowrap;
 }
 .cs_stat_card .cs_stat_trend {
   display: flex;
@@ -10863,7 +12439,6 @@ span.flatpickr-weekday {
   border-color: var(--primary-color);
 }
 
-/* Segmented period filter (7D / 30D / 12M) */
 .cs_segmented {
   display: inline-flex;
   padding: 4px;
@@ -11086,7 +12661,16 @@ span.flatpickr-weekday {
   vertical-align: middle;
 }
 
-/* Table wrapper: scrolls (scrollbar hidden) only below 1200px */
+@media (max-width: 991px) {
+  .cs_dashboard br {
+    display: inline;
+  }
+}
+:where(.cs_dashboard) bdi > small {
+  font-size: 0.85em;
+}
+
+/* Table wrapper */
 .cs_dashboard_content .overflow-x-auto {
   scrollbar-width: none;
 }
@@ -11096,6 +12680,9 @@ span.flatpickr-weekday {
 @media (min-width: 1200px) {
   .cs_dashboard_content .overflow-x-auto {
     overflow-x: visible !important;
+  }
+  .cs_dashboard_content .overflow-x-auto.cs_table_scroll {
+    overflow-x: auto !important;
   }
 }
 
@@ -11143,7 +12730,6 @@ span.flatpickr-weekday {
   border-radius: 8px;
 }
 
-/* Icon action button (tables, feature lists). Label comes from data-tooltip */
 .cs_table_action {
   width: 34px;
   height: 34px;
@@ -11207,13 +12793,12 @@ span.flatpickr-weekday {
   transform: translate(-50%, 0);
 }
 
-/* Row of table action buttons (edit / approve / reject) */
 .cs_table_actions {
   display: inline-flex;
   gap: 8px;
 }
 
-/* Table row action menu: 3-dot toggle opens a vertical icon list, tooltips on the start side */
+/* Table row action menu */
 .cs_action_menu {
   position: relative;
   display: inline-flex;
@@ -11283,6 +12868,7 @@ span.flatpickr-weekday {
   border: 1px solid var(--border-color);
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 .cs_saved_property .cs_saved_property_thumb {
   display: block;
@@ -11347,11 +12933,7 @@ span.flatpickr-weekday {
   transform: scale(1.06);
 }
 
-/*==============================================================
-  Dashboard Pages
-  Components used by the inner pages of every role folder
-================================================================*/
-/* Filter tabs with counts (listings, approvals, users) */
+/* Dashboard Pages */
 .cs_filter_tabs {
   display: flex;
   flex-wrap: wrap;
@@ -11395,7 +12977,6 @@ span.flatpickr-weekday {
   background-color: var(--white-color);
 }
 
-/* Search + sort row above tables and grids */
 .cs_table_toolbar {
   display: flex;
   align-items: center;
@@ -11455,7 +13036,7 @@ span.flatpickr-weekday {
   border-color: var(--primary-color);
 }
 
-/* Table cell: round avatar + name + email */
+/* Table cell */
 .cs_table_user {
   display: flex;
   align-items: center;
@@ -11475,9 +13056,7 @@ span.flatpickr-weekday {
   text-align: center !important;
 }
 
-/*------------------------------------------
- Forms
---------------------------------------------*/
+/* Forms */
 .cs_dashboard_form .cs_form_section:not(:last-child) {
   margin-bottom: 24px;
 }
@@ -11548,7 +13127,6 @@ span.flatpickr-weekday {
   opacity: 0.8;
 }
 
-/* Native select with an icon-font arrow (works in dark mode and RTL) */
 .cs_select {
   position: relative;
 }
@@ -11658,7 +13236,6 @@ span.flatpickr-weekday {
   font-weight: 500;
 }
 
-/* Input with a leading icon (price, social links) */
 .cs_input_icon_wrap {
   position: relative;
 }
@@ -11744,6 +13321,27 @@ span.flatpickr-weekday {
   top: 6px;
   inset-inline-end: 6px;
 }
+.cs_upload_previews .cs_upload_file {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  font-size: 12px;
+  text-align: center;
+}
+.cs_upload_previews .cs_upload_file i {
+  font-size: 26px;
+  color: var(--accent-color);
+}
+.cs_upload_previews .cs_upload_file span {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .cs_checkbox_grid {
   display: grid;
@@ -11794,7 +13392,7 @@ span.flatpickr-weekday {
   outline-offset: 2px;
 }
 
-/* Setting row: text on one side, switch on the other */
+/* Setting row */
 .cs_setting_list {
   list-style: none;
   margin: 0;
@@ -11825,7 +13423,6 @@ span.flatpickr-weekday {
   margin-top: 24px;
 }
 
-/* Outline button variant of .cs_btn.cs_style_1 */
 .cs_btn.cs_style_1.cs_btn_outline {
   color: var(--primary-color);
   background-color: transparent;
@@ -11891,9 +13488,7 @@ span.flatpickr-weekday {
   z-index: -1;
 }
 
-/*------------------------------------------
- Messages (chat)
---------------------------------------------*/
+/* Messages (chat) */
 .cs_chat {
   height: calc(100vh - var(--cs-topbar-height) - 170px);
   min-height: 560px;
@@ -12012,6 +13607,14 @@ span.flatpickr-weekday {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.cs_chat .cs_chat_list,
+.cs_chat .cs_chat_thread {
+  scrollbar-width: none;
+}
+.cs_chat .cs_chat_list::-webkit-scrollbar,
+.cs_chat .cs_chat_thread::-webkit-scrollbar {
+  display: none;
+}
 .cs_chat .cs_chat_thread {
   flex: 1;
   overflow-y: auto;
@@ -12105,9 +13708,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*------------------------------------------
- Reviews
---------------------------------------------*/
+/* Reviews */
 .cs_rating_summary {
   text-align: center;
 }
@@ -12225,7 +13826,6 @@ span.flatpickr-weekday {
   }
 }
 
-/* Dashboard modal (native <dialog>, opened with [data-modal-open]) */
 .cs_dash_modal {
   width: min(100% - 30px, 560px);
   max-height: calc(100vh - 40px);
@@ -12314,7 +13914,6 @@ span.flatpickr-weekday {
      object-fit: cover;
 }
 
-/* Clickable star rating (radios in 5 → 1 order, shown 1 → 5) */
 .cs_star_input {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -12354,9 +13953,7 @@ span.flatpickr-weekday {
   border-radius: 4px;
 }
 
-/*------------------------------------------
- Plans, billing & payments
---------------------------------------------*/
+/* Plans, billing & payments */
 .cs_plan_card {
   height: 100%;
   display: flex;
@@ -12493,9 +14090,7 @@ span.flatpickr-weekday {
   flex: 1;
 }
 
-/*------------------------------------------
- Profile settings
---------------------------------------------*/
+/* Profile settings */
 .cs_profile_card {
   text-align: center;
 }
@@ -12557,7 +14152,7 @@ span.flatpickr-weekday {
   color: var(--primary-color);
 }
 
-/* Settings page: sticky section nav */
+/* Settings page */
 .cs_settings_nav {
   list-style: none;
   margin: 0;
@@ -12589,9 +14184,7 @@ span.flatpickr-weekday {
   margin-bottom: 24px;
 }
 
-/*------------------------------------------
- Footer
---------------------------------------------*/
+/* Footer */
 .cs_dashboard_footer {
   display: flex;
   align-items: center;
@@ -12613,11 +14206,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*------------------------------------------
- Page transitions (dashboard pages opt in with
- @view-transition in their <head>). Sidebar and topbar
- stay in place, only the content fades and lifts in.
---------------------------------------------*/
+/* Page transitions */
 .cs_dashboard .cs_dashboard_sidebar {
   view-transition-name: cs-dashboard-sidebar;
 }
@@ -12667,9 +14256,2414 @@ span.flatpickr-weekday {
   display: none;
 }
 
-/*===============================================================
- 22. Dark Version
-=================================================================*/
+/* Leads, tours, analytics, agents, reports */
+.cs_search_hidden {
+  display: none !important;
+}
+
+.cs_dashboard_table.cs_table_compact {
+  min-width: 0;
+}
+
+@media (min-width: 1200px) {
+  .cs_dashboard_table.cs_table_wrap {
+    min-width: 0;
+  }
+  .cs_dashboard_table.cs_table_wrap td {
+    white-space: normal;
+  }
+  .cs_dashboard_table.cs_table_wrap th,
+  .cs_dashboard_table.cs_table_wrap td {
+    padding-inline: 10px;
+  }
+  .cs_dashboard_table.cs_table_wrap .cs_status_badge,
+  .cs_dashboard_table.cs_table_wrap .cs_tag_badge,
+  .cs_dashboard_table.cs_table_wrap .cs_table_actions,
+  .cs_dashboard_table.cs_table_wrap .cs_action_menu,
+  .cs_dashboard_table.cs_table_wrap bdi {
+    white-space: nowrap;
+  }
+}
+.cs_dashboard_table.cs_table_fit .cs_table_property h3,
+.cs_dashboard_table.cs_table_fit .cs_table_user h3,
+.cs_dashboard_table.cs_table_fit .cs_table_user p {
+  min-width: 120px;
+  white-space: normal;
+}
+
+.cs_dashboard_table .cs_lead_message {
+  min-width: 200px;
+  max-width: 240px;
+  white-space: normal;
+}
+.cs_dashboard_table tr {
+  transition: background-color 0.4s ease;
+}
+.cs_dashboard_table .cs_row_flash td,
+.cs_dashboard_table .cs_row_highlight td {
+  background-color: rgba(0, 204, 97, 0.08);
+}
+
+.cs_lead_time {
+  margin-top: 4px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.cs_status_actions {
+  display: contents;
+}
+
+.cs_upcoming_tours li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+.cs_upcoming_tours li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_upcoming_tours .cs_upcoming_date {
+  width: 56px;
+  height: 56px;
+  flex: none;
+  justify-content: center;
+  line-height: 1.2em;
+  border-radius: 12px;
+  background-color: var(--gray3-color);
+  border: 1px solid var(--border-color);
+}
+.cs_upcoming_tours .cs_upcoming_info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cs_tour_type_label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.cs_tour_type_label i {
+  color: var(--primary-color);
+}
+
+.cs_table_user_sm {
+  align-items: center;
+}
+.cs_table_user_sm img {
+  width: 32px;
+  height: 32px;
+}
+
+.cs_table_rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.cs_table_rating i {
+  font-size: 13px;
+  color: #f5a623;
+}
+
+.cs_conversion {
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cs_conversion .cs_progress {
+  flex: 1;
+}
+
+.cs_top_list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+}
+.cs_top_list li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cs_agency_card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cs_agency_card .cs_agency_card_logo {
+  width: 52px;
+  height: 52px;
+  flex: none;
+  border-radius: 12px;
+  font-family: var(--primary-font);
+  font-weight: 700;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+.cs_agency_card h3 a:hover {
+  color: var(--accent-color);
+}
+
+/* Submit property wizard */
+.cs_wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.cs_wizard > .cs_dashboard_card {
+  margin: 0;
+}
+
+.cs_wizard_steps {
+  --cs-progress: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 20px 16px;
+  list-style: none;
+  position: relative;
+}
+.cs_wizard_steps::before, .cs_wizard_steps::after {
+  content: "";
+  height: 2px;
+  position: absolute;
+  top: 39px;
+  inset-inline-start: 10%;
+  background-color: var(--border-color);
+}
+.cs_wizard_steps::before {
+  width: 80%;
+}
+.cs_wizard_steps::after {
+  width: calc(80% * var(--cs-progress));
+  background-color: var(--accent-color);
+  transition: width 0.4s ease;
+}
+.cs_wizard_steps li {
+  position: relative;
+  z-index: 1;
+}
+.cs_wizard_steps button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--secondary-color);
+  background: none;
+  border: 0;
+}
+.cs_wizard_steps .cs_wizard_num {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  color: var(--secondary-color);
+  background-color: var(--white-color);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.cs_wizard_steps .done .cs_wizard_num {
+  color: #fff;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.cs_wizard_steps .active button {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.cs_wizard_steps .active .cs_wizard_num {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+@media (max-width: 575px) {
+  .cs_wizard_steps .cs_wizard_label {
+    display: none;
+  }
+  .cs_wizard_steps::before, .cs_wizard_steps::after {
+    top: 38px;
+  }
+}
+
+.cs_wizard_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.cs_wizard_nav .cs_form_actions {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.cs_wizard_nav > .cs_form_note {
+  width: 100%;
+}
+
+.cs_wizard_review {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+@media (max-width: 767px) {
+  .cs_wizard_review {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.cs_wizard_review_group {
+  padding: 18px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+.cs_wizard_review_group li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 5px 0;
+  font-size: 14px;
+}
+.cs_wizard_review_group li span:last-child {
+  text-align: end;
+}
+
+.cs_wizard_review_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cs_wizard_edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--accent-color);
+  background: none;
+  border: 0;
+}
+
+.cs_wizard_done {
+  padding: 50px 30px;
+}
+.cs_wizard_done p {
+  max-width: 460px;
+  margin-inline: auto;
+}
+
+.cs_wizard_done_icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  font-size: 30px;
+  color: #fff;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.cs_wizard_done_btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Tour calendar */
+.cs_tour_calendar {
+  margin-bottom: 16px;
+}
+
+.cs_calendar_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.cs_calendar_nav {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 12px;
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.cs_calendar_nav:hover {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.cs_calendar_nav i {
+  transform: scaleX(var(--cs-dir));
+}
+
+.cs_calendar_grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  text-align: center;
+}
+
+.cs_calendar_weekday {
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.cs_calendar_day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+.cs_calendar_day:hover {
+  background-color: var(--gray3-color);
+}
+.cs_calendar_day.cs_has_event {
+  font-weight: 600;
+  background-color: var(--gray3-color);
+}
+.cs_calendar_day.cs_today {
+  border-color: var(--border-color);
+}
+.cs_calendar_day.active {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+.cs_calendar_day.active .cs_tour_dot {
+  background-color: var(--white-color);
+}
+
+.cs_calendar_dots {
+  display: flex;
+  gap: 3px;
+}
+
+.cs_tour_dot {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--border-color);
+}
+.cs_tour_dot.cs_pending {
+  background-color: #f5a623;
+}
+.cs_tour_dot.cs_confirmed {
+  background-color: var(--accent-color);
+}
+
+.cs_tour_legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding-top: 14px;
+  font-size: 13px;
+  border-top: 1px solid var(--border-color);
+}
+.cs_tour_legend li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Invoice */
+.cs_invoice {
+  padding: 40px;
+}
+@media (max-width: 767px) {
+  .cs_invoice {
+    padding: 24px 18px;
+  }
+}
+
+.cs_invoice_head,
+.cs_invoice_parties,
+.cs_invoice_bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cs_invoice_head {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_invoice_head .cs_invoice_logo {
+  height: 38px;
+  margin-bottom: 12px;
+}
+
+.cs_invoice_meta {
+  text-align: end;
+}
+.cs_invoice_meta .cs_status_badge {
+  margin-top: 8px;
+}
+
+.cs_invoice_parties {
+  margin-bottom: 28px;
+}
+
+.cs_invoice_dates,
+.cs_invoice_totals {
+  min-width: 260px;
+}
+.cs_invoice_dates li,
+.cs_invoice_totals li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 5px 0;
+  font-size: 15px;
+}
+
+.cs_invoice_bottom {
+  align-items: flex-end;
+  margin-top: 24px;
+}
+.cs_invoice_bottom > p {
+  max-width: 360px;
+}
+
+.cs_invoice_total {
+  margin-top: 6px;
+  padding-top: 10px !important;
+  font-family: var(--primary-font);
+  font-size: 20px !important;
+  font-weight: 600;
+  color: var(--primary-color);
+  border-top: 1px solid var(--border-color);
+}
+
+@media print {
+  body.cs_dashboard {
+    background-color: #fff;
+  }
+  body.cs_dashboard .cs_dashboard_sidebar,
+  body.cs_dashboard .cs_dashboard_topbar,
+  body.cs_dashboard .cs_dashboard_heading .cs_btn,
+  body.cs_dashboard .cs_dashboard_breadcrumb,
+  body.cs_dashboard .cs_dir_switch,
+  body.cs_dashboard .cs_settings_panel,
+  body.cs_dashboard .cs_preloader {
+    display: none !important;
+  }
+  body.cs_dashboard .cs_dashboard_main,
+  body.cs_dashboard .cs_dashboard_content {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.cs_dashboard .cs_dashboard_card {
+    box-shadow: none;
+  }
+  body.cs_dashboard [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* New public pages: agencies.html, neighborhoods.html, */
+/* Search + filter + sort bar */
+.cs_directory_toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px 20px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--gray-color);
+}
+.cs_directory_toolbar .cs_directory_search {
+  position: relative;
+}
+.cs_directory_toolbar .cs_directory_search i {
+  position: absolute;
+  top: 50%;
+  inset-inline-start: 20px;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+  pointer-events: none;
+}
+.cs_directory_toolbar .cs_directory_search .cs_form_field {
+  width: 100%;
+  height: 50px;
+  padding-inline-start: 48px;
+}
+.cs_directory_toolbar .ts-control {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-block: 0;
+  padding-inline: 15px 40px;
+  font-size: 16px;
+  color: var(--primary-color);
+  border-color: var(--border-color);
+  border-radius: 10px;
+}
+@media (max-width: 991px) {
+  .cs_directory_toolbar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cs_directory_toolbar .cs_directory_search {
+    grid-column: 1/-1;
+  }
+}
+@media (max-width: 575px) {
+  .cs_directory_toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.cs_directory_result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+/* Agency card */
+.cs_agency_tile {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 24px;
+  border: 1px solid var(--gray-color);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.cs_agency_tile:hover {
+  box-shadow: 0px 10px 30px 0px rgba(29, 29, 29, 0.08);
+  transform: translateY(-4px);
+}
+.cs_agency_tile .cs_agency_tile_thumb {
+  display: block;
+  height: 220px;
+  overflow: hidden;
+}
+.cs_agency_tile .cs_agency_tile_thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: inherit;
+  transition: transform 0.6s ease;
+}
+.cs_agency_tile .cs_agency_tile_thumb:hover img {
+  transform: scale(1.05);
+}
+.cs_agency_tile .cs_agency_tile_badge {
+  display: inline-flex;
+  color: var(--white-color);
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  top: 15px;
+  inset-inline-start: 15px;
+}
+.cs_agency_tile .cs_agency_tile_title a:hover {
+  color: var(--accent-color);
+}
+.cs_agency_tile .cs_agency_tile_location {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.cs_agency_tile .cs_agency_tile_location i {
+  margin-top: 5px;
+  color: var(--accent-color);
+}
+.cs_agency_tile .cs_agency_tile_stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 20px;
+  border-top: 1px solid var(--gray-color);
+  border-bottom: 1px solid var(--gray-color);
+}
+.cs_agency_tile .cs_agency_tile_stats li {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0;
+}
+.cs_agency_tile .cs_agency_tile_stats li:last-child {
+  padding-inline-start: 16px;
+  border-inline-start: 1px solid var(--gray-color);
+}
+.cs_agency_tile .cs_agency_tile_stats span:last-child {
+  font-size: 15px;
+}
+.cs_agency_tile .cs_agency_tile_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: auto;
+}
+.cs_agency_tile .cs_agency_tile_phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.cs_agency_tile .cs_agency_tile_phone:hover {
+  color: var(--accent-color);
+}
+.cs_agency_tile .cs_contact_icon {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  font-size: 13px;
+}
+
+/* Neighborhood card */
+.cs_area_card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cs_area_card .cs_area_card_thumb {
+  display: block;
+  height: 300px;
+  overflow: hidden;
+}
+.cs_area_card .cs_area_card_thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: inherit;
+  transition: transform 0.6s ease;
+}
+.cs_area_card .cs_area_card_thumb:hover img {
+  transform: scale(1.05);
+}
+.cs_area_card .cs_area_card_tag {
+  padding: 6px 12px;
+  top: 15px;
+  inset-inline-start: 15px;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+}
+.cs_area_card .cs_area_card_body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-top: 20px;
+}
+.cs_area_card .cs_area_card_city {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cs_area_card .cs_area_card_title a:hover {
+  color: var(--accent-color);
+}
+.cs_area_card .cs_area_card_stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: auto;
+  margin-bottom: 22px;
+  border-top: 1px solid var(--gray-color);
+  border-bottom: 1px solid var(--gray-color);
+}
+.cs_area_card .cs_area_card_stats li {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  min-width: 0;
+}
+.cs_area_card .cs_area_card_stats li:not(:first-child) {
+  padding-inline-start: 12px;
+  border-inline-start: 1px solid var(--gray-color);
+}
+.cs_area_card .cs_area_card_stats span:first-child {
+  font-size: 14px;
+}
+@media (max-width: 575px) {
+  .cs_area_card .cs_area_card_thumb {
+    height: 240px;
+  }
+}
+
+/* Market snapshot row */
+.cs_area_kpis {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+.cs_area_kpis li {
+  padding: 18px 12px;
+  text-align: center;
+  border: 1px solid var(--gray-color);
+  border-radius: 10px;
+  background-color: var(--gray3-color);
+}
+.cs_area_kpis .cs_area_kpi_value {
+  display: block;
+  line-height: 1.3em;
+}
+.cs_area_kpis .cs_area_kpi_up {
+  color: var(--accent-color);
+}
+.cs_area_kpis p {
+  font-size: 15px;
+}
+@media (max-width: 1399px) {
+  .cs_area_kpis {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 575px) {
+  .cs_area_kpis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cs_area_kpis li:last-child {
+    grid-column: 1/-1;
+  }
+}
+
+/* "Living here" highlights */
+.cs_area_highlights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 30px;
+}
+.cs_area_highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.cs_area_highlights .cs_iconbox_icon {
+  width: 56px;
+  height: 56px;
+  padding: 14px;
+  flex: none;
+}
+@media (max-width: 767px) {
+  .cs_area_highlights {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Nearby items in a narrow column */
+.cs_area_nearby .cs_iconbox.cs_style_6 {
+  flex-wrap: nowrap;
+}
+.cs_area_nearby .cs_iconbox.cs_style_6 .cs_iconbox_icon {
+  width: 56px;
+  height: 56px;
+}
+.cs_area_nearby .cs_iconbox.cs_style_6 .cs_iconbox_info {
+  text-wrap: wrap;
+  min-width: 0;
+}
+
+.cs_directory_toolbar .ts-control::after,
+.cs_valuation_form .ts-control::after {
+  content: "\f078";
+  font-family: "Font Awesome 6 Free";
+  font-size: 12px;
+  font-weight: 900;
+  position: absolute;
+  inset-inline-end: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+}
+
+.cs_valuation_form .ts-control input {
+  font-size: 16px;
+}
+.cs_valuation_form .ts-control input::-moz-placeholder {
+  color: var(--primary-color);
+}
+.cs_valuation_form .ts-control input::placeholder {
+  color: var(--primary-color);
+}
+
+.cs_directory_empty {
+  padding-block: 40px;
+}
+
+/* New public pages: New Developments */
+.cs_listing_filter {
+  padding: 20px;
+  border: 1px solid var(--gray-color);
+}
+.cs_listing_filter .cs_listing_filter_form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  align-items: end;
+  gap: 15px;
+}
+.cs_listing_filter label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--primary-color);
+}
+.cs_listing_filter .cs_filter_field {
+  position: relative;
+}
+.cs_listing_filter .cs_filter_field > i {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 15px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: var(--secondary-color);
+  pointer-events: none;
+}
+.cs_listing_filter .cs_form_field {
+  width: 100%;
+  height: 50px;
+  padding-block: 0;
+  padding-inline: 15px 40px;
+  border-radius: 10px;
+  color: var(--primary-color);
+}
+.cs_listing_filter .cs_form_field::-moz-placeholder {
+  color: var(--secondary-color);
+}
+.cs_listing_filter .cs_form_field::placeholder {
+  color: var(--secondary-color);
+}
+.cs_listing_filter .cs_form_field:focus {
+  border-color: var(--primary-color);
+}
+.cs_listing_filter .ts-control {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-block: 0;
+  padding-inline: 15px 40px;
+  font-size: 16px;
+  color: var(--primary-color);
+  border-color: var(--border-color);
+  border-radius: 10px;
+}
+.cs_listing_filter .ts-control input {
+  font-size: 16px;
+}
+.cs_listing_filter .ts-control::after {
+  content: "\f078";
+  font-family: "Font Awesome 6 Free";
+  font-size: 12px;
+  font-weight: 900;
+  position: absolute;
+  inset-inline-end: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+}
+.cs_listing_filter .cs_btn.cs_style_1 {
+  width: 100%;
+  height: 50px;
+}
+@media (max-width: 575px) {
+  .cs_listing_filter {
+    padding: 15px;
+  }
+}
+
+/* Status badge (projects) */
+.cs_project_status {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5em;
+  border-radius: 20px;
+  color: #fff;
+  background-color: var(--accent-color);
+}
+.cs_project_status.cs_prelaunch {
+  background-color: #2F80ED;
+}
+.cs_project_status.cs_construction {
+  background-color: #E58E00;
+}
+.cs_project_status.position-absolute {
+  bottom: 15px;
+  inset-inline-start: 15px;
+  z-index: 2;
+}
+
+.cs_card.cs_style_1.cs_project_card,
+.cs_card.cs_style_1.cs_oh_card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cs_card.cs_style_1.cs_project_card .cs_card_content,
+.cs_card.cs_style_1.cs_oh_card .cs_card_content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.cs_card.cs_style_1.cs_project_card .cs_btn.cs_style_1.cs_wide_btn,
+.cs_card.cs_style_1.cs_oh_card .cs_btn.cs_style_1.cs_wide_btn {
+  width: 100%;
+  height: auto;
+  padding: 10px 20px;
+  border: 1px solid var(--primary-color);
+}
+.cs_card.cs_style_1.cs_project_card .cs_card_footer,
+.cs_card.cs_style_1.cs_oh_card .cs_card_footer {
+  margin-top: auto;
+}
+
+.cs_project_card .cs_project_developer {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.cs_project_card .cs_project_developer a {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.cs_project_card .cs_project_facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 20px;
+  padding: 15px 0;
+  margin: 15px 0 20px;
+  border-top: 1px solid var(--gray-color);
+  border-bottom: 1px solid var(--gray-color);
+}
+.cs_project_card .cs_project_facts li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cs_project_card .cs_project_facts span:first-child {
+  font-size: 14px;
+}
+.cs_project_card .cs_project_facts span:last-child {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.cs_oh_date {
+  top: 15px;
+  inset-inline-end: 15px;
+  z-index: 2;
+  min-width: 62px;
+  padding: 6px 10px;
+  text-align: center;
+  line-height: 1.2em;
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+  background-color: var(--white-color);
+}
+.cs_oh_date strong {
+  display: block;
+  font-size: 25px;
+  font-weight: 600;
+}
+.cs_oh_date span {
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.cs_oh_card .cs_oh_time {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  border-radius: 10px;
+}
+.cs_oh_card .cs_oh_time i {
+  color: var(--accent-color);
+}
+.cs_oh_card .cs_oh_host {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.cs_oh_card .cs_oh_host img {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cs_oh_card .cs_oh_host p {
+  font-size: 14px;
+  line-height: 1.4em;
+}
+.cs_oh_card .cs_oh_host a {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.cs_oh_card .cs_oh_actions {
+  display: flex;
+  gap: 10px;
+}
+.cs_oh_card .cs_oh_actions .cs_btn.cs_style_1 {
+  flex: 1;
+}
+
+.cs_oh_day_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--gray-color);
+}
+.cs_oh_day_head .cs_oh_day_title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.cs_oh_day_head .cs_oh_day_icon {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  font-size: 18px;
+}
+
+/* Project details */
+.cs_project_details .cs_property_header_right .cs_project_status {
+  margin-bottom: 10px;
+}
+.cs_project_details .cs_project_developer_line {
+  margin-bottom: 8px;
+}
+.cs_project_details .cs_project_developer_line a {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.cs_unit_status {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  color: var(--accent-color);
+}
+.cs_unit_status.cs_limited {
+  color: #E58E00;
+}
+.cs_unit_status.cs_sold {
+  color: var(--danger-color);
+}
+
+.cs_payment_plan .cs_payment_bar {
+  display: flex;
+  gap: 4px;
+  height: 12px;
+  margin-bottom: 24px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.cs_payment_plan .cs_payment_bar span {
+  display: block;
+  height: 100%;
+}
+.cs_payment_plan .cs_seg_1 {
+  background-color: var(--accent-color);
+}
+.cs_payment_plan .cs_seg_2 {
+  background-color: var(--accent-color);
+  opacity: 0.55;
+}
+.cs_payment_plan .cs_seg_3 {
+  background-color: var(--primary-color);
+}
+.cs_payment_plan .cs_payment_steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.cs_payment_plan .cs_payment_steps li {
+  padding: 20px;
+  border: 1px solid var(--gray-color);
+  border-radius: 10px;
+}
+.cs_payment_plan .cs_payment_label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.cs_payment_plan .cs_payment_dot {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  border-radius: 50%;
+}
+.cs_payment_plan .cs_payment_percent {
+  font-family: var(--primary-font);
+  font-size: 39px;
+  font-weight: 600;
+  line-height: 1.2em;
+  color: var(--primary-color);
+}
+@media (max-width: 767px) {
+  .cs_payment_plan .cs_payment_steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs_construction_list li {
+  margin-bottom: 22px;
+}
+.cs_construction_list li:last-child {
+  margin-bottom: 0;
+}
+.cs_construction_list .cs_construction_head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 5px 15px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.cs_construction_list .cs_progress {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.cs_developer_box {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  border: 1px solid var(--gray-color);
+}
+.cs_developer_box .cs_developer_logo {
+  width: 70px;
+  height: 70px;
+  flex: none;
+  font-size: 26px;
+}
+.cs_developer_box h4 a {
+  color: var(--primary-color);
+}
+.cs_developer_box .cs_developer_stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 25px;
+  margin: 12px 0 18px;
+  font-size: 15px;
+}
+.cs_developer_box .cs_developer_stats strong {
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+}
+@media (max-width: 575px) {
+  .cs_developer_box {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+.cs_project_sidebar .cs_contact_form select.cs_form_field {
+  height: 44px;
+  cursor: pointer;
+}
+@media (min-width: 992px) {
+  .cs_project_sidebar {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+/* Public: services, testimonials, careers, rental application */
+.cs_icon_mortgage {
+  --cs-icon: url("../img/icons/mortgage.svg");
+}
+
+/* Service card */
+.cs_service_card {
+  height: 100%;
+  padding: 40px 30px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.4s ease;
+}
+.cs_service_card .cs_service_card_icon {
+  width: 70px;
+  height: 70px;
+  flex: none;
+}
+.cs_service_card .cs_service_card_icon .cs_svg_icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 1s ease;
+}
+.cs_service_card p {
+  flex: 1;
+}
+.cs_service_card:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-5px);
+}
+.cs_service_card:hover .cs_service_card_icon .cs_svg_icon {
+  transform: rotateY(360deg);
+}
+@media (max-width: 575px) {
+  .cs_service_card {
+    padding: 30px 20px;
+  }
+}
+
+/* Centered pill tabs (testimonials filter) */
+.cs_tab_links.cs_style_2.cs_type_center {
+  justify-content: center;
+}
+
+.cs_chip_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_chip_list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--secondary-color);
+}
+.cs_chip_list li i {
+  font-size: 12px;
+  color: var(--accent-color);
+}
+
+.cs_check_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_check_list li {
+  position: relative;
+  padding-inline-start: 28px;
+}
+.cs_check_list li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.cs_check_list li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 12px;
+  position: absolute;
+  inset-inline-start: 0;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+}
+
+/* Job accordion */
+.cs_job_accordion .cs_accordian_head .cs_chip_list {
+  margin-top: 12px;
+}
+.cs_job_accordion .cs_accordian_body {
+  margin-top: 0;
+}
+
+/* Rental application */
+.cs_application_thumb {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.cs_application_thumb img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.cs_application_thumb .cs_application_price {
+  position: absolute;
+  bottom: 15px;
+  inset-inline-start: 15px;
+  padding: 6px 14px;
+}
+.cs_application_thumb .cs_application_price small {
+  font-size: 14px;
+  font-weight: 400;
+}
+.cs_application_thumb:hover img {
+  transform: scale(1.05);
+}
+
+.cs_application_summary {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_application_summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_application_summary li:last-child {
+  border-bottom: 0;
+}
+.cs_application_summary li > span:last-child {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-align: end;
+}
+
+.cs_application_address {
+  display: flex;
+  gap: 8px;
+}
+.cs_application_address i {
+  margin-top: 5px;
+  color: var(--accent-color);
+}
+
+/* Rental application form */
+.cs_application_form .cs_submit_section {
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_application_form .cs_submit_section:not(:last-child) {
+  margin-bottom: 40px;
+}
+.cs_application_form .cs_submit_section:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.cs_application_form .cs_section_step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cs_application_form .cs_section_step span {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+.cs_application_form .cs_tour_type {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.cs_application_form .cs_tour_type .cs_tour_type_option span {
+  white-space: nowrap;
+}
+.cs_application_form .cs_file_input_wrapper .cs_file_load {
+  padding: 50px 20px;
+}
+@media (max-width: 991px) {
+  .cs_application_form .cs_submit_section {
+    padding-bottom: 30px;
+  }
+  .cs_application_form .cs_submit_section:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+/* Admin: listing settings, blog posts, post editor, coupons */
+.cs_table_icon {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+
+.cs_table_name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Coupon code */
+.cs_code_badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+
+.cs_code_field {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cs_usage_cell {
+  min-width: 120px;
+}
+.cs_usage_cell .cs_usage_top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Post editor */
+.cs_editor {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+.cs_editor:focus-within {
+  border-color: var(--primary-color);
+}
+.cs_dashboard_form .cs_editor textarea.cs_form_field,
+.cs_editor textarea.cs_form_field {
+  display: block;
+  width: 100%;
+  min-height: 380px;
+  border: 0;
+  border-radius: 0;
+  resize: vertical;
+}
+
+.cs_editor_toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 9px 9px 0 0;
+  background-color: var(--gray3-color);
+}
+.cs_editor_toolbar .cs_table_action:not(:hover) {
+  background-color: var(--cs-card-bg);
+}
+
+.cs_editor_sep {
+  width: 1px;
+  height: 22px;
+  margin-inline: 4px;
+  background-color: var(--border-color);
+}
+
+.cs_editor_foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+/* Publish box rows */
+.cs_publish_meta {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+.cs_publish_meta li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+.cs_publish_meta li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_publish_meta li span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs_publish_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cs_publish_actions .cs_btn {
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+/* Admin: Roles & Permissions, Support Tickets */
+/* Role cards */
+.cs_role_card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.cs_role_card.active {
+  border-color: var(--accent-color);
+  box-shadow: inset 0 0 0 1px var(--accent-color);
+}
+.cs_role_card .cs_role_card_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cs_role_card .cs_role_icon {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+.cs_role_card:hover .cs_role_icon, .cs_role_card.active .cs_role_icon {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.cs_role_card .cs_role_card_foot {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Overlapping avatars */
+.cs_avatar_group {
+  display: flex;
+  align-items: center;
+  padding-inline-start: 8px;
+}
+.cs_avatar_group img,
+.cs_avatar_group > span {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  margin-inline-start: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--cs-card-bg);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cs_avatar_group > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+
+/* Permissions matrix */
+.cs_dashboard_table.cs_perm_table th:not(:first-child),
+.cs_dashboard_table.cs_perm_table td:not(:first-child) {
+  width: 96px;
+  text-align: center;
+}
+.cs_dashboard_table.cs_perm_table td:first-child p {
+  white-space: normal;
+  min-width: 200px;
+}
+.cs_dashboard_table.cs_perm_table .cs_toggle_switch {
+  vertical-align: middle;
+}
+.cs_dashboard_table.cs_perm_table .cs_perm_na {
+  color: var(--secondary-color);
+  opacity: 0.5;
+}
+
+/* Ticket header */
+.cs_ticket_badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cs_ticket_meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-size: 14px;
+}
+.cs_ticket_meta i {
+  margin-inline-end: 6px;
+}
+
+/* Ticket conversation */
+.cs_ticket_thread {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_ticket_thread > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.cs_ticket_msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.cs_ticket_msg > img {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cs_ticket_msg .cs_ticket_msg_body {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  overflow-wrap: anywhere;
+}
+.cs_ticket_msg .cs_ticket_msg_body p:last-child {
+  margin-bottom: 0;
+}
+.cs_ticket_msg .cs_ticket_msg_head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 12px;
+  margin-bottom: 10px;
+}
+.cs_ticket_msg .cs_ticket_msg_name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.cs_ticket_msg.cs_ticket_msg_staff .cs_ticket_msg_body {
+  background-color: var(--gray3-color);
+  border-color: transparent;
+}
+.cs_ticket_msg.cs_ticket_msg_note .cs_ticket_msg_body {
+  border-style: dashed;
+  border-inline-start: 3px solid var(--cs-warning-color, #F5A524);
+}
+@media (max-width: 575px) {
+  .cs_ticket_msg {
+    gap: 10px;
+  }
+  .cs_ticket_msg > img {
+    width: 36px;
+    height: 36px;
+  }
+  .cs_ticket_msg .cs_ticket_msg_body {
+    padding: 14px;
+  }
+}
+
+.cs_ticket_files {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cs_ticket_files a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--cs-card-bg);
+  font-size: 14px;
+  color: var(--primary-color);
+  transition: border-color 0.3s ease;
+}
+.cs_ticket_files a:hover {
+  border-color: var(--accent-color);
+}
+.cs_ticket_files a i {
+  font-size: 18px;
+  color: var(--accent-color);
+}
+.cs_ticket_files a small {
+  display: block;
+  color: var(--secondary-color);
+}
+
+/* Reply box actions */
+.cs_ticket_reply_foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+.cs_ticket_reply_foot .cs_ticket_reply_tools,
+.cs_ticket_reply_foot .cs_ticket_reply_btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+.cs_ticket_reply_foot .cs_ticket_attach {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.cs_ticket_reply_foot .cs_ticket_attach input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.cs_ticket_reply_foot .cs_ticket_note_toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+@media (max-width: 575px) {
+  .cs_ticket_reply_foot .cs_ticket_reply_btns {
+    width: 100%;
+  }
+  .cs_ticket_reply_foot .cs_ticket_reply_btns .cs_btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Ticket info sidebar */
+.cs_ticket_info {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_ticket_info li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 0;
+  font-size: 15px;
+}
+.cs_ticket_info li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_ticket_info li > span:first-child {
+  flex: none;
+}
+.cs_ticket_info li > span:last-child,
+.cs_ticket_info li > a:last-child {
+  min-width: 0;
+  text-align: end;
+  color: var(--primary-color);
+  overflow-wrap: anywhere;
+}
+
+.cs_ticket_property {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
+}
+.cs_ticket_property:hover {
+  border-color: var(--accent-color);
+}
+.cs_ticket_property img {
+  width: 64px;
+  height: 48px;
+  flex: none;
+  border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cs_ticket_property > span {
+  min-width: 0;
+}
+
+/* Dashboard extras: documents, offers, rental applications */
+/* Soft colored chip */
+.cs_file_icon,
+.cs_storage_dot {
+  position: relative;
+  isolation: isolate;
+}
+.cs_file_icon::after,
+.cs_storage_dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: currentColor;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Documents */
+.cs_table_file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cs_table_file h3 {
+  min-width: 160px;
+  max-width: 260px;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.cs_file_icon {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  color: var(--secondary-color);
+}
+.cs_file_icon.cs_file_pdf {
+  color: var(--danger-color);
+}
+.cs_file_icon.cs_file_doc {
+  color: var(--cs-info-color);
+}
+.cs_file_icon.cs_file_img {
+  color: var(--cs-success-color);
+}
+
+/* Storage usage */
+.cs_storage_bar {
+  display: flex;
+  height: 10px;
+  margin: 16px 0 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--border-color);
+}
+.cs_storage_bar span {
+  display: block;
+  height: 100%;
+}
+.cs_storage_bar span:not(:last-child) {
+  border-inline-end: 2px solid var(--cs-card-bg);
+}
+
+.cs_storage_legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_storage_legend li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .cs_storage_legend {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cs_storage_dot {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.cs_storage_contracts {
+  color: var(--accent-color);
+}
+
+.cs_storage_agreements {
+  color: var(--cs-info-color);
+}
+
+.cs_storage_disclosures {
+  color: var(--cs-warning-color);
+}
+
+.cs_storage_ids {
+  color: var(--primary-color);
+}
+
+.cs_storage_bar .cs_storage_contracts {
+  background-color: var(--accent-color);
+}
+.cs_storage_bar .cs_storage_agreements {
+  background-color: var(--cs-info-color);
+}
+.cs_storage_bar .cs_storage_disclosures {
+  background-color: var(--cs-warning-color);
+}
+.cs_storage_bar .cs_storage_ids {
+  background-color: var(--primary-color);
+}
+
+/* Offers (agent table) */
+.cs_ask_pct {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.cs_ask_pct i {
+  font-size: 12px;
+}
+.cs_ask_pct.cs_above {
+  color: var(--cs-success-color);
+}
+.cs_ask_pct.cs_below {
+  color: var(--danger-color);
+}
+
+.cs_offer_note {
+  display: block;
+  max-width: 150px;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.4em;
+  white-space: normal;
+}
+
+.cs_dashboard_table .cs_td_wrap {
+  min-width: 130px;
+  white-space: normal;
+}
+
+/* My Offers (buyer cards) */
+.cs_offer_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cs_offer_card {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--cs-card-bg);
+}
+@media (max-width: 575px) {
+  .cs_offer_card {
+    padding: 15px;
+  }
+}
+
+.cs_offer_card_main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+@media (max-width: 991px) {
+  .cs_offer_card_main {
+    flex-wrap: wrap;
+  }
+}
+
+.cs_offer_card_thumb {
+  width: 150px;
+  height: 112px;
+  flex: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.cs_offer_card_thumb img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.cs_offer_card_thumb:hover img {
+  transform: scale(1.06);
+}
+@media (max-width: 575px) {
+  .cs_offer_card_thumb {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.cs_offer_card_info {
+  flex: 1;
+  min-width: 200px;
+}
+.cs_offer_card_info h3 a:hover {
+  color: var(--accent-color);
+}
+
+.cs_offer_figures {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_offer_figures li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 14px;
+}
+.cs_offer_figures strong {
+  font-family: var(--primary-font);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+@media (max-width: 991px) {
+  .cs_offer_figures {
+    width: 100%;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+}
+@media (max-width: 575px) {
+  .cs_offer_figures {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cs_offer_card_note {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: var(--gray3-color);
+}
+.cs_offer_card_note i {
+  color: var(--cs-warning-color);
+  margin-inline-end: 4px;
+}
+
+.cs_offer_card_foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.cs_offer_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.cs_offer_actions .cs_btn.cs_style_1 {
+  padding: 7px 16px;
+  font-size: 14px;
+}
+
+/* Status timeline */
+.cs_offer_track {
+  display: flex;
+  flex: 1;
+  max-width: 520px;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_offer_track li {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.4em;
+}
+.cs_offer_track li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  inset-inline-end: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--border-color);
+}
+.cs_offer_track .cs_offer_track_dot {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  color: var(--secondary-color);
+  border: 2px solid var(--border-color);
+  background-color: var(--cs-card-bg);
+}
+.cs_offer_track .cs_offer_track_label {
+  font-family: var(--primary-font);
+  font-weight: 500;
+  color: var(--primary-color);
+}
+.cs_offer_track li:not(.cs_done):not(.cs_current) .cs_offer_track_label {
+  color: var(--secondary-color);
+}
+.cs_offer_track li.cs_done:not(:first-child)::before,
+.cs_offer_track li.cs_current:not(:first-child)::before {
+  background-color: var(--cs-success-color);
+}
+.cs_offer_track .cs_done .cs_offer_track_dot {
+  color: #fff;
+  border-color: var(--cs-success-color);
+  background-color: var(--cs-success-color);
+}
+.cs_offer_track .cs_current .cs_offer_track_dot {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.cs_offer_track .cs_track_warning .cs_offer_track_dot {
+  color: #fff;
+  border-color: var(--cs-warning-color);
+  background-color: var(--cs-warning-color);
+}
+.cs_offer_track li.cs_track_danger:not(:first-child)::before {
+  background-color: var(--danger-color);
+}
+.cs_offer_track li.cs_track_danger .cs_offer_track_dot {
+  color: #fff;
+  border-color: var(--danger-color);
+  background-color: var(--danger-color);
+}
+@media (max-width: 991px) {
+  .cs_offer_track {
+    max-width: none;
+    flex-basis: 100%;
+  }
+}
+
+div.cs_empty_row {
+  padding: 40px 16px;
+  text-align: center;
+  border: 1px dashed var(--border-color);
+  border-radius: 10px;
+}
+
+/* Rental applications */
+.cs_mini_steps {
+  display: flex;
+  gap: 4px;
+  width: 120px;
+  margin-top: 8px;
+}
+.cs_mini_steps span {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--border-color);
+}
+.cs_mini_steps span.cs_done {
+  background-color: var(--cs-success-color);
+}
+.cs_mini_steps span.cs_current {
+  background-color: var(--cs-warning-color);
+}
+
+.cs_mini_steps_label {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.cs_empty_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  white-space: normal;
+}
+.cs_empty_state > i {
+  font-size: 32px;
+  color: var(--border-color);
+}
+.cs_empty_state p {
+  max-width: 380px;
+}
+
+/* Owner dashboard: tenants, maintenance, applications, */
+.cs_tag_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: nowrap;
+  color: var(--secondary-color);
+  position: relative;
+  isolation: isolate;
+}
+.cs_tag_badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: currentColor;
+  opacity: 0.1;
+  z-index: -1;
+}
+.cs_tag_badge.cs_tag_success {
+  color: var(--cs-success-color);
+}
+.cs_tag_badge.cs_tag_warning {
+  color: var(--cs-warning-color);
+}
+.cs_tag_badge.cs_tag_danger {
+  color: var(--danger-color);
+}
+.cs_tag_badge.cs_tag_info {
+  color: var(--cs-info-color);
+}
+
+.cs_dashboard_table p + .cs_tag_badge,
+.cs_dashboard_table .cs_tag_badge + p {
+  margin-top: 4px;
+}
+
+.cs_detail_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cs_detail_list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  font-size: 14px;
+}
+.cs_detail_list li:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+.cs_detail_list li > span:last-child {
+  text-align: end;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.cs_dark .cs_dashboard input[type=date] {
+  color-scheme: dark;
+}
+
+/* 22. Dark Version */
 .cs_dark h1,
 .cs_dark h2,
 .cs_dark h3,
@@ -12747,9 +16741,7 @@ span.flatpickr-weekday {
   background-color: var(--white-color);
 }
 
-/*---------------------------------------------------------------
- Dark mode: shared fixes for every template page
------------------------------------------------------------------*/
+/* Dark mode: shared fixes for every template page */
 .cs_logo_dark {
   display: none;
 }
@@ -12764,7 +16756,10 @@ span.flatpickr-weekday {
 .cs_dark .cs_property_price.cs_primary_bg.cs_white_color,
 .cs_dark .cs_property_badge.cs_primary_bg.cs_white_color,
 .cs_dark .cs_category.cs_primary_bg.cs_white_color,
-.cs_dark .cs_contact_icon.cs_primary_bg.cs_white_color {
+.cs_dark .cs_contact_icon.cs_primary_bg.cs_white_color,
+.cs_dark .cs_service_card_icon.cs_primary_bg.cs_white_color,
+.cs_dark .cs_agency_tile_badge.cs_primary_bg.cs_white_color,
+.cs_dark .cs_application_price.cs_primary_bg.cs_white_color {
   color: var(--white-color);
 }
 .cs_dark .cs_page_header.cs_style_1 {
@@ -12803,6 +16798,9 @@ span.flatpickr-weekday {
 }
 .cs_dark .cs_location_map iframe {
   filter: invert(0.9) hue-rotate(180deg);
+}
+.cs_dark .cs_leaflet_map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) grayscale(0.6) brightness(0.9) contrast(0.9) !important;
 }
 .cs_dark .cs_brand img {
   filter: brightness(0) invert(1);
@@ -12847,8 +16845,15 @@ span.flatpickr-weekday {
   background-color: #fff;
   border-color: #fff;
 }
+.cs_dark .cs_iconbox.cs_style_3:hover .cs_iconbox_icon.cs_white_bg {
+  color: #fff;
+  background-color: transparent;
+}
 .cs_dark .cs_iconbox.cs_style_4 .cs_iconbox_icon {
   color: var(--white-color);
+}
+.cs_dark .cs_iconbox.cs_style_4:hover .cs_iconbox_icon {
+  color: var(--primary-color);
 }
 .cs_dark .cs_property_view_btn .cs_gray_bg {
   background-color: var(--gray2-color);
@@ -12928,35 +16933,11 @@ span.flatpickr-weekday {
   background: var(--primary-color);
   border-color: var(--primary-color);
 }
-.cs_dark .dt-container .dt-paging .dt-paging-button {
-  color: var(--primary-color) !important;
-}
-.cs_dark .dt-container .dt-paging .dt-paging-button.current, .cs_dark .dt-container .dt-paging .dt-paging-button.current:hover {
-  color: var(--primary-color) !important;
-  background: var(--gray2-color) !important;
-  border-color: var(--border-color) !important;
-}
-.cs_dark .dt-container .dt-paging .dt-paging-button.disabled {
-  color: var(--secondary-color) !important;
-  opacity: 0.4;
-}
-.cs_dark .cs_user_data_table thead th {
-  border-bottom-color: var(--border-color) !important;
-}
-.cs_dark .cs_user_data_table .dt-column-order {
-  color: var(--primary-color);
-}
-.cs_dark .cs_user_data_table .btn-dark {
-  background-color: var(--gray2-color);
-  border-color: var(--gray2-color);
-}
-.cs_dark .cs_actions.text-success {
-  color: var(--accent-color) !important;
+.cs_dark .cs_property_map .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) grayscale(0.4) brightness(0.9) contrast(0.9);
 }
 
-/*===============================================================
- 23. RTL Support
-=================================================================*/
+/* 23. RTL Support */
 [dir=rtl] {
   --cs-dir: -1;
   --cs-start: right;
@@ -12972,7 +16953,8 @@ span.flatpickr-weekday {
 [dir=rtl] .fa-chevron-left,
 [dir=rtl] .fa-angle-right,
 [dir=rtl] .fa-angle-left,
-[dir=rtl] .fa-arrow-right-from-bracket {
+[dir=rtl] .fa-arrow-right-from-bracket,
+[dir=rtl] .fa-paper-plane {
   transform: scaleX(-1);
 }
 [dir=rtl] .cs_counter_number,
@@ -12991,8 +16973,28 @@ span.flatpickr-weekday {
 }
 [dir=rtl] input[type=email],
 [dir=rtl] input[type=tel],
-[dir=rtl] input[type=url] {
+[dir=rtl] input[type=url],
+[dir=rtl] input[type=number] {
   text-align: right;
+}
+[dir=rtl] .cs_input_icon_wrap input[type=email],
+[dir=rtl] .cs_input_icon_wrap input[type=tel],
+[dir=rtl] .cs_input_icon_wrap input[type=url],
+[dir=rtl] .cs_input_icon_wrap input[type=number] {
+  padding-left: 15px;
+  padding-right: 42px;
+}
+[dir=rtl] [data-result-count] {
+  unicode-bidi: isolate;
+}
+[dir=rtl] .cs_slider_gap_24 .cs_slider_container[data-variable-width="1"] .slick-slide {
+  padding-inline: 0;
+}
+[dir=rtl] .cs_slider_gap_24 .cs_slider_container[data-variable-width="1"] .slick-slide > div {
+  margin-inline: 12px;
+}
+[dir=rtl] .cs_arrow_shape_1 svg {
+  transform: scaleX(-1);
 }
 [dir=rtl] .cs_newsletter_form.cs_style_1 input {
   padding-left: 30px;
@@ -13007,24 +17009,12 @@ span.flatpickr-weekday {
   display: inline-block;
   transform: scaleX(-1);
 }
-@media (min-width: 768px) {
-  [dir=rtl] div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-start {
-    margin-right: 0;
-    margin-left: auto;
-  }
-  [dir=rtl] div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-end {
-    margin-left: 0;
-    margin-right: auto;
-  }
-}
-[dir=rtl] .cs_rating::before,
-[dir=rtl] .cs_rating_percentage::before {
-  inset-inline-start: -7px;
+[dir=rtl] .cs_rating {
+  direction: ltr;
+  transform: scaleX(-1);
 }
 
-/*=======================================================
- Direction Switch Button
-=========================================================*/
+/* Direction Switch Button */
 .cs_dir_switch {
   position: fixed;
   top: 50%;

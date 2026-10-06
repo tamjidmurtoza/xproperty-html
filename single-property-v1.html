@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="description" content="A single-property showcase with photo gallery, video tour, floor plans, amenities and a tour booking form.">
     <meta name="keywords" content="single property v1, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/single-property-v1.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Single Property V1 | Xproperty">
+    <meta property="og:description" content="A single-property showcase with photo gallery, video tour, floor plans, amenities and a tour booking form.">
+    <meta property="og:url" content="https://example.com/single-property-v1.html">
+    <meta property="og:image" content="https://example.com/assets/img/property-banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Single Property V1 | Xproperty">
+    <meta name="twitter:description" content="A single-property showcase with photo gallery, video tour, floor plans, amenities and a tour booking form.">
+    <meta name="twitter:image" content="https://example.com/assets/img/property-banner.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <!-- All CSS Files -->
    <link rel="stylesheet" href="assets/css/aos.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -18,12 +32,40 @@
     <link rel="stylesheet" href="assets/css/odometer.min.css">
     <link rel="stylesheet" href="assets/css/lightgallery.min.css">
     <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/data-tables.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Site Title -->
     <title>Single Property V1 | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://example.com/#organization",
+          "name": "Xproperty",
+          "url": "https://example.com/",
+          "logo": "https://example.com/assets/img/logo.svg"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://example.com/single-property-v1.html#webpage",
+          "url": "https://example.com/single-property-v1.html",
+          "name": "Single Property V1",
+          "description": "A single-property showcase with photo gallery, video tour, floor plans, amenities and a tour booking form.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://example.com/#website"
+          },
+          "publisher": {
+            "@id": "https://example.com/#organization"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -60,7 +102,7 @@
                   <div class="cs_nav_links_wrap">
                     <ul class="cs_nav_list cs_mp_0">
                       <li class="menu-item-has-children">
-                        <a href="">Home</a>
+                        <a href="index.html">Home</a>
                         <ul class="cs_dropdown_list cs_mp_0">
                           <li><a href="index.html" aria-label="Nav link">PROPERTY SEARCH</a></li>
                           <li><a href="home-v2.html" aria-label="Nav link">LUXURY HOMES</a></li>
@@ -75,38 +117,54 @@
                         </ul>
                       </li>
                       <li class="menu-item-has-children">
-                        <a href="">Listing</a>
+                        <a href="property-listing-buy.html">Listing</a>
                         <ul class="cs_dropdown_list cs_mp_0">
-                          <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a>
-                          </li>
-                          <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a>
-                          </li>
-                          <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a>
-                          </li>
+                          <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a></li>
+                          <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a></li>
+                          <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a></li>
+                          <li><a href="property-listing-map.html" aria-label="Nav link">Property Listing Map</a></li>
                           <li><a href="property-details.html" aria-label="Nav link">Property Details</a></li>
+                          <li><a href="projects.html" aria-label="Nav link">New Developments</a></li>
+                          <li><a href="open-house.html" aria-label="Nav link">Open House</a></li>
+                          <li><a href="neighborhoods.html" aria-label="Nav link">Neighborhood Guides</a></li>
+                          <li><a href="compare.html" aria-label="Nav link">Compare Properties</a></li>
+                          <li><a href="mortgage-calculator.html" aria-label="Nav link">Mortgage Calculator</a></li>
                         </ul>
                       </li>
                       <li><a href="about-us.html" aria-label="Nav link">About</a></li>
                     </ul>
                     <ul class="cs_nav_list cs_mp_0">
                       <li class="menu-item-has-children">
-                        <a href="">Pages</a>
-                         <ul class="cs_dropdown_list cs_mp_0">
+                        <a href="#" role="button" aria-haspopup="true">Pages</a>
+                         <ul class="cs_dropdown_list cs_dropdown_2col cs_mp_0">
+                        <li><a href="services.html" aria-label="Nav link">Our Services</a></li>
+                        <li><a href="sell-property.html" aria-label="Nav link">Sell Your Property</a></li>
+                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="agent-details.html" aria-label="Nav link">Agent Profile</a></li>
+                        <li><a href="agencies.html" aria-label="Nav link">Our Agencies</a></li>
+                        <li><a href="agency-details.html" aria-label="Nav link">Agency Profile</a></li>
+                        <li><a href="testimonials.html" aria-label="Nav link">Testimonials</a></li>
+                        <li><a href="careers.html" aria-label="Nav link">Careers</a></li>
                         <li><a href="pricing.html" aria-label="Nav link">Pricing Plan</a></li>
-                        <li><a href="faq.html" aria-label="Nav link">FAQ & Answer</a></li>
-                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
-                        <li><a href="terms-condition.html" aria-label="Nav link">Terms & Condition</a></li>
+                        <li><a href="faq.html" aria-label="Nav link">FAQ &amp; Answer</a></li>
                         <li><a href="gallery.html" aria-label="Nav link">Property Gallery</a></li>
+                        <li><a href="rental-application.html" aria-label="Nav link">Rental Application</a></li>
                         <li><a href="register.html" aria-label="Nav link">User Register</a></li>
                         <li><a href="login.html" aria-label="Nav link">User Login</a></li>
-                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="verify-email.html" aria-label="Nav link">Verify Email</a></li>
+                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html" aria-label="Nav link">Terms &amp; Condition</a></li>
                         <li><a href="error.html" aria-label="Nav link">Error Page</a></li>
+                        <li><a href="coming-soon.html" aria-label="Nav link">Coming Soon</a></li>
+                        <li><a href="maintenance.html" aria-label="Nav link">Maintenance</a></li>
                       </ul>
                       </li>
                       <li class="menu-item-has-children">
-                        <a href="">Blog</a>
+                        <a href="blog.html">Blog</a>
                         <ul class="cs_dropdown_list cs_mp_0">
                           <li><a href="blog.html" aria-label="Nav link">Our Articles</a></li>
+                          <li><a href="blog-grid.html" aria-label="Nav link">Blog Grid</a></li>
+                          <li><a href="blog-list.html" aria-label="Nav link">Blog List</a></li>
                           <li><a href="blog-details.html" aria-label="Nav link">Article Details</a></li>
                         </ul>
                       </li>
@@ -164,7 +222,7 @@
     </header>
     <!-- End Header Section -->
     <!-- Start Hero Section -->
-    <section class="cs_slider cs_style_3 position-relative">
+    <section id="main-content" class="cs_slider cs_style_3 position-relative">
       <div class="cs_primary_bg">
         <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-fade-slide="1" data-speed="600" data-center="0" data-variable-width="0" data-slides-per-view="1">
           <div class="cs_slider_wrapper">
@@ -182,7 +240,7 @@
                         <img src="assets/img/text-logo.svg" alt="Text logo">
                       </div>
                       <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Click to play video" class="cs_player_btn cs_style_3 cs_center cs_white_bg cs_radius_100 cs_video_open position-relative">
-                      <img src="assets/img/icons/play-2.svg" alt="Player icon">
+                      <img src="assets/img/icons/play-2.svg" alt="">
                       </a>
                     </div>
                   </div>
@@ -203,7 +261,7 @@
                         <img src="assets/img/text-logo.svg" alt="Text logo">
                       </div>
                       <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Click to play video" class="cs_player_btn cs_style_3 cs_center cs_white_bg cs_radius_100 cs_video_open position-relative">
-                      <img src="assets/img/icons/play-2.svg" alt="Player icon">
+                      <img src="assets/img/icons/play-2.svg" alt="">
                       </a>
                     </div>
                   </div>
@@ -224,7 +282,7 @@
                         <img src="assets/img/text-logo.svg" alt="Text logo">
                       </div>
                       <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Click to play video" class="cs_player_btn cs_style_3 cs_center cs_white_bg cs_radius_100 cs_video_open position-relative">
-                      <img src="assets/img/icons/play-2.svg" alt="Player icon">
+                      <img src="assets/img/icons/play-2.svg" alt="">
                       </a>
                     </div>
                   </div>
@@ -246,10 +304,10 @@
         <div class="row cs_gap_y_40 align-items-xl-center">
           <div class="col-lg-5">
             <div class="cs_about_thumbnail cs_radius_10 position-relative z-1" data-aos="fade-right">
-              <img src="assets/img/about-img-3.jpg" alt="About img">
+              <img src="assets/img/about-img-3.jpg" alt="About img" loading="lazy">
               <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Click to play video" class="cs_video_block cs_style_2 cs_center cs_white_bg cs_video_open position-absolute cs_radius_8">
                 <span class="cs_player_btn cs_style_2 cs_center cs_primary_bg cs_white_color cs_radius_100 position-relative">
-                  <img src="assets/img/icons/ui/play.svg" class="cs_svg_icon cs_icon_play" alt="Play icon">
+                  <img src="assets/img/icons/ui/play.svg" class="cs_svg_icon cs_icon_play" alt="">
                 </span>
                 <div class="cs_video_info">
                   <h3 class="cs_fs_25 cs_semibold mb-0">Virtual Property Tour</h3>
@@ -258,7 +316,7 @@
               </a>
               <a href="property-listing-buy.html" aria-label="Property list page link" class="cs_offerbox position-absolute">
                 <span class="cs_offerbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                  <img src="assets/img/icons/ui/home-2.svg" class="cs_svg_icon cs_icon_home_2" alt="Home icon">
+                  <img src="assets/img/icons/ui/home-2.svg" class="cs_svg_icon cs_icon_home_2" alt="">
                 </span>
                 <div class="cs_video_info cs_white_bg cs_radius_8">
                   <h3 class="cs_fs_25 cs_semibold mb-0">Discover Xproperty Offers</h3>
@@ -284,7 +342,7 @@
           </div>
         </div>
         <span class="cs_about_shape_1 position-absolute">
-        <img src="assets/img/about-shape-1.png" alt="Transparent building">
+        <img src="assets/img/about-shape-1.png" alt="Transparent building" loading="lazy">
         </span>
       </div>
       <div class="cs_height_140 cs_height_lg_80"></div>
@@ -298,7 +356,7 @@
           <div class="col-md-4">
             <div class="cs_counter cs_style_1 cs_center_column text-center">
               <span class="cs_counter_icon cs_center cs_mb_28">
-              <img src="assets/img/icons/apartment.svg" alt="Apartment icon">
+              <img src="assets/img/icons/apartment.svg" alt="">
               </span>
               <div class="cs_counter_number cs_fs_61 cs_white_color cs_primary_font cs_bold cs_mb_15">
                 $<span class="odometer" data-count-to="1.5"></span>B+
@@ -369,7 +427,7 @@
               </li>
               <li>
                 <span>Total Area</span>
-                <span>1500 Sqft</span>
+                <span><bdi>1500 Sqft</bdi></span>
               </li>
               <li>
                 <span>Total Apartment</span>
@@ -381,7 +439,7 @@
               </li>
               <li>
                 <span>Terrace Area</span>
-                <span>160 Sqft</span>
+                <span><bdi>160 Sqft</bdi></span>
               </li>
               <li>
                 <span>Price Approx</span>
@@ -428,7 +486,7 @@
           <div class="col-xl-4 col-lg-6">
             <div class="cs_iconbox cs_style_5">
               <span class="cs_iconbox_icon cs_white_color">
-                <img src="assets/img/icons/ui/bathtab3.svg" class="cs_svg_icon cs_icon_bathtab3" alt="Bathroom icon">
+                <img src="assets/img/icons/ui/bathtab3.svg" class="cs_svg_icon cs_icon_bathtab3" alt="">
               </span>
               <div class="cs_iconbox_info">
                 <h3 class="cs_iconbox_title cs_fs_25 cs_semibold cs_white_color cs_mb_9">Luxurious Bathroom</h3>
@@ -464,7 +522,7 @@
                 <img src="assets/img/icons/ui/camera.svg" class="cs_svg_icon cs_icon_camera" alt="Security camera icon">
               </span>
               <div class="cs_iconbox_info">
-                <h3 class="cs_iconbox_title cs_fs_25 cs_semibold cs_white_color cs_mb_9">24/7 Security</h3>
+                <h3 class="cs_iconbox_title cs_fs_25 cs_semibold cs_white_color cs_mb_9"><bdi>24/7 Security</bdi></h3>
                 <p class="mb-0 cs_gray_color">The building offers 24/7 security services and keycard access for added peace of mind and safety.</p>
               </div>
             </div>
@@ -480,7 +538,7 @@
       <div class="container">
         <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Click to play video" class="cs_video_block cs_style_1 cs_center cs_bg_fixed cs_radius_10 cs_video_open" data-src="assets/img/video-bg-5.jpg">
         <span class="cs_player_btn cs_style_1 cs_center cs_radius_100 position-relative" data-aos="zoom-in">
-        <img src="assets/img/icons/play-circle.svg" alt="Player icon">
+        <img src="assets/img/icons/play-circle.svg" alt="">
         </span>
         </a>
       </div>
@@ -506,25 +564,25 @@
         <div class="cs_slider_wrapper">
           <div class="cs_slide">
             <a href="assets/img/kitchen.jpg" aria-label="Click to view large image" class="cs_gallery_item cs_radius_10 position-relative">
-              <img src="assets/img/kitchen.jpg" alt="Gallery Image">     
+              <img src="assets/img/kitchen.jpg" alt="Gallery Image" loading="lazy">     
               <h3 class="cs_gallery_title cs_fs_20 cs_semibold mb-0">Kitchen</h3>
             </a>
           </div>
           <div class="cs_slide">
             <a href="assets/img/bed-room.jpg" aria-label="Click to view large image" class="cs_gallery_item cs_radius_10 position-relative">
-              <img src="assets/img/bed-room.jpg" alt="Gallery Image">     
+              <img src="assets/img/bed-room.jpg" alt="Gallery Image" loading="lazy">     
               <h3 class="cs_gallery_title cs_fs_20 cs_semibold mb-0">Bed Room</h3>
             </a>
           </div>
           <div class="cs_slide">
             <a href="assets/img/kitchen.jpg" aria-label="Click to view large image" class="cs_gallery_item cs_radius_10 position-relative">
-              <img src="assets/img/kitchen.jpg" alt="Gallery Image">     
+              <img src="assets/img/kitchen.jpg" alt="Gallery Image" loading="lazy">     
               <h3 class="cs_gallery_title cs_fs_20 cs_semibold mb-0">Kitchen</h3>
             </a>
           </div>
           <div class="cs_slide">
             <a href="assets/img/drowing-room.jpg" aria-label="Click to view large image" class="cs_gallery_item cs_radius_10 position-relative">
-              <img src="assets/img/drowing-room.jpg" alt="Gallery Image">     
+              <img src="assets/img/drowing-room.jpg" alt="Gallery Image" loading="lazy">     
               <h3 class="cs_gallery_title cs_fs_20 cs_semibold mb-0">Drowing Room</h3>
             </a>
           </div>
@@ -549,8 +607,8 @@
                   <a href="property-details.html" aria-label="Click to view property details">Apartment</a>
                 </h3>
               </div>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
-              <img src="assets/img/apartment-7.jpg" alt="Apartment image">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
+              <img src="assets/img/apartment-7.jpg" alt="Apartment image" loading="lazy">
               </a>
               <ul class="cs_apartment_info_list cs_fs_20 cs_semibold cs_primary_color cs_primary_font cs_mp_0">
                 <li>
@@ -563,7 +621,7 @@
                 </li>
                 <li>
                   <span>Total Area</span>
-                  <span>1500 Sqft</span>
+                  <span><bdi>1500 Sqft</bdi></span>
                 </li>
                 <li>
                   <span>Kitchen</span>
@@ -574,7 +632,7 @@
                   <span>$9500000</span>
                 </li>
               </ul>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
               <span>Download Brochure</span>
               </a>
             </div>
@@ -587,8 +645,8 @@
                   <a href="property-details.html" aria-label="Click to view property details">Duplex</a>
                 </h3>
               </div>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
-              <img src="assets/img/apartment-8.jpg" alt="Apartment image">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
+              <img src="assets/img/apartment-8.jpg" alt="Apartment image" loading="lazy">
               </a>
               <ul class="cs_apartment_info_list cs_fs_20 cs_semibold cs_primary_color cs_primary_font cs_mp_0">
                 <li>
@@ -601,7 +659,7 @@
                 </li>
                 <li>
                   <span>Total Area</span>
-                  <span>1500 Sqft</span>
+                  <span><bdi>1500 Sqft</bdi></span>
                 </li>
                 <li>
                   <span>Kitchen</span>
@@ -612,7 +670,7 @@
                   <span>$9700000</span>
                 </li>
               </ul>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
               <span>Download Brochure</span>
               </a>
             </div>
@@ -625,8 +683,8 @@
                   <a href="property-details.html" aria-label="Click to view property details">Penthouse</a>
                 </h3>
               </div>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
-              <img src="assets/img/apartment-9.jpg" alt="Apartment image">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
+              <img src="assets/img/apartment-9.jpg" alt="Apartment image" loading="lazy">
               </a>
               <ul class="cs_apartment_info_list cs_fs_20 cs_semibold cs_primary_color cs_primary_font cs_mp_0">
                 <li>
@@ -639,7 +697,7 @@
                 </li>
                 <li>
                   <span>Total Area</span>
-                  <span>1300 Sqft</span>
+                  <span><bdi>1300 Sqft</bdi></span>
                 </li>
                 <li>
                   <span>Kitchen</span>
@@ -650,7 +708,7 @@
                   <span>$9800000</span>
                 </li>
               </ul>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
               <span>Download Brochure</span>
               </a>
             </div>
@@ -663,8 +721,8 @@
                   <a href="property-details.html" aria-label="Click to view property details">Bungalow</a>
                 </h3>
               </div>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
-              <img src="assets/img/apartment-10.jpg" alt="Apartment image">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_apartment_thumbnail cs_radius_10 overflow-hidden" data-aos="zoom-in">
+              <img src="assets/img/apartment-10.jpg" alt="Apartment image" loading="lazy">
               </a>
               <ul class="cs_apartment_info_list cs_fs_20 cs_semibold cs_primary_color cs_primary_font cs_mp_0">
                 <li>
@@ -677,7 +735,7 @@
                 </li>
                 <li>
                   <span>Total Area</span>
-                  <span>1300 Sqft</span>
+                  <span><bdi>1300 Sqft</bdi></span>
                 </li>
                 <li>
                   <span>Kitchen</span>
@@ -688,7 +746,7 @@
                   <span>$9900000</span>
                 </li>
               </ul>
-              <a href="service-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
+              <a href="property-details.html" aria-label="Click to view property details" class="cs_btn cs_style_1 cs_medium cs_primary_color cs_radius_20 overflow-hidden">
               <span>Download Brochure</span>
               </a>
             </div>
@@ -709,7 +767,7 @@
         <div class="row cs_gap_y_40 align-items-center">
           <div class="col-xl-5 col-lg-5">
             <div class="cs_contact_thumbnail cs_radius_10" data-aos="zoom-in">
-              <img src="assets/img/contact-img-1.jpg" alt="Contact image">
+              <img src="assets/img/contact-img-1.jpg" alt="Contact image" loading="lazy">
             </div>
           </div>
           <div class="col-xl-6 col-lg-7 offset-xl-1">
@@ -793,7 +851,7 @@
                     <a href="mailto:info@xproperty.com" aria-label="Send Email link">info@xproperty.com</a>
                   </li>
                   <li>
-                    <p class="mb-0">4325 Maplewood Drive, <br> Evergreen Estates, CA 90210</p>
+                    <p class="mb-0"><bdi>4325 Maplewood Drive,</bdi> <br> Evergreen Estates, CA 90210</p>
                   </li>
                 </ul>
               </div>
@@ -841,7 +899,6 @@
     <script src="assets/js/flatpickr.min.js"></script>
     <script src="assets/js/lenis.min.js"></script>
     <script src="assets/js/light-gallery.min.js"></script>
-    <script src="assets/js/data-tables.min.js"></script>
     <script src="assets/js/aos.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

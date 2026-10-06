@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="description" content="Search homes for sale and rent by city, type and budget. Browse featured listings, top agents and neighborhood guides with Xproperty.">
     <meta name="keywords" content="property search, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Property Search | Xproperty">
+    <meta property="og:description" content="Search homes for sale and rent by city, type and budget. Browse featured listings, top agents and neighborhood guides with Xproperty.">
+    <meta property="og:url" content="https://example.com/index.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Property Search | Xproperty">
+    <meta name="twitter:description" content="Search homes for sale and rent by city, type and budget. Browse featured listings, top agents and neighborhood guides with Xproperty.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <!-- All CSS Files -->
    <link rel="stylesheet" href="assets/css/aos.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -18,12 +32,51 @@
     <link rel="stylesheet" href="assets/css/odometer.min.css">
     <link rel="stylesheet" href="assets/css/lightgallery.min.css">
     <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/data-tables.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Site Title -->
     <title>Property Search | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+    <!-- Structured data for search engines: replace example.com with your domain -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://example.com/#organization",
+          "name": "Xproperty",
+          "url": "https://example.com/",
+          "logo": "https://example.com/assets/img/logo.svg",
+          "email": "info@xproperty.com",
+          "telephone": "+1-214-446-6668",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4325 Maplewood Drive",
+            "addressLocality": "Evergreen Estates",
+            "addressRegion": "CA",
+            "postalCode": "90210",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://example.com/#website",
+          "url": "https://example.com/",
+          "name": "Xproperty",
+          "publisher": {
+            "@id": "https://example.com/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://example.com/property-listing-buy.html?location={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +100,7 @@
                 <div class="cs_nav_list_wrap">
                   <ul class="cs_nav_list cs_mp_0">
                     <li class="menu-item-has-children">
-                      <a href="">Home</a>
+                      <a href="index.html">Home</a>
                       <ul class="cs_dropdown_list cs_mp_0">
                         <li><a href="index.html" aria-label="Nav link">PROPERTY SEARCH</a></li>
                         <li><a href="home-v2.html" aria-label="Nav link">LUXURY HOMES</a></li>
@@ -62,36 +115,52 @@
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Listing</a>
+                      <a href="property-listing-buy.html">Listing</a>
                       <ul class="cs_dropdown_list cs_mp_0">
-                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a>
-                        </li>
-                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a>
-                        </li>
-                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a>
-                        </li>
+                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a></li>
+                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a></li>
+                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a></li>
+                        <li><a href="property-listing-map.html" aria-label="Nav link">Property Listing Map</a></li>
                         <li><a href="property-details.html" aria-label="Nav link">Property Details</a></li>
+                        <li><a href="projects.html" aria-label="Nav link">New Developments</a></li>
+                        <li><a href="open-house.html" aria-label="Nav link">Open House</a></li>
+                        <li><a href="neighborhoods.html" aria-label="Nav link">Neighborhood Guides</a></li>
+                        <li><a href="compare.html" aria-label="Nav link">Compare Properties</a></li>
+                        <li><a href="mortgage-calculator.html" aria-label="Nav link">Mortgage Calculator</a></li>
                       </ul>
                     </li>
                     <li><a href="about-us.html" aria-label="Nav link">About</a></li>
                     <li class="menu-item-has-children">
-                      <a href="">Pages</a>
-                     <ul class="cs_dropdown_list cs_mp_0">
+                      <a href="#" role="button" aria-haspopup="true">Pages</a>
+                     <ul class="cs_dropdown_list cs_dropdown_2col cs_mp_0">
+                        <li><a href="services.html" aria-label="Nav link">Our Services</a></li>
+                        <li><a href="sell-property.html" aria-label="Nav link">Sell Your Property</a></li>
+                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="agent-details.html" aria-label="Nav link">Agent Profile</a></li>
+                        <li><a href="agencies.html" aria-label="Nav link">Our Agencies</a></li>
+                        <li><a href="agency-details.html" aria-label="Nav link">Agency Profile</a></li>
+                        <li><a href="testimonials.html" aria-label="Nav link">Testimonials</a></li>
+                        <li><a href="careers.html" aria-label="Nav link">Careers</a></li>
                         <li><a href="pricing.html" aria-label="Nav link">Pricing Plan</a></li>
-                        <li><a href="faq.html" aria-label="Nav link">FAQ & Answer</a></li>
-                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
-                        <li><a href="terms-condition.html" aria-label="Nav link">Terms & Condition</a></li>
+                        <li><a href="faq.html" aria-label="Nav link">FAQ &amp; Answer</a></li>
                         <li><a href="gallery.html" aria-label="Nav link">Property Gallery</a></li>
+                        <li><a href="rental-application.html" aria-label="Nav link">Rental Application</a></li>
                         <li><a href="register.html" aria-label="Nav link">User Register</a></li>
                         <li><a href="login.html" aria-label="Nav link">User Login</a></li>
-                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="verify-email.html" aria-label="Nav link">Verify Email</a></li>
+                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html" aria-label="Nav link">Terms &amp; Condition</a></li>
                         <li><a href="error.html" aria-label="Nav link">Error Page</a></li>
+                        <li><a href="coming-soon.html" aria-label="Nav link">Coming Soon</a></li>
+                        <li><a href="maintenance.html" aria-label="Nav link">Maintenance</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Blog</a>
+                      <a href="blog.html">Blog</a>
                       <ul class="cs_dropdown_list cs_mp_0">
                         <li><a href="blog.html" aria-label="Nav link">Our Articles</a></li>
+                        <li><a href="blog-grid.html" aria-label="Nav link">Blog Grid</a></li>
+                        <li><a href="blog-list.html" aria-label="Nav link">Blog List</a></li>
                         <li><a href="blog-details.html" aria-label="Nav link">Article Details</a></li>
                       </ul>
                     </li>
@@ -148,7 +217,7 @@
     </header>
     <!-- End Header Section -->
     <!-- Start Hero Section -->
-    <section class="cs_hero cs_style_1 cs_bg_fixed position-relative" data-src="assets/img/hero-bg-1.jpg">
+    <section id="main-content" class="cs_hero cs_style_1 cs_bg_fixed position-relative" data-src="assets/img/hero-bg-1.jpg">
       <div class="cs_hero_overlay"></div>
       <span class="cs_hero_orb cs_orb_1"></span>
       <span class="cs_hero_orb cs_orb_2"></span>
@@ -167,7 +236,7 @@
         <div class="cs_float_card">
           <span class="cs_float_icon"><i class="fa-solid fa-shield-halved"></i></span>
           <div>
-            <h3 class="cs_float_title">100% Verified</h3>
+            <h3 class="cs_float_title"><bdi>100% Verified</bdi></h3>
             <span class="cs_float_label">Agents & Listings</span>
           </div>
         </div>
@@ -191,6 +260,7 @@
               </div>
               <div class="cs_input_wrapper">
                 <select class="tom_select cs_property_type" name="property-type">
+                  <option value="all">All Types</option>
                   <option value="apartment">Apartment</option>
                   <option value="house">House</option>
                   <option value="villa">Villa</option>
@@ -262,29 +332,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-4.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Golden Meadows" loading="lazy">
+                  <img src="assets/img/property-img-4.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$50,000</span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1200 Sqft</span>
+                        <span><bdi>1200 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -295,9 +365,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                          <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -312,29 +382,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-2.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-2.jpg" class="cs_card_img_front" alt="Evergreen Estates" loading="lazy">
+                  <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$70,000</span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 4</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 4</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1300 Sqft</span>
+                        <span><bdi>1300 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -345,9 +415,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">217 Horizon Heights Road, Silverstone Towers, NY 10022</p>
+                          <p class="mb-0"><bdi>217 Horizon Heights Road, Silverstone Towers, NY 10022</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -362,29 +432,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-3.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-6.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-3.jpg" class="cs_card_img_front" alt="Maple Ridge Apartments" loading="lazy">
+                  <img src="assets/img/property-img-6.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$85,000</span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 5</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 4</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1500 Sqft</span>
+                        <span><bdi>1500 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -395,9 +465,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">382 Blue Sky Boulevard, Oakwood Residences, CO 80202</p>
+                          <p class="mb-0"><bdi>382 Blue Sky Boulevard, Oakwood Residences, CO 80202</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -412,29 +482,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-4.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-4.jpg" class="cs_card_img_front" alt="Lakeside Manor" loading="lazy">
+                  <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$50,000</span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1200 Sqft</span>
+                        <span><bdi>1200 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -445,9 +515,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                          <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -463,10 +533,10 @@
             <div class="cs_height_0 cs_height_lg_40"></div>
             <div class="cs_slider_arrows cs_style_1">
               <div class="cs_left_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
               <div class="cs_right_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
             </div>
           </div>
@@ -490,60 +560,60 @@
             <div class="cs_slide">
               <a href="property-listing-search.html" aria-label="Click to view properties list" class="cs_card cs_style_2 cs_radius_20 position-relative">
                 <div class="cs_card_overlay position-absolute"></div>
-                <img src="assets/img/city-tokyo.jpg" alt="Tokyo city image">
+                <img src="assets/img/city-tokyo.jpg" alt="Tokyo city image" loading="lazy">
                 <div class="cs_card_text position-absolute z-1">
                   <h3 class="cs_fs_25 cs_semibold cs_white_color mb-0">Tokyo</h3>
-                  <p class="cs_white_color mb-0">20 Properties</p>
+                  <p class="cs_white_color mb-0"><bdi>20 Properties</bdi></p>
                 </div>
               </a>
             </div>
             <div class="cs_slide">
               <a href="property-listing-search.html" aria-label="Click to view properties list" class="cs_card cs_style_2 cs_radius_20 position-relative">
                 <div class="cs_card_overlay position-absolute"></div>
-                <img src="assets/img/city-dubai.jpg" alt="Dubai city image">
+                <img src="assets/img/city-dubai.jpg" alt="Dubai city image" loading="lazy">
                 <div class="cs_card_text position-absolute z-1">
                   <h3 class="cs_fs_25 cs_semibold cs_white_color mb-0">Dubai</h3>
-                  <p class="cs_white_color mb-0">11 Properties</p>
+                  <p class="cs_white_color mb-0"><bdi>11 Properties</bdi></p>
                 </div>
               </a>
             </div>
             <div class="cs_slide">
               <a href="property-listing-search.html" aria-label="Click to view properties list" class="cs_card cs_style_2 cs_radius_20 position-relative">
                 <div class="cs_card_overlay position-absolute"></div>
-                <img src="assets/img/city-jakarta.jpg" alt="Jakarta city image">
+                <img src="assets/img/city-jakarta.jpg" alt="Jakarta city image" loading="lazy">
                 <div class="cs_card_text position-absolute z-1">
                   <h3 class="cs_fs_25 cs_semibold cs_white_color mb-0">Jakarta</h3>
-                  <p class="cs_white_color mb-0">08 Properties</p>
+                  <p class="cs_white_color mb-0"><bdi>08 Properties</bdi></p>
                 </div>
               </a>
             </div>
             <div class="cs_slide">
               <a href="property-listing-search.html" aria-label="Click to view properties list" class="cs_card cs_style_2 cs_radius_20 position-relative">
                 <div class="cs_card_overlay position-absolute"></div>
-                <img src="assets/img/city-newyork.jpg" alt="New York city image">
+                <img src="assets/img/city-newyork.jpg" alt="New York city image" loading="lazy">
                 <div class="cs_card_text position-absolute z-1">
                   <h3 class="cs_fs_25 cs_semibold cs_white_color mb-0">New York</h3>
-                  <p class="cs_white_color mb-0">18 Properties</p>
+                  <p class="cs_white_color mb-0"><bdi>18 Properties</bdi></p>
                 </div>
               </a>
             </div>
             <div class="cs_slide">
               <a href="property-listing-search.html" aria-label="Click to view properties list" class="cs_card cs_style_2 cs_radius_20 position-relative">
                 <div class="cs_card_overlay position-absolute"></div>
-                <img src="assets/img/city-tokyo.jpg" alt="Tokyo city image">
+                <img src="assets/img/city-tokyo.jpg" alt="Tokyo city image" loading="lazy">
                 <div class="cs_card_text position-absolute z-1">
                   <h3 class="cs_fs_25 cs_semibold cs_white_color mb-0">Tokyo</h3>
-                  <p class="cs_white_color mb-0">20 Properties</p>
+                  <p class="cs_white_color mb-0"><bdi>20 Properties</bdi></p>
                 </div>
               </a>
             </div>
             <div class="cs_slide">
               <a href="property-listing-search.html" aria-label="Click to view properties list" class="cs_card cs_style_2 cs_radius_20 position-relative">
                 <div class="cs_card_overlay position-absolute"></div>
-                <img src="assets/img/city-hanoi.jpg" alt="Hanoi city image">
+                <img src="assets/img/city-hanoi.jpg" alt="Hanoi city image" loading="lazy">
                 <div class="cs_card_text position-absolute z-1">
                   <h3 class="cs_fs_25 cs_semibold cs_white_color mb-0">Hanoi</h3>
-                  <p class="cs_white_color mb-0">36 Properties</p>
+                  <p class="cs_white_color mb-0"><bdi>36 Properties</bdi></p>
                 </div>
               </a>
             </div>
@@ -595,10 +665,10 @@
         <div class="cs_height_60 cs_height_lg_50"></div>
         <div class="cs_about_img_wrapper position-relative">
           <div class="cs_about_img cs_radius_20">
-            <img src="assets/img/about-img-1.jpg" alt="About image">
+            <img src="assets/img/about-img-1.jpg" alt="About image" loading="lazy">
           </div>
           <div class="cs_about_img cs_radius_20">
-            <img src="assets/img/about-img-2.jpg" alt="About image">
+            <img src="assets/img/about-img-2.jpg" alt="About image" loading="lazy">
           </div>
           <span class="cs_about_shape_1 position-absolute">
           <img src="assets/img/border.svg" alt="Border shape">
@@ -649,7 +719,7 @@
           <div class="col-md-4">
             <div class="cs_counter cs_style_1 cs_center_column text-center">
               <span class="cs_counter_icon cs_center cs_mb_28">
-              <img src="assets/img/icons/apartment.svg" alt="Apartment icon">
+              <img src="assets/img/icons/apartment.svg" alt="">
               </span>
               <div class="cs_counter_number cs_fs_61 cs_white_color cs_primary_font cs_bold cs_mb_15">
                 $<span class="odometer" data-count-to="1.5"></span>B+
@@ -712,29 +782,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-4.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-1.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-4.jpg" class="cs_card_img_front" alt="Blue Sky Homes" loading="lazy">
+                  <img src="assets/img/property-img-1.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$800 <small>/month</small></span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1200 Sqft</span>
+                        <span><bdi>1200 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -745,9 +815,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                          <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -762,29 +832,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-5.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-2.jpg" class="cs_card_img_back" alt="Property Image">
-                  <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$700<small>/month</small></span>
+                  <img src="assets/img/property-img-5.jpg" class="cs_card_img_front" alt="Lakeside Manor" loading="lazy">
+                  <img src="assets/img/property-img-2.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                  <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$700<small>/month</small></bdi></span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 4</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 4</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1300 Sqft</span>
+                        <span><bdi>1300 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -795,9 +865,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">217 Horizon Heights Road, Silverstone Towers, NY 10022</p>
+                          <p class="mb-0"><bdi>217 Horizon Heights Road, Silverstone Towers, NY 10022</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -812,29 +882,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-6.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-3.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-6.jpg" class="cs_card_img_front" alt="Silverstone Towers" loading="lazy">
+                  <img src="assets/img/property-img-3.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$900 <small>/month</small></span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 5</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 4</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1500 Sqft</span>
+                        <span><bdi>1500 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -845,9 +915,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">382 Blue Sky Boulevard, Oakwood Residences, CO 80202</p>
+                          <p class="mb-0"><bdi>382 Blue Sky Boulevard, Oakwood Residences, CO 80202</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -862,29 +932,29 @@
               <div class="cs_slide">
                 <div class="cs_card cs_style_1">
                   <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                  <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Property Image">
-                  <img src="assets/img/property-img-3.jpg" class="cs_card_img_back" alt="Property Image">
+                  <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Golden Meadows" loading="lazy">
+                  <img src="assets/img/property-img-3.jpg" class="cs_card_img_back" alt="" loading="lazy">
                   <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$800 <small>/month</small></span>
                   </a>
                   <div class="cs_card_content">
                     <ul class="cs_property_features cs_mb_23 list-unstyled">
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                          <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                         </span>
                         <span>Bed 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                          <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                         </span>
                         <span>Bath 3</span>
                       </li>
                       <li>
                         <span class="cs_primary_color">
-                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                          <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                         </span>
-                        <span>1200 Sqft</span>
+                        <span><bdi>1200 Sqft</bdi></span>
                       </li>
                     </ul>
                     <hr class="cs_mb_17 mt-0">
@@ -895,9 +965,9 @@
                         </h3>
                         <div class="cs_property_location_text">
                           <span>
-                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                            <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                           </span>
-                          <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                          <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                         </div>
                       </div>
                       <div class="cs_property_view_btn">
@@ -913,10 +983,10 @@
             <div class="cs_height_0 cs_height_lg_40"></div>
             <div class="cs_slider_arrows cs_style_1">
               <div class="cs_left_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
               <div class="cs_right_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
             </div>
           </div>
@@ -938,7 +1008,7 @@
                 <div class="cs_video_block_wrapper">
                   <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Click to play video" class="cs_video_block cs_style_1 cs_center cs_bg_filed cs_video_open" data-src="assets/img/video-bg-1.jpg">
                   <span class="cs_player_btn cs_style_1 cs_center cs_radius_100 position-relative" data-aos="zoom-in">
-                  <img src="assets/img/icons/play-circle.svg" alt="Player icon">
+                  <img src="assets/img/icons/play-circle.svg" alt="">
                   </span>
                   </a>
                 </div>
@@ -950,7 +1020,7 @@
                 <div class="cs_iconbox_wrapper">
                   <div class="cs_iconbox cs_style_2">
                     <span class="cs_iconbox_icon cs_center cs_radius_100 position-relative">
-                      <img src="assets/img/icons/ui/home.svg" class="cs_svg_icon cs_icon_home" alt="Home icon">
+                      <img src="assets/img/icons/ui/home.svg" class="cs_svg_icon cs_icon_home" alt="">
                     </span>
                     <div class="cs_iconbox_info">
                       <h3 class="cs_iconbox_title cs_fs_31 cs_semibold cs_mb_7">Explore Listings</h3>
@@ -1010,7 +1080,7 @@
               <div class="cs_testimonial cs_style_1 cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-1.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-1.jpg" alt="Michael Williams" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">Michael Williams</h3>
@@ -1020,7 +1090,7 @@
                 <div class="cs_testimonial_content cs_mb_40 cs_mb_lg_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -1032,7 +1102,7 @@
               <div class="cs_testimonial cs_style_1 cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-2.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-2.jpg" alt="Sarah Thomas" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">Sarah Thomas</h3>
@@ -1042,7 +1112,7 @@
                 <div class="cs_testimonial_content cs_mb_40 cs_mb_lg_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -1054,7 +1124,7 @@
               <div class="cs_testimonial cs_style_1 cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-3.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-3.jpg" alt="David Martinez" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">David Martinez</h3>
@@ -1064,7 +1134,7 @@
                 <div class="cs_testimonial_content cs_mb_40 cs_mb_lg_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -1076,7 +1146,7 @@
               <div class="cs_testimonial cs_style_1 cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_40 cs_mb_lg_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-1.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-1.jpg" alt="Michael Williams" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">Michael Williams</h3>
@@ -1086,7 +1156,7 @@
                 <div class="cs_testimonial_content cs_mb_40 cs_mb_lg_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -1132,11 +1202,11 @@
           <div class="col-lg-4">
             <article class="cs_post cs_style_1">
               <a href="blog-details.html" aria-label="Post details page link" class="cs_post_thumbnail cs_radius_10 cs_mb_12 overflow-hidden">
-              <img src="assets/img/post-img-1.jpg" alt="Post image">
+              <img src="assets/img/post-img-1.jpg" alt="How to Choose the Perfect Neighborhood for Your Family" loading="lazy">
               </a>
               <div class="cs_post_content">
                 <div class="cs_post_meta">
-                  <span class="cs_reading_time">20 min read</span>
+                  <span class="cs_reading_time"><bdi>20 min read</bdi></span>
                 </div>
                 <h3 class="cs_post_title cs_fs_31 cs_semibold cs_mb_19">
                   <a href="blog-details.html" aria-label="Post details page link">How to Choose the Perfect  Neighborhood for Your Family</a>
@@ -1150,11 +1220,11 @@
           <div class="col-lg-4">
             <article class="cs_post cs_style_1">
               <a href="blog-details.html" aria-label="Post details page link" class="cs_post_thumbnail cs_radius_10 cs_mb_12 overflow-hidden">
-              <img src="assets/img/post-img-2.jpg" alt="Post image">
+              <img src="assets/img/post-img-2.jpg" alt="Step-by-Step Guide to Selling Your Property Faster" loading="lazy">
               </a>
               <div class="cs_post_content">
                 <div class="cs_post_meta">
-                  <span class="cs_reading_time">5 min read</span>
+                  <span class="cs_reading_time"><bdi>5 min read</bdi></span>
                 </div>
                 <h3 class="cs_post_title cs_fs_31 cs_semibold cs_mb_19">
                   <a href="blog-details.html" aria-label="Post details page link">Step-by-Step Guide to Selling Your Property Faster</a>
@@ -1168,11 +1238,11 @@
           <div class="col-lg-4">
             <article class="cs_post cs_style_1">
               <a href="blog-details.html" aria-label="Post details page link" class="cs_post_thumbnail cs_radius_10 cs_mb_12 overflow-hidden">
-              <img src="assets/img/post-img-3.jpg" alt="Post image">
+              <img src="assets/img/post-img-3.jpg" alt="How to Finance Your Dream Home: Mortgage Tips for Buyers" loading="lazy">
               </a>
               <div class="cs_post_content">
                 <div class="cs_post_meta">
-                  <span class="cs_reading_time">10 min read</span>
+                  <span class="cs_reading_time"><bdi>10 min read</bdi></span>
                 </div>
                 <h3 class="cs_post_title cs_fs_31 cs_semibold cs_mb_19">
                   <a href="blog-details.html" aria-label="Post details page link">How to Finance Your Dream Home: Mortgage Tips for Buyers</a>
@@ -1241,19 +1311,19 @@
                 <ul class="cs_contact_list cs_gray_color cs_mp_0">
                   <li>
                     <span class="cs_contact_icon cs_center cs_radius_100 cs_white_color">
-                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                     </span>
-                    <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                    <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                   </li>
                   <li>
                     <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
-                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="Email icon">
+                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="">
                     </span>
                     <a href="mailto:info@xproperty.com" aria-label="Send Email link">info@xproperty.com</a>
                   </li>
                   <li>
                     <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
-                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="Phone icon">
+                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="">
                     </span>
                     <a href="tel:2144466668" aria-label="Make a call link">(214) 446-6668</a>
                   </li>
@@ -1265,7 +1335,7 @@
         <div class="cs_footer_bottom cs_gray_color">
           <div class="cs_footer_text">&copy; 2025 Xproperty. All right reserved</div>
           <div class="cs_footer_bottom_menu">
-            <span class="cs_currency">$USD</span>
+            <span class="cs_currency"><select name="currency" class="cs_currency_select" aria-label="Currency" data-currency-select><option value="USD">$ USD</option><option value="EUR">&euro; EUR</option><option value="GBP">&pound; GBP</option><option value="AED">AED</option></select></span>
             <div class="cs_social_links">
               <a href="#" aria-label="Social link">Facebook</a>
               <a href="#" aria-label="Social link">LinkedIn</a>
@@ -1388,7 +1458,7 @@
                 <li>
                   <div class="cs_custom_checkbox">
                     <input type="checkbox" id="security">
-                    <label for="security">24/7 Security</label>
+                    <label for="security"><bdi>24/7 Security</bdi></label>
                   </div>
                 </li>
                 <li>
@@ -1458,7 +1528,6 @@
     <script src="assets/js/flatpickr.min.js"></script>
     <script src="assets/js/lenis.min.js"></script>
     <script src="assets/js/light-gallery.min.js"></script>
-    <script src="assets/js/data-tables.min.js"></script>
     <script src="assets/js/aos.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

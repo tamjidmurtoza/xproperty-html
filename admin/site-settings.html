@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Site Settings in your Xproperty admin dashboard.">
     <meta name="keywords" content="site settings, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/site-settings.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Site Settings - Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Site Settings in your Xproperty admin dashboard.">
+    <meta property="og:url" content="https://example.com/admin/site-settings.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Site Settings - Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Site Settings in your Xproperty admin dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
   <!-- Site Admin dashboard · Site Settings. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -89,6 +105,12 @@
                   <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
                 </ul>
               </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
               <li class="cs_has_submenu">
                 <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
                   <i class="cs_menu_icon fa-solid fa-users"></i>
@@ -102,9 +124,43 @@
                 </ul>
               </li>
               <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog-posts.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li>
+                <a href="support-tickets.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Business</span></li>
@@ -115,9 +171,33 @@
                 </a>
               </li>
               <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
                 <a href="financials.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
                   <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="listing-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
                 </a>
               </li>
               <li class="active">
@@ -149,7 +229,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -171,38 +251,38 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">8 properties waiting for approval</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
                         <span class="d-block cs_fs_14">Just now</span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">12 new users signed up today</span>
-                        <span class="d-block cs_fs_14">30 min ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">Invoice #INV-2041 paid ($49)</span>
-                        <span class="d-block cs_fs_14">2 hours ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
                       </span>
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -229,7 +309,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -314,7 +394,7 @@
                         <span class="cs_form_label">Logo</span>
                         <div class="cs_upload_wrap">
                           <div class="cs_upload_box">
-                            <input type="file" accept="image/*" aria-label="Upload logo">
+                            <input name="upload_logo" type="file" accept="image/*" aria-label="Upload logo">
                             <div class="cs_upload_icon"><i class="fa-solid fa-image"></i></div>
                             <p class="cs_fs_16 cs_semibold cs_primary_color cs_mb_3">Upload logo</p>
                             <p class="cs_fs_14 mb-0">SVG or PNG, at least 300 px wide</p>
@@ -358,7 +438,7 @@
                               <p class="cs_fs_14 mb-0">Review every new listing before it goes live</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Manual approval">
+                              <input name="manual_approval" type="checkbox" checked aria-label="Manual approval">
                               <span></span>
                             </label>
                           </li>
@@ -368,7 +448,7 @@
                               <p class="cs_fs_14 mb-0">Only verified agents can publish listings</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" aria-label="Verified agents only">
+                              <input name="verified_agents_only" type="checkbox" aria-label="Verified agents only">
                               <span></span>
                             </label>
                           </li>
@@ -378,7 +458,7 @@
                               <p class="cs_fs_14 mb-0">Visitors can contact agents without an account</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Allow guest inquiries">
+                              <input name="allow_guest_inquiries" type="checkbox" checked aria-label="Allow guest inquiries">
                               <span></span>
                             </label>
                           </li>
@@ -420,7 +500,7 @@
                               <p class="cs_fs_14 mb-0">New reviews stay hidden until an admin approves them</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Require moderation">
+                              <input name="require_moderation" type="checkbox" checked aria-label="Require moderation">
                               <span></span>
                             </label>
                           </li>
@@ -430,7 +510,7 @@
                               <p class="cs_fs_14 mb-0">Always send reviews containing links, emails or phone numbers to the queue</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Hold reviews with contact details">
+                              <input name="hold_reviews_with_contact" type="checkbox" checked aria-label="Hold reviews with contact details">
                               <span></span>
                             </label>
                           </li>
@@ -440,7 +520,7 @@
                               <p class="cs_fs_14 mb-0">Only buyers with a booked viewing can review an agent or property</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Verified visitors only">
+                              <input name="verified_visitors_only" type="checkbox" checked aria-label="Verified visitors only">
                               <span></span>
                             </label>
                           </li>
@@ -450,7 +530,7 @@
                               <p class="cs_fs_14 mb-0">Agents and owners can publicly reply to reviews</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Allow replies">
+                              <input name="allow_replies" type="checkbox" checked aria-label="Allow replies">
                               <span></span>
                             </label>
                           </li>
@@ -460,7 +540,7 @@
                               <p class="cs_fs_14 mb-0">Send a daily summary of reviews waiting for approval</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" aria-label="Email admins about new reviews">
+                              <input name="email_admins_about_new" type="checkbox" aria-label="Email admins about new reviews">
                               <span></span>
                             </label>
                           </li>
@@ -487,7 +567,7 @@
                               <p class="cs_fs_14 mb-0">Cards, Apple Pay and Google Pay</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="Stripe">
+                              <input name="stripe" type="checkbox" checked aria-label="Stripe">
                               <span></span>
                             </label>
                           </li>
@@ -497,7 +577,7 @@
                               <p class="cs_fs_14 mb-0">PayPal balance and cards</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" checked aria-label="PayPal">
+                              <input name="paypal" type="checkbox" checked aria-label="PayPal">
                               <span></span>
                             </label>
                           </li>
@@ -507,7 +587,7 @@
                               <p class="cs_fs_14 mb-0">Manual confirmation by an admin</p>
                             </div>
                             <label class="cs_toggle_switch">
-                              <input type="checkbox" aria-label="Bank transfer">
+                              <input name="bank_transfer" type="checkbox" aria-label="Bank transfer">
                               <span></span>
                             </label>
                           </li>
@@ -611,7 +691,7 @@
                           <p class="cs_fs_14 mb-0">Show a maintenance page to visitors. Admins can still sign in.</p>
                         </div>
                         <label class="cs_toggle_switch">
-                          <input type="checkbox" aria-label="Maintenance mode">
+                          <input name="maintenance_mode" type="checkbox" aria-label="Maintenance mode">
                           <span></span>
                         </label>
                       </li>
@@ -621,7 +701,7 @@
                           <p class="cs_fs_14 mb-0">Allow new users to sign up</p>
                         </div>
                         <label class="cs_toggle_switch">
-                          <input type="checkbox" checked aria-label="New registrations">
+                          <input name="new_registrations" type="checkbox" checked aria-label="New registrations">
                           <span></span>
                         </label>
                       </li>
@@ -659,7 +739,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

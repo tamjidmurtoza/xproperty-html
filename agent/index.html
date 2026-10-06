@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Your Xproperty agent dashboard: key stats, recent activity and shortcuts in one place.">
     <meta name="keywords" content="agent dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/agent/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Agent Dashboard | Xproperty">
+    <meta property="og:description" content="Your Xproperty agent dashboard: key stats, recent activity and shortcuts in one place.">
+    <meta property="og:url" content="https://example.com/agent/index.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agent Dashboard | Xproperty">
+    <meta name="twitter:description" content="Your Xproperty agent dashboard: key stats, recent activity and shortcuts in one place.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
   <!-- Agent dashboard · Dashboard Overview. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -97,6 +113,39 @@
                 </ul>
               </li>
               <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-contract"></i>
+                  <span class="cs_menu_text">Documents &amp; Contracts</span>
+                </a>
+              </li>
+              <li>
                 <a href="messages.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-envelope"></i>
                   <span class="cs_menu_text">Messages</span>
@@ -107,6 +156,13 @@
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Account</span></li>
@@ -137,7 +193,7 @@
           <div class="cs_sidebar_package cs_radius_10">
             <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Premium Plan</p>
             <div class="cs_progress"><span style="width: 68%"></span></div>
-            <p class="cs_fs_14 mb-0">34 of 50 listings used · <a href="billing.html" class="cs_semibold">Upgrade</a></p>
+            <p class="cs_fs_14 mb-0"><bdi>34 of 50 listings used</bdi> · <a href="billing.html" class="cs_semibold">Upgrade</a></p>
           </div>
         </div>
       </aside>
@@ -153,7 +209,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search properties, leads, messages..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search properties, leads, messages..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -175,38 +231,38 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">"Beach View Villa" was approved</span>
-                        <span class="d-block cs_fs_14">2 min ago</span>
+                        <span class="d-block cs_fs_14"><bdi>2 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">New lead from Daniel Brooks</span>
-                        <span class="d-block cs_fs_14">45 min ago</span>
+                        <span class="d-block cs_fs_14"><bdi>45 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">2 listings expire in 3 days</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>2 listings expire in 3 days</bdi></span>
                         <span class="d-block cs_fs_14">Today, 09:12</span>
                       </span>
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -234,7 +290,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -327,9 +383,9 @@
                     <p class="cs_fs_14 mb-0">All your listings, this period vs the previous one</p>
                   </div>
                   <div class="cs_segmented cs_chart_period" role="group" aria-label="Chart period">
-                    <button type="button" data-period="7d" aria-pressed="false">7D</button>
-                    <button type="button" data-period="30d" aria-pressed="false">30D</button>
-                    <button type="button" data-period="12m" class="active" aria-pressed="true">12M</button>
+                    <button type="button" data-period="7d" aria-pressed="false"><bdi>7D</bdi></button>
+                    <button type="button" data-period="30d" aria-pressed="false"><bdi>30D</bdi></button>
+                    <button type="button" data-period="12m" class="active" aria-pressed="true"><bdi>12M</bdi></button>
                   </div>
                 </div>
                 <ul class="cs_chart_legend">
@@ -359,7 +415,7 @@
                 <ul class="cs_message_list">
                   <li class="cs_unread">
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-1.jpg" alt="">
+                      <img src="../assets/img/avatar-1.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks</h3>
@@ -371,7 +427,7 @@
                   </li>
                   <li class="cs_unread">
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-2.jpg" alt="">
+                      <img src="../assets/img/avatar-2.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Sophia Turner</h3>
@@ -383,7 +439,7 @@
                   </li>
                   <li>
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-3.jpg" alt="">
+                      <img src="../assets/img/avatar-3.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h3>
@@ -395,7 +451,7 @@
                   </li>
                   <li>
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-4.jpg" alt="">
+                      <img src="../assets/img/avatar-4.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Ethan Wilson</h3>
@@ -407,7 +463,7 @@
                   </li>
                   <li>
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-5.jpg" alt="">
+                      <img src="../assets/img/avatar-5.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h3>
@@ -446,7 +502,7 @@
                 <tbody>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-1.jpg" alt="">
+                        <img src="../assets/img/property-img-1.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Beach View Villa</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</p>
@@ -460,21 +516,21 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-2.jpg" alt="">
+                        <img src="../assets/img/property-img-2.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Shangri la Apartment</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Central Area, Singapore</p>
                         </div>
                       </div></td>
                     <td>Listing submitted for review</td>
-                    <td><span class="cs_primary_color cs_semibold">$4,800 / mo</span></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$4,800 / mo</bdi></span></td>
                     <td>Oct 04, 2026</td>
                     <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
                     <td class="text-end"><a href="edit-property.html" class="cs_table_action" aria-label="Edit Shangri la Apartment" data-tooltip="Edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
                   </tr>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-3.jpg" alt="">
+                        <img src="../assets/img/property-img-3.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Single Family Ranch House</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Brooklyn, New York</p>
@@ -488,14 +544,14 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-4.jpg" alt="">
+                        <img src="../assets/img/property-img-4.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Los Angeles, USA</p>
                         </div>
                       </div></td>
                     <td>Listing expired</td>
-                    <td><span class="cs_primary_color cs_semibold">$3,200 / mo</span></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$3,200 / mo</bdi></span></td>
                     <td>Sep 29, 2026</td>
                     <td><span class="cs_status_badge cs_status_expired">Expired</span></td>
                     <td class="text-end"><a href="edit-property.html" class="cs_table_action" aria-label="Edit Northern Apartment" data-tooltip="Edit"><i class="fa-solid fa-pen-to-square"></i></a></td>
@@ -528,7 +584,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

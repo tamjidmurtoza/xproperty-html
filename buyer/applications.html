@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Follow the status of your rental applications and message landlords in your Xproperty buyer dashboard.">
+    <meta name="keywords" content="rental applications, rent, buyer dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/buyer/applications.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Rental Applications - Buyer Dashboard | Xproperty">
+    <meta property="og:description" content="Follow the status of your rental applications and message landlords in your Xproperty buyer dashboard.">
+    <meta property="og:url" content="https://example.com/buyer/applications.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rental Applications - Buyer Dashboard | Xproperty">
+    <meta name="twitter:description" content="Follow the status of your rental applications and message landlords in your Xproperty buyer dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Rental Applications - Buyer Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Buyer dashboard · Rental Applications. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-2.jpg" alt="Sophia Turner">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Sophia Turner</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Buyer</span>
+            </div>
+          </div>
+          <!-- Start Buyer Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="saved-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-heart"></i>
+                  <span class="cs_menu_text">Saved Properties</span>
+                  <span class="cs_menu_badge">18</span>
+                </a>
+              </li>
+              <li>
+                <a href="saved-searches.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-bookmark"></i>
+                  <span class="cs_menu_text">Saved Searches</span>
+                </a>
+              </li>
+              <li>
+                <a href="tours.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">My Tours</span>
+                  <span class="cs_menu_badge">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">My Offers</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="applications.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Buyer Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search saved homes, searches, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-house-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>3 new homes match "Bali villas"</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>10 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-tag"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Price drop on East Tower Apartment</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-calendar-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Tour tomorrow at 10:00</span>
+                        <span class="d-block cs_fs_14">Today, 08:30</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-2.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Sophia Turner</span>
+                  <span class="d-block cs_fs_14">Buyer</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="saved-properties.html"><i class="fa-regular fa-heart"></i>Saved Properties</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Rental Applications</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Rental Applications</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="../property-listing-rent.html" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10">
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span>Browse Rentals</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Start Applications -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#applicationTable" aria-label="Filter">
+                <li><button type="button" data-filter="all" aria-pressed="true" class="active">All <span>5</span></button></li>
+                <li><button type="button" data-filter="submitted" aria-pressed="false">Submitted <span>1</span></button></li>
+                <li><button type="button" data-filter="review" aria-pressed="false">Under review <span>2</span></button></li>
+                <li><button type="button" data-filter="approved" aria-pressed="false">Approved <span>2</span></button></li>
+                <li><button type="button" data-filter="declined" aria-pressed="false">Declined <span>0</span></button></li>
+              </ul>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search" data-table-search="#applicationTable">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input name="search_applications" type="search" placeholder="Search applications" aria-label="Search applications">
+                </form>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table cs_table_fit" id="applicationTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Property</th>
+                    <th scope="col">Monthly Rent</th>
+                    <th scope="col">Move-in</th>
+                    <th scope="col">Submitted</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="submitted">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-7.jpg" alt="East Tower Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">East Tower Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color cs_semibold text-nowrap"><bdi>$2,500<small class="cs_fs_14 cs_normal">/month</small></bdi></span><br><span class="cs_fs_14">Landlord: Michael Chen</span></td>
+                    <td class="text-nowrap">Nov 01, 2026</td>
+                    <td class="text-nowrap">Oct 05, 2026</td>
+                    <td><span class="cs_status_badge cs_status_info">Submitted</span>
+                      <div class="cs_mini_steps" role="img" aria-label="1 of 3 steps complete"><span class="cs_done"></span><span></span><span></span></div>
+                      <span class="cs_mini_steps_label">Step 1 of 3 · Sent to landlord</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View application for East Tower Apartment" data-tooltip="View application"><i class="fa-regular fa-eye"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Michael Chen, landlord of East Tower Apartment" data-tooltip="Message landlord"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="review">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-2.jpg" alt="Shangri la Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Shangri la Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Central Area, Singapore</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color cs_semibold text-nowrap"><bdi>$3,800<small class="cs_fs_14 cs_normal">/month</small></bdi></span><br><span class="cs_fs_14">Landlord: Amanda Jones</span></td>
+                    <td class="text-nowrap">Nov 15, 2026</td>
+                    <td class="text-nowrap">Oct 02, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending">Under review</span>
+                      <div class="cs_mini_steps" role="img" aria-label="1 of 3 steps complete"><span class="cs_done"></span><span class="cs_current"></span><span></span></div>
+                      <span class="cs_mini_steps_label">Step 2 of 3 · Background check</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View application for Shangri la Apartment" data-tooltip="View application"><i class="fa-regular fa-eye"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Amanda Jones, landlord of Shangri la Apartment" data-tooltip="Message landlord"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="review">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Los Angeles, USA</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color cs_semibold text-nowrap"><bdi>$2,950<small class="cs_fs_14 cs_normal">/month</small></bdi></span><br><span class="cs_fs_14">Landlord: Sarah Mitchell</span></td>
+                    <td class="text-nowrap">Dec 01, 2026</td>
+                    <td class="text-nowrap">Sep 29, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending">Under review</span>
+                      <div class="cs_mini_steps" role="img" aria-label="1 of 3 steps complete"><span class="cs_done"></span><span class="cs_current"></span><span></span></div>
+                      <span class="cs_mini_steps_label">Step 2 of 3 · Income check</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View application for Northern Apartment" data-tooltip="View application"><i class="fa-regular fa-eye"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Sarah Mitchell, landlord of Northern Apartment" data-tooltip="Message landlord"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="approved">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-9.jpg" alt="Palm Grove Residence" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Palm Grove Residence</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color cs_semibold text-nowrap"><bdi>$4,200<small class="cs_fs_14 cs_normal">/month</small></bdi></span><br><span class="cs_fs_14">Landlord: James Thompson</span></td>
+                    <td class="text-nowrap">Oct 15, 2026</td>
+                    <td class="text-nowrap">Sep 20, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active">Approved</span>
+                      <div class="cs_mini_steps" role="img" aria-label="3 of 3 steps complete"><span class="cs_done"></span><span class="cs_done"></span><span class="cs_done"></span></div>
+                      <span class="cs_mini_steps_label">Approved · Lease ready to sign</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View application for Palm Grove Residence" data-tooltip="View application"><i class="fa-regular fa-eye"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message James Thompson, landlord of Palm Grove Residence" data-tooltip="Message landlord"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="approved">
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-10.jpg" alt="Maple Street Townhouse" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Maple Street Townhouse</h3>
+                          <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Toronto, Canada</p>
+                        </div>
+                      </div></td>
+                    <td><span class="cs_primary_color cs_semibold text-nowrap"><bdi>$3,100<small class="cs_fs_14 cs_normal">/month</small></bdi></span><br><span class="cs_fs_14">Landlord: Michael Chen</span></td>
+                    <td class="text-nowrap">Oct 10, 2026</td>
+                    <td class="text-nowrap">Sep 14, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active">Approved</span>
+                      <div class="cs_mini_steps" role="img" aria-label="3 of 3 steps complete"><span class="cs_done"></span><span class="cs_done"></span><span class="cs_done"></span></div>
+                      <span class="cs_mini_steps_label">Approved · Lease signed</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View application for Maple Street Townhouse" data-tooltip="View application"><i class="fa-regular fa-eye"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Michael Chen, landlord of Maple Street Townhouse" data-tooltip="Message landlord"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none">
+                    <td colspan="6">
+                      <div class="cs_empty_state">
+                        <i class="fa-regular fa-folder-open" aria-hidden="true"></i>
+                        <h3 class="cs_fs_18 cs_semibold mb-0">No applications here</h3>
+                        <p class="cs_fs_14 mb-0">Nothing matches this filter. Applications you send from a rental listing show up here.</p>
+                        <a href="../property-listing-rent.html" class="cs_card_link cs_accent_color">Browse rentals</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End Applications -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

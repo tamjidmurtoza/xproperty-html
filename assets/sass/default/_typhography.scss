@@ -1,6 +1,4 @@
-/*===============================================================
- 02. Typography
-=================================================================*/
+/* 02. Typography */
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Carattere&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 body,
@@ -25,8 +23,7 @@ html {
 
 body {
   height: auto;
-  overflow: auto;
-  overflow-x: hidden;
+  overflow-x: clip;
 
   &.scroll_off {
     height: 100vh;
@@ -38,8 +35,6 @@ body {
   }
 }
 
-// Dark mode from the color mode switch (class on <html>).
-// :where() keeps it low so .cs_dashboard keeps its own background
 html:where(.cs_dark),
 :where(.cs_dark) body {
   background-color: #0a1119;

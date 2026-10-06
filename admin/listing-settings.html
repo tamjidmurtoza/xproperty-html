@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Manage property types, amenities and locations in your Xproperty admin dashboard.">
+    <meta name="keywords" content="listing settings, property types, amenities, locations, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/listing-settings.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Listing Settings - Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Manage property types, amenities and locations in your Xproperty admin dashboard.">
+    <meta property="og:url" content="https://example.com/admin/listing-settings.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Listing Settings - Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Manage property types, amenities and locations in your Xproperty admin dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Listing Settings - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Site Admin dashboard · Listing Settings. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog-posts.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li>
+                <a href="support-tickets.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
+                <a href="financials.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="listing-settings.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Property Types, Amenities &amp; Locations</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="site-settings.html">Site Settings</a></li>
+                <li>Listing Settings</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row cs_gap_y_24">
+            <div class="col-xl-3">
+              <div class="cs_sticky_card">
+                <!-- Start Settings Nav -->
+                <div class="cs_dashboard_card p-0">
+                  <ul class="cs_settings_nav">
+                    <li><a href="#property-types" class="active"><i class="fa-solid fa-house"></i>Property Types</a></li>
+                    <li><a href="#amenities"><i class="fa-solid fa-list-check"></i>Amenities</a></li>
+                    <li><a href="#locations"><i class="fa-solid fa-location-dot"></i>Locations</a></li>
+                  </ul>
+                </div>
+                <!-- End Settings Nav -->
+              </div>
+            </div>
+            <div class="col-xl-9">
+              <div id="property-types" class="cs_settings_section">
+                <!-- Start Property Types -->
+                <div class="cs_dashboard_card">
+                  <div class="cs_card_head">
+                    <div>
+                      <h2 class="cs_fs_20 cs_semibold cs_mb_3">Property Types</h2>
+                      <p class="cs_fs_14 mb-0">Shown in the search filters and on the submit property form</p>
+                    </div>
+                    <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10" data-modal-open="typeModal" data-review-title="Add Property Type">
+                      <span><i class="fa-solid fa-plus"></i></span>
+                      <span>Add New</span>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="cs_dashboard_table cs_table_fit cs_table_wrap" id="propertyTypeTable">
+                      <thead>
+                        <tr>
+                          <th scope="col">Icon</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Slug</th>
+                          <th scope="col">Listings</th>
+                          <th scope="col">Enabled</th>
+                          <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">House</h3></td>
+                      <td><span class="cs_fs_14">house</span></td>
+                      <td><bdi>412 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable House"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit House" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete House" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-building" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Apartment</h3></td>
+                      <td><span class="cs_fs_14">apartment</span></td>
+                      <td><bdi>356 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable Apartment"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Apartment" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Apartment" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Villa</h3></td>
+                      <td><span class="cs_fs_14">villa</span></td>
+                      <td><bdi>128 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable Villa"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Villa" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Villa" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-city" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Condo</h3></td>
+                      <td><span class="cs_fs_14">condo</span></td>
+                      <td><bdi>94 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable Condo"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Condo" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Condo" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-house-chimney-window" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Townhouse</h3></td>
+                      <td><span class="cs_fs_14">townhouse</span></td>
+                      <td><bdi>76 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable Townhouse"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Townhouse" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Townhouse" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Office</h3></td>
+                      <td><span class="cs_fs_14">office</span></td>
+                      <td><bdi>58 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable Office"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Office" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Office" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-store" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Commercial</h3></td>
+                      <td><span class="cs_fs_14">commercial</span></td>
+                      <td><bdi>48 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" checked aria-label="Enable Commercial"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Commercial" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Commercial" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><span class="cs_table_icon"><i class="fa-solid fa-mountain-sun" aria-hidden="true"></i></span></td>
+                      <td><h3 class="cs_fs_16 cs_semibold mb-0">Land</h3></td>
+                      <td><span class="cs_fs_14">land</span></td>
+                      <td><bdi>32 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="enabled" type="checkbox" aria-label="Enable Land"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Land" data-tooltip="Edit" data-modal-open="typeModal" data-review-title="Edit Property Type"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Land" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- End Property Types -->
+              </div>
+              <div id="amenities" class="cs_settings_section">
+                <!-- Start Amenities -->
+                <div class="cs_dashboard_card">
+                  <div class="cs_card_head">
+                    <div>
+                      <h2 class="cs_fs_20 cs_semibold cs_mb_3">Amenities</h2>
+                      <p class="cs_fs_14 mb-0">Features agents can tick when they list a property</p>
+                    </div>
+                    <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10" data-modal-open="amenityModal" data-review-title="Add Amenity">
+                      <span><i class="fa-solid fa-plus"></i></span>
+                      <span>Add New</span>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="cs_dashboard_table cs_table_fit cs_table_wrap" id="amenityTable">
+                      <thead>
+                        <tr>
+                          <th scope="col">Amenity</th>
+                          <th scope="col">Category</th>
+                          <th scope="col">Used In</th>
+                          <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-person-swimming" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Swimming Pool</h3></div></td>
+                      <td><span class="cs_status_badge">Outdoor</span></td>
+                      <td><bdi>286 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Swimming Pool" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Swimming Pool" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-dumbbell" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Gym</h3></div></td>
+                      <td><span class="cs_status_badge">Wellness</span></td>
+                      <td><bdi>214 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Gym" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Gym" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-square-parking" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Parking</h3></div></td>
+                      <td><span class="cs_status_badge">Building</span></td>
+                      <td><bdi>902 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Parking" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Parking" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-snowflake" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Air Conditioning</h3></div></td>
+                      <td><span class="cs_status_badge">Interior</span></td>
+                      <td><bdi>768 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Air Conditioning" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Air Conditioning" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-wifi" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Wi-Fi</h3></div></td>
+                      <td><span class="cs_status_badge">Utilities</span></td>
+                      <td><bdi>655 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Wi-Fi" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Wi-Fi" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Garden</h3></div></td>
+                      <td><span class="cs_status_badge">Outdoor</span></td>
+                      <td><bdi>341 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Garden" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Garden" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0"><bdi>24/7 Security</bdi></h3></div></td>
+                      <td><span class="cs_status_badge">Building</span></td>
+                      <td><bdi>512 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit 24/7 Security" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete 24/7 Security" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-paw" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Pet Friendly</h3></div></td>
+                      <td><span class="cs_status_badge">Lifestyle</span></td>
+                      <td><bdi>189 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Pet Friendly" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Pet Friendly" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-elevator" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Elevator</h3></div></td>
+                      <td><span class="cs_status_badge">Building</span></td>
+                      <td><bdi>297 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Elevator" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Elevator" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_name"><span class="cs_table_icon"><i class="fa-solid fa-fire" aria-hidden="true"></i></span><h3 class="cs_fs_16 cs_semibold mb-0">Fireplace</h3></div></td>
+                      <td><span class="cs_status_badge">Interior</span></td>
+                      <td><bdi>74 listings</bdi></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Fireplace" data-tooltip="Edit" data-modal-open="amenityModal" data-review-title="Edit Amenity"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Fireplace" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- End Amenities -->
+              </div>
+              <div id="locations" class="cs_settings_section">
+                <!-- Start Locations -->
+                <div class="cs_dashboard_card">
+                  <div class="cs_card_head">
+                    <div>
+                      <h2 class="cs_fs_20 cs_semibold cs_mb_3">Locations</h2>
+                      <p class="cs_fs_14 mb-0">Featured cities appear in the &ldquo;Explore by city&rdquo; section on the home page</p>
+                    </div>
+                    <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10" data-modal-open="locationModal" data-review-title="Add Location">
+                      <span><i class="fa-solid fa-plus"></i></span>
+                      <span>Add New</span>
+                    </button>
+                  </div>
+                  <div class="overflow-x-auto">
+                    <table class="cs_dashboard_table cs_table_fit cs_table_wrap" id="locationTable">
+                      <thead>
+                        <tr>
+                          <th scope="col">City</th>
+                          <th scope="col">Country</th>
+                          <th scope="col">Neighborhoods</th>
+                          <th scope="col">Listings</th>
+                          <th scope="col">Featured</th>
+                          <th scope="col" class="text-end">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                    <tr>
+                      <td><div class="cs_table_property">
+                          <img src="../assets/img/city-newyork.jpg" alt="New York skyline" loading="lazy">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">New York</h3>
+                        </div></td>
+                      <td>United States</td>
+                      <td><bdi>24 neighborhoods</bdi></td>
+                      <td><bdi>318 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="featured" type="checkbox" checked aria-label="Feature New York on the home page"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit New York" data-tooltip="Edit" data-modal-open="locationModal" data-review-title="Edit Location"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete New York" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_property">
+                          <img src="../assets/img/city-london.jpg" alt="London skyline" loading="lazy">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">London</h3>
+                        </div></td>
+                      <td>United Kingdom</td>
+                      <td><bdi>18 neighborhoods</bdi></td>
+                      <td><bdi>204 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="featured" type="checkbox" checked aria-label="Feature London on the home page"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit London" data-tooltip="Edit" data-modal-open="locationModal" data-review-title="Edit Location"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete London" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_property">
+                          <img src="../assets/img/city-dubai.jpg" alt="Dubai skyline" loading="lazy">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Dubai</h3>
+                        </div></td>
+                      <td>United Arab Emirates</td>
+                      <td><bdi>15 neighborhoods</bdi></td>
+                      <td><bdi>176 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="featured" type="checkbox" checked aria-label="Feature Dubai on the home page"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Dubai" data-tooltip="Edit" data-modal-open="locationModal" data-review-title="Edit Location"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Dubai" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_property">
+                          <img src="../assets/img/city-tokyo.jpg" alt="Tokyo skyline" loading="lazy">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Tokyo</h3>
+                        </div></td>
+                      <td>Japan</td>
+                      <td><bdi>21 neighborhoods</bdi></td>
+                      <td><bdi>142 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="featured" type="checkbox" aria-label="Feature Tokyo on the home page"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Tokyo" data-tooltip="Edit" data-modal-open="locationModal" data-review-title="Edit Location"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Tokyo" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_property">
+                          <img src="../assets/img/city-jakarta.jpg" alt="Jakarta skyline" loading="lazy">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Jakarta</h3>
+                        </div></td>
+                      <td>Indonesia</td>
+                      <td><bdi>11 neighborhoods</bdi></td>
+                      <td><bdi>88 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="featured" type="checkbox" aria-label="Feature Jakarta on the home page"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Jakarta" data-tooltip="Edit" data-modal-open="locationModal" data-review-title="Edit Location"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Jakarta" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                    <tr>
+                      <td><div class="cs_table_property">
+                          <img src="../assets/img/city-hanoi.jpg" alt="Hanoi skyline" loading="lazy">
+                          <h3 class="cs_fs_16 cs_semibold mb-0">Hanoi</h3>
+                        </div></td>
+                      <td>Vietnam</td>
+                      <td><bdi>9 neighborhoods</bdi></td>
+                      <td><bdi>64 listings</bdi></td>
+                      <td><label class="cs_toggle_switch"><input name="featured" type="checkbox" aria-label="Feature Hanoi on the home page"><span></span></label></td>
+                      <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Edit Hanoi" data-tooltip="Edit" data-modal-open="locationModal" data-review-title="Edit Location"><i class="fa-solid fa-pen-to-square"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Hanoi" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                    </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- End Locations -->
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- Start Property Type Modal -->
+        <dialog class="cs_dash_modal" id="typeModal" data-lenis-prevent aria-labelledby="typeModalTitle">
+          <form method="dialog" class="cs_dashboard_form">
+            <div class="cs_dash_modal_head">
+              <h2 class="cs_fs_20 cs_semibold mb-0" id="typeModalTitle" data-review-field="title">Add Property Type</h2>
+              <button type="button" class="cs_dash_modal_close" aria-label="Close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cs_dash_modal_body">
+              <div class="row cs_gap_y_24">
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="typeName">Name</label>
+                  <input type="text" id="typeName" class="cs_form_field" placeholder="e.g. Penthouse" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="typeSlug">Slug</label>
+                  <input type="text" id="typeSlug" class="cs_form_field" placeholder="penthouse">
+                </div>
+                <div class="col-12">
+                  <label class="cs_form_label" for="typeIcon">Icon</label>
+                  <div class="cs_select">
+                    <select id="typeIcon">
+                        <option value="fa-house" selected>House</option>
+                        <option value="fa-building">Building</option>
+                        <option value="fa-house-chimney">Villa</option>
+                        <option value="fa-city">City</option>
+                        <option value="fa-briefcase">Briefcase</option>
+                        <option value="fa-store">Store</option>
+                        <option value="fa-mountain-sun">Land</option>
+                        <option value="fa-warehouse">Warehouse</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="cs_form_label" for="typeDesc">Description</label>
+                  <textarea id="typeDesc" class="cs_form_field" placeholder="Short description for the listing page header"></textarea>
+                </div>
+                <div class="col-12">
+                  <ul class="cs_setting_list">
+                    <li>
+                      <div>
+                        <h3 class="cs_fs_16 cs_semibold cs_mb_3">Enabled</h3>
+                        <p class="cs_fs_14 mb-0">Show this type in search filters and forms</p>
+                      </div>
+                      <label class="cs_toggle_switch">
+                        <input name="enabled" type="checkbox" checked aria-label="Enabled">
+                        <span></span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cs_dash_modal_foot">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-modal-close><span>Cancel</span></button>
+              <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Save</span></button>
+            </div>
+          </form>
+        </dialog>
+        <!-- End Property Type Modal -->
+        <!-- Start Amenity Modal -->
+        <dialog class="cs_dash_modal" id="amenityModal" data-lenis-prevent aria-labelledby="amenityModalTitle">
+          <form method="dialog" class="cs_dashboard_form">
+            <div class="cs_dash_modal_head">
+              <h2 class="cs_fs_20 cs_semibold mb-0" id="amenityModalTitle" data-review-field="title">Add Amenity</h2>
+              <button type="button" class="cs_dash_modal_close" aria-label="Close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cs_dash_modal_body">
+              <div class="row cs_gap_y_24">
+                <div class="col-12">
+                  <label class="cs_form_label" for="amenityName">Name</label>
+                  <input type="text" id="amenityName" class="cs_form_field" placeholder="e.g. Rooftop Terrace" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="amenityCategory">Category</label>
+                  <div class="cs_select">
+                    <select id="amenityCategory">
+                      <option selected>Interior</option>
+                      <option>Outdoor</option>
+                      <option>Building</option>
+                      <option>Wellness</option>
+                      <option>Utilities</option>
+                      <option>Lifestyle</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="amenityIcon">Icon Class</label>
+                  <input type="text" id="amenityIcon" class="cs_form_field" placeholder="fa-solid fa-star">
+                </div>
+                <div class="col-12">
+                  <span class="cs_form_hint cs_fs_14">Use any Font Awesome icon class, for example fa-solid fa-person-swimming.</span>
+                </div>
+              </div>
+            </div>
+            <div class="cs_dash_modal_foot">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-modal-close><span>Cancel</span></button>
+              <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Save</span></button>
+            </div>
+          </form>
+        </dialog>
+        <!-- End Amenity Modal -->
+        <!-- Start Location Modal -->
+        <dialog class="cs_dash_modal" id="locationModal" data-lenis-prevent aria-labelledby="locationModalTitle">
+          <form method="dialog" class="cs_dashboard_form">
+            <div class="cs_dash_modal_head">
+              <h2 class="cs_fs_20 cs_semibold mb-0" id="locationModalTitle" data-review-field="title">Add Location</h2>
+              <button type="button" class="cs_dash_modal_close" aria-label="Close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cs_dash_modal_body">
+              <div class="row cs_gap_y_24">
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="locationCity">City</label>
+                  <input type="text" id="locationCity" class="cs_form_field" placeholder="e.g. Singapore" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="locationCountry">Country</label>
+                  <div class="cs_select">
+                    <select id="locationCountry">
+                      <option selected>United States</option>
+                      <option>United Kingdom</option>
+                      <option>United Arab Emirates</option>
+                      <option>Japan</option>
+                      <option>Indonesia</option>
+                      <option>Vietnam</option>
+                      <option>Singapore</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="cs_form_label" for="locationHoods">Neighborhoods</label>
+                  <textarea id="locationHoods" class="cs_form_field" placeholder="One per line, e.g. Downtown"></textarea>
+                </div>
+                <div class="col-12">
+                  <span class="cs_form_label">Cover Image</span>
+                  <div class="cs_upload_wrap">
+                    <div class="cs_upload_box">
+                      <input name="upload_city_cover_image" type="file" accept="image/*" aria-label="Upload city cover image">
+                      <div class="cs_upload_icon"><i class="fa-solid fa-image"></i></div>
+                      <p class="cs_fs_16 cs_semibold cs_primary_color cs_mb_3">Upload cover image</p>
+                      <p class="cs_fs_14 mb-0">JPG or PNG, at least 800 px wide</p>
+                    </div>
+                    <div class="cs_upload_previews"></div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <ul class="cs_setting_list">
+                    <li>
+                      <div>
+                        <h3 class="cs_fs_16 cs_semibold cs_mb_3">Featured</h3>
+                        <p class="cs_fs_14 mb-0">Show this city on the home page</p>
+                      </div>
+                      <label class="cs_toggle_switch">
+                        <input name="featured" type="checkbox" aria-label="Featured">
+                        <span></span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cs_dash_modal_foot">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-modal-close><span>Cancel</span></button>
+              <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Save</span></button>
+            </div>
+          </form>
+        </dialog>
+        <!-- End Location Modal -->
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

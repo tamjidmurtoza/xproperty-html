@@ -1,0 +1,459 @@
+/* New public pages: New Developments */
+
+.cs_listing_filter {
+  padding: 20px;
+  border: 1px solid var(--gray-color);
+
+  .cs_listing_filter_form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    align-items: end;
+    gap: 15px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--primary-color);
+  }
+
+  .cs_filter_field {
+    position: relative;
+
+    >i {
+      position: absolute;
+      top: 50%;
+      inset-inline-end: 15px;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--secondary-color);
+      pointer-events: none;
+    }
+  }
+
+  .cs_form_field {
+    width: 100%;
+    height: 50px;
+    padding-block: 0;
+    padding-inline: 15px 40px;
+    border-radius: 10px;
+    color: var(--primary-color);
+
+    &::placeholder {
+      color: var(--secondary-color);
+    }
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+  }
+
+  .ts-control {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-block: 0;
+    padding-inline: 15px 40px;
+    font-size: 16px;
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    border-radius: 10px;
+
+    input {
+      font-size: 16px;
+    }
+
+    &::after {
+      content: "\f078";
+      font-family: "Font Awesome 6 Free";
+      font-size: 12px;
+      font-weight: 900;
+      position: absolute;
+      inset-inline-end: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--secondary-color);
+    }
+  }
+
+  .cs_btn.cs_style_1 {
+    width: 100%;
+    height: 50px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 15px;
+  }
+}
+
+/* Status badge (projects) */
+.cs_project_status {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5em;
+  border-radius: 20px;
+  color: #fff;
+  background-color: var(--accent-color);
+
+  &.cs_prelaunch {
+    background-color: #2F80ED;
+  }
+
+  &.cs_construction {
+    background-color: #E58E00;
+  }
+
+  &.position-absolute {
+    bottom: 15px;
+    inset-inline-start: 15px;
+    z-index: 2;
+  }
+}
+
+.cs_card.cs_style_1.cs_project_card,
+.cs_card.cs_style_1.cs_oh_card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .cs_card_content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cs_btn.cs_style_1.cs_wide_btn {
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    border: 1px solid var(--primary-color);
+  }
+
+  .cs_card_footer {
+    margin-top: auto;
+  }
+}
+
+.cs_project_card {
+  .cs_project_developer {
+    font-size: 15px;
+    margin-bottom: 8px;
+
+    a {
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+  }
+
+  .cs_project_facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 20px;
+    padding: 15px 0;
+    margin: 15px 0 20px;
+    border-top: 1px solid var(--gray-color);
+    border-bottom: 1px solid var(--gray-color);
+
+    li {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    span:first-child {
+      font-size: 14px;
+    }
+
+    span:last-child {
+      font-family: var(--primary-font);
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+  }
+}
+
+.cs_oh_date {
+  top: 15px;
+  inset-inline-end: 15px;
+  z-index: 2;
+  min-width: 62px;
+  padding: 6px 10px;
+  text-align: center;
+  line-height: 1.2em;
+  font-family: var(--primary-font);
+  color: var(--primary-color);
+  background-color: var(--white-color);
+
+  strong {
+    display: block;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+  span {
+    font-size: 13px;
+    text-transform: uppercase;
+  }
+}
+
+.cs_oh_card {
+  .cs_oh_time {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border-radius: 10px;
+
+    i {
+      color: var(--accent-color);
+    }
+  }
+
+  .cs_oh_host {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+
+    img {
+      width: 42px;
+      height: 42px;
+      flex: none;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.4em;
+    }
+
+    a {
+      font-family: var(--primary-font);
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+  }
+
+  .cs_oh_actions {
+    display: flex;
+    gap: 10px;
+
+    .cs_btn.cs_style_1 {
+      flex: 1;
+    }
+  }
+}
+
+.cs_oh_day_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--gray-color);
+
+  .cs_oh_day_title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .cs_oh_day_icon {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    font-size: 18px;
+  }
+}
+
+/* Project details */
+.cs_project_details {
+  .cs_property_header_right .cs_project_status {
+    margin-bottom: 10px;
+  }
+
+  .cs_project_developer_line {
+    margin-bottom: 8px;
+
+    a {
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+  }
+}
+
+.cs_unit_status {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  color: var(--accent-color);
+
+  &.cs_limited {
+    color: #E58E00;
+  }
+
+  &.cs_sold {
+    color: var(--danger-color);
+  }
+}
+
+.cs_payment_plan {
+  .cs_payment_bar {
+    display: flex;
+    gap: 4px;
+    height: 12px;
+    margin-bottom: 24px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .cs_seg_1 {
+    background-color: var(--accent-color);
+  }
+
+  .cs_seg_2 {
+    background-color: var(--accent-color);
+    opacity: 0.55;
+  }
+
+  .cs_seg_3 {
+    background-color: var(--primary-color);
+  }
+
+  .cs_payment_steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+
+    li {
+      padding: 20px;
+      border: 1px solid var(--gray-color);
+      border-radius: 10px;
+    }
+  }
+
+  .cs_payment_label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .cs_payment_dot {
+    width: 12px;
+    height: 12px;
+    flex: none;
+    border-radius: 50%;
+  }
+
+  .cs_payment_percent {
+    font-family: var(--primary-font);
+    font-size: 39px;
+    font-weight: 600;
+    line-height: 1.2em;
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 767px) {
+    .cs_payment_steps {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.cs_construction_list {
+  li {
+    margin-bottom: 22px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .cs_construction_head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 5px 15px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .cs_progress {
+    height: 8px;
+    border-radius: 4px;
+  }
+}
+
+.cs_developer_box {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  border: 1px solid var(--gray-color);
+
+  .cs_developer_logo {
+    width: 70px;
+    height: 70px;
+    flex: none;
+    font-size: 26px;
+  }
+
+  h4 a {
+    color: var(--primary-color);
+  }
+
+  .cs_developer_stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 25px;
+    margin: 12px 0 18px;
+    font-size: 15px;
+
+    strong {
+      font-family: var(--primary-font);
+      color: var(--primary-color);
+    }
+  }
+
+  @media (max-width: 575px) {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+.cs_project_sidebar {
+  .cs_contact_form select.cs_form_field {
+    height: 44px;
+    cursor: pointer;
+  }
+
+  @media (min-width: 992px) {
+    position: sticky;
+    top: 120px;
+  }
+}

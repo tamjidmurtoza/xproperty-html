@@ -1,0 +1,144 @@
+/* Admin: listing settings, blog posts, post editor, coupons */
+
+.cs_table_icon {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+
+.cs_table_name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Coupon code */
+.cs_code_badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 1px dashed var(--border-color);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: var(--primary-color);
+  background-color: var(--gray3-color);
+}
+
+.cs_code_field {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cs_usage_cell {
+  min-width: 120px;
+
+  .cs_usage_top {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+}
+
+/* Post editor */
+.cs_editor {
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  &:focus-within {
+    border-color: var(--primary-color);
+  }
+
+  .cs_dashboard_form & textarea.cs_form_field,
+  textarea.cs_form_field {
+    display: block;
+    width: 100%;
+    min-height: 380px;
+    border: 0;
+    border-radius: 0;
+    resize: vertical;
+  }
+}
+
+.cs_editor_toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 9px 9px 0 0;
+  background-color: var(--gray3-color);
+
+  .cs_table_action:not(:hover) {
+    background-color: var(--cs-card-bg);
+  }
+}
+
+.cs_editor_sep {
+  width: 1px;
+  height: 22px;
+  margin-inline: 4px;
+  background-color: var(--border-color);
+}
+
+.cs_editor_foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+/* Publish box rows */
+.cs_publish_meta {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 14px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    span:first-child {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
+
+.cs_publish_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .cs_btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}

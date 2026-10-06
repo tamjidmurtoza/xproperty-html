@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="description" content="Meet Xproperty: our story, values, team and the numbers behind thousands of happy buyers, sellers and renters.">
     <meta name="keywords" content="about us, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/about-us.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="About Us | Xproperty">
+    <meta property="og:description" content="Meet Xproperty: our story, values, team and the numbers behind thousands of happy buyers, sellers and renters.">
+    <meta property="og:url" content="https://example.com/about-us.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Us | Xproperty">
+    <meta name="twitter:description" content="Meet Xproperty: our story, values, team and the numbers behind thousands of happy buyers, sellers and renters.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <!-- All CSS Files -->
    <link rel="stylesheet" href="assets/css/aos.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -18,12 +32,57 @@
     <link rel="stylesheet" href="assets/css/odometer.min.css">
     <link rel="stylesheet" href="assets/css/lightgallery.min.css">
     <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/data-tables.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Site Title -->
     <title>About Us | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://example.com/#organization",
+          "name": "Xproperty",
+          "url": "https://example.com/",
+          "logo": "https://example.com/assets/img/logo.svg"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://example.com/about-us.html#webpage",
+          "url": "https://example.com/about-us.html",
+          "name": "About Us",
+          "description": "Meet Xproperty: our story, values, team and the numbers behind thousands of happy buyers, sellers and renters.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://example.com/#website"
+          },
+          "publisher": {
+            "@id": "https://example.com/#organization"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About Us",
+              "item": "https://example.com/about-us.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +106,7 @@
                 <div class="cs_nav_list_wrap">
                   <ul class="cs_nav_list cs_mp_0">
                     <li class="menu-item-has-children">
-                      <a href="">Home</a>
+                      <a href="index.html">Home</a>
                       <ul class="cs_dropdown_list cs_mp_0">
                         <li><a href="index.html" aria-label="Nav link">PROPERTY SEARCH</a></li>
                         <li><a href="home-v2.html" aria-label="Nav link">LUXURY HOMES</a></li>
@@ -62,36 +121,52 @@
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Listing</a>
+                      <a href="property-listing-buy.html">Listing</a>
                       <ul class="cs_dropdown_list cs_mp_0">
-                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a>
-                        </li>
-                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a>
-                        </li>
-                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a>
-                        </li>
+                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a></li>
+                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a></li>
+                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a></li>
+                        <li><a href="property-listing-map.html" aria-label="Nav link">Property Listing Map</a></li>
                         <li><a href="property-details.html" aria-label="Nav link">Property Details</a></li>
+                        <li><a href="projects.html" aria-label="Nav link">New Developments</a></li>
+                        <li><a href="open-house.html" aria-label="Nav link">Open House</a></li>
+                        <li><a href="neighborhoods.html" aria-label="Nav link">Neighborhood Guides</a></li>
+                        <li><a href="compare.html" aria-label="Nav link">Compare Properties</a></li>
+                        <li><a href="mortgage-calculator.html" aria-label="Nav link">Mortgage Calculator</a></li>
                       </ul>
                     </li>
                     <li><a href="about-us.html" aria-label="Nav link">About</a></li>
                     <li class="menu-item-has-children">
-                      <a href="">Pages</a>
-                     <ul class="cs_dropdown_list cs_mp_0">
+                      <a href="#" role="button" aria-haspopup="true">Pages</a>
+                     <ul class="cs_dropdown_list cs_dropdown_2col cs_mp_0">
+                        <li><a href="services.html" aria-label="Nav link">Our Services</a></li>
+                        <li><a href="sell-property.html" aria-label="Nav link">Sell Your Property</a></li>
+                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="agent-details.html" aria-label="Nav link">Agent Profile</a></li>
+                        <li><a href="agencies.html" aria-label="Nav link">Our Agencies</a></li>
+                        <li><a href="agency-details.html" aria-label="Nav link">Agency Profile</a></li>
+                        <li><a href="testimonials.html" aria-label="Nav link">Testimonials</a></li>
+                        <li><a href="careers.html" aria-label="Nav link">Careers</a></li>
                         <li><a href="pricing.html" aria-label="Nav link">Pricing Plan</a></li>
-                        <li><a href="faq.html" aria-label="Nav link">FAQ & Answer</a></li>
-                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
-                        <li><a href="terms-condition.html" aria-label="Nav link">Terms & Condition</a></li>
+                        <li><a href="faq.html" aria-label="Nav link">FAQ &amp; Answer</a></li>
                         <li><a href="gallery.html" aria-label="Nav link">Property Gallery</a></li>
+                        <li><a href="rental-application.html" aria-label="Nav link">Rental Application</a></li>
                         <li><a href="register.html" aria-label="Nav link">User Register</a></li>
                         <li><a href="login.html" aria-label="Nav link">User Login</a></li>
-                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="verify-email.html" aria-label="Nav link">Verify Email</a></li>
+                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html" aria-label="Nav link">Terms &amp; Condition</a></li>
                         <li><a href="error.html" aria-label="Nav link">Error Page</a></li>
+                        <li><a href="coming-soon.html" aria-label="Nav link">Coming Soon</a></li>
+                        <li><a href="maintenance.html" aria-label="Nav link">Maintenance</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Blog</a>
+                      <a href="blog.html">Blog</a>
                       <ul class="cs_dropdown_list cs_mp_0">
                         <li><a href="blog.html" aria-label="Nav link">Our Articles</a></li>
+                        <li><a href="blog-grid.html" aria-label="Nav link">Blog Grid</a></li>
+                        <li><a href="blog-list.html" aria-label="Nav link">Blog List</a></li>
                         <li><a href="blog-details.html" aria-label="Nav link">Article Details</a></li>
                       </ul>
                     </li>
@@ -148,7 +223,7 @@
     </header>
     <!-- End Header Section -->
     <!-- Start Page Header Section -->
-    <section class="cs_page_header cs_style_1 cs_center cs_bg_filed" data-src="assets/img/page-heading.jpg">
+    <section id="main-content" class="cs_page_header cs_style_1 cs_center cs_bg_filed" data-src="assets/img/page-heading.jpg">
       <div class="container">
         <div class="cs_page_header_content text-center">
           <h1 class="cs_page_header_title cs_fs_49 mb-0" data-aos="fade-down">About Us</h1>
@@ -167,7 +242,7 @@
         <div class="row cs_gap_y_40 align-items-xl-center">
           <div class="col-xl-5 col-lg-5 offset-xl-1 order-lg-2">
             <div class="cs_about_thumbnail cs_radius_10 position-relative" data-aos="zoom-in">
-              <img src="assets/img/about-img-4.jpg" alt="About img">
+              <img src="assets/img/about-img-4.jpg" alt="About img" loading="lazy">
             </div>
           </div>
           <div class="col-xl-6 col-lg-7">
@@ -223,7 +298,7 @@
         <div class="row cs_gap_y_40 align-items-xl-center">
           <div class="col-xl-5 col-lg-5">
             <div class="cs_faq_thumbnail cs_radius_20 w-100 m-0" data-aos="fade-right">
-              <img src="assets/img/faq-img-1.jpg" alt="FAQ thumbnail">
+              <img src="assets/img/faq-img-1.jpg" alt="FAQ thumbnail" loading="lazy">
             </div>
           </div>
           <div class="col-xl-6 col-lg-7 offset-xl-1">
@@ -271,7 +346,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="cs_iconbox cs_style_3 cs_type_2 cs_center_column text-center position-relative">
               <span class="cs_iconbox_icon cs_center cs_radius_100 cs_primary_bg cs_white_color cs_mb_22" data-aos="zoom-in">
-                <img src="assets/img/icons/ui/home.svg" class="cs_svg_icon cs_icon_home" alt="Home icon">
+                <img src="assets/img/icons/ui/home.svg" class="cs_svg_icon cs_icon_home" alt="">
               </span>
               <div class="cs_iconbox_info">
                 <h3 class="cs_fs_31 cs_semibold cs_primary_color cs_mb_10">Buy A Home</h3>
@@ -392,7 +467,7 @@
               <div class="cs_testimonial cs_style_1 cs_primary_bg cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-1.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-1.jpg" alt="Michael Williams" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">Michael Williams</h3>
@@ -402,7 +477,7 @@
                 <div class="cs_testimonial_content cs_mb_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -414,7 +489,7 @@
               <div class="cs_testimonial cs_style_1 cs_primary_bg cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-2.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-2.jpg" alt="Sarah Thomas" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">Sarah Thomas</h3>
@@ -424,7 +499,7 @@
                 <div class="cs_testimonial_content cs_mb_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -436,7 +511,7 @@
               <div class="cs_testimonial cs_style_1 cs_primary_bg cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-3.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-3.jpg" alt="David Martinez" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">David Martinez</h3>
@@ -446,7 +521,7 @@
                 <div class="cs_testimonial_content cs_mb_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -458,7 +533,7 @@
               <div class="cs_testimonial cs_style_1 cs_primary_bg cs_radius_15">
                 <div class="cs_avatar cs_style_1 cs_mb_30 position-relative z-1">
                   <span class="cs_avatar_icon cs_center cs_radius_100">
-                  <img src="assets/img/avatar-1.jpg" alt="Avatat">
+                  <img src="assets/img/avatar-1.jpg" alt="Michael Williams" loading="lazy">
                   </span>
                   <div class="cs_avatar_info">
                     <h3 class="cs_avatar_title cs_fs_25 cs_semibold cs_white_color mb-0">Michael Williams</h3>
@@ -468,7 +543,7 @@
                 <div class="cs_testimonial_content cs_mb_30 position-relative">
                   <blockquote>Working with them was an incredible experience! They made the entire process of buying my new home seamless and stress-free. The team was professional, responsive, and genuinely cared about my needs.</blockquote>
                   <span class="cs_quote_icon position-absolute">
-                  <img src="assets/img/icons/quote-right.svg" alt="Quote icon">
+                  <img src="assets/img/icons/quote-right.svg" alt="">
                   </span>
                 </div>
                 <div class="cs_rating z-1" data-rating="5">
@@ -497,7 +572,7 @@
               <div class="cs_slide">
                 <div class="cs_team cs_style_1">
                   <div class="cs_team_thumbnail cs_radius_20 cs_mb_23 position-relative">
-                    <img src="assets/img/team-img-1.jpg" alt="Team image">
+                    <img src="assets/img/team-img-1.jpg" alt="Alex Carter" loading="lazy">
                     <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
                       <a href="#"><i class="fa-brands fa-facebook"></i></a>
                       <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -525,7 +600,7 @@
               <div class="cs_slide">
                 <div class="cs_team cs_style_1">
                   <div class="cs_team_thumbnail cs_radius_20 cs_mb_23 position-relative">
-                    <img src="assets/img/team-img-2.jpg" alt="Team image">
+                    <img src="assets/img/team-img-2.jpg" alt="Sarah Mitchell" loading="lazy">
                     <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
                       <a href="#"><i class="fa-brands fa-facebook"></i></a>
                       <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -553,7 +628,7 @@
               <div class="cs_slide">
                 <div class="cs_team cs_style_1">
                   <div class="cs_team_thumbnail cs_radius_20 cs_mb_23 position-relative">
-                    <img src="assets/img/team-img-3.jpg" alt="Team image">
+                    <img src="assets/img/team-img-3.jpg" alt="James Thompson" loading="lazy">
                     <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
                       <a href="#"><i class="fa-brands fa-facebook"></i></a>
                       <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -581,7 +656,7 @@
               <div class="cs_slide">
                 <div class="cs_team cs_style_1">
                   <div class="cs_team_thumbnail cs_radius_20 cs_mb_23 position-relative">
-                    <img src="assets/img/team-img-4.jpg" alt="Team image">
+                    <img src="assets/img/team-img-4.jpg" alt="Emily Davis" loading="lazy">
                     <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
                       <a href="#"><i class="fa-brands fa-facebook"></i></a>
                       <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -609,7 +684,7 @@
               <div class="cs_slide">
                 <div class="cs_team cs_style_1">
                   <div class="cs_team_thumbnail cs_radius_20 cs_mb_23 position-relative">
-                    <img src="assets/img/team-img-5.jpg" alt="Team image">
+                    <img src="assets/img/team-img-5.jpg" alt="Daria Pimkina" loading="lazy">
                     <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
                       <a href="#"><i class="fa-brands fa-facebook"></i></a>
                       <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
@@ -638,10 +713,10 @@
             <div class="cs_height_0 cs_height_lg_40"></div>
             <div class="cs_slider_arrows cs_style_1">
               <div class="cs_left_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
               <div class="cs_right_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
             </div>
           </div>
@@ -655,7 +730,7 @@
       <div class="cs_height_135 cs_height_lg_80"></div>
       <div class="container">
         <div class="cs_section_heading cs_style_1 text-center">
-          <h2 class="cs_fs_20 cs_semibold mb-0" data-aos="fade-down">100+ Company trusted by us.</h2>
+          <h2 class="cs_fs_20 cs_semibold mb-0" data-aos="fade-down"><bdi>100+ Company trusted by us.</bdi></h2>
         </div>
         <div class="cs_height_60 cs_height_lg_40"></div>
         <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0" data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="3" data-sm-slides="3" data-md-slides="4" data-lg-slides="6" data-add-slides="6">
@@ -754,19 +829,19 @@
                 <ul class="cs_contact_list cs_gray_color cs_mp_0">
                   <li>
                     <span class="cs_contact_icon cs_center cs_radius_100 cs_white_color">
-                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                     </span>
-                    <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                    <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                   </li>
                   <li>
                     <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
-                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="Email icon">
+                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="">
                     </span>
                     <a href="mailto:info@xproperty.com" aria-label="Send Email link">info@xproperty.com</a>
                   </li>
                   <li>
                     <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
-                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="Phone icon">
+                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="">
                     </span>
                     <a href="tel:2144466668" aria-label="Make a call link">(214) 446-6668</a>
                   </li>
@@ -778,7 +853,7 @@
         <div class="cs_footer_bottom cs_gray_color">
           <div class="cs_footer_text">&copy; 2025 Xproperty. All right reserved</div>
           <div class="cs_footer_bottom_menu">
-            <span class="cs_currency">$USD</span>
+            <span class="cs_currency"><select name="currency" class="cs_currency_select" aria-label="Currency" data-currency-select><option value="USD">$ USD</option><option value="EUR">&euro; EUR</option><option value="GBP">&pound; GBP</option><option value="AED">AED</option></select></span>
             <div class="cs_social_links">
               <a href="#" aria-label="Social link">Facebook</a>
               <a href="#" aria-label="Social link">LinkedIn</a>
@@ -801,7 +876,6 @@
     <script src="assets/js/flatpickr.min.js"></script>
     <script src="assets/js/lenis.min.js"></script>
     <script src="assets/js/light-gallery.min.js"></script>
-    <script src="assets/js/data-tables.min.js"></script>
     <script src="assets/js/aos.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

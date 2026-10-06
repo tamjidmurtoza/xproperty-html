@@ -28,28 +28,78 @@
     { file: "property-listing-buy", title: "Listing – Buy", cat: "property" },
     { file: "property-listing-rent", title: "Listing – Rent", cat: "property" },
     { file: "property-listing-search", title: "Search Results", cat: "property" },
+    { file: "property-listing-map", title: "Half-Map Search", cat: "property" },
     { file: "property-details", title: "Property Details", cat: "property" },
-    { file: "my-property", title: "My Properties", cat: "dashboard" },
-    { file: "add-property", title: "Add Property", cat: "dashboard" },
-    { file: "edit-property", title: "Edit Property", cat: "dashboard" },
-    { file: "favourite-property", title: "Favourites", cat: "dashboard" },
-    { file: "profile", title: "Dashboard Overview", cat: "dashboard" },
-    { file: "profile-settings", title: "Profile Settings", cat: "dashboard" },
-    { file: "client-list", title: "Client List", cat: "dashboard" },
-    { file: "change-password", title: "Change Password", cat: "dashboard" },
+    { file: "compare", title: "Compare Properties", cat: "property" },
+    { file: "mortgage-calculator", title: "Mortgage Calculator", cat: "property" },
+    { file: "gallery", title: "Property Gallery", cat: "property" },
+    { file: "projects", title: "New Developments", cat: "property" },
+    { file: "project-details", title: "Project Details", cat: "property" },
+    { file: "open-house", title: "Open House", cat: "property" },
+    { file: "neighborhoods", title: "Neighborhood Guides", cat: "property" },
+    { file: "neighborhood-details", title: "Neighborhood Details", cat: "property" },
+    { file: "sell-property", title: "Sell / Home Valuation", cat: "property" },
+    { file: "rental-application", title: "Rental Application", cat: "property" },
     { file: "about-us", title: "About Us", cat: "company" },
     { file: "agents-list", title: "Agents", cat: "company" },
+    { file: "agent-details", title: "Agent Profile", cat: "company" },
+    { file: "agency-details", title: "Agency Profile", cat: "company" },
+    { file: "agencies", title: "Agency Directory", cat: "company" },
+    { file: "services", title: "Services", cat: "company" },
+    { file: "testimonials", title: "Testimonials", cat: "company" },
+    { file: "careers", title: "Careers", cat: "company" },
     { file: "pricing", title: "Pricing Plans", cat: "company" },
     { file: "faq", title: "FAQ", cat: "company" },
     { file: "contact", title: "Contact", cat: "company" },
-    { file: "blog", title: "Blog Grid", cat: "blog" },
+    { file: "blog", title: "Blog Sidebar", cat: "blog" },
+    { file: "blog-grid", title: "Blog Grid", cat: "blog" },
+    { file: "blog-list", title: "Blog List", cat: "blog" },
     { file: "blog-details", title: "Blog Details", cat: "blog" },
     { file: "login", title: "Login", cat: "auth" },
     { file: "register", title: "Register", cat: "auth" },
     { file: "forgot-password", title: "Forgot Password", cat: "auth" },
-    { file: "error", title: "404 Error", cat: "auth" }
+    { file: "verify-email", title: "Verify Email", cat: "auth" },
+    { file: "coming-soon", title: "Coming Soon", cat: "auth" },
+    { file: "maintenance", title: "Maintenance", cat: "auth" },
+    { file: "error", title: "404 Error", cat: "auth" },
+    { file: "privacy-policy", title: "Privacy Policy", cat: "auth" },
+    { file: "terms-condition", title: "Terms & Conditions", cat: "auth" },
+    { file: "admin/index", title: "Admin Overview", cat: "roles", label: "Admin" },
+    { file: "admin/property-approvals", title: "Property Approvals", cat: "roles", label: "Admin" },
+    { file: "admin/all-properties", title: "All Properties", cat: "roles", label: "Admin" },
+    { file: "admin/user-management", title: "User Management", cat: "roles", label: "Admin" },
+    { file: "admin/agents", title: "Agents & Agencies", cat: "roles", label: "Admin" },
+    { file: "admin/reports", title: "Reports & Analytics", cat: "roles", label: "Admin" },
+    { file: "admin/invoice", title: "Invoice", cat: "roles", label: "Admin" },
+    { file: "admin/subscriptions", title: "Subscriptions", cat: "roles", label: "Admin" },
+    { file: "admin/financials", title: "Financials", cat: "roles", label: "Admin" },
+    { file: "admin/listing-settings", title: "Listing Settings", cat: "roles", label: "Admin" },
+    { file: "admin/roles", title: "Roles & Permissions", cat: "roles", label: "Admin" },
+    { file: "admin/support-tickets", title: "Support Tickets", cat: "roles", label: "Admin" },
+    { file: "admin/blog-posts", title: "Blog Posts", cat: "roles", label: "Admin" },
+    { file: "admin/coupons", title: "Coupons", cat: "roles", label: "Admin" },
+    { file: "agent/index", title: "Agent Overview", cat: "roles", label: "Agent" },
+    { file: "agent/my-listings", title: "My Listings", cat: "roles", label: "Agent" },
+    { file: "agent/leads", title: "Leads & Inquiries", cat: "roles", label: "Agent" },
+    { file: "agent/tour-requests", title: "Tour Requests", cat: "roles", label: "Agent" },
+    { file: "agent/analytics", title: "Listing Analytics", cat: "roles", label: "Agent" },
+    { file: "agent/messages", title: "Messages", cat: "roles", label: "Agent" },
+    { file: "agent/billing", title: "Package & Billing", cat: "roles", label: "Agent" },
+    { file: "agent/offers", title: "Offers", cat: "roles", label: "Agent" },
+    { file: "agent/documents", title: "Documents & Contracts", cat: "roles", label: "Agent" },
+    { file: "owner/index", title: "Owner Overview", cat: "roles", label: "Owner" },
+    { file: "owner/submit-property", title: "Submit Property", cat: "roles", label: "Owner" },
+    { file: "owner/tenants", title: "Tenants & Leases", cat: "roles", label: "Owner" },
+    { file: "owner/applications", title: "Rental Applications", cat: "roles", label: "Owner" },
+    { file: "owner/maintenance", title: "Maintenance Requests", cat: "roles", label: "Owner" },
+    { file: "buyer/index", title: "Buyer Overview", cat: "roles", label: "Buyer" },
+    { file: "buyer/saved-properties", title: "Saved Properties", cat: "roles", label: "Buyer" },
+    { file: "buyer/saved-searches", title: "Saved Searches", cat: "roles", label: "Buyer" },
+    { file: "buyer/tours", title: "My Tours", cat: "roles", label: "Buyer" },
+    { file: "buyer/offers", title: "My Offers", cat: "roles", label: "Buyer" },
+    { file: "buyer/applications", title: "My Applications", cat: "roles", label: "Buyer" }
   ];
-  var CAT_LABEL = { property: "Property", dashboard: "Dashboard", company: "Company", blog: "Blog", auth: "Utility" };
+  var CAT_LABEL = { property: "Property", dashboard: "Dashboard", roles: "Role Dashboard", company: "Company", blog: "Blog", auth: "Utility" };
 
   var grid = $("#lpPageGrid");
   if (grid) {
@@ -57,9 +107,9 @@
       return (
         '<article class="lp-page" data-cat="' + p.cat + '" data-reveal="fade-up" data-delay="' + (i % 4) * 80 + '">' +
         '<a class="lp-page-shot" href="../' + p.file + '.html" target="_blank" rel="noopener" aria-label="Open ' + p.title + ' page">' +
-        '<img src="assets/img/screens/' + p.file + '.jpg" alt="' + p.title + ' page preview" loading="lazy">' +
+        '<img src="assets/img/screens/' + p.file.replace("/", "-") + '.jpg" alt="' + p.title + ' page preview" loading="lazy">' +
         "</a>" +
-        '<div class="lp-page-meta"><h3>' + p.title + "</h3><span>" + CAT_LABEL[p.cat] + "</span></div>" +
+        '<div class="lp-page-meta"><h3>' + p.title + "</h3><span>" + (p.label || CAT_LABEL[p.cat]) + "</span></div>" +
         "</article>"
       );
     }).join("");

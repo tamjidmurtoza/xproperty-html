@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Subscriptions &amp; Packages in your Xproperty admin dashboard.">
     <meta name="keywords" content="subscriptions and packages, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/subscriptions.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Subscriptions &amp; Packages - Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Subscriptions &amp; Packages in your Xproperty admin dashboard.">
+    <meta property="og:url" content="https://example.com/admin/subscriptions.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Subscriptions &amp; Packages - Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Subscriptions &amp; Packages in your Xproperty admin dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
   <!-- Site Admin dashboard · Subscriptions & Packages. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -89,6 +105,12 @@
                   <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
                 </ul>
               </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
               <li class="cs_has_submenu">
                 <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
                   <i class="cs_menu_icon fa-solid fa-users"></i>
@@ -102,9 +124,43 @@
                 </ul>
               </li>
               <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog-posts.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li>
+                <a href="support-tickets.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Business</span></li>
@@ -115,9 +171,33 @@
                 </a>
               </li>
               <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
                 <a href="financials.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
                   <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="listing-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
                 </a>
               </li>
               <li>
@@ -149,7 +229,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -171,38 +251,38 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">8 properties waiting for approval</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
                         <span class="d-block cs_fs_14">Just now</span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">12 new users signed up today</span>
-                        <span class="d-block cs_fs_14">30 min ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">Invoice #INV-2041 paid ($49)</span>
-                        <span class="d-block cs_fs_14">2 hours ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
                       </span>
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -229,7 +309,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -324,13 +404,13 @@
               <div class="row cs_gap_y_24">
                 <div class="col-lg-4">
                   <div class="cs_plan_card">
-                    <span class="cs_plan_tag cs_status_badge cs_status_info">412 subscribers</span>
+                    <span class="cs_plan_tag cs_status_badge cs_status_info"><bdi>412 subscribers</bdi></span>
                     <h3 class="cs_fs_20 cs_semibold mb-0">Basic</h3>
-                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold">$0<small> / month</small></p>
+                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold"><bdi>$0<small> / month</small></bdi></p>
                     <p class="cs_fs_14 mb-0">For owners listing a few homes.</p>
                     <ul class="cs_plan_features">
-                      <li><i class="fa-solid fa-check"></i>10 active listings</li>
-                      <li><i class="fa-solid fa-check"></i>10 photos per listing</li>
+                      <li><i class="fa-solid fa-check"></i><bdi>10 active listings</bdi></li>
+                      <li><i class="fa-solid fa-check"></i><bdi>10 photos per listing</bdi></li>
                       <li><i class="fa-solid fa-check"></i>Email support</li>
                       <li class="cs_disabled"><i class="fa-solid fa-xmark"></i>Featured listings</li>
                       <li class="cs_disabled"><i class="fa-solid fa-xmark"></i>Lead analytics</li>
@@ -340,14 +420,14 @@
                 </div>
                 <div class="col-lg-4">
                   <div class="cs_plan_card">
-                    <span class="cs_plan_tag cs_status_badge cs_status_info">684 subscribers</span>
+                    <span class="cs_plan_tag cs_status_badge cs_status_info"><bdi>684 subscribers</bdi></span>
                     <h3 class="cs_fs_20 cs_semibold mb-0">Premium</h3>
-                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold">$49<small> / month</small></p>
+                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold"><bdi>$49<small> / month</small></bdi></p>
                     <p class="cs_fs_14 mb-0">For busy agents growing their pipeline.</p>
                     <ul class="cs_plan_features">
-                      <li><i class="fa-solid fa-check"></i>50 active listings</li>
-                      <li><i class="fa-solid fa-check"></i>30 photos per listing</li>
-                      <li><i class="fa-solid fa-check"></i>5 featured listings</li>
+                      <li><i class="fa-solid fa-check"></i><bdi>50 active listings</bdi></li>
+                      <li><i class="fa-solid fa-check"></i><bdi>30 photos per listing</bdi></li>
+                      <li><i class="fa-solid fa-check"></i><bdi>5 featured listings</bdi></li>
                       <li><i class="fa-solid fa-check"></i>Lead analytics</li>
                       <li class="cs_disabled"><i class="fa-solid fa-xmark"></i>Priority support</li>
                     </ul>
@@ -356,14 +436,14 @@
                 </div>
                 <div class="col-lg-4">
                   <div class="cs_plan_card">
-                    <span class="cs_plan_tag cs_status_badge cs_status_info">88 subscribers</span>
+                    <span class="cs_plan_tag cs_status_badge cs_status_info"><bdi>88 subscribers</bdi></span>
                     <h3 class="cs_fs_20 cs_semibold mb-0">Enterprise</h3>
-                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold">$149<small> / month</small></p>
+                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold"><bdi>$149<small> / month</small></bdi></p>
                     <p class="cs_fs_14 mb-0">For agencies with full teams.</p>
                     <ul class="cs_plan_features">
                       <li><i class="fa-solid fa-check"></i>Unlimited listings</li>
                       <li><i class="fa-solid fa-check"></i>Unlimited photos</li>
-                      <li><i class="fa-solid fa-check"></i>20 featured listings</li>
+                      <li><i class="fa-solid fa-check"></i><bdi>20 featured listings</bdi></li>
                       <li><i class="fa-solid fa-check"></i>Team accounts</li>
                       <li><i class="fa-solid fa-check"></i>Priority support</li>
                     </ul>
@@ -399,7 +479,7 @@
                 <tbody>
                   <tr>
                     <td><div class="cs_table_user">
-                        <img src="../assets/img/team-img-5.jpg" alt="">
+                        <img src="../assets/img/team-img-5.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h3>
                           <p class="cs_fs_14 mb-0">Agent</p>
@@ -414,7 +494,7 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_user">
-                        <img src="../assets/img/avatar-1.jpg" alt="">
+                        <img src="../assets/img/avatar-1.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks</h3>
                           <p class="cs_fs_14 mb-0">Agent</p>
@@ -429,7 +509,7 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_user">
-                        <img src="../assets/img/avatar-4.jpg" alt="">
+                        <img src="../assets/img/avatar-4.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Ethan Wilson</h3>
                           <p class="cs_fs_14 mb-0">Agent</p>
@@ -444,7 +524,7 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_user">
-                        <img src="../assets/img/avatar-7.jpg" alt="">
+                        <img src="../assets/img/avatar-7.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Taylor Reed</h3>
                           <p class="cs_fs_14 mb-0">Owner</p>
@@ -459,7 +539,7 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_user">
-                        <img src="../assets/img/avatar-3.jpg" alt="">
+                        <img src="../assets/img/avatar-3.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h3>
                           <p class="cs_fs_14 mb-0">Owner</p>
@@ -500,7 +580,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

@@ -1,8 +1,6 @@
-/*===============================================================
- 18. Property and Property Details
-=================================================================*/
+/* 18. Property and Property Details */
 .cs_flor_diagram {
-  background-color: #1d1d1d; // plan.svg is white line art, so keep it dark in both modes
+  background-color: #1d1d1d;
   border-radius: 10px;
 
   img {
@@ -26,9 +24,7 @@
   }
 }
 
-/*=======================================================
- Property Gallery
-=========================================================*/
+/* Property Gallery */
 .cs_gallery_item {
   display: flex;
   width: 696px;
@@ -149,9 +145,7 @@
   }
 }
 
-/*=======================================================
- Single Property Apartment 
-=========================================================*/
+/* Single Property Apartment */
 .cs_apartment_item {
   display: flex;
   align-items: center;
@@ -245,9 +239,7 @@
   }
 }
 
-/*=======================================================
- Property Explore Section
- ========================================================*/
+/* Property Explore Section */
 .cs_explore_list {
   li {
     padding-block: 0 30px;
@@ -321,9 +313,7 @@
   }
 }
 
-/*=======================================================
- Property Details
- ========================================================*/
+/* Property Details */
 .cs_property_details {
   .cs_property_header {
     display: flex;
@@ -427,7 +417,8 @@
     }
   }
 
-  .cs_location_map iframe {
+  .cs_location_map iframe,
+  .cs_location_map .cs_leaflet_map .leaflet-tile-pane {
     filter: brightness(120%) grayscale(0.8);
   }
 
@@ -609,5 +600,1685 @@
         margin-top: 0;
       }
     }
+  }
+}
+
+/* Property Search: price range slider */
+.cs_range_slider {
+  height: 24px;
+  position: relative;
+
+  .cs_range_track {
+    height: 4px;
+    background-color: var(--gray-color);
+    position: absolute;
+    top: 50%;
+    inset-inline: 0;
+    transform: translateY(-50%);
+  }
+
+  .cs_range_fill {
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+  }
+
+  input[type="range"] {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: none;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::-webkit-slider-runnable-track {
+      background: transparent;
+    }
+
+    &::-moz-range-track {
+      background: transparent;
+    }
+
+    &::-webkit-slider-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+      background-color: var(--white-color);
+      box-shadow: 0px 2px 8px 0px rgba(29, 29, 29, 0.2);
+      cursor: grab;
+      pointer-events: auto;
+      transition: transform 0.2s ease;
+      -webkit-appearance: none;
+    }
+
+    &::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+      background-color: var(--white-color);
+      box-shadow: 0px 2px 8px 0px rgba(29, 29, 29, 0.2);
+      cursor: grab;
+      pointer-events: auto;
+    }
+
+    &:active::-webkit-slider-thumb {
+      cursor: grabbing;
+      transform: scale(1.15);
+    }
+
+    &:focus-visible {
+      outline: 0;
+
+      &::-webkit-slider-thumb {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      &::-moz-range-thumb {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+/* Property Search: sort, grid / list view, empty state */
+.cs_property_list_actions {
+  display: flex;
+  align-items: center;
+  gap: 15px 20px;
+  flex-wrap: wrap;
+}
+
+.cs_view_toggle {
+  display: flex;
+  gap: 8px;
+}
+
+/* Save Search */
+.cs_save_search_wrap {
+  position: relative;
+}
+
+.cs_save_search_btn {
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  font-size: 15px;
+  color: var(--primary-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+.cs_save_search_panel {
+  width: 320px;
+  padding: 22px;
+  border: 1px solid var(--gray-color);
+  box-shadow: 0px 10px 40px 0px rgba(29, 29, 29, 0.15);
+  position: absolute;
+  top: calc(100% + 10px);
+  inset-inline-end: 0;
+  z-index: 30;
+
+  label[for="ssName"] {
+    display: block;
+  }
+
+  .cs_form_field {
+    width: 100%;
+  }
+
+  @media (max-width: 575px) {
+    width: min(320px, calc(100vw - 30px));
+    inset-inline-end: auto;
+    inset-inline-start: 0;
+  }
+}
+
+.cs_ss_freq {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+
+  label {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  span {
+    display: block;
+    padding: 7px 4px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  input:checked+span {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  input:focus-visible+span {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+}
+
+.cs_ss_btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.cs_ss_cancel {
+  padding: 0;
+  color: var(--secondary-color);
+  background: none;
+  border: 0;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.cs_ss_done_icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 12px;
+  font-size: 20px;
+  color: #fff;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.cs_view_btn {
+  width: 45px;
+  height: 45px;
+  font-size: 16px;
+  color: var(--secondary-color);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+.cs_listing_grid.cs_list_view {
+  >.cs_listing_item {
+    width: 100%;
+  }
+
+  .cs_card.cs_style_1 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .cs_card_thumbnail {
+      width: 45%;
+      height: 280px;
+      flex: none;
+      margin-bottom: 0;
+    }
+
+    .cs_card_content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cs_property_info {
+      flex-wrap: wrap;
+    }
+
+    >.cs_save_btn,
+    >.cs_compare_btn {
+      inset-inline-end: auto;
+      inset-inline-start: calc(45% - 55px);
+    }
+
+    >.cs_save_btn~.cs_compare_btn {
+      inset-inline-start: calc(45% - 103px);
+    }
+  }
+
+  @media (max-width: 575px) {
+    .cs_card.cs_style_1 {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 17px;
+
+      .cs_card_thumbnail {
+        width: 100%;
+        height: 260px;
+      }
+
+      >.cs_save_btn,
+      >.cs_compare_btn {
+        inset-inline-start: auto;
+        inset-inline-end: 15px;
+      }
+
+      >.cs_save_btn~.cs_compare_btn {
+        inset-inline-end: 63px;
+      }
+    }
+  }
+}
+
+.cs_listing_empty_in {
+  padding: 60px 30px;
+
+  .cs_listing_empty_icon {
+    width: 70px;
+    height: 70px;
+    margin-inline: auto;
+    font-size: 26px;
+    box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.07);
+  }
+
+  p {
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  @media (max-width: 575px) {
+    padding: 40px 20px;
+  }
+}
+
+.cs_sidebar.cs_style_1 .cs_filter_reset {
+  margin-top: 24px;
+}
+
+.cs_pagination_box .cs_pagination_arrow.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cs_advanced_search_modal {
+  .cs_advanced_search_content:has(.cs_advanced_search_footer) .cs_advanced_search_items {
+    height: calc(100vh - 330px);
+  }
+
+  .cs_advanced_search_footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    padding: 30px 50px 0;
+    border-top: 1px solid var(--gray-color);
+
+    @media (max-width: 991px) {
+      padding: 24px 20px 0;
+    }
+  }
+}
+
+/* Half-Map Listing (property-listing-map.html) */
+.cs_map_listing_in {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cs_map_listing_content {
+  width: 58%;
+  padding: 40px 40px 0;
+
+  .cs_card.cs_style_1 .cs_card_thumbnail {
+    height: 250px;
+  }
+}
+
+.cs_map_listing_map {
+  width: 42%;
+  height: calc(100vh - 80px);
+  position: sticky;
+  top: 80px;
+}
+
+.cs_map_filter {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.6fr) auto;
+  align-items: end;
+  gap: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+
+  label,
+  .cs_map_filter_label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+
+  .cs_range_values {
+    margin-inline-start: 4px;
+    font-weight: 400;
+    color: var(--secondary-color);
+  }
+
+  .ts-control {
+    padding: 8px 15px;
+    font-size: 16px;
+    line-height: 1.7em;
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    border-radius: 10px;
+    background-color: var(--white-color);
+
+    &::after {
+      content: "\f078";
+      font-size: 10px;
+      font-weight: 900;
+      font-family: "Font Awesome 6 Free";
+      position: absolute;
+      inset-inline-end: 15px;
+    }
+
+    input {
+      min-width: auto !important;
+    }
+  }
+
+  .cs_range_slider {
+    height: 45px;
+  }
+
+  .cs_filter_reset {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+
+  @media (max-width: 1599px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    .cs_map_filter_price {
+      grid-column: auto / span 2;
+    }
+  }
+
+  @media (max-width: 575px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    .cs_map_filter_price {
+      grid-column: auto / span 1;
+    }
+  }
+}
+
+.cs_map_search_toggle label {
+  color: var(--primary-color);
+}
+
+.cs_property_map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  direction: ltr;
+  font-family: var(--secondary-font);
+  background-color: var(--gray3-color);
+
+  .leaflet-tile-pane {
+    filter: grayscale(0.4) contrast(0.95);
+  }
+
+  .leaflet-bar {
+    border: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+
+    a {
+      width: 38px;
+      height: 38px;
+      line-height: 38px;
+      color: var(--primary-color);
+      background-color: var(--white-color);
+      border-color: var(--border-color);
+
+      &:hover {
+        background-color: var(--gray3-color);
+      }
+    }
+  }
+
+  .leaflet-control-attribution {
+    color: var(--secondary-color);
+    background-color: var(--white-color);
+    opacity: 0.85;
+
+    a {
+      color: var(--primary-color);
+    }
+  }
+
+  .leaflet-cluster-anim .leaflet-marker-icon,
+  .leaflet-cluster-anim .leaflet-marker-shadow {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+  }
+
+  .leaflet-cluster-spider-leg {
+    transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
+  }
+}
+
+.cs_leaflet_map {
+  position: relative;
+  z-index: 0;
+  direction: ltr;
+  font-family: var(--secondary-font);
+  background-color: var(--gray3-color);
+  overflow: hidden;
+
+  .leaflet-bar {
+    border: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+
+    a {
+      color: var(--primary-color);
+      background-color: var(--white-color);
+      border-color: var(--border-color);
+    }
+  }
+
+  .leaflet-popup-content-wrapper,
+  .leaflet-popup-tip {
+    color: var(--secondary-color);
+    background-color: var(--white-color);
+  }
+
+  .leaflet-popup-content {
+    margin: 12px 16px;
+    line-height: 1.5em;
+
+    strong {
+      display: block;
+      font-family: var(--primary-font);
+      font-size: 16px;
+      color: var(--primary-color);
+    }
+  }
+}
+
+.cs_map_pin {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--accent-color);
+  border: 3px solid #fff;
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0px 6px 16px 0px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, calc(-100% - 6px)) rotate(-45deg);
+
+  i {
+    transform: rotate(45deg);
+  }
+}
+
+.cs_map_marker_wrap {
+  background: none;
+  border: 0;
+}
+
+.cs_map_marker {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4em;
+  white-space: nowrap;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, calc(-100% - 8px));
+  transform-origin: 50% 100%;
+  transition: all 0.25s ease;
+
+  &::after {
+    content: "";
+    border: 6px solid transparent;
+    border-top-color: var(--primary-color);
+    border-bottom: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: inherit;
+  }
+}
+
+.cs_map_marker_wrap:hover .cs_map_marker,
+.cs_map_marker_wrap.cs_active .cs_map_marker {
+  color: #fff;
+  background-color: var(--accent-color);
+  transform: translate(-50%, calc(-100% - 8px)) scale(1.1);
+
+  &::after {
+    border-top-color: var(--accent-color);
+  }
+}
+
+.cs_map_cluster {
+  background: none;
+
+  span {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-family: var(--primary-font);
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: var(--accent-color);
+    box-shadow: 0 0 0 6px rgba(0, 204, 97, 0.25);
+    transition: all 0.25s ease;
+  }
+
+  &.cs_active span {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    box-shadow: 0 0 0 6px rgba(29, 29, 29, 0.2);
+  }
+}
+
+.cs_map_popup {
+  .leaflet-popup-content-wrapper {
+    padding: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: var(--white-color);
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.18);
+  }
+
+  .leaflet-popup-content {
+    width: 250px !important;
+    margin: 0;
+    line-height: 1.5em;
+  }
+
+  .leaflet-popup-tip {
+    background-color: var(--white-color);
+  }
+}
+
+.leaflet-container a.cs_map_popup_card {
+  display: block;
+  color: var(--secondary-color);
+
+  .cs_map_popup_thumb {
+    display: block;
+    height: 140px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .cs_map_popup_price {
+    padding: 4px 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1d1d1d;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 10px;
+    inset-inline-start: 10px;
+
+    small {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+
+  .cs_map_popup_body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 12px 14px 14px;
+  }
+
+  .cs_map_popup_title {
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+  .cs_map_popup_address,
+  .cs_map_popup_meta {
+    font-size: 13px;
+  }
+
+  &:hover .cs_map_popup_title {
+    color: var(--accent-color);
+  }
+}
+
+@media (max-width: 1399px) {
+  .cs_map_listing_content {
+    width: 55%;
+    padding-inline: 30px;
+  }
+
+  .cs_map_listing_map {
+    width: 45%;
+  }
+}
+
+@media (max-width: 1199px) {
+  .cs_map_listing_in {
+    flex-direction: column;
+  }
+
+  .cs_map_listing_content {
+    width: 100%;
+    padding: 30px 15px 0;
+  }
+
+  .cs_map_listing_map {
+    width: 100%;
+    height: 420px;
+    position: relative;
+    top: 0;
+    order: -1;
+  }
+}
+
+/* Price history (property-details.html) */
+.cs_price_history_svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+
+  .cs_grid_line {
+    stroke: var(--gray-color);
+    stroke-dasharray: 4 4;
+  }
+
+  .cs_axis_label {
+    font-size: 12px;
+    fill: var(--secondary-color);
+    font-family: var(--secondary-font);
+  }
+
+  .cs_price_line {
+    fill: none;
+    stroke: var(--accent-color);
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+  }
+
+  .cs_price_dot {
+    fill: var(--white-color);
+    stroke: var(--accent-color);
+    stroke-width: 2.5;
+  }
+}
+
+.cs_price_history_table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 12px 14px;
+    text-align: start;
+    border-bottom: 1px solid var(--gray-color);
+  }
+
+  th {
+    font-family: var(--primary-font);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .cs_change {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+
+    i {
+      font-size: 12px;
+    }
+
+    &.cs_down {
+      color: var(--danger-color);
+    }
+
+    &.cs_up {
+      color: var(--accent-color);
+    }
+  }
+}
+
+/* Property reviews (property-details.html + dashboard reviews) */
+.cs_reviews_overview {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 24px 40px;
+
+  .cs_rating_score {
+    margin-bottom: 8px;
+  }
+
+  .cs_rating {
+    width: 120px;
+  }
+
+  .cs_rating_bars {
+    margin: 0;
+  }
+
+  @media (max-width: 575px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cs_review_list {
+  .cs_review_initials {
+    width: 52px;
+    height: 52px;
+    flex: none;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-radius: 50%;
+  }
+
+  .cs_status_badge {
+    font-size: 12px;
+  }
+}
+
+.cs_property_reviews .cs_review_list {
+  margin-bottom: 30px;
+}
+
+.cs_review_form {
+  padding: 28px;
+
+  .row {
+    margin-top: 16px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 22px 15px;
+  }
+}
+
+// Star picker: inputs come 5 → 1 so "label ~ label" lights the lower stars 
+.cs_star_input {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  label {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--border-color);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  label:hover,
+  label:hover~label,
+  input:checked~label {
+    color: var(--accent-color);
+  }
+
+  label:hover {
+    transform: scale(1.12);
+  }
+
+  input:focus-visible+label {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+.cs_reply_form {
+  margin-top: 14px;
+  margin-inline-start: 66px;
+
+  textarea {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 575px) {
+    margin-inline-start: 0;
+  }
+}
+
+.cs_reply_btns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Property video tour + Recently Viewed */
+.cs_property_video_thumb {
+  height: 380px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  >img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.25);
+  }
+
+  .cs_player_btn {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 575px) {
+    height: 240px;
+
+    .cs_player_btn.cs_style_3 {
+      width: 70px;
+      height: 70px;
+    }
+  }
+}
+
+.cs_property_video_label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background-color: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  inset-inline-start: 16px;
+  bottom: 16px;
+  z-index: 2;
+}
+
+.cs_property_video_btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Mortgage Calculator page (mortgage-calculator.html) */
+.cs_mortgage_summary {
+  padding: 35px;
+
+  @media (min-width: 992px) {
+    position: sticky;
+    top: 110px;
+  }
+
+  @media (max-width: 575px) {
+    padding: 30px 20px;
+  }
+}
+
+.cs_mortgage_chart {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.cs_mortgage_donut {
+  width: 140px;
+  height: 140px;
+  flex: none;
+  margin-inline: auto;
+  transform: scaleX(var(--cs-dir));
+
+  circle {
+    transition: stroke-dasharray 0.4s ease, stroke-dashoffset 0.4s ease;
+  }
+
+  .cs_donut_track {
+    stroke: var(--gray-color);
+  }
+
+  .cs_donut_principal {
+    stroke: var(--primary-color);
+  }
+
+  .cs_donut_tax {
+    stroke: var(--accent-color);
+  }
+
+  .cs_donut_insurance {
+    stroke: #f5a623;
+  }
+}
+
+.cs_mortgage_legend,
+.cs_mortgage_totals {
+  flex: 1;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 0;
+    font-size: 15px;
+  }
+}
+
+.cs_mortgage_legend li {
+  span:first-child {
+    padding-inline-start: 18px;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      position: absolute;
+      inset-inline-start: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.cs_principal span:first-child::before {
+    background-color: var(--primary-color);
+  }
+
+  &.cs_tax span:first-child::before {
+    background-color: var(--accent-color);
+  }
+
+  &.cs_insurance span:first-child::before {
+    background-color: #f5a623;
+  }
+}
+
+.cs_mortgage_totals {
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.cs_mortgage_tip_list {
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    span {
+      width: 22px;
+      height: 22px;
+      flex: none;
+      margin-top: 3px;
+      font-size: 11px;
+    }
+  }
+}
+
+/* Compare Bar (floating) and Compare Page */
+@keyframes csCompareShake {
+
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+
+  25% {
+    transform: translate(calc(-50% - 8px), 0);
+  }
+
+  75% {
+    transform: translate(calc(-50% + 8px), 0);
+  }
+}
+
+.cs_compare_bar {
+  width: min(calc(100% - 30px), 760px);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px;
+  padding-inline-end: 20px;
+  border: 1px solid var(--gray-color);
+  box-shadow: 0px 10px 40px 0px rgba(29, 29, 29, 0.18);
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, calc(100% + 40px));
+  transition: all 0.4s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+  }
+
+  &.cs_shake {
+    animation: csCompareShake 0.45s ease;
+  }
+
+  .cs_compare_bar_items {
+    display: flex;
+    gap: 8px;
+    flex: none;
+  }
+
+  .cs_compare_bar_item {
+    width: 56px;
+    height: 56px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    &.cs_empty {
+      color: var(--border-color);
+      border: 1px dashed var(--border-color);
+    }
+  }
+
+  .cs_compare_bar_remove {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    font-size: 10px;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border: 0;
+    position: absolute;
+    top: -6px;
+    inset-inline-end: -6px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #fff;
+      background-color: var(--danger-color);
+    }
+  }
+
+  .cs_compare_bar_info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cs_compare_bar_title {
+    font-size: 18px;
+  }
+
+  .cs_compare_bar_note {
+    font-size: 14px;
+    line-height: 1.5em;
+  }
+
+  .cs_compare_bar_btns {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .cs_compare_clear {
+    padding: 0;
+    background: none;
+    border: 0;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .cs_btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 767px) {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px;
+    bottom: 12px;
+
+    .cs_compare_bar_info {
+      width: 100%;
+      flex: none;
+      order: -1;
+    }
+
+    .cs_compare_bar_title {
+      display: none;
+    }
+
+    .cs_compare_bar_item {
+      width: 46px;
+      height: 46px;
+    }
+
+    .cs_compare_bar_btns {
+      margin-inline-start: auto;
+    }
+
+    .cs_btn {
+      padding: 8px 16px;
+    }
+  }
+}
+
+body.cs_compare_open .cs_scrollup_btn {
+  bottom: 120px;
+
+  @media (max-width: 767px) {
+    bottom: 150px;
+  }
+}
+
+.cs_compare_header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px 30px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.cs_compare_tools {
+  display: flex;
+  align-items: center;
+  gap: 15px 25px;
+  flex-wrap: wrap;
+
+  .cs_custom_checkbox label {
+    color: var(--primary-color);
+  }
+}
+
+.cs_compare_table_wrap {
+  overflow-x: auto;
+  border: 1px solid var(--gray-color);
+}
+
+.cs_compare_table {
+  width: 100%;
+  min-width: 760px;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 16px 20px;
+    text-align: start;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--gray-color);
+  }
+
+  thead th {
+    padding-block: 24px;
+    vertical-align: top;
+  }
+
+  td {
+    color: var(--secondary-color);
+
+    small {
+      font-size: 14px;
+    }
+  }
+
+  .cs_compare_label {
+    width: 200px;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+    position: sticky;
+    inset-inline-start: 0;
+    z-index: 1;
+  }
+
+  thead .cs_compare_label {
+    vertical-align: middle;
+  }
+
+  tbody tr:last-child>* {
+    border-bottom: 0;
+  }
+
+  tbody tr:not(.cs_compare_group):hover td {
+    background-color: var(--gray3-color);
+  }
+
+  .cs_compare_group th {
+    font-size: 18px;
+    background-color: var(--gray2-color);
+  }
+
+  .cs_best {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .cs_best_badge {
+    display: inline-block;
+    margin-inline-start: 8px;
+    padding: 1px 8px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6em;
+    color: #fff;
+    vertical-align: middle;
+  }
+
+  .cs_compare_yes {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+    color: var(--accent-color);
+    background-color: rgba(0, 204, 97, 0.12);
+  }
+
+  .cs_compare_no {
+    color: var(--border-color);
+  }
+
+  @media (max-width: 767px) {
+    min-width: 640px;
+
+    .cs_compare_label {
+      width: 140px;
+    }
+
+    th,
+    td {
+      padding: 14px;
+    }
+  }
+}
+
+.cs_compare_property {
+  position: relative;
+
+  .cs_compare_thumb {
+    display: block;
+    height: 160px;
+    margin-bottom: 14px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+
+  h3 a:hover {
+    color: var(--accent-color);
+  }
+
+  .cs_compare_address {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5em;
+  }
+
+  .cs_compare_remove {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: 13px;
+    border: 0;
+    box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.15);
+    position: absolute;
+    top: 10px;
+    inset-inline-end: 10px;
+    z-index: 2;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #fff;
+      background-color: var(--danger-color);
+    }
+  }
+}
+
+.cs_compare_add {
+  height: 160px;
+  gap: 10px;
+  justify-content: center;
+  font-weight: 500;
+  color: var(--secondary-color);
+  border: 1px dashed var(--border-color);
+  transition: all 0.3s ease;
+
+  span {
+    width: 44px;
+    height: 44px;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+  }
+
+  &:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+}
+
+/* Property Details: save / compare / share / print, tour type */
+.cs_property_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.cs_property_action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  font-size: 15px;
+  line-height: 1.6em;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  i {
+    font-size: 14px;
+  }
+
+  &:hover,
+  &.active,
+  &[aria-expanded="true"] {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  &.cs_save_toggle.active i {
+    color: var(--danger-color);
+  }
+}
+
+.cs_share_dropdown {
+  min-width: 200px;
+  padding: 8px;
+  border: 1px solid var(--gray-color);
+  box-shadow: 0px 10px 40px 0px rgba(29, 29, 29, 0.15);
+  position: absolute;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.25s ease;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    font-size: 15px;
+    color: var(--secondary-color);
+    border-radius: 8px;
+
+    i {
+      width: 18px;
+      text-align: center;
+      color: var(--primary-color);
+    }
+
+    &:hover {
+      color: var(--primary-color);
+      background-color: var(--gray3-color);
+    }
+  }
+}
+
+.cs_share_wrap.active .cs_share_dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.cs_tour_type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.cs_tour_type_option {
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 10px;
+    font-size: 15px;
+    color: var(--secondary-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  input:checked+span {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  input:focus-visible+span {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+  }
+}
+
+.cs_print_header {
+  display: none;
+}
+
+/* Print / PDF brochure (property details) */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  .cs_dark {
+    --white-color: #fff;
+    --primary-color: #1D1D1D;
+    --secondary-color: #434343;
+    --border-color: #D1D1D1;
+    --gray-color: #E2E2E2;
+    --gray2-color: #F9F4F1;
+    --gray3-color: #FAFAFA;
+    --gray4-color: #FFFAF6;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: #fff;
+  }
+
+  .cs_site_header,
+  .cs_footer,
+  .cs_preloader,
+  .cs_scrollup_btn,
+  .cs_dir_switch,
+  .cs_settings_panel,
+  .cs_compare_bar,
+  .flatpickr-calendar,
+  .cs_property_actions,
+  .cs_slider_arrows,
+  .cs_sidebar.cs_style_3,
+  .cs_location_map,
+  .cs_property_mortgage,
+  section.cs_slider,
+  [class*="cs_height_"] {
+    display: none !important;
+  }
+
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .cs_print_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #D1D1D1;
+
+    img {
+      height: 36px;
+    }
+  }
+
+  .cs_property_details {
+    .slick-slide:not(.slick-current) {
+      display: none !important;
+    }
+
+    .slick-track {
+      width: 100% !important;
+      transform: none !important;
+    }
+
+    .slick-current {
+      width: 100% !important;
+    }
+
+    .cs_property_banner img {
+      max-height: 380px;
+    }
+  }
+
+  .cs_property_details~.row>[class*="col-"] {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .cs_single_property_content>div {
+    break-inside: avoid;
   }
 }

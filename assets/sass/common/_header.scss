@@ -1,6 +1,4 @@
-/*===================================================================
-  05. Header Sections
-=====================================================================*/
+/* 05. Header Sections */
 .cs_site_header.cs_style_1 {
   position: fixed;
   top: 0;
@@ -95,6 +93,10 @@
     justify-content: flex-end;
     gap: 25px;
 
+    .cs_login {
+      white-space: nowrap;
+    }
+
     .cs_login:hover {
       opacity: 0.75;
     }
@@ -108,7 +110,7 @@
     border-bottom: 1px solid var(--gray-color);
   }
 
-  /* =============== Language Switcher Styling ================ */
+  /* Language Switcher Styling */
 
   .cs_language_select {
     cursor: pointer;
@@ -242,6 +244,16 @@
 
         &:hover {
           opacity: 0.75;
+        }
+      }
+
+      &.cs_dropdown_2col {
+        width: 440px;
+        columns: 2;
+        column-gap: 0;
+
+        li {
+          break-inside: avoid;
         }
       }
     }
@@ -442,7 +454,6 @@
             transform: translate(calc(-50% * var(--cs-dir)), -50%) rotate(45deg);
           }
 
-
           &::after {
             transform: translate(calc(-50% * var(--cs-dir)), -50%)rotate(-45deg);
           }
@@ -563,9 +574,7 @@
   }
 }
 
-/*====================================================
-   Mobile Menu Styling
-  ======================================================*/
+/* Mobile Menu Styling */
 .cs_menu_toggle {
   width: 30px;
   height: 27px;

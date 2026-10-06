@@ -3,11 +3,25 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="description" content="Evergreen Estates: 3-bed, 3-bath renovated home with gallery, video tour, floor plan, reviews, mortgage calculator and tour booking.">
     <meta name="keywords" content="property details, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/property-details.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Property Details | Xproperty">
+    <meta property="og:description" content="Evergreen Estates: 3-bed, 3-bath renovated home with gallery, video tour, floor plan, reviews, mortgage calculator and tour booking.">
+    <meta property="og:url" content="https://example.com/property-details.html">
+    <meta property="og:image" content="https://example.com/assets/img/property-banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Property Details | Xproperty">
+    <meta name="twitter:description" content="Evergreen Estates: 3-bed, 3-bath renovated home with gallery, video tour, floor plan, reviews, mortgage calculator and tour booking.">
+    <meta name="twitter:image" content="https://example.com/assets/img/property-banner.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
     <!-- All CSS Files -->
    <link rel="stylesheet" href="assets/css/aos.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -18,12 +32,83 @@
     <link rel="stylesheet" href="assets/css/odometer.min.css">
     <link rel="stylesheet" href="assets/css/lightgallery.min.css">
     <link rel="stylesheet" href="assets/css/slick.min.css">
-    <link rel="stylesheet" href="assets/css/data-tables.min.css">
+    <link rel="stylesheet" href="assets/css/leaflet.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Site Title -->
     <title>Property Details | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+    <!-- Structured data for search engines: replace example.com with your domain -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateListing",
+          "name": "Evergreen Estates",
+          "url": "https://example.com/property-details.html",
+          "image": "https://example.com/assets/img/property-banner.jpg",
+          "datePosted": "2025-02-02",
+          "description": "Renovated 3-bed, 3-bath apartment with a large kitchen, finished lower level and private backyard.",
+          "offers": {
+            "@type": "Offer",
+            "price": 70000,
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "about": {
+            "@type": "Apartment",
+            "numberOfRooms": 3,
+            "numberOfBedrooms": 3,
+            "numberOfBathroomsTotal": 3,
+            "floorSize": {
+              "@type": "QuantitativeValue",
+              "value": 1200,
+              "unitCode": "FTK"
+            },
+            "yearBuilt": 2010,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "217 Horizon Heights Road",
+              "addressLocality": "New York",
+              "addressRegion": "NY",
+              "postalCode": "10022",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.7587,
+              "longitude": -73.9707
+            }
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Property Listing",
+              "item": "https://example.com/property-listing-buy.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Evergreen Estates",
+              "item": "https://example.com/property-details.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +132,7 @@
                 <div class="cs_nav_list_wrap">
                   <ul class="cs_nav_list cs_mp_0">
                     <li class="menu-item-has-children">
-                      <a href="">Home</a>
+                      <a href="index.html">Home</a>
                       <ul class="cs_dropdown_list cs_mp_0">
                         <li><a href="index.html" aria-label="Nav link">PROPERTY SEARCH</a></li>
                         <li><a href="home-v2.html" aria-label="Nav link">LUXURY HOMES</a></li>
@@ -62,36 +147,52 @@
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Listing</a>
+                      <a href="property-listing-buy.html">Listing</a>
                       <ul class="cs_dropdown_list cs_mp_0">
-                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a>
-                        </li>
-                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a>
-                        </li>
-                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a>
-                        </li>
+                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a></li>
+                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a></li>
+                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a></li>
+                        <li><a href="property-listing-map.html" aria-label="Nav link">Property Listing Map</a></li>
                         <li><a href="property-details.html" aria-label="Nav link">Property Details</a></li>
+                        <li><a href="projects.html" aria-label="Nav link">New Developments</a></li>
+                        <li><a href="open-house.html" aria-label="Nav link">Open House</a></li>
+                        <li><a href="neighborhoods.html" aria-label="Nav link">Neighborhood Guides</a></li>
+                        <li><a href="compare.html" aria-label="Nav link">Compare Properties</a></li>
+                        <li><a href="mortgage-calculator.html" aria-label="Nav link">Mortgage Calculator</a></li>
                       </ul>
                     </li>
                     <li><a href="about-us.html" aria-label="Nav link">About</a></li>
                     <li class="menu-item-has-children">
-                      <a href="">Pages</a>
-                     <ul class="cs_dropdown_list cs_mp_0">
+                      <a href="#" role="button" aria-haspopup="true">Pages</a>
+                     <ul class="cs_dropdown_list cs_dropdown_2col cs_mp_0">
+                        <li><a href="services.html" aria-label="Nav link">Our Services</a></li>
+                        <li><a href="sell-property.html" aria-label="Nav link">Sell Your Property</a></li>
+                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="agent-details.html" aria-label="Nav link">Agent Profile</a></li>
+                        <li><a href="agencies.html" aria-label="Nav link">Our Agencies</a></li>
+                        <li><a href="agency-details.html" aria-label="Nav link">Agency Profile</a></li>
+                        <li><a href="testimonials.html" aria-label="Nav link">Testimonials</a></li>
+                        <li><a href="careers.html" aria-label="Nav link">Careers</a></li>
                         <li><a href="pricing.html" aria-label="Nav link">Pricing Plan</a></li>
-                        <li><a href="faq.html" aria-label="Nav link">FAQ & Answer</a></li>
-                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
-                        <li><a href="terms-condition.html" aria-label="Nav link">Terms & Condition</a></li>
+                        <li><a href="faq.html" aria-label="Nav link">FAQ &amp; Answer</a></li>
                         <li><a href="gallery.html" aria-label="Nav link">Property Gallery</a></li>
+                        <li><a href="rental-application.html" aria-label="Nav link">Rental Application</a></li>
                         <li><a href="register.html" aria-label="Nav link">User Register</a></li>
                         <li><a href="login.html" aria-label="Nav link">User Login</a></li>
-                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="verify-email.html" aria-label="Nav link">Verify Email</a></li>
+                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html" aria-label="Nav link">Terms &amp; Condition</a></li>
                         <li><a href="error.html" aria-label="Nav link">Error Page</a></li>
+                        <li><a href="coming-soon.html" aria-label="Nav link">Coming Soon</a></li>
+                        <li><a href="maintenance.html" aria-label="Nav link">Maintenance</a></li>
                       </ul>
                     </li>
                     <li class="menu-item-has-children">
-                      <a href="">Blog</a>
+                      <a href="blog.html">Blog</a>
                       <ul class="cs_dropdown_list cs_mp_0">
                         <li><a href="blog.html" aria-label="Nav link">Our Articles</a></li>
+                        <li><a href="blog-grid.html" aria-label="Nav link">Blog Grid</a></li>
+                        <li><a href="blog-list.html" aria-label="Nav link">Blog List</a></li>
                         <li><a href="blog-details.html" aria-label="Nav link">Article Details</a></li>
                       </ul>
                     </li>
@@ -148,23 +249,43 @@
     </header>
     <!-- End Header Section -->
     <!-- Start Property Details Section -->
-    <div class="cs_height_100 cs_height_lg_80"></div>
+    <div id="main-content" class="cs_height_100 cs_height_lg_80"></div>
     <div class="cs_height_60 cs_height_lg_60"></div>
     <div class="container">
-      <div class="cs_property_details">
+      <div class="cs_property_details" data-id="evergreen-estates" data-title="Evergreen Estates" data-url="property-details.html" data-image="assets/img/property-banner.jpg" data-address="217 Horizon Heights Road, Silverstone Towers, NY 10022" data-type="apartment" data-offer="buy" data-location="new-york" data-price="70000" data-beds="3" data-baths="3" data-area="1200" data-garage="1" data-year="2010" data-amenities="garden,swimmingPool,fitnessCenter,parking,security,elevator">
+        <div class="cs_print_header">
+          <img src="assets/img/logo.svg" alt="Logo">
+          <p class="mb-0">info@xproperty.com &middot; (214) 446-6668</p>
+        </div>
         <div class="cs_property_header cs_mb_40">
           <div class="cs_property_header_left">
-            <h2 class="cs_fs_49 cs_mb_3" data-aos="fade-down">Evergreen Estates</h2>
+            <h2 class="cs_fs_49 cs_mb_3" data-aos="fade-down" data-share-title>Evergreen Estates</h2>
             <div class="cs_property_location_text">
               <span>
-                <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
               </span>
-              <span class="mb-0">217 Horizon Heights Road, Silverstone Towers, NY 10022</span>
+              <span class="mb-0"><bdi>217 Horizon Heights Road, Silverstone Towers, NY 10022</bdi></span>
+            </div>
+            <div class="cs_property_actions">
+              <button type="button" class="cs_property_action cs_save_toggle cs_primary_color cs_radius_20" aria-pressed="false"><i class="fa-regular fa-heart"></i><span data-save-label>Save</span></button>
+              <button type="button" class="cs_property_action cs_primary_color cs_radius_20" data-compare-toggle aria-pressed="false"><i class="fa-solid fa-code-compare"></i><span data-compare-label>Compare</span></button>
+              <div class="cs_share_wrap position-relative">
+                <button type="button" class="cs_property_action cs_share_toggle cs_primary_color cs_radius_20" aria-expanded="false" aria-haspopup="true"><i class="fa-solid fa-share-nodes"></i><span>Share</span></button>
+                <div class="cs_share_dropdown cs_white_bg cs_radius_10">
+                  <a href="#" data-share="facebook"><i class="fa-brands fa-facebook-f"></i><span>Facebook</span></a>
+                  <a href="#" data-share="x"><i class="fa-brands fa-x-twitter"></i><span>X (Twitter)</span></a>
+                  <a href="#" data-share="linkedin"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
+                  <a href="#" data-share="whatsapp"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+                  <a href="#" data-share="email"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
+                  <a href="#" data-share-copy><i class="fa-solid fa-link"></i><span>Copy Link</span></a>
+                </div>
+              </div>
+              <button type="button" class="cs_property_action cs_primary_color cs_radius_20" data-print><i class="fa-solid fa-print"></i><span>Print</span></button>
             </div>
           </div>
           <div class="cs_property_header_right">
             <h3 class="cs_property_price cs_fs_39 cs_mb_8" data-aos="zoom-in">$70,000</h3>
-            <p class="cs_fs_20 cs_semibold mb-0">Est. Payment $3154/mo*</p>
+            <p class="cs_fs_20 cs_semibold mb-0">Est. Payment <bdi>$3154/mo</bdi>*</p>
           </div>
         </div>
         <div class="cs_slider cs_style_1 cs_slider_gap_24 cs_hover_show_arrows position-relative">
@@ -186,10 +307,10 @@
             <div class="cs_height_0 cs_height_lg_40"></div>
             <div class="cs_slider_arrows cs_style_1 cs_type_2">
               <div class="cs_left_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
               <div class="cs_right_arrow slick-arrow">
-                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="Arrow icon">
+                <img src="assets/img/icons/ui/arrow-right-long.svg" class="cs_svg_icon cs_icon_arrow_right_long" alt="">
               </div>
             </div>
           </div>
@@ -198,7 +319,7 @@
           <li>
             <div class="cs_center_column text-center">
               <span class="cs_iconbox_icon cs_center cs_mb_5 cs_primary_color">
-                <img src="assets/img/icons/ui/house-building.svg" class="cs_svg_icon cs_icon_house_building" alt="Property type icon">
+                <img src="assets/img/icons/ui/house-building.svg" class="cs_svg_icon cs_icon_house_building" alt="">
               </span>
               <h2 class="cs_fs_20 cs_semibold mb-0">Appartment</h2>
             </div>
@@ -206,7 +327,7 @@
           <li>
             <div class="cs_center_column text-center">
               <span class="cs_iconbox_icon cs_center cs_mb_5 cs_primary_color">
-                <img src="assets/img/icons/ui/builder.svg" class="cs_svg_icon cs_icon_builder" alt="Built year icon">
+                <img src="assets/img/icons/ui/builder.svg" class="cs_svg_icon cs_icon_builder" alt="">
               </span>
               <h2 class="cs_fs_20 cs_semibold mb-0">Built in 2010</h2>
             </div>
@@ -214,33 +335,33 @@
           <li>
             <div class="cs_center_column text-center">
               <span class="cs_iconbox_icon cs_center cs_mb_5 cs_primary_color">
-                <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
               </span>
-              <h2 class="cs_fs_20 cs_semibold mb-0">3 Beds</h2>
+              <h2 class="cs_fs_20 cs_semibold mb-0"><bdi>3 Beds</bdi></h2>
             </div>
           </li>
           <li>
             <div class="cs_center_column text-center">
               <span class="cs_iconbox_icon cs_center cs_mb_5 cs_primary_color">
-                <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
               </span>
-              <h2 class="cs_fs_20 cs_semibold mb-0">3 Baths</h2>
+              <h2 class="cs_fs_20 cs_semibold mb-0"><bdi>3 Baths</bdi></h2>
             </div>
           </li>
           <li>
             <div class="cs_center_column text-center">
               <span class="cs_iconbox_icon cs_center cs_mb_5 cs_primary_color">
-                <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
               </span>
-              <h2 class="cs_fs_20 cs_semibold mb-0">1200 Sqft</h2>
+              <h2 class="cs_fs_20 cs_semibold mb-0"><bdi>1200 Sqft</bdi></h2>
             </div>
           </li>
           <li>
             <div class="cs_center_column text-center">
               <span class="cs_iconbox_icon cs_center cs_mb_5 cs_primary_color">
-                <img src="assets/img/icons/ui/garage-car.svg" class="cs_svg_icon cs_icon_garage_car" alt="Garage icon">
+                <img src="assets/img/icons/ui/garage-car.svg" class="cs_svg_icon cs_icon_garage_car" alt="">
               </span>
-              <h2 class="cs_fs_20 cs_semibold mb-0">1 Garage</h2>
+              <h2 class="cs_fs_20 cs_semibold mb-0"><bdi>1 Garage</bdi></h2>
             </div>
           </li>
         </ul>
@@ -248,9 +369,19 @@
       <div class="row cs_gap_y_40">
         <div class="col-lg-4 order-lg-2">
           <aside class="cs_sidebar cs_style_3">
-            <div class="cs_sidebar_widget cs_gray3_bg cs_radius_20">
+            <div class="cs_sidebar_widget cs_gray3_bg cs_radius_20" id="scheduleTour">
               <h3 class="cs_widget_title cs_fs_25 cs_semibold cs_mb_20 text-center" data-aos="zoom-in">Schedule A Tour</h3>
-              <form class="cs_contact_form">
+              <form class="cs_contact_form" action="#" data-auth-form="tour" data-success="Tour request sent! The agent will confirm your time by email." novalidate>
+                <div class="cs_tour_type" role="radiogroup" aria-label="Tour type">
+                  <label class="cs_tour_type_option">
+                    <input type="radio" name="tour-type" value="in-person" checked>
+                    <span class="cs_radius_10"><i class="fa-solid fa-person-walking"></i>In Person</span>
+                  </label>
+                  <label class="cs_tour_type_option">
+                    <input type="radio" name="tour-type" value="video-chat">
+                    <span class="cs_radius_10"><i class="fa-solid fa-video"></i>Video Chat</span>
+                  </label>
+                </div>
                 <div class="cs_input_wrapper">
                   <input type="text" name="name" class="cs_form_field cs_radius_10" placeholder="Write your name" autocomplete="given-name" required>
                 </div>
@@ -258,7 +389,7 @@
                   <input type="email" name="email" class="cs_form_field cs_radius_10" placeholder="Enter email address" autocomplete="email" required>
                 </div>
                 <div class="cs_input_wrapper">
-                  <input type="number" name="phone" class="cs_form_field cs_radius_10" placeholder="Phone number">
+                  <input type="tel" name="phone" autocomplete="tel" class="cs_form_field cs_radius_10" placeholder="Phone number">
                 </div>
                 <div class="cs_input_wrapper position-relative">
                   <input type="text" class="cs_form_field cs_time cs_radius_10" id="timePicker" name="time" placeholder="Select Time">
@@ -278,7 +409,7 @@
             </div>
             <div class="cs_sidebar_widget cs_gray3_bg cs_radius_20">
               <h3 class="cs_widget_title cs_fs_25 cs_semibold cs_mb_20 text-center" data-aos="zoom-in">Contact Agent</h3>
-              <form class="cs_contact_form">
+              <form class="cs_contact_form" action="#" data-auth-form="contact" data-success="Message sent! The agent will reply shortly." novalidate>
                 <div class="cs_input_wrapper">
                   <input type="text" name="name" class="cs_form_field cs_radius_10" placeholder="Write your name" autocomplete="given-name" required>
                 </div>
@@ -286,7 +417,7 @@
                   <input type="email" name="email" class="cs_form_field cs_radius_10" placeholder="Enter email address" autocomplete="email" required>
                 </div>
                 <div class="cs_input_wrapper">
-                  <input type="number" name="phone" class="cs_form_field cs_radius_10" placeholder="Phone number">
+                  <input type="tel" name="phone" autocomplete="tel" class="cs_form_field cs_radius_10" placeholder="Phone number">
                 </div>
                 <div class="cs_input_wrapper position-relative">
                   <input type="text" class="cs_form_field cs_time cs_radius_10" id="timePicker2" name="time" placeholder="Select Time">
@@ -315,16 +446,16 @@
             <div class="cs_property_location">
               <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Location</h3>
               <div class="cs_location_map cs_radius_10 cs_mb_10">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193596.26002815957!2d-74.14431223360049!3d40.69728463486588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1752470530444!5m2!1sen!2sbd"></iframe>
+                <div class="cs_leaflet_map" data-map data-lat="40.7587" data-lng="-73.9707" data-zoom="15" data-title="Evergreen Estates" data-address="217 Horizon Heights Road, Silverstone Towers, NY 10022" aria-label="Map of Evergreen Estates"></div>
               </div>
-              <p class="mb-0"><span class="cs_semibold cs_primary_color">Full Address:</span> 217 Horizon Heights Road, Silverstone Towers, NY 10022</p>
+              <p class="mb-0"><span class="cs_semibold cs_primary_color">Full Address:</span> <bdi>217 Horizon Heights Road, Silverstone Towers, NY 10022</bdi></p>
             </div>
             <div class="cs_property_info">
               <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Property Details</h3>
               <ul class="cs_property_info_list cs_mp_0">
                 <li>
                   <span class="cs_semibold">Publish date:</span>
-                  <span>2-Feb-2025</span>
+                  <span><bdi>2-Feb-2025</bdi></span>
                 </li>
                 <li>
                   <span class="cs_semibold">Basement:</span>
@@ -409,23 +540,53 @@
               <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Floor Plan</h3>
               <div class="cs_tabs">
                 <ul class="cs_tab_links cs_style_5 cs_mb_25 list-unstyled">
-                  <li class="active"><a href="#floor-1">1st Floor</a></li>
-                  <li><a href="#floor-2">2nd Floor</a></li>
+                  <li class="active"><a href="#floor-1"><bdi>1st Floor</bdi></a></li>
+                  <li><a href="#floor-2"><bdi>2nd Floor</bdi></a></li>
                 </ul>
                 <div class="cs_floor_content_wrapper cs_center cs_gray3_bg cs_radius_5 overflow-hidden">
                   <div class="cs_tabs_body position-relative">
                     <div class="cs_tab active" id="floor-1">
                       <div class="cs_floor_diagram" data-aos="zoom-in">
-                        <img src="assets/img/floor-plan-2.png" alt="Floor diagram">
+                        <img src="assets/img/floor-plan-2.png" alt="Floor diagram" loading="lazy">
                       </div>
                     </div>
                     <div class="cs_tab" id="floor-2">
                       <div class="cs_floor_diagram">
-                        <img src="assets/img/floor-plan.png" alt="Floor diagram">
+                        <img src="assets/img/floor-plan.png" alt="Floor diagram" loading="lazy">
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div class="cs_property_video">
+              <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Video &amp; Virtual Tour</h3>
+              <div class="cs_property_video_thumb cs_radius_10 cs_mb_20">
+                <img src="assets/img/property-banner.jpg" alt="Video tour of Evergreen Estates">
+                <a href="https://www.youtube.com/embed/1PhiMWjAwcA" aria-label="Play the video tour" class="cs_player_btn cs_style_3 cs_center cs_white_bg cs_radius_100 cs_video_open">
+                <img src="assets/img/icons/play-2.svg" alt="">
+                </a>
+                <span class="cs_property_video_label cs_fs_14 cs_white_color cs_radius_20"><i class="fa-solid fa-video"></i><bdi>3:42 &middot; Full walkthrough</bdi></span>
+              </div>
+              <div class="cs_property_video_btns">
+                <a href="https://www.youtube.com/embed/1PhiMWjAwcA" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10 cs_video_open"><span><i class="fa-solid fa-play"></i></span><span>Watch Video Tour</span></a>
+                <a href="#scheduleTour" class="cs_btn cs_style_1 cs_primary_color cs_medium cs_primary_font cs_radius_10" data-tour-type="video-chat"><span><i class="fa-solid fa-video"></i></span><span>Book a Live Video Tour</span></a>
+              </div>
+            </div>
+            <div class="cs_property_price_history">
+              <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Price History</h3>
+              <div class="cs_price_history_chart cs_mb_20" data-price-history role="img" aria-label="Line chart of the listing price over time"></div>
+              <div class="overflow-x-auto">
+                <table class="cs_price_history_table" data-price-table>
+                  <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Price</th><th scope="col">Change</th></tr></thead>
+                  <tbody>
+                    <tr data-date="2019-06-14" data-price="58000"><td></td><td>Sold</td><td></td><td></td></tr>
+                    <tr data-date="2025-02-02" data-price="76000"><td></td><td>Listed for sale</td><td></td><td></td></tr>
+                    <tr data-date="2025-04-15" data-price="74000"><td></td><td>Price change</td><td></td><td></td></tr>
+                    <tr data-date="2025-07-01" data-price="72500"><td></td><td>Price change</td><td></td><td></td></tr>
+                    <tr data-date="2025-10-05" data-price="70000"><td></td><td>Price change</td><td></td><td></td></tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="cs_property_financial_info">
@@ -433,7 +594,7 @@
               <ul class="cs_financial_info_list cs_mp_0">
                 <li>
                   <span class="cs_semibold">Price per square foot:</span>
-                  <span>$131/sqft</span>
+                  <span><bdi>$131/sqft</bdi></span>
                 </li>
                 <li>
                   <span class="cs_semibold">Tax assessed value:</span>
@@ -515,7 +676,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Willard Frances E School</h3>
@@ -524,7 +685,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Conwell Russell Middle School</h3>
@@ -537,7 +698,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Crescent Hill University</h3>
@@ -546,7 +707,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Westford State University</h3>
@@ -559,7 +720,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">St. Alora General Hospital</h3>
@@ -568,7 +729,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Lakeside Memorial Hospital</h3>
@@ -581,7 +742,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Maplewood Commons Mall</h3>
@@ -590,7 +751,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">The Suncrest Galleria</h3>
@@ -603,7 +764,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Crescent Grove Water Park</h3>
@@ -612,7 +773,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Lakeview Greenway Park</h3>
@@ -625,7 +786,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Lakeview Regional Airport</h3>
@@ -634,7 +795,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Crescent Bay International</h3>
@@ -647,7 +808,7 @@
                     <div class="cs_nearby_items">
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Crestmark Financial Hub</h3>
@@ -656,7 +817,7 @@
                       </div>
                       <div class="cs_iconbox cs_style_6">
                         <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
-                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="School icon">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
                         </span>
                         <div class="cs_iconbox_info">
                           <h3 class="cs_fs_20 cs_semibold mb-0">Everfirst National Bank</h3>
@@ -667,6 +828,91 @@
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="cs_property_reviews" id="reviews" data-property-reviews data-property-id="evergreen-estates" data-property-title="Evergreen Estates">
+              <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Reviews</h3>
+              <div class="cs_reviews_overview cs_mb_30">
+                <div class="cs_rating_summary">
+                  <p class="cs_rating_score cs_primary_font cs_semibold cs_primary_color" data-review-average>0.0</p>
+                  <div class="cs_rating" data-rating="0" data-review-stars><div class="cs_rating_percentage"></div></div>
+                  <p class="cs_fs_14 mb-0">Based on <span data-review-count>0</span> reviews</p>
+                </div>
+                <ul class="cs_rating_bars" data-review-bars>
+                  <li data-star="5"><span><bdi>5 star</bdi></span><div class="cs_progress"><span style="width: 0%"></span></div><span>0</span></li>
+                  <li data-star="4"><span><bdi>4 star</bdi></span><div class="cs_progress"><span style="width: 0%"></span></div><span>0</span></li>
+                  <li data-star="3"><span><bdi>3 star</bdi></span><div class="cs_progress"><span style="width: 0%"></span></div><span>0</span></li>
+                  <li data-star="2"><span><bdi>2 star</bdi></span><div class="cs_progress"><span style="width: 0%"></span></div><span>0</span></li>
+                  <li data-star="1"><span><bdi>1 star</bdi></span><div class="cs_progress"><span style="width: 0%"></span></div><span>0</span></li>
+                </ul>
+              </div>
+              <ul class="cs_review_list cs_mb_30" data-review-list>
+                <li class="cs_review_item" data-rating="5">
+                  <div class="cs_review_head">
+                    <img src="assets/img/avatar-1.jpg" alt="" loading="lazy">
+                    <div class="cs_review_head_info">
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Michael Williams</h4>
+                      <div class="cs_review_meta">
+                        <div class="cs_rating" data-rating="5"><div class="cs_rating_percentage"></div></div>
+                        <span>Sep 18, 2026</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mb-0">Bright, quiet and exactly as described. The renovated kitchen is even better in person, and the agent arranged a second viewing the same week.</p>
+                </li>
+                <li class="cs_review_item" data-rating="5">
+                  <div class="cs_review_head">
+                    <img src="assets/img/avatar-2.jpg" alt="" loading="lazy">
+                    <div class="cs_review_head_info">
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Sarah Thomas</h4>
+                      <div class="cs_review_meta">
+                        <div class="cs_rating" data-rating="5"><div class="cs_rating_percentage"></div></div>
+                        <span>Aug 30, 2026</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mb-0">Great location five minutes from the highway with plenty of cafes nearby. The finished lower level is a real bonus.</p>
+                </li>
+                <li class="cs_review_item" data-rating="4">
+                  <div class="cs_review_head">
+                    <img src="assets/img/avatar-3.jpg" alt="" loading="lazy">
+                    <div class="cs_review_head_info">
+                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">David Lee</h4>
+                      <div class="cs_review_meta">
+                        <div class="cs_rating" data-rating="4"><div class="cs_rating_percentage"></div></div>
+                        <span>Aug 12, 2026</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="mb-0">Solid renovation and a lovely backyard. Street parking can be tight in the evenings, but overall a very good home.</p>
+                </li>
+              </ul>
+              <form class="cs_review_form cs_gray3_bg cs_radius_20" data-review-form novalidate>
+                <h4 class="cs_fs_20 cs_semibold cs_mb_5">Write a Review</h4>
+                <p class="cs_fs_14 cs_mb_15">Visited or lived here? Share your experience to help other buyers.</p>
+                <p class="cs_fs_14 cs_medium cs_primary_color cs_mb_5" id="ratingLabel">Your rating</p>
+                <div class="cs_star_input" role="radiogroup" aria-labelledby="ratingLabel">
+                  <input type="radio" name="rating" id="rate5" value="5"><label for="rate5" aria-label="5 stars"><i class="fa-solid fa-star"></i></label>
+                  <input type="radio" name="rating" id="rate4" value="4"><label for="rate4" aria-label="4 stars"><i class="fa-solid fa-star"></i></label>
+                  <input type="radio" name="rating" id="rate3" value="3"><label for="rate3" aria-label="3 stars"><i class="fa-solid fa-star"></i></label>
+                  <input type="radio" name="rating" id="rate2" value="2"><label for="rate2" aria-label="2 stars"><i class="fa-solid fa-star"></i></label>
+                  <input type="radio" name="rating" id="rate1" value="1"><label for="rate1" aria-label="1 star"><i class="fa-solid fa-star"></i></label>
+                </div>
+                <span class="cs_field_error" data-star-error hidden>Please choose a rating.</span>
+                <div class="row cs_gap_y_24">
+                  <div class="col-md-6">
+                    <div class="cs_input_wrapper"><input type="text" name="name" class="cs_form_field cs_radius_10 w-100" placeholder="Your name" autocomplete="name" required></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="cs_input_wrapper"><input type="email" name="email" class="cs_form_field cs_radius_10 w-100" placeholder="Email (not published)" autocomplete="email" required></div>
+                  </div>
+                  <div class="col-12">
+                    <div class="cs_input_wrapper"><textarea name="review" class="cs_form_field cs_radius_10 w-100" rows="4" placeholder="What did you like? What should buyers know?" minlength="20" required></textarea></div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10"><span>Submit Review</span></button>
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="cs_property_mortgage">
               <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Mortgage Calculator</h3>
@@ -708,6 +954,18 @@
       </div>
     </div>
     <!-- End Property Details Section -->
+    <!-- Start Recently Viewed Section -->
+    <section class="cs_recent_section" data-recently-viewed data-exclude="evergreen-estates" hidden>
+      <div class="cs_height_100 cs_height_lg_70"></div>
+      <div class="container">
+        <div class="cs_recent_head">
+          <h2 class="cs_fs_31 cs_semibold mb-0">Recently Viewed</h2>
+          <button type="button" class="cs_text_btn cs_style_1 cs_primary_color cs_medium cs_primary_font" data-recent-clear>Clear history</button>
+        </div>
+        <div class="cs_recent_list" data-recent-list></div>
+      </div>
+    </section>
+    <!-- End Recently Viewed Section -->
     <!-- Start Related Propert Section -->
     <section class="cs_slider cs_style_1 cs_slider_gap_24">
       <div class="cs_height_127 cs_height_lg_80"></div>
@@ -731,31 +989,33 @@
         <div class="cs_slider_container" data-autoplay="0" data-loop="1" data-speed="800" data-center="0" data-variable-width="0" data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="2" data-md-slides="2" data-lg-slides="3" data-add-slides="3">
           <div class="cs_slider_wrapper">
             <div class="cs_slide">
-              <div class="cs_card cs_style_1">
+              <div class="cs_card cs_style_1" data-id="buy-1" data-type="house" data-offer="buy" data-location="new-york" data-price="450000" data-beds="3" data-baths="2" data-area="1450" data-garage="1" data-year="2012" data-amenities="garden,parking,security">
+                <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+                <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
                 <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Property Image">
-                <img src="assets/img/property-img-4.jpg" class="cs_card_img_back" alt="Property Image">
-                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$50,000</span>
+                <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Golden Meadows" loading="lazy">
+                <img src="assets/img/property-img-4.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$450,000</span>
                 </a>
                 <div class="cs_card_content">
                   <ul class="cs_property_features cs_mb_23 list-unstyled">
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                       </span>
                       <span>Bed 3</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                       </span>
-                      <span>Bath 3</span>
+                      <span>Bath 2</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                       </span>
-                      <span>1200 Sqft</span>
+                      <span><bdi>1450 Sqft</bdi></span>
                     </li>
                   </ul>
                   <hr class="cs_mb_17 mt-0">
@@ -766,9 +1026,9 @@
                       </h3>
                       <div class="cs_property_location_text">
                         <span>
-                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                         </span>
-                        <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                        <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                       </div>
                     </div>
                     <div class="cs_property_view_btn">
@@ -781,31 +1041,33 @@
               </div>
             </div>
             <div class="cs_slide">
-              <div class="cs_card cs_style_1">
+              <div class="cs_card cs_style_1" data-id="buy-2" data-type="house" data-offer="buy" data-location="london" data-price="720000" data-beds="4" data-baths="3" data-area="2100" data-garage="2" data-year="2018" data-amenities="garden,swimmingPool,garage,parking">
+                <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+                <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
                 <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                <img src="assets/img/property-img-2.jpg" class="cs_card_img_front" alt="Property Image">
-                <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="Property Image">
-                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$70,000</span>
+                <img src="assets/img/property-img-2.jpg" class="cs_card_img_front" alt="Evergreen Estates" loading="lazy">
+                <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$720,000</span>
                 </a>
                 <div class="cs_card_content">
                   <ul class="cs_property_features cs_mb_23 list-unstyled">
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                       </span>
                       <span>Bed 4</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                       </span>
-                      <span>Bath 4</span>
+                      <span>Bath 3</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                       </span>
-                      <span>1300 Sqft</span>
+                      <span><bdi>2100 Sqft</bdi></span>
                     </li>
                   </ul>
                   <hr class="cs_mb_17 mt-0">
@@ -816,9 +1078,9 @@
                       </h3>
                       <div class="cs_property_location_text">
                         <span>
-                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                         </span>
-                        <p class="mb-0">217 Horizon Heights Road, Silverstone Towers, NY 10022</p>
+                        <p class="mb-0"><bdi>217 Horizon Heights Road, Silverstone Towers, NY 10022</bdi></p>
                       </div>
                     </div>
                     <div class="cs_property_view_btn">
@@ -831,31 +1093,33 @@
               </div>
             </div>
             <div class="cs_slide">
-              <div class="cs_card cs_style_1">
+              <div class="cs_card cs_style_1" data-id="buy-3" data-type="apartment" data-offer="buy" data-location="dubai" data-price="285000" data-beds="2" data-baths="1" data-area="980" data-garage="1" data-year="2015" data-amenities="elevator,fitnessCenter,security">
+                <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+                <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
                 <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                <img src="assets/img/property-img-3.jpg" class="cs_card_img_front" alt="Property Image">
-                <img src="assets/img/property-img-6.jpg" class="cs_card_img_back" alt="Property Image">
-                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$85,000</span>
+                <img src="assets/img/property-img-3.jpg" class="cs_card_img_front" alt="Maple Ridge Apartments" loading="lazy">
+                <img src="assets/img/property-img-6.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$285,000</span>
                 </a>
                 <div class="cs_card_content">
                   <ul class="cs_property_features cs_mb_23 list-unstyled">
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                       </span>
-                      <span>Bed 5</span>
+                      <span>Bed 2</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                       </span>
-                      <span>Bath 4</span>
+                      <span>Bath 1</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                       </span>
-                      <span>1500 Sqft</span>
+                      <span><bdi>980 Sqft</bdi></span>
                     </li>
                   </ul>
                   <hr class="cs_mb_17 mt-0">
@@ -866,9 +1130,9 @@
                       </h3>
                       <div class="cs_property_location_text">
                         <span>
-                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                         </span>
-                        <p class="mb-0">382 Blue Sky Boulevard, Oakwood Residences, CO 80202</p>
+                        <p class="mb-0"><bdi>382 Blue Sky Boulevard, Oakwood Residences, CO 80202</bdi></p>
                       </div>
                     </div>
                     <div class="cs_property_view_btn">
@@ -881,31 +1145,33 @@
               </div>
             </div>
             <div class="cs_slide">
-              <div class="cs_card cs_style_1">
+              <div class="cs_card cs_style_1" data-id="lakeside-manor" data-type="house" data-offer="buy" data-location="new-york" data-price="610000" data-beds="3" data-baths="2" data-area="1500" data-garage="1" data-year="2013" data-amenities="garden,parking,garage">
+                <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+                <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
                 <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
-                <img src="assets/img/property-img-4.jpg" class="cs_card_img_front" alt="Property Image">
-                <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="Property Image">
-                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$50,000</span>
+                <img src="assets/img/property-img-4.jpg" class="cs_card_img_front" alt="Lakeside Manor" loading="lazy">
+                <img src="assets/img/property-img-5.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute">$610,000</span>
                 </a>
                 <div class="cs_card_content">
                   <ul class="cs_property_features cs_mb_23 list-unstyled">
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="Bedroom icon">
+                        <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
                       </span>
                       <span>Bed 3</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="Bathroom icon">
+                        <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
                       </span>
-                      <span>Bath 3</span>
+                      <span>Bath 2</span>
                     </li>
                     <li>
                       <span class="cs_primary_color">
-                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="Area icon">
+                        <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
                       </span>
-                      <span>1200 Sqft</span>
+                      <span><bdi>1500 Sqft</bdi></span>
                     </li>
                   </ul>
                   <hr class="cs_mb_17 mt-0">
@@ -916,9 +1182,9 @@
                       </h3>
                       <div class="cs_property_location_text">
                         <span>
-                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                          <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                         </span>
-                        <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                        <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                       </div>
                     </div>
                     <div class="cs_property_view_btn">
@@ -989,19 +1255,19 @@
                 <ul class="cs_contact_list cs_gray_color cs_mp_0">
                   <li>
                     <span class="cs_contact_icon cs_center cs_radius_100 cs_white_color">
-                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="Location icon">
+                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
                     </span>
-                    <p class="mb-0">4325 Maplewood Drive, Evergreen Estates, CA 90210</p>
+                    <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
                   </li>
                   <li>
                     <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
-                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="Email icon">
+                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="">
                     </span>
                     <a href="mailto:info@xproperty.com" aria-label="Send Email link">info@xproperty.com</a>
                   </li>
                   <li>
                     <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
-                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="Phone icon">
+                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="">
                     </span>
                     <a href="tel:2144466668" aria-label="Make a call link">(214) 446-6668</a>
                   </li>
@@ -1013,7 +1279,7 @@
         <div class="cs_footer_bottom cs_gray_color">
           <div class="cs_footer_text">&copy; 2025 Xproperty. All right reserved</div>
           <div class="cs_footer_bottom_menu">
-            <span class="cs_currency">$USD</span>
+            <span class="cs_currency"><select name="currency" class="cs_currency_select" aria-label="Currency" data-currency-select><option value="USD">$ USD</option><option value="EUR">&euro; EUR</option><option value="GBP">&pound; GBP</option><option value="AED">AED</option></select></span>
             <div class="cs_social_links">
               <a href="#" aria-label="Social link">Facebook</a>
               <a href="#" aria-label="Social link">LinkedIn</a>
@@ -1036,8 +1302,8 @@
     <script src="assets/js/flatpickr.min.js"></script>
     <script src="assets/js/lenis.min.js"></script>
     <script src="assets/js/light-gallery.min.js"></script>
-    <script src="assets/js/data-tables.min.js"></script>
     <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/leaflet.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

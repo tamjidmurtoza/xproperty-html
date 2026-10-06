@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Messages with agents, owners and buyers in your Xproperty admin dashboard.">
+    <meta name="keywords" content="messages, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/messages.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Messages - Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Messages with agents, owners and buyers in your Xproperty admin dashboard.">
+    <meta property="og:url" content="https://example.com/admin/messages.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Messages - Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Messages with agents, owners and buyers in your Xproperty admin dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Messages - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Site Admin dashboard · Messages. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog-posts.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li class="active">
+                <a href="messages.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li>
+                <a href="support-tickets.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
+                <a href="financials.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="listing-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Messages</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Messages</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Start Messages -->
+          <div class="cs_dashboard_card cs_chat">
+            <div class="cs_chat_sidebar">
+              <div class="cs_chat_sidebar_head">
+                <form action="#" class="cs_topbar_search" role="search">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input name="search_conversations" type="search" placeholder="Search conversations" aria-label="Search conversations">
+                </form>
+              </div>
+              <ul class="cs_chat_list" data-lenis-prevent>
+                <li>
+                  <button type="button" class="cs_chat_item active" aria-current="true">
+                    <img src="../assets/img/team-img-5.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Amanda Jones</span>
+                        <span class="cs_fs_14"><bdi>10:24</bdi></span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>Great, thank you for the quick review!</span>
+                        <span class="cs_menu_badge">2</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cs_chat_item">
+                    <img src="../assets/img/avatar-3.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Michael Chen</span>
+                        <span class="cs_fs_14"><bdi>09:48</bdi></span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>I was charged twice for the renewal.</span>
+                        <span class="cs_menu_badge">1</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cs_chat_item">
+                    <img src="../assets/img/avatar-2.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Sophia Turner</span>
+                        <span class="cs_fs_14"><bdi>09:10</bdi></span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>I reported a listing that looks like a scam.</span>
+                        <span class="cs_menu_badge">1</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cs_chat_item">
+                    <img src="../assets/img/avatar-1.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Daniel Brooks</span>
+                        <span class="cs_fs_14">Yesterday</span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>Can you upgrade me to the Premium package?</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cs_chat_item">
+                    <img src="../assets/img/avatar-7.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Taylor Reed</span>
+                        <span class="cs_fs_14">Mon</span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>I uploaded my ownership documents again.</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cs_chat_item">
+                    <img src="../assets/img/avatar-4.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Ethan Wilson</span>
+                        <span class="cs_fs_14">Sun</span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>A buyer left a fake review on my profile.</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="cs_chat_item">
+                    <img src="../assets/img/avatar-6.jpg" alt="" loading="lazy">
+                    <span class="cs_chat_item_body">
+                      <span class="cs_chat_item_top">
+                        <span class="cs_chat_item_name cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Jordan Lee</span>
+                        <span class="cs_fs_14">Sep 28</span>
+                      </span>
+                      <span class="cs_chat_item_text cs_fs_14">
+                        <span>Thanks, the saved search alerts work now.</span>
+                      </span>
+                    </span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div class="cs_chat_main">
+              <div class="cs_chat_head">
+                <button type="button" class="cs_topbar_btn cs_chat_back" aria-label="Back to conversations"><i class="fa-solid fa-arrow-left"></i></button>
+                <img src="../assets/img/team-img-5.jpg" alt="" loading="lazy">
+                <div class="cs_chat_head_info">
+                  <h2 class="cs_chat_head_name cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h2>
+                  <p class="cs_fs_14 mb-0"><span class="cs_accent_color">&#9679;</span> Online</p>
+                </div>
+                <a href="user-management.html#agent" class="cs_topbar_btn" aria-label="View user profile"><i class="fa-regular fa-user"></i></a>
+                <button type="button" class="cs_topbar_btn" aria-label="More options"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+              </div>
+              <a href="property-approvals.html#pending" class="cs_chat_property">
+                <img src="../assets/img/property-img-4.jpg" alt="" loading="lazy">
+                <span>
+                  <span class="d-block cs_fs_14 cs_semibold cs_primary_color">East Tower Apartment</span>
+                  <span class="d-block cs_fs_14">Pending approval &middot; New York</span>
+                </span>
+              </a>
+              <div class="cs_chat_thread" data-lenis-prevent>
+                <span class="cs_chat_day">Today</span>
+                <div class="cs_chat_bubble">Hi Liam, I submitted East Tower Apartment for approval on Monday. Is anything missing?<time>09:52</time></div>
+                <div class="cs_chat_bubble cs_out">Hi Amanda! The listing looks great. We only need a floor plan and proof of the rental license before we can approve it.<time>10:05</time></div>
+                <div class="cs_chat_bubble">Done, I just uploaded both to the listing.<time>10:16</time></div>
+                <div class="cs_chat_bubble cs_out">Perfect, I can see them. I will approve it in the next hour and you will get an email once it is live.<time>10:20</time></div>
+                <div class="cs_chat_bubble">Great, thank you for the quick review!<time>10:24</time></div>
+              </div>
+              <form action="#" class="cs_chat_form">
+                <button type="button" class="cs_topbar_btn" aria-label="Attach file"><i class="fa-solid fa-paperclip"></i></button>
+                <input name="message" type="text" placeholder="Type a message..." aria-label="Message">
+                <button type="submit" class="cs_topbar_btn cs_chat_send" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+              </form>
+            </div>
+          </div>
+          <!-- End Messages -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

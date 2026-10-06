@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="See upcoming open houses by date, city and property type. Check times, prices and hosting agents, then RSVP for a visit.">
+    <meta name="keywords" content="open house, open house schedule, property viewing, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/open-house.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Open House Schedule | Xproperty">
+    <meta property="og:description" content="See upcoming open houses by date, city and property type. Check times, prices and hosting agents, then RSVP for a visit.">
+    <meta property="og:url" content="https://example.com/open-house.html">
+    <meta property="og:image" content="https://example.com/assets/img/property-img-19.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Open House Schedule | Xproperty">
+    <meta name="twitter:description" content="See upcoming open houses by date, city and property type. Check times, prices and hosting agents, then RSVP for a visit.">
+    <meta name="twitter:image" content="https://example.com/assets/img/property-img-19.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+   <link rel="stylesheet" href="assets/css/aos.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Site Title -->
+    <title>Open House Schedule | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://example.com/#organization",
+          "name": "Xproperty",
+          "url": "https://example.com/",
+          "logo": "https://example.com/assets/img/logo.svg"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://example.com/open-house.html#webpage",
+          "url": "https://example.com/open-house.html",
+          "name": "Open House Schedule",
+          "description": "See upcoming open houses by date, city and property type. Check times, prices and hosting agents, then RSVP for a visit.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://example.com/#website"
+          },
+          "publisher": {
+            "@id": "https://example.com/#organization"
+          },
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Beach View Villa",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "East Tower Apartment",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Golden Meadows",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Palm Grove Residence",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Maple Ridge Apartments",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Evergreen Estates",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 7,
+                "name": "Urban Oasis Palace",
+                "url": "https://example.com/property-details.html"
+              },
+              {
+                "@type": "ListItem",
+                "position": 8,
+                "name": "Coastal Retreat",
+                "url": "https://example.com/property-details.html"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Open House",
+              "item": "https://example.com/open-house.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Header Section -->
+    <header class="cs_site_header cs_style_1 cs_sticky_header cs_primary_color cs_fs_14 cs_medium cs_primary_font text-uppercase">
+      <div class="cs_header_main position-relative">
+        <div class="container">
+          <div class="cs_main_header_in">
+            <div class="cs_main_header_left">
+              <a href="index.html" aria-label="Home page link" class="cs_site_brand">
+              <img src="assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+              </a>
+            </div>
+            <div class="cs_main_header_center">
+              <div class="cs_nav">
+                <div class="cs_nav_list_wrap">
+                  <ul class="cs_nav_list cs_mp_0">
+                    <li class="menu-item-has-children">
+                      <a href="index.html">Home</a>
+                      <ul class="cs_dropdown_list cs_mp_0">
+                        <li><a href="index.html" aria-label="Nav link">PROPERTY SEARCH</a></li>
+                        <li><a href="home-v2.html" aria-label="Nav link">LUXURY HOMES</a></li>
+                        <li><a href="home-v3.html" aria-label="Nav link">REAL ESTATE AGENCY</a></li>
+                        <li><a href="home-v4.html" aria-label="Nav link">PROPERTY FINDER</a></li>
+                        <li><a href="home-v5.html" aria-label="Nav link">PROPERTY BROKER</a></li>
+                        <li><a href="home-v6.html" aria-label="Nav link">RENTAL HOMES</a></li>
+                        <li><a href="commercial-residence.html" aria-label="Nav link">COMMERCIAL RESIDENCE</a></li>
+                        <li><a href="apartment-complex.html" aria-label="Nav link">APARTMENT COMPLEX</a></li>
+                        <li><a href="single-property-v1.html" aria-label="Nav link">SINGLE PROPERTY V1</a></li>
+                        <li><a href="single-property-v2.html" aria-label="Nav link">SINGLE PROPERTY V2</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                      <a href="property-listing-buy.html">Listing</a>
+                      <ul class="cs_dropdown_list cs_mp_0">
+                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a></li>
+                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a></li>
+                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a></li>
+                        <li><a href="property-listing-map.html" aria-label="Nav link">Property Listing Map</a></li>
+                        <li><a href="property-details.html" aria-label="Nav link">Property Details</a></li>
+                        <li><a href="projects.html" aria-label="Nav link">New Developments</a></li>
+                        <li><a href="open-house.html" aria-label="Nav link">Open House</a></li>
+                        <li><a href="neighborhoods.html" aria-label="Nav link">Neighborhood Guides</a></li>
+                        <li><a href="compare.html" aria-label="Nav link">Compare Properties</a></li>
+                        <li><a href="mortgage-calculator.html" aria-label="Nav link">Mortgage Calculator</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="about-us.html" aria-label="Nav link">About</a></li>
+                    <li class="menu-item-has-children">
+                      <a href="#" role="button" aria-haspopup="true">Pages</a>
+                      <ul class="cs_dropdown_list cs_dropdown_2col cs_mp_0">
+                        <li><a href="services.html" aria-label="Nav link">Our Services</a></li>
+                        <li><a href="sell-property.html" aria-label="Nav link">Sell Your Property</a></li>
+                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="agent-details.html" aria-label="Nav link">Agent Profile</a></li>
+                        <li><a href="agencies.html" aria-label="Nav link">Our Agencies</a></li>
+                        <li><a href="agency-details.html" aria-label="Nav link">Agency Profile</a></li>
+                        <li><a href="testimonials.html" aria-label="Nav link">Testimonials</a></li>
+                        <li><a href="careers.html" aria-label="Nav link">Careers</a></li>
+                        <li><a href="pricing.html" aria-label="Nav link">Pricing Plan</a></li>
+                        <li><a href="faq.html" aria-label="Nav link">FAQ &amp; Answer</a></li>
+                        <li><a href="gallery.html" aria-label="Nav link">Property Gallery</a></li>
+                        <li><a href="rental-application.html" aria-label="Nav link">Rental Application</a></li>
+                        <li><a href="register.html" aria-label="Nav link">User Register</a></li>
+                        <li><a href="login.html" aria-label="Nav link">User Login</a></li>
+                        <li><a href="verify-email.html" aria-label="Nav link">Verify Email</a></li>
+                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html" aria-label="Nav link">Terms &amp; Condition</a></li>
+                        <li><a href="error.html" aria-label="Nav link">Error Page</a></li>
+                        <li><a href="coming-soon.html" aria-label="Nav link">Coming Soon</a></li>
+                        <li><a href="maintenance.html" aria-label="Nav link">Maintenance</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                      <a href="blog.html">Blog</a>
+                      <ul class="cs_dropdown_list cs_mp_0">
+                        <li><a href="blog.html" aria-label="Nav link">Our Articles</a></li>
+                        <li><a href="blog-grid.html" aria-label="Nav link">Blog Grid</a></li>
+                        <li><a href="blog-list.html" aria-label="Nav link">Blog List</a></li>
+                        <li><a href="blog-details.html" aria-label="Nav link">Article Details</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contact.html" aria-label="Nav link">Contact</a></li>
+                  </ul>
+                  <span class="cs_close_nav"></span>
+                </div>
+              </div>
+            </div>
+            <div class="cs_main_header_right">
+              <ul class="cs_right_nav_list cs_mp_0">
+                <li class="cs_language_select">
+                  <div class="cs_language_switcher">
+                    <button type="button" name="Language-button" class="flag-btn flag-icon flag-icon-us" data-lang="EN"></button>
+                  </div>
+                  <div class="cs_language_dropdown">
+                    <button name="Language-button" data-lang="EN">
+                    <span class="flag-btn flag-icon flag-icon-us"></span>
+                    <span>ENG</span>
+                    </button>
+                    <button data-lang="BN">
+                    <span class="flag-btn flag-icon flag-icon-bd"></span>
+                    <span>BAN</span>
+                    </button>
+                    <button name="Language-button" data-lang="ES">
+                    <span class="flag-btn flag-icon flag-icon-es"></span>
+                    <span>ESP</span>
+                    </button>
+                    <button name="Language-button" data-lang="AR">
+                    <span class="flag-btn flag-icon flag-icon-sa"></span>
+                    <span>ARB</span>
+                    </button>
+                    <button name="Language-button" data-lang="ZH">
+                    <span class="flag-btn flag-icon flag-icon-cn"></span>
+                    <span>ZHC</span>
+                    </button>
+                    <button name="Language-button" data-lang="DE">
+                    <span class="flag-btn flag-icon flag-icon-de"></span>
+                    <span>GER</span>
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <a href="login.html" aria-label="Login link" class="cs_login cs_fs_16 text-capitalize">Login</a>
+                </li>
+                <li>
+                  <a href="owner/submit-property.html" aria-label="Submit property page link" class="cs_btn cs_style_1 cs_primary_bg cs_fs_16 cs_white_color cs_radius_20 text-capitalize"><span>List Your Property</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header Section -->
+    <!-- Start Page Header Section -->
+    <section id="main-content" class="cs_page_header cs_style_1 cs_center cs_bg_filed" data-src="assets/img/page-heading.jpg">
+      <div class="container">
+        <div class="cs_page_header_content text-center">
+          <h1 class="cs_page_header_title cs_fs_49 mb-0" data-aos="fade-down">Open House Schedule</h1>
+          <ol class="breadcrumb cs_center mb-0">
+            <li class="breadcrumb-item"><a href="/" aria-label="Back to home button">Home</a></li>
+            <li class="breadcrumb-item active">Open House</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- End Page Header Section -->
+    <!-- Start Open House Section -->
+    <section>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+      <div class="container">
+        <div class="cs_listing_filter cs_gray3_bg cs_radius_20" data-aos="fade-up">
+          <form action="open-house.html" class="cs_listing_filter_form" role="search" aria-label="Filter open houses">
+            <div class="cs_input_wrapper">
+              <label for="datePicker">From</label>
+              <div class="cs_filter_field">
+                <input type="text" id="datePicker" name="from" class="cs_form_field" placeholder="Select date" autocomplete="off">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+            </div>
+            <div class="cs_input_wrapper">
+              <label for="datePicker2">To</label>
+              <div class="cs_filter_field">
+                <input type="text" id="datePicker2" name="to" class="cs_form_field" placeholder="Select date" autocomplete="off">
+                <i class="fa-solid fa-calendar-days"></i>
+              </div>
+            </div>
+            <div class="cs_input_wrapper">
+              <label for="openHouseCity">City</label>
+              <select class="tom_select" id="openHouseCity" name="city">
+                <option value="">All Cities</option>
+                <option value="new-york">New York</option>
+                <option value="miami">Miami</option>
+                <option value="orlando">Orlando</option>
+                <option value="tampa">Tampa</option>
+                <option value="los-angeles">Los Angeles</option>
+                <option value="austin">Austin</option>
+              </select>
+            </div>
+            <div class="cs_input_wrapper">
+              <label for="openHouseType">Property Type</label>
+              <select class="tom_select" id="openHouseType" name="type">
+                <option value="">All Types</option>
+                <option value="apartment">Apartment</option>
+                <option value="house">House</option>
+                <option value="villa">Villa</option>
+                <option value="townhouse">Townhouse</option>
+              </select>
+            </div>
+            <div class="cs_input_wrapper">
+              <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10">
+                <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                <span>Find Open Houses</span>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="cs_height_60 cs_height_lg_40"></div>
+        <div class="cs_section_heading cs_style_1 cs_type_1">
+          <div class="cs_section_heading_left">
+            <p class="cs_section_subtitle cs_mb_7">Walk in, no appointment needed</p>
+            <h2 class="cs_section_title cs_fs_39 mb-0" data-aos="fade-down">Upcoming Open Houses</h2>
+          </div>
+          <div class="cs_section_heading_right">
+            <p class="mb-0"><bdi>8 open houses in the next two weeks</bdi></p>
+          </div>
+        </div>
+        <div class="cs_height_50 cs_height_lg_40"></div>
+        <div class="cs_oh_day">
+          <div class="cs_oh_day_head">
+            <div class="cs_oh_day_title">
+              <span class="cs_iconbox_icon cs_oh_day_icon cs_center cs_primary_bg cs_white_color cs_radius_100"><i class="fa-regular fa-calendar"></i></span>
+              <div>
+                <p class="cs_fs_14 mb-0">This Weekend</p>
+                <h2 class="cs_fs_25 cs_semibold mb-0">Saturday, October 10, 2026</h2>
+              </div>
+            </div>
+            <span class="cs_medium"><bdi>3 open houses</bdi></span>
+          </div>
+          <div class="row cs_gap_y_30">
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="0">
+              <a href="property-details.html" aria-label="View Beach View Villa details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-19.jpg" class="cs_card_img_front" alt="Beach View Villa with pool deck" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$1,450,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>10</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 4</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>2,850 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Beach View Villa details">Beach View Villa</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>1820 Ocean Drive, Miami Beach, FL 33139</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sat, Oct 10</span><span><bdi>11:00 AM – 1:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/team-img-5.jpg" alt="Amanda Jones" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Amanda Jones</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Beach View Villa open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Beach View Villa details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="100">
+              <a href="property-details.html" aria-label="View East Tower Apartment details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-20.jpg" class="cs_card_img_front" alt="East Tower Apartment living room with city view" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$865,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>10</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>1,180 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View East Tower Apartment details">East Tower Apartment</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>350 Fifth Avenue, Apt 21B, New York, NY 10118</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sat, Oct 10</span><span><bdi>1:00 PM – 3:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/team-img-3.jpg" alt="Daniel Brooks" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Daniel Brooks</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the East Tower Apartment open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View East Tower Apartment details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="200">
+              <a href="property-details.html" aria-label="View Golden Meadows details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-1.jpg" class="cs_card_img_front" alt="Golden Meadows family house front yard" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$450,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>10</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>1,450 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Golden Meadows details">Golden Meadows</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sat, Oct 10</span><span><bdi>2:00 PM – 4:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/team-img-4.jpg" alt="Sophia Turner" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Sophia Turner</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Golden Meadows open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Golden Meadows details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="cs_height_70 cs_height_lg_50"></div>
+        <div class="cs_oh_day">
+          <div class="cs_oh_day_head">
+            <div class="cs_oh_day_title">
+              <span class="cs_iconbox_icon cs_oh_day_icon cs_center cs_primary_bg cs_white_color cs_radius_100"><i class="fa-regular fa-calendar"></i></span>
+              <div>
+                <p class="cs_fs_14 mb-0">This Weekend</p>
+                <h2 class="cs_fs_25 cs_semibold mb-0">Sunday, October 11, 2026</h2>
+              </div>
+            </div>
+            <span class="cs_medium"><bdi>3 open houses</bdi></span>
+          </div>
+          <div class="row cs_gap_y_30">
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="0">
+              <a href="property-details.html" aria-label="View Palm Grove Residence details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-21.jpg" class="cs_card_img_front" alt="Palm Grove Residence exterior with palm trees" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$620,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>11</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>2,100 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Palm Grove Residence details">Palm Grove Residence</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>88 Palm Grove Lane, Orlando, FL 32801</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sun, Oct 11</span><span><bdi>10:00 AM – 12:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/avatar-3.jpg" alt="Michael Chen" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Michael Chen</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Palm Grove Residence open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Palm Grove Residence details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="100">
+              <a href="property-details.html" aria-label="View Maple Ridge Apartments details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-3.jpg" class="cs_card_img_front" alt="Maple Ridge apartment building" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$285,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>11</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 1</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>980 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Maple Ridge Apartments details">Maple Ridge Apartments</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>217 Horizon Heights Road, Silverstone Towers, NY 10022</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sun, Oct 11</span><span><bdi>12:30 PM – 2:30 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/team-img-5.jpg" alt="Amanda Jones" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Amanda Jones</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Maple Ridge Apartments open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Maple Ridge Apartments details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="200">
+              <a href="property-details.html" aria-label="View Evergreen Estates details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-2.jpg" class="cs_card_img_front" alt="Evergreen Estates two-storey home" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$720,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>11</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 4</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>2,100 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Evergreen Estates details">Evergreen Estates</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>56 Cedar Lane, Austin, TX 78701</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sun, Oct 11</span><span><bdi>3:00 PM – 5:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/team-img-3.jpg" alt="Daniel Brooks" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Daniel Brooks</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Evergreen Estates open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Evergreen Estates details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="cs_height_70 cs_height_lg_50"></div>
+        <div class="cs_oh_day">
+          <div class="cs_oh_day_head">
+            <div class="cs_oh_day_title">
+              <span class="cs_iconbox_icon cs_oh_day_icon cs_center cs_primary_bg cs_white_color cs_radius_100"><i class="fa-regular fa-calendar"></i></span>
+              <div>
+                <p class="cs_fs_14 mb-0">Next Weekend</p>
+                <h2 class="cs_fs_25 cs_semibold mb-0">Saturday, October 17, 2026</h2>
+              </div>
+            </div>
+            <span class="cs_medium"><bdi>2 open houses</bdi></span>
+          </div>
+          <div class="row cs_gap_y_30">
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="0">
+              <a href="property-details.html" aria-label="View Urban Oasis Palace details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-22.jpg" class="cs_card_img_front" alt="Urban Oasis Palace modern villa at sunset" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$1,120,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>17</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 5</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 4</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>3,400 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Urban Oasis Palace details">Urban Oasis Palace</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>742 Sunset Boulevard, Los Angeles, CA 90028</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sat, Oct 17</span><span><bdi>11:00 AM – 2:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/team-img-4.jpg" alt="Sophia Turner" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Sophia Turner</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Urban Oasis Palace open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Urban Oasis Palace details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-md-6">
+            <div class="cs_card cs_style_1 cs_type_1 cs_oh_card cs_gray3_bg cs_radius_20" data-aos="fade-up" data-aos-delay="100">
+              <a href="property-details.html" aria-label="View Coastal Retreat details" class="cs_card_thumbnail cs_radius_15 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-23.jpg" class="cs_card_img_front" alt="Coastal Retreat beach house exterior" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$540,000</bdi></span>
+                <span class="cs_oh_date cs_radius_10 position-absolute"><strong>17</strong><span>Oct</span></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_17 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>1,650 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <h3 class="cs_property_title cs_fs_25 cs_mb_10">
+                  <a href="property-details.html" aria-label="View Coastal Retreat details">Coastal Retreat</a>
+                </h3>
+                <div class="cs_property_location_text cs_mb_17">
+                  <span>
+                    <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                  </span>
+                  <p class="mb-0"><bdi>19 Harbor View Road, Tampa, FL 33602</bdi></p>
+                </div>
+                <p class="cs_oh_time"><i class="fa-regular fa-clock"></i><span>Sat, Oct 17</span><span><bdi>1:00 PM – 3:00 PM</bdi></span></p>
+                <div class="cs_oh_host">
+                  <img src="assets/img/avatar-3.jpg" alt="Michael Chen" loading="lazy">
+                  <p class="mb-0"><span class="d-block">Hosted by</span><a href="agent-details.html">Michael Chen</a></p>
+                </div>
+                <div class="cs_card_footer cs_oh_actions">
+                  <a href="property-details.html#scheduleTour" class="cs_btn cs_style_1 cs_wide_btn cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10" aria-label="RSVP for the Coastal Retreat open house"><span>RSVP</span></a>
+                  <a href="property-details.html" class="cs_btn cs_style_1 cs_wide_btn cs_primary_color cs_medium cs_primary_font cs_radius_10" aria-label="View Coastal Retreat details"><span>Details</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+    </section>
+    <!-- End Open House Section -->
+    <!-- Start Footer Section -->
+    <footer class="cs_footer cs_style_1 cs_type_2 cs_primary_bg cs_bg_filed" data-src="assets/img/footer-bg-1.svg">
+      <div class="container">
+        <div class="cs_footer_main">
+          <div class="row cs_gap_y_30">
+            <div class="col-lg-5 col-md-12">
+              <div class="cs_footer_widget cs_text_widget">
+                <div class="cs_logo" data-aos="zoom-in">
+                  <img src="assets/img/logo-2.svg" alt="Logo">
+                </div>
+                <div class="cs_newsletter cs_style_1">
+                  <h3 class="cs_newsletter_heading cs_fs_20 cs_semibold cs_white_color cs_mb_37 cs_mb_lg_24">Subscribe Our Newsletter for Update:</h3>
+                  <form action="#" class="cs_newsletter_form cs_style_1 position-relative">
+                    <input type="email" name="email" placeholder="Enter Email Address" autocomplete="email" required>
+                    <button type="submit" class="cs_send_icon cs_white_color position-absolute">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+              <div class="cs_footer_widget cs_menu_widget">
+                <h3 class="cs_footer_widget_title cs_fs_20 cs_semibold cs_white_color cs_mb_17">Discover</h3>
+                <ul class="cs_footer_menu cs_gray_color cs_mp_0">
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">New York</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Tokyo</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Dubai</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Hanoi</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Jakarta</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Florida</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <div class="cs_footer_widget cs_menu_widget">
+                <h3 class="cs_footer_widget_title cs_fs_20 cs_semibold cs_white_color cs_mb_17">Quick Links</h3>
+                <ul class="cs_footer_menu cs_gray_color cs_mp_0">
+                  <li><a href="about-us.html" aria-label="Footer menu link">About Us</a></li>
+                  <li><a href="property-listing-buy.html" aria-label="Footer menu link">Buy Property</a></li>
+                  <li><a href="owner/submit-property.html" aria-label="Footer menu link">Sale Property</a></li>
+                  <li><a href="property-listing-rent.html" aria-label="Footer menu link">Rent Property</a></li>
+                  <li><a href="blog.html" aria-label="Footer menu link">Latest News</a></li>
+                  <li><a href="faq.html" aria-label="Footer menu link">Faq's</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-5">
+              <div class="cs_footer_widget cs_contact_widget">
+                <h3 class="cs_footer_widget_title cs_fs_20 cs_semibold cs_white_color cs_mb_17">Contact Us</h3>
+                <ul class="cs_contact_list cs_gray_color cs_mp_0">
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_radius_100 cs_white_color">
+                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                    </span>
+                    <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="">
+                    </span>
+                    <a href="mailto:info@xproperty.com" aria-label="Send Email link">info@xproperty.com</a>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="">
+                    </span>
+                    <a href="tel:2144466668" aria-label="Make a call link">(214) 446-6668</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs_footer_bottom cs_gray_color">
+          <div class="cs_footer_text">&copy; 2025 Xproperty. All right reserved</div>
+          <div class="cs_footer_bottom_menu">
+            <span class="cs_currency"><select name="currency" class="cs_currency_select" aria-label="Currency" data-currency-select><option value="USD">$ USD</option><option value="EUR">&euro; EUR</option><option value="GBP">&pound; GBP</option><option value="AED">AED</option></select></span>
+            <div class="cs_social_links">
+              <a href="#" aria-label="Social link">Facebook</a>
+              <a href="#" aria-label="Social link">LinkedIn</a>
+              <a href="#" aria-label="Social link">YouTube</a>
+              <a href="#" aria-label="Social link">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer Section -->
+    <!-- Start Scroll Top Button -->
+   <button type="button" name="ScrollToTopBtn" class="cs_scrollup_btn" id="scrollToTopBtn">
+      <i class="fa-solid fa-arrow-up"></i></button>
+    <!-- End Scroll Top Button -->
+   <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/tom-select.min.js"></script>
+    <script src="assets/js/flatpickr.min.js"></script>
+    <script src="assets/js/lenis.min.js"></script>
+    <script src="assets/js/light-gallery.min.js"></script>
+    <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

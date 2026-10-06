@@ -1,6 +1,4 @@
-/*===============================================================
- 23. RTL Support
-=================================================================*/
+/* 23. RTL Support */
 [dir="rtl"] {
   --cs-dir: -1;
   --cs-start: right;
@@ -16,11 +14,11 @@
   .fa-chevron-left,
   .fa-angle-right,
   .fa-angle-left,
-  .fa-arrow-right-from-bracket {
+  .fa-arrow-right-from-bracket,
+  .fa-paper-plane {
     transform: scaleX(-1);
   }
 
-  // Numbers mixed with keep LTR order
   .cs_counter_number,
   .cs_stat_value {
     direction: ltr;
@@ -39,23 +37,47 @@
     unicode-bidi: isolate;
   }
 
-  // Browsers keep email/tel/url fields LTR; align them to the RTL side
   input[type="email"],
   input[type="tel"],
-  input[type="url"] {
+  input[type="url"],
+  input[type="number"] {
     text-align: right;
+  }
+
+  .cs_input_icon_wrap {
+    input[type="email"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"] {
+      padding-left: 15px;
+      padding-right: 42px;
+    }
+  }
+
+  [data-result-count] {
+    unicode-bidi: isolate;
+  }
+
+  .cs_slider_gap_24 .cs_slider_container[data-variable-width="1"] .slick-slide {
+    padding-inline: 0;
+
+    > div {
+      margin-inline: 12px;
+    }
+  }
+
+  .cs_arrow_shape_1 svg {
+    transform: scaleX(-1);
   }
 
   .cs_newsletter_form.cs_style_1 input {
     padding-left: 30px;
   }
 
-  // Icon-font arrows drawn in pseudo elements
   .cs_footer.cs_style_1 .cs_footer_menu a::before {
     content: "\f053";
   }
 
-  // Round "view" buttons hold an up-right arrow icon; point it up-left
   .cs_btn.cs_style_1.cs_radius_100 .cs_svg_icon {
     transform: scaleX(-1);
   }
@@ -65,37 +87,18 @@
     transform: scaleX(-1);
   }
 
-  // DataTables pushes its toolbar cells apart with physical auto margins
-  @media (min-width: 768px) {
-    div.dt-container div.dt-layout-row div.dt-layout-cell {
-      &.dt-layout-start {
-        margin-right: 0;
-        margin-left: auto;
-      }
-
-      &.dt-layout-end {
-        margin-left: 0;
-        margin-right: auto;
-      }
-    }
-  }
-
-  // Star letter-spacing trails on the right; shift it out of view like LTR does
-  .cs_rating::before,
-  .cs_rating_percentage::before {
-    inset-inline-start: -7px;
+  .cs_rating {
+    direction: ltr;
+    transform: scaleX(-1);
   }
 }
 
-/*=======================================================
- Direction Switch Button
-=========================================================*/
-// Gear button on the screen edge; the settings box opens beside it
+/* Direction Switch Button */
 .cs_dir_switch {
   position: fixed;
   top: 50%;
   inset-inline-end: 0;
-  z-index: 998; // below the header (999) so the mobile menu covers it
+  z-index: 998;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -125,7 +128,7 @@
   }
 }
 
-// Fixed colors: --white-color / --primary-color swap in dark mode
+// Fixed colors: --white-color / --primary-color swap in dark mode 
 .cs_settings_panel,
 .cs_dir_switch .cs_settings_toggle {
   background-color: #1d1d1d;
@@ -139,7 +142,6 @@
   border-end-start-radius: 10px;
   font-size: 18px;
 
-  // Hidden while the box is open (main.js sets the hidden attribute)
   &[hidden] {
     display: none;
   }
@@ -153,13 +155,11 @@
   border-start-start-radius: 10px;
   border-end-start-radius: 10px;
 
-  // Closed: main.js sets the hidden attribute
   &[hidden] {
     display: none;
   }
 }
 
-// LTR | RTL and Device | Light | Dark rows (color row added by main.js)
 .cs_dir_group,
 .cs_mode_switch {
   display: flex;
@@ -170,7 +170,7 @@
   }
 }
 
-// Dashboard pages: LTR above RTL (no gear, box always visible)
+// Dashboard pages: LTR above RTL (no gear, box always visible) 
 .cs_dashboard .cs_dir_group {
   flex-direction: column;
 }

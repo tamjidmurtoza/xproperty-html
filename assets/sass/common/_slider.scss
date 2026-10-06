@@ -1,6 +1,4 @@
-/*================================================================
-  08. Slider
-==================================================================*/
+/* 08. Slider */
 .cs_slider {
   position: relative;
 }
@@ -159,9 +157,7 @@
   }
 }
 
-/*=================================================
- Slider Arrows
-===================================================*/
+/* Slider Arrows */
 .cs_slider_arrows.cs_style_1 {
   width: calc(100vw - 15%);
   position: absolute;
@@ -270,16 +266,15 @@
     border: 1px solid currentColor;
     transition: all 0.4s ease;
 
+    // Sits on dark sections in both modes, so the hover colors stay fixed
     &:hover {
-      background-color: var(--white-color);
-      color: var(--primary-color);
+      background-color: #fff;
+      color: #1d1d1d;
     }
   }
 }
 
-/*=================================================
- Slider Paginations
-===================================================*/
+/* Slider Paginations */
 .cs_pagination.cs_style_1 {
   .slick-dots {
     list-style: none;
@@ -405,13 +400,10 @@
   }
 }
 
-/*=======================================================
- Horizontal Slider
-=========================================================*/
+/* Horizontal Slider */
 .cs_horizontal_slider_wrapper {
   overflow-x: hidden;
 
-  // Text sliders stop at 1920px on very wide screens; card sliders stay full width
   &:has(.cs_slider_text_wrapper) {
     max-width: 1920px;
     margin-inline: auto;

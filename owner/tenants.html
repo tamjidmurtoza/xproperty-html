@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Manage tenants, leases and rent status in your Xproperty owner dashboard.">
+    <meta name="keywords" content="owner dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/owner/tenants.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Tenants &amp; Leases - Owner Dashboard | Xproperty">
+    <meta property="og:description" content="Manage tenants, leases and rent status in your Xproperty owner dashboard.">
+    <meta property="og:url" content="https://example.com/owner/tenants.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tenants &amp; Leases - Owner Dashboard | Xproperty">
+    <meta name="twitter:description" content="Manage tenants, leases and rent status in your Xproperty owner dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Tenants & Leases - Owner Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Property Owner dashboard · Tenants & Leases. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-3.jpg" alt="Michael Chen">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Property Owner</span>
+            </div>
+          </div>
+          <!-- Start Property Owner Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="submit-property.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-square-plus"></i>
+                  <span class="cs_menu_text">Submit Property</span>
+                </a>
+              </li>
+              <li>
+                <a href="my-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-chimney"></i>
+                  <span class="cs_menu_text">My Properties</span>
+                </a>
+              </li>
+              <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-folder-open"></i>
+                  <span class="cs_menu_text">Documents</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Rentals</span></li>
+              <li class="active">
+                <a href="tenants.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-house-user"></i>
+                  <span class="cs_menu_text">Tenants &amp; Leases</span>
+                </a>
+              </li>
+              <li>
+                <a href="applications.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="maintenance.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-screwdriver-wrench"></i>
+                  <span class="cs_menu_text">Maintenance</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li>
+                <a href="billing.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-credit-card"></i>
+                  <span class="cs_menu_text">Billing & Payments</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Property Owner Menu -->
+        </div>
+        <div class="cs_sidebar_footer">
+          <!-- Package usage -->
+          <div class="cs_sidebar_package cs_radius_10">
+            <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Basic Plan</p>
+            <div class="cs_progress"><span style="width: 60%"></span></div>
+            <p class="cs_fs_14 mb-0"><bdi>6 of 10 listings used</bdi></p>
+          </div>
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search your properties, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">"Northern Apartment" is now live</span>
+                        <span class="d-block cs_fs_14"><bdi>5 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-envelope"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">New inquiry from Sophia Turner</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>1 listing waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Yesterday</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-3.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Michael Chen</span>
+                  <span class="d-block cs_fs_14">Property Owner</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="my-properties.html"><i class="fa-solid fa-house-chimney"></i>My Properties</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Tenants & Leases</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Tenants & Leases</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-export-table="#tenantTable" data-export-name="tenants.csv">
+                <span><i class="fa-solid fa-file-arrow-down"></i></span>
+                <span>Export CSV</span>
+              </button>
+              <a href="applications.html" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10">
+                <span><i class="fa-solid fa-user-plus"></i></span>
+                <span>Review Applications</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Start Summary Cards -->
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Occupied Units</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="9"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-house-user"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>82%</span>
+                  <span>occupancy rate</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Vacant Units</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-door-open"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_down"><i class="fa-solid fa-arrow-trend-down"></i><bdi>1 unit</bdi></span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Expiring in 60 Days</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-hourglass-half"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span><bdi>Next one ends Nov 30, 2026</bdi></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="300">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Rent Collected (Oct)</p>
+                    <h2 class="cs_stat_value cs_semibold"><bdi>$<span class="odometer" data-count-to="22350"></span></bdi></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>4.8%</span>
+                  <span>vs last month</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Summary Cards -->
+
+          <!-- Start Tenants -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#tenantTable" aria-label="Filter leases">
+                <li><button type="button" data-filter="active" aria-pressed="true" class="active">Active <span>5</span></button></li>
+                <li><button type="button" data-filter="expiring" aria-pressed="false">Expiring soon <span>2</span></button></li>
+                <li><button type="button" data-filter="past" aria-pressed="false">Past <span>2</span></button></li>
+              </ul>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search" data-table-search="#tenantTable">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input name="search_tenants" type="search" placeholder="Search tenants" aria-label="Search tenants">
+                </form>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table cs_table_fit cs_table_wrap" id="tenantTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Tenant</th>
+                    <th scope="col">Property / Unit</th>
+                    <th scope="col">Lease Period</th>
+                    <th scope="col">Monthly Rent</th>
+                    <th scope="col">Deposit</th>
+                    <th scope="col">Rent Status</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="active">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-1.jpg" alt="Daniel Brooks" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks</h3>
+                          <p class="cs_fs_14 mb-0">daniel.brooks@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 4B</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Jan 01, 2026 &ndash; Dec 31, 2026</p><p class="cs_fs_14 mb-0"><bdi>12 months</bdi></p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$3,200<small>/month</small></bdi></span></td>
+                    <td><bdi>$6,400</bdi></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Daniel Brooks" data-review-img="../assets/img/avatar-1.jpg" data-review-type="Northern Apartment · Unit 4B" data-review-start="Jan 01, 2026" data-review-end="Dec 31, 2026" data-review-term="12 months" data-review-rent="$3,200 / month" data-review-deposit="$6,400" aria-label="View lease for Daniel Brooks" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Daniel Brooks" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action" data-modal-open="renewModal" data-review-name="Daniel Brooks" data-review-img="../assets/img/avatar-1.jpg" data-review-type="Northern Apartment · Unit 4B" aria-label="Renew lease for Daniel Brooks" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-2.jpg" alt="Sophia Turner" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Sophia Turner</h3>
+                          <p class="cs_fs_14 mb-0">sophia.turner@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-14.jpg" alt="Riverside Studio" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Riverside Studio</h3>
+                          <p class="cs_fs_14 mb-0">Unit 12</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Mar 15, 2026 &ndash; Mar 14, 2027</p><p class="cs_fs_14 mb-0"><bdi>12 months</bdi></p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$1,450<small>/month</small></bdi></span></td>
+                    <td><bdi>$2,900</bdi></td>
+                    <td><span class="cs_status_badge cs_status_pending">Due</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Sophia Turner" data-review-img="../assets/img/avatar-2.jpg" data-review-type="Riverside Studio · Unit 12" data-review-start="Mar 15, 2026" data-review-end="Mar 14, 2027" data-review-term="12 months" data-review-rent="$1,450 / month" data-review-deposit="$2,900" aria-label="View lease for Sophia Turner" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Sophia Turner" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action" data-modal-open="renewModal" data-review-name="Sophia Turner" data-review-img="../assets/img/avatar-2.jpg" data-review-type="Riverside Studio · Unit 12" aria-label="Renew lease for Sophia Turner" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-6.jpg" alt="Emma Wilson" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Emma Wilson</h3>
+                          <p class="cs_fs_14 mb-0">emma.wilson@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-15.jpg" alt="Oakwood Duplex" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Oakwood Duplex</h3>
+                          <p class="cs_fs_14 mb-0">Unit A</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Sep 10, 2026 &ndash; Sep 09, 2027</p><p class="cs_fs_14 mb-0"><bdi>12 months</bdi></p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$2,100<small>/month</small></bdi></span></td>
+                    <td><bdi>$4,200</bdi></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Emma Wilson" data-review-img="../assets/img/avatar-6.jpg" data-review-type="Oakwood Duplex · Unit A" data-review-start="Sep 10, 2026" data-review-end="Sep 09, 2027" data-review-term="12 months" data-review-rent="$2,100 / month" data-review-deposit="$4,200" aria-label="View lease for Emma Wilson" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Emma Wilson" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action" data-modal-open="renewModal" data-review-name="Emma Wilson" data-review-img="../assets/img/avatar-6.jpg" data-review-type="Oakwood Duplex · Unit A" aria-label="Renew lease for Emma Wilson" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-4.jpg" alt="Priya Nair" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Priya Nair</h3>
+                          <p class="cs_fs_14 mb-0">Brightline Studio LLC</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-8.jpg" alt="Gilliard Office Building" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Gilliard Office Building</h3>
+                          <p class="cs_fs_14 mb-0">Suite 301</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Feb 01, 2025 &ndash; Jan 31, 2028</p><p class="cs_fs_14 mb-0"><bdi>36 months</bdi></p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$12,500<small>/month</small></bdi></span></td>
+                    <td><bdi>$25,000</bdi></td>
+                    <td><span class="cs_status_badge cs_status_expired">Overdue</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Priya Nair" data-review-img="../assets/img/avatar-4.jpg" data-review-type="Gilliard Office Building · Suite 301" data-review-start="Feb 01, 2025" data-review-end="Jan 31, 2028" data-review-term="36 months" data-review-rent="$12,500 / month" data-review-deposit="$25,000" aria-label="View lease for Priya Nair" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Priya Nair" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action" data-modal-open="renewModal" data-review-name="Priya Nair" data-review-img="../assets/img/avatar-4.jpg" data-review-type="Gilliard Office Building · Suite 301" aria-label="Renew lease for Priya Nair" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="active">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-5.jpg" alt="Lucas Martin" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lucas Martin</h3>
+                          <p class="cs_fs_14 mb-0">lucas.martin@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 2A</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Jun 01, 2026 &ndash; May 31, 2027</p><p class="cs_fs_14 mb-0"><bdi>12 months</bdi></p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$3,050<small>/month</small></bdi></span></td>
+                    <td><bdi>$6,100</bdi></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Lucas Martin" data-review-img="../assets/img/avatar-5.jpg" data-review-type="Northern Apartment · Unit 2A" data-review-start="Jun 01, 2026" data-review-end="May 31, 2027" data-review-term="12 months" data-review-rent="$3,050 / month" data-review-deposit="$6,100" aria-label="View lease for Lucas Martin" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Lucas Martin" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action" data-modal-open="renewModal" data-review-name="Lucas Martin" data-review-img="../assets/img/avatar-5.jpg" data-review-type="Northern Apartment · Unit 2A" aria-label="Renew lease for Lucas Martin" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="expiring">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-7.jpg" alt="Noah Garcia" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Noah Garcia</h3>
+                          <p class="cs_fs_14 mb-0">noah.garcia@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-14.jpg" alt="Riverside Studio" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Riverside Studio</h3>
+                          <p class="cs_fs_14 mb-0">Unit 8</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Dec 01, 2025 &ndash; Nov 30, 2026</p><span class="cs_tag_badge cs_tag_warning"><i class="fa-regular fa-clock"></i><bdi>55 days left</bdi></span></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$1,400<small>/month</small></bdi></span></td>
+                    <td><bdi>$2,800</bdi></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Noah Garcia" data-review-img="../assets/img/avatar-7.jpg" data-review-type="Riverside Studio · Unit 8" data-review-start="Dec 01, 2025" data-review-end="Nov 30, 2026" data-review-term="12 months" data-review-rent="$1,400 / month" data-review-deposit="$2,800" aria-label="View lease for Noah Garcia" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Noah Garcia" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action cs_action_approve" data-modal-open="renewModal" data-review-name="Noah Garcia" data-review-img="../assets/img/avatar-7.jpg" data-review-type="Riverside Studio · Unit 8" aria-label="Renew lease for Noah Garcia" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="expiring">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-8.jpg" alt="Sofia Rossi" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Sofia Rossi</h3>
+                          <p class="cs_fs_14 mb-0">sofia.rossi@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-15.jpg" alt="Oakwood Duplex" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Oakwood Duplex</h3>
+                          <p class="cs_fs_14 mb-0">Unit B</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Dec 16, 2025 &ndash; Dec 15, 2026</p><span class="cs_tag_badge cs_tag_warning"><i class="fa-regular fa-clock"></i><bdi>70 days left</bdi></span></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$2,050<small>/month</small></bdi></span></td>
+                    <td><bdi>$4,100</bdi></td>
+                    <td><span class="cs_status_badge cs_status_pending">Due</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Sofia Rossi" data-review-img="../assets/img/avatar-8.jpg" data-review-type="Oakwood Duplex · Unit B" data-review-start="Dec 16, 2025" data-review-end="Dec 15, 2026" data-review-term="12 months" data-review-rent="$2,050 / month" data-review-deposit="$4,100" aria-label="View lease for Sofia Rossi" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Sofia Rossi" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a><button type="button" class="cs_table_action cs_action_approve" data-modal-open="renewModal" data-review-name="Sofia Rossi" data-review-img="../assets/img/avatar-8.jpg" data-review-type="Oakwood Duplex · Unit B" aria-label="Renew lease for Sofia Rossi" data-tooltip="Renew"><i class="fa-solid fa-rotate"></i></button></div></td>
+                  </tr>
+                  <tr data-status="past">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-5.jpg" alt="Amanda Jones" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h3>
+                          <p class="cs_fs_14 mb-0">amanda.jones@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 4B</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Jan 01, 2025 &ndash; Dec 31, 2025</p><p class="cs_fs_14 mb-0">Moved out</p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$3,100<small>/month</small></bdi></span></td>
+                    <td><bdi>$6,200</bdi> <span class="cs_fs_14">refunded</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Amanda Jones" data-review-img="../assets/img/team-img-5.jpg" data-review-type="Northern Apartment · Unit 4B" data-review-start="Jan 01, 2025" data-review-end="Dec 31, 2025" data-review-term="12 months" data-review-rent="$3,100 / month" data-review-deposit="$6,200" aria-label="View lease for Amanda Jones" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Amanda Jones" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="past">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-2.jpg" alt="Marcus Reid" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Marcus Reid</h3>
+                          <p class="cs_fs_14 mb-0">marcus.reid@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-15.jpg" alt="Oakwood Duplex" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Oakwood Duplex</h3>
+                          <p class="cs_fs_14 mb-0">Unit A</p>
+                        </div>
+                      </div></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0">Sep 01, 2025 &ndash; Aug 31, 2026</p><p class="cs_fs_14 mb-0">Moved out</p></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$1,980<small>/month</small></bdi></span></td>
+                    <td><bdi>$3,960</bdi> <span class="cs_fs_14">refunded</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" data-modal-open="leaseModal" data-review-name="Marcus Reid" data-review-img="../assets/img/team-img-2.jpg" data-review-type="Oakwood Duplex · Unit A" data-review-start="Sep 01, 2025" data-review-end="Aug 31, 2026" data-review-term="12 months" data-review-rent="$1,980 / month" data-review-deposit="$3,960" aria-label="View lease for Marcus Reid" data-tooltip="View lease"><i class="fa-regular fa-file-lines"></i></button><a href="messages.html" class="cs_table_action" aria-label="Message Marcus Reid" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="7">No leases in this group.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End Tenants -->
+        </main>
+        <!-- Start Lease Details Modal -->
+        <dialog class="cs_dash_modal" id="leaseModal" data-lenis-prevent aria-labelledby="leaseModalTitle">
+          <form method="dialog" class="cs_dashboard_form">
+            <div class="cs_dash_modal_head">
+              <h2 class="cs_fs_20 cs_semibold mb-0" id="leaseModalTitle">Lease Details</h2>
+              <button type="button" class="cs_dash_modal_close" aria-label="Close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cs_dash_modal_body">
+              <div class="cs_review_subject">
+                <img src="../assets/img/avatar-1.jpg" alt="Tenant photo" data-review-field="img" loading="lazy">
+                <div>
+                  <h3 class="cs_fs_16 cs_semibold cs_mb_3" data-review-field="name">Daniel Brooks</h3>
+                  <p class="cs_fs_14 mb-0" data-review-field="type">Northern Apartment · Unit 4B</p>
+                </div>
+              </div>
+              <ul class="cs_detail_list">
+                <li><span>Lease type</span><span>Fixed term, residential</span></li>
+                <li><span>Term</span><span><bdi data-review-field="term">12 months</bdi></span></li>
+                <li><span>Start date</span><span data-review-field="start">Jan 01, 2026</span></li>
+                <li><span>End date</span><span data-review-field="end">Dec 31, 2026</span></li>
+                <li><span>Monthly rent</span><span><bdi data-review-field="rent">$3,200 / month</bdi></span></li>
+                <li><span>Security deposit</span><span><bdi data-review-field="deposit">$6,400</bdi></span></li>
+                <li><span>Rent due</span><span>1st of each month</span></li>
+                <li><span>Late fee</span><span><bdi>$75 after 5 days</bdi></span></li>
+                <li><span>Utilities</span><span>Tenant pays electricity &amp; internet</span></li>
+                <li><span>Notice to vacate</span><span><bdi>60 days</bdi></span></li>
+                <li><span>Signed</span><span><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Both parties</span></span></li>
+              </ul>
+            </div>
+            <div class="cs_dash_modal_foot">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-modal-close><span>Close</span></button>
+              <a href="documents.html" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span><i class="fa-solid fa-file-pdf"></i></span><span>Open Lease PDF</span></a>
+            </div>
+          </form>
+        </dialog>
+        <!-- End Lease Details Modal -->
+        <!-- Start Renew Lease Modal -->
+        <dialog class="cs_dash_modal" id="renewModal" data-lenis-prevent aria-labelledby="renewModalTitle">
+          <form method="dialog" class="cs_dashboard_form">
+            <div class="cs_dash_modal_head">
+              <h2 class="cs_fs_20 cs_semibold mb-0" id="renewModalTitle">Renew Lease</h2>
+              <button type="button" class="cs_dash_modal_close" aria-label="Close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cs_dash_modal_body">
+              <div class="cs_review_subject">
+                <img src="../assets/img/avatar-1.jpg" alt="Tenant photo" data-review-field="img" loading="lazy">
+                <div>
+                  <h3 class="cs_fs_16 cs_semibold cs_mb_3" data-review-field="name">Daniel Brooks</h3>
+                  <p class="cs_fs_14 mb-0" data-review-field="type">Northern Apartment · Unit 4B</p>
+                </div>
+              </div>
+              <div class="row cs_gap_y_24 cs_mb_20">
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="renewStart">New Start Date</label>
+                  <input type="date" id="renewStart" class="cs_form_field" value="2027-01-01" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="renewTerm">Term</label>
+                  <div class="cs_select">
+                    <select id="renewTerm">
+                      <option>6 months</option>
+                      <option selected>12 months</option>
+                      <option>24 months</option>
+                      <option>Month to month</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="renewRent">New Monthly Rent ($)</label>
+                  <input type="number" id="renewRent" class="cs_form_field" min="0" step="50" placeholder="3,300" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="renewDeposit">Deposit ($)</label>
+                  <input type="number" id="renewDeposit" class="cs_form_field" min="0" step="50" placeholder="Keep current deposit">
+                </div>
+              </div>
+              <div class="cs_mb_20">
+                <label class="cs_form_label" for="renewNote">Message to Tenant</label>
+                <textarea id="renewNote" class="cs_form_field" placeholder="Add a short note about the new terms"></textarea>
+              </div>
+              <div class="cs_custom_checkbox">
+                <input type="checkbox" id="renewSign" checked>
+                <label for="renewSign">Send the renewal for e-signature</label>
+              </div>
+            </div>
+            <div class="cs_dash_modal_foot">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-modal-close><span>Cancel</span></button>
+              <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Send Renewal</span></button>
+            </div>
+          </form>
+        </dialog>
+        <!-- End Renew Lease Modal -->
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

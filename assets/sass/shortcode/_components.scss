@@ -1,13 +1,8 @@
-/*==============================================================
- 13. All Utility Componnents
-================================================================*/
+/* 13. All Utility Componnents */
 
 @use "sass:string";
 
-/*=============================================
-  SVG Icons (<img> + mask, colored by currentColor)
-===============================================*/
-// File names use "-", class names use "_" (arrow-up-right -> cs_icon_arrow_up_right)
+/* SVG Icons (<img> + mask, colored by currentColor) */
 @function str-replace-dash($name) {
   $name: "#{$name}";
   $index: string.index($name, "-");
@@ -29,11 +24,10 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
 
 .cs_svg_icon {
   flex: none;
-  border-radius: 0; // img inherits radius; would clip icons in round boxes
+  border-radius: 0;
   background-color: currentColor;
   -webkit-mask: var(--cs-icon) center / contain no-repeat;
   mask: var(--cs-icon) center / contain no-repeat;
-  // Hide the file's own drawing; the mask paints it in currentColor
   object-position: -9999px 0;
 }
 
@@ -43,9 +37,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================  
-  All Button And Input Field Components
-===============================================*/
+/* All Button And Input Field Components */
 .cs_btn.cs_style_1 {
   display: inline-flex;
   align-items: center;
@@ -179,6 +171,10 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 
   &:hover {
+    &.cs_white_color {
+      color: var(--white-color);
+    }
+
     &::before {
       animation-play-state: paused;
     }
@@ -376,9 +372,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================  
-  All Section Heading Components
-===============================================*/
+/* All Section Heading Components */
 .cs_section_heading.cs_style_1 {
   &.cs_type_1 {
     display: flex;
@@ -414,9 +408,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================  
-  Property Searchbox Component
-===============================================*/
+/* Property Searchbox Component */
 .cs_property_search.cs_style_1 {
   width: 100%;
   padding: 15px;
@@ -711,9 +703,9 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
     pointer-events: auto;
   }
 
-  // Thin, subtle scrollbar. Chrome skips the ::-webkit rules when
-  // scrollbar-width is set, so that is only for browsers without them (Firefox)
   .ts-dropdown-content {
+    overscroll-behavior: contain;
+
     @supports not selector(::-webkit-scrollbar) {
       scrollbar-width: thin;
       scrollbar-color: var(--border-color) transparent;
@@ -793,9 +785,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================  
-  Advanced Search Modal
-===============================================*/
+/* Advanced Search Modal */
 .cs_advanced_search_modal {
   width: 100%;
   height: 100vh;
@@ -974,9 +964,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================
- Counter Components
-===============================================*/
+/* Counter Components */
 .cs_counter.cs_style_1 {
   max-width: 264px;
   margin: 0 auto;
@@ -1005,9 +993,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================
- Rating Component
-===============================================*/
+/* Rating Component */
 .cs_rating_percentage,
 .cs_rating {
   overflow: hidden;
@@ -1046,9 +1032,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================
- Avatar Component
-===============================================*/
+/* Avatar Component */
 .cs_avatar.cs_style_1 {
   display: flex;
   gap: 20px;
@@ -1180,9 +1164,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================
- All CTA Components
-===============================================*/
+/* All CTA Components */
 .cs_text_underline {
   display: inline-block;
   position: relative;
@@ -1272,9 +1254,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================  
-  Video Block
-===============================================*/
+/* Video Block */
 .cs_video_block.cs_style_1 {
   min-height: 650px;
 
@@ -1307,9 +1287,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================
-  FAQ Components
-===============================================*/
+/* FAQ Components */
 .cs_faq_heading {
   width: min(100%, 460px);
 
@@ -1387,7 +1365,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
       width: 8px;
       height: 8px;
       border: 1px solid var(--secondary-color);
-      border-inline-start: 0;
+      border-left: 0;
       border-top: 0;
       transform: rotate(45deg);
     }
@@ -1498,15 +1476,93 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
   }
 }
 
-/*=============================================
-  Form and input Components Contact Section
-===============================================*/
+/* Form and input Components Contact Section */
 .cs_form_field {
   outline: 0;
   padding: 8px 15px;
   color: var(--primary-color);
   background-color: var(--white-color);
   border: 1px solid var(--border-color);
+}
+
+/* Form validation (formValidation in main.js) */
+.cs_form_field.cs_invalid,
+.ts-wrapper.cs_invalid .ts-control,
+.cs_newsletter_form input.cs_invalid {
+  border-color: var(--danger-color) !important;
+}
+
+.cs_field_error {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: var(--danger-color);
+}
+
+.cs_password_field {
+  display: block;
+  width: 100%;
+  position: relative;
+
+  input {
+    width: 100%;
+    padding-inline-end: 46px;
+  }
+}
+
+.cs_password_toggle {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: 15px;
+  color: var(--secondary-color);
+  background: none;
+  border: 0;
+  position: absolute;
+  top: 50%;
+  inset-inline-end: 6px;
+  transform: translateY(-50%);
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.cs_form_note {
+  padding: 12px 16px;
+  font-size: 15px;
+  line-height: 1.5em;
+  border-radius: 10px;
+
+  &.cs_success {
+    color: var(--primary-color);
+    background-color: rgba(0, 204, 97, 0.12);
+    border: 1px solid rgba(0, 204, 97, 0.4);
+  }
+
+  &.cs_error {
+    color: var(--danger-color);
+    background-color: rgba(255, 0, 0, 0.06);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+  }
+}
+
+[data-auth-form] .cs_btn.cs_loading {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.cs_newsletter_note {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: var(--accent-color);
+
+  &.cs_error {
+    color: #ff6b6b;
+  }
 }
 
 .cs_custom_checkbox {
@@ -1567,7 +1623,7 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
       height: 5px;
       width: 8px;
       border: 2px solid currentColor;
-      border-right: 0; // tick keeps its shape in RTL
+      border-right: 0;
       border-top: 0;
       transform: rotate(-45deg);
       border-radius: 1px;
@@ -1588,9 +1644,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/*===============================================
- Flatpickr Date and Time Taker
-=================================================*/
+/* Flatpickr Date and Time Taker */
 .flatpickr-months .flatpickr-month {
   height: 45px;
 }
@@ -1628,9 +1682,7 @@ span.flatpickr-weekday {
   border-color: var(--primary-color);
 }
 
-/*===============================================
- Contact Component And Section
-=================================================*/
+/* Contact Component And Section */
 
 .cs_contact_form {
   .cs_form_field {
@@ -1699,21 +1751,27 @@ span.flatpickr-weekday {
   padding: 30px 40px 40px;
 
   @media (max-width: 767px) {
-    padding: 30px 20px 40px;
+    padding: 30px 15px 40px;
   }
 }
 
 // Location Map Styling
 .cs_location_map {
-  iframe {
+  iframe,
+  .cs_leaflet_map {
     width: 100%;
     min-height: 560px;
     border-radius: inherit;
+  }
+
+  iframe,
+  .cs_leaflet_map .leaflet-tile-pane {
     filter: brightness(110%) grayscale(0.8);
   }
 
   @media (max-width: 991px) {
-    iframe {
+    iframe,
+    .cs_leaflet_map {
       min-height: 350px;
     }
   }
@@ -1724,11 +1782,17 @@ span.flatpickr-weekday {
   height: 100%;
   min-height: 500px;
 
-  iframe {
+  iframe,
+  .cs_leaflet_map {
     display: block;
     transform: 0;
     width: 100%;
     height: 100%;
+    min-height: 500px;
+  }
+
+  iframe,
+  .cs_leaflet_map .leaflet-tile-pane {
     filter: brightness(120%) grayscale(0.6);
   }
 
@@ -1742,15 +1806,14 @@ span.flatpickr-weekday {
     width: 100%;
     padding-top: 80px;
 
-    iframe {
+    iframe,
+    .cs_leaflet_map {
       border-radius: 20px;
     }
   }
 }
 
-/*=============================================
- Finding Apartments Area Section
-===============================================*/
+/* Finding Apartments Area Section */
 .cs_apartments_area {
   width: 100%;
   height: 100%;
@@ -1870,9 +1933,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*===========================================================
-  Pagination Box
-=============================================================*/
+/* Pagination Box */
 .cs_pagination_box {
   display: flex;
   justify-content: center;
@@ -1936,9 +1997,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=============================================
- Pricing Components and Section
-===============================================*/
+/* Pricing Components and Section */
 
 .cs_pricing_control {
   li {
@@ -2084,9 +2143,7 @@ span.flatpickr-weekday {
   }
 }
 
-/*=============================================
- All Shape Components
-===============================================*/
+/* All Shape Components */
 .cs_cloud_shape_1 {
   inset-inline-start: 20%;
   top: 10%;
@@ -2145,9 +2202,7 @@ span.flatpickr-weekday {
   inset-inline-end: 40px;
 }
 
-/*===========================================================  
-  All Common Animations
-=============================================================*/
+/* All Common Animations */
 
 @keyframes pulse-border {
   100% {
@@ -2178,5 +2233,43 @@ span.flatpickr-weekday {
 @keyframes rotate-y {
   50% {
     transform: translateY(50px) rotateY(180deg);
+  }
+}
+
+/* Currency switcher */
+.cs_currency_select {
+  padding: 0;
+  padding-inline-end: 4px;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  option {
+    color: #1d1d1d;
+  }
+
+  &:focus-visible {
+    outline: 1px dashed currentColor;
+    outline-offset: 3px;
+  }
+}
+
+/* Location search options */
+.ts-dropdown .cs_location_option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  i {
+    font-size: 14px;
+    color: var(--accent-color);
+  }
+
+  small {
+    margin-inline-start: auto;
+    font-size: 13px;
+    color: var(--secondary-color);
   }
 }

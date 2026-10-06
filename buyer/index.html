@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Your Xproperty buyer dashboard: key stats, recent activity and shortcuts in one place.">
     <meta name="keywords" content="buyer dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/buyer/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Buyer Dashboard | Xproperty">
+    <meta property="og:description" content="Your Xproperty buyer dashboard: key stats, recent activity and shortcuts in one place.">
+    <meta property="og:url" content="https://example.com/buyer/index.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Buyer Dashboard | Xproperty">
+    <meta name="twitter:description" content="Your Xproperty buyer dashboard: key stats, recent activity and shortcuts in one place.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
   <!-- Buyer dashboard · Dashboard Overview. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -91,6 +107,25 @@
                 </a>
               </li>
               <li>
+                <a href="tours.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">My Tours</span>
+                  <span class="cs_menu_badge">2</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">My Offers</span>
+                </a>
+              </li>
+              <li>
+                <a href="applications.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                </a>
+              </li>
+              <li>
                 <a href="messages.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-envelope"></i>
                   <span class="cs_menu_text">Messages</span>
@@ -101,6 +136,13 @@
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Account</span></li>
@@ -133,7 +175,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search saved homes, searches, messages..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search saved homes, searches, messages..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -155,29 +197,29 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-house-circle-check"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">3 new homes match "Bali villas"</span>
-                        <span class="d-block cs_fs_14">10 min ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>3 new homes match "Bali villas"</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>10 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-tag"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">Price drop on East Tower Apartment</span>
-                        <span class="d-block cs_fs_14">1 hour ago</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-calendar-check"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">Tour tomorrow at 10:00</span>
@@ -186,7 +228,7 @@
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -214,7 +256,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -311,7 +353,7 @@
                   <div class="col-md-4">
                     <div class="cs_saved_property">
                       <a href="../property-details.html" class="cs_saved_property_thumb" aria-label="Beach View Villa details">
-                        <img src="../assets/img/property-img-1.jpg" alt="Beach View Villa">
+                        <img src="../assets/img/property-img-1.jpg" alt="Beach View Villa" loading="lazy">
                         <span class="cs_status_badge cs_status_active">For Sale</span>
                       </a>
                       <button type="button" class="cs_saved_property_remove" aria-label="Remove Beach View Villa from saved"><i class="fa-solid fa-heart"></i></button>
@@ -320,9 +362,9 @@
                         <h3 class="cs_fs_16 cs_semibold cs_mb_3"><a href="../property-details.html">Beach View Villa</a></h3>
                         <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Bali, Indonesia</p>
                         <div class="cs_saved_property_meta">
-                          <span><i class="fa-solid fa-bed"></i>4 Beds</span>
-                          <span><i class="fa-solid fa-bath"></i>3 Baths</span>
-                          <span><i class="fa-solid fa-ruler-combined"></i>2,450 sqft</span>
+                          <span><i class="fa-solid fa-bed"></i><bdi>4 Beds</bdi></span>
+                          <span><i class="fa-solid fa-bath"></i><bdi>3 Baths</bdi></span>
+                          <span><i class="fa-solid fa-ruler-combined"></i><bdi>2,450 sqft</bdi></span>
                         </div>
                       </div>
                     </div>
@@ -330,18 +372,18 @@
                   <div class="col-md-4">
                     <div class="cs_saved_property">
                       <a href="../property-details.html" class="cs_saved_property_thumb" aria-label="East Tower Apartment details">
-                        <img src="../assets/img/property-img-7.jpg" alt="East Tower Apartment">
+                        <img src="../assets/img/property-img-7.jpg" alt="East Tower Apartment" loading="lazy">
                         <span class="cs_status_badge cs_status_info">Price Drop</span>
                       </a>
                       <button type="button" class="cs_saved_property_remove" aria-label="Remove East Tower Apartment from saved"><i class="fa-solid fa-heart"></i></button>
                       <div class="cs_saved_property_info">
-                        <p class="cs_fs_18 cs_semibold cs_primary_color cs_primary_font cs_mb_3">$2,900 / mo</p>
+                        <p class="cs_fs_18 cs_semibold cs_primary_color cs_primary_font cs_mb_3"><bdi>$2,900 / mo</bdi></p>
                         <h3 class="cs_fs_16 cs_semibold cs_mb_3"><a href="../property-details.html">East Tower Apartment</a></h3>
                         <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia</p>
                         <div class="cs_saved_property_meta">
-                          <span><i class="fa-solid fa-bed"></i>2 Beds</span>
-                          <span><i class="fa-solid fa-bath"></i>2 Baths</span>
-                          <span><i class="fa-solid fa-ruler-combined"></i>1,120 sqft</span>
+                          <span><i class="fa-solid fa-bed"></i><bdi>2 Beds</bdi></span>
+                          <span><i class="fa-solid fa-bath"></i><bdi>2 Baths</bdi></span>
+                          <span><i class="fa-solid fa-ruler-combined"></i><bdi>1,120 sqft</bdi></span>
                         </div>
                       </div>
                     </div>
@@ -349,7 +391,7 @@
                   <div class="col-md-4">
                     <div class="cs_saved_property">
                       <a href="../property-details.html" class="cs_saved_property_thumb" aria-label="The Cowboy Country House details">
-                        <img src="../assets/img/property-img-5.jpg" alt="The Cowboy Country House">
+                        <img src="../assets/img/property-img-5.jpg" alt="The Cowboy Country House" loading="lazy">
                         <span class="cs_status_badge cs_status_active">For Sale</span>
                       </a>
                       <button type="button" class="cs_saved_property_remove" aria-label="Remove The Cowboy Country House from saved"><i class="fa-solid fa-heart"></i></button>
@@ -358,9 +400,9 @@
                         <h3 class="cs_fs_16 cs_semibold cs_mb_3"><a href="../property-details.html">The Cowboy Country House</a></h3>
                         <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Florida, USA</p>
                         <div class="cs_saved_property_meta">
-                          <span><i class="fa-solid fa-bed"></i>5 Beds</span>
-                          <span><i class="fa-solid fa-bath"></i>4 Baths</span>
-                          <span><i class="fa-solid fa-ruler-combined"></i>3,200 sqft</span>
+                          <span><i class="fa-solid fa-bed"></i><bdi>5 Beds</bdi></span>
+                          <span><i class="fa-solid fa-bath"></i><bdi>4 Baths</bdi></span>
+                          <span><i class="fa-solid fa-ruler-combined"></i><bdi>3,200 sqft</bdi></span>
                         </div>
                       </div>
                     </div>
@@ -381,7 +423,7 @@
                 <ul class="cs_message_list">
                   <li class="cs_unread">
                     <a href="messages.html">
-                      <img src="../assets/img/team-img-5.jpg" alt="">
+                      <img src="../assets/img/team-img-5.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Amanda Jones</h3>
@@ -393,7 +435,7 @@
                   </li>
                   <li class="cs_unread">
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-3.jpg" alt="">
+                      <img src="../assets/img/avatar-3.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h3>
@@ -405,7 +447,7 @@
                   </li>
                   <li>
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-5.jpg" alt="">
+                      <img src="../assets/img/avatar-5.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h3>
@@ -417,7 +459,7 @@
                   </li>
                   <li>
                     <a href="messages.html">
-                      <img src="../assets/img/avatar-1.jpg" alt="">
+                      <img src="../assets/img/avatar-1.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks</h3>
@@ -457,7 +499,7 @@
                   <tr>
                     <td><span class="cs_primary_color cs_semibold">Bali villas</span></td>
                     <td>Villa · 3+ beds · Under $1.5M</td>
-                    <td><span class="cs_status_badge cs_status_active">3 new</span></td>
+                    <td><span class="cs_status_badge cs_status_active"><bdi>3 new</bdi></span></td>
                     <td>Daily</td>
                     <td>Sep 12, 2026</td>
                     <td class="text-end"><a href="../property-listing-search.html" class="cs_table_action" aria-label="Run Bali villas search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a></td>
@@ -465,7 +507,7 @@
                   <tr>
                     <td><span class="cs_primary_color cs_semibold">Singapore rentals</span></td>
                     <td>Apartment · 2 beds · Under $5k / mo</td>
-                    <td><span class="cs_status_badge cs_status_active">12 new</span></td>
+                    <td><span class="cs_status_badge cs_status_active"><bdi>12 new</bdi></span></td>
                     <td>Instant</td>
                     <td>Aug 30, 2026</td>
                     <td class="text-end"><a href="../property-listing-rent.html" class="cs_table_action" aria-label="Run Singapore rentals search" data-tooltip="Run search"><i class="fa-solid fa-magnifying-glass"></i></a></td>
@@ -506,7 +548,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

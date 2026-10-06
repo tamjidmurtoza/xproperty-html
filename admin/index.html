@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Your Xproperty admin dashboard: key stats, recent activity and shortcuts in one place.">
     <meta name="keywords" content="admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Your Xproperty admin dashboard: key stats, recent activity and shortcuts in one place.">
+    <meta property="og:url" content="https://example.com/admin/index.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Your Xproperty admin dashboard: key stats, recent activity and shortcuts in one place.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
    <!-- Site Admin dashboard  -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -89,6 +105,12 @@
                   <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
                 </ul>
               </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
               <li class="cs_has_submenu">
                 <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
                   <i class="cs_menu_icon fa-solid fa-users"></i>
@@ -102,9 +124,43 @@
                 </ul>
               </li>
               <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="blog-posts.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li>
+                <a href="support-tickets.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Business</span></li>
@@ -115,9 +171,33 @@
                 </a>
               </li>
               <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
                 <a href="financials.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
                   <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="listing-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
                 </a>
               </li>
               <li>
@@ -149,7 +229,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -171,38 +251,38 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">8 properties waiting for approval</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
                         <span class="d-block cs_fs_14">Just now</span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">12 new users signed up today</span>
-                        <span class="d-block cs_fs_14">30 min ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">Invoice #INV-2041 paid ($49)</span>
-                        <span class="d-block cs_fs_14">2 hours ago</span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
                       </span>
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -229,7 +309,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -322,9 +402,9 @@
                     <p class="cs_fs_14 mb-0">Packages & subscriptions, this period vs the previous one</p>
                   </div>
                   <div class="cs_segmented cs_chart_period" role="group" aria-label="Chart period">
-                    <button type="button" data-period="7d" aria-pressed="false">7D</button>
-                    <button type="button" data-period="30d" aria-pressed="false">30D</button>
-                    <button type="button" data-period="12m" class="active" aria-pressed="true">12M</button>
+                    <button type="button" data-period="7d" aria-pressed="false"><bdi>7D</bdi></button>
+                    <button type="button" data-period="30d" aria-pressed="false"><bdi>30D</bdi></button>
+                    <button type="button" data-period="12m" class="active" aria-pressed="true"><bdi>12M</bdi></button>
                   </div>
                 </div>
                 <ul class="cs_chart_legend">
@@ -354,7 +434,7 @@
                 <ul class="cs_message_list">
                   <li>
                     <a href="user-management.html">
-                      <img src="../assets/img/avatar-1.jpg" alt="">
+                      <img src="../assets/img/avatar-1.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Daniel Brooks</h3>
@@ -366,7 +446,7 @@
                   </li>
                   <li>
                     <a href="user-management.html">
-                      <img src="../assets/img/avatar-2.jpg" alt="">
+                      <img src="../assets/img/avatar-2.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Sophia Turner</h3>
@@ -378,7 +458,7 @@
                   </li>
                   <li>
                     <a href="user-management.html">
-                      <img src="../assets/img/avatar-3.jpg" alt="">
+                      <img src="../assets/img/avatar-3.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h3>
@@ -390,11 +470,11 @@
                   </li>
                   <li>
                     <a href="user-management.html">
-                      <img src="../assets/img/avatar-4.jpg" alt="">
+                      <img src="../assets/img/avatar-4.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Ethan Wilson</h3>
-                          <span class="cs_fs_14 text-nowrap">2 days ago</span>
+                          <span class="cs_fs_14 text-nowrap"><bdi>2 days ago</bdi></span>
                         </div>
                         <span class="cs_status_badge cs_status_info">Agent</span>
                       </div>
@@ -402,7 +482,7 @@
                   </li>
                   <li>
                     <a href="user-management.html">
-                      <img src="../assets/img/avatar-6.jpg" alt="">
+                      <img src="../assets/img/avatar-6.jpg" alt="" loading="lazy">
                       <div class="cs_message_body">
                         <div class="cs_message_top">
                           <h3 class="cs_message_name cs_fs_16 cs_semibold cs_mb_3">Jordan Lee</h3>
@@ -442,7 +522,7 @@
                 <tbody>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-2.jpg" alt="">
+                        <img src="../assets/img/property-img-2.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Shangri la Apartment</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Central Area, Singapore</p>
@@ -450,14 +530,14 @@
                       </div></td>
                     <td><span class="cs_primary_color">Amanda Jones</span><br><span class="cs_fs_14">Agent</span></td>
                     <td>For Rent</td>
-                    <td><span class="cs_primary_color cs_semibold">$4,800 / mo</span></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$4,800 / mo</bdi></span></td>
                     <td>Oct 04, 2026</td>
                     <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
                     <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Approve Shangri la Apartment" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Reject Shangri la Apartment" data-tooltip="Reject"><i class="fa-solid fa-xmark"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Shangri la Apartment" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
                   </tr>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-8.jpg" alt="">
+                        <img src="../assets/img/property-img-8.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Gilliard Office Building</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> New York, USA</p>
@@ -465,14 +545,14 @@
                       </div></td>
                     <td><span class="cs_primary_color">Michael Chen</span><br><span class="cs_fs_14">Owner</span></td>
                     <td>For Rent</td>
-                    <td><span class="cs_primary_color cs_semibold">$12,500 / mo</span></td>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>$12,500 / mo</bdi></span></td>
                     <td>Oct 03, 2026</td>
                     <td><span class="cs_status_badge cs_status_pending">Pending</span></td>
                     <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action cs_action_approve" aria-label="Approve Gilliard Office Building" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" aria-label="Reject Gilliard Office Building" data-tooltip="Reject"><i class="fa-solid fa-xmark"></i></button><a href="../property-details.html" class="cs_table_action" aria-label="View Gilliard Office Building" data-tooltip="View"><i class="fa-regular fa-eye"></i></a></div></td>
                   </tr>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-9.jpg" alt="">
+                        <img src="../assets/img/property-img-9.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Palm Grove Residence</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Dubai, UAE</p>
@@ -487,7 +567,7 @@
                   </tr>
                   <tr>
                     <td><div class="cs_table_property">
-                        <img src="../assets/img/property-img-10.jpg" alt="">
+                        <img src="../assets/img/property-img-10.jpg" alt="" loading="lazy">
                         <div>
                           <h3 class="cs_fs_16 cs_semibold cs_mb_3">Maple Street Townhouse</h3>
                           <p class="cs_fs_14 mb-0"><i class="fa-solid fa-location-dot"></i> Toronto, Canada</p>
@@ -528,7 +608,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

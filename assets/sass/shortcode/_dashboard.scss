@@ -1,6 +1,4 @@
-/*==============================================================
-  21. Dashboard
-================================================================*/
+/* 21. Dashboard */
 .cs_dashboard {
   --cs-sidebar-width: 280px;
   --cs-sidebar-mini-width: 88px;
@@ -22,8 +20,6 @@
   --cs-card-shadow: none;
 }
 
-/* Soft tint helper: colored text on a 10% background of the same color.
-   Uses ::after so it also works on <i> icons (Font Awesome draws on ::before) */
 @mixin cs-tint($color) {
   color: $color;
   position: relative;
@@ -40,9 +36,7 @@
   }
 }
 
-/*------------------------------------------
- Layout grid
---------------------------------------------*/
+/* Layout grid */
 .cs_dashboard_wrapper {
   min-height: 100vh;
 }
@@ -76,9 +70,7 @@
   }
 }
 
-/*------------------------------------------
- Sidebar
---------------------------------------------*/
+/* Sidebar */
 .cs_dashboard_sidebar {
   width: var(--cs-sidebar-width);
   height: 100vh;
@@ -116,7 +108,6 @@
     }
   }
 
-  // Only the logo icon part shows in mini mode (logo-mark is optional)
   .cs_sidebar_brand_mini {
     display: none;
   }
@@ -165,7 +156,6 @@
   }
 }
 
-/* User card at the top of the sidebar */
 .cs_sidebar_user {
   display: flex;
   align-items: center;
@@ -307,7 +297,6 @@
 
   li.active>.cs_menu_link {
     color: var(--white-color);
-    // Slides from the old page's active link to the new one (page transitions)
     view-transition-name: cs-menu-active;
 
     &::before {
@@ -321,7 +310,6 @@
     }
   }
 
-  // Parent of the current page inside a submenu
   li.cs_has_active>.cs_menu_link {
     color: var(--primary-color);
   }
@@ -339,8 +327,6 @@
   }
 }
 
-/* Submenu (collapsed by default, opened with li.cs_open).
-   main.js animates the height between 0 and the measured content height */
 .cs_submenu {
   list-style: none;
   margin: 0;
@@ -356,7 +342,6 @@
     visibility: visible;
   }
 
-  // Vertical padding on the items, so height 0 really is 0
   li:first-child {
     padding-top: 4px;
   }
@@ -365,7 +350,6 @@
     padding-bottom: 4px;
   }
 
-  // Items fade and slide in one after another
   li {
     opacity: 0;
     transform: translateY(-6px);
@@ -384,6 +368,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+
     &,
     li {
       transition: none !important;
@@ -425,7 +410,6 @@
   }
 }
 
-/* Badges: counts & listing status */
 .cs_menu_badge {
   min-width: 22px;
   height: 22px;
@@ -471,7 +455,6 @@
   }
 }
 
-/* Upgrade / package card in the sidebar footer */
 .cs_sidebar_package {
   padding: 16px;
   white-space: nowrap;
@@ -487,7 +470,6 @@
   }
 }
 
-/* Progress bar (package usage, rating bars) */
 .cs_progress {
   height: 6px;
   border-radius: 3px;
@@ -520,7 +502,7 @@
   }
 }
 
-/* Desktop mini sidebar: icons only, full width again on hover */
+/* Desktop mini sidebar */
 @media (min-width: 1200px) {
   .cs_sidebar_collapsed {
     .cs_dashboard_sidebar:not(:hover) {
@@ -576,9 +558,7 @@
   }
 }
 
-/*------------------------------------------
- Topbar
---------------------------------------------*/
+/* Topbar */
 .cs_dashboard_topbar {
   height: var(--cs-topbar-height);
   display: flex;
@@ -614,7 +594,6 @@
   }
 }
 
-/* Square icon button used for toggle / bell / theme */
 .cs_topbar_btn {
   width: 44px;
   height: 44px;
@@ -655,7 +634,6 @@
     transition: transform 0.3s ease;
   }
 
-  // Point the icon the other way while the sidebar is mini
   .cs_sidebar_collapsed & .fa-bars-staggered {
     transform: scaleX(-1);
   }
@@ -717,7 +695,6 @@
   }
 }
 
-// Mobile: search drops below the topbar when toggled
 @media (max-width: 767px) {
   .cs_search_open .cs_topbar_search {
     display: block;
@@ -735,7 +712,7 @@
   }
 }
 
-/* Color mode switch: shows the icon of the current mode (set by main.js on <html>) */
+/* Color mode switch */
 .cs_theme_switch {
 
   .fa-sun,
@@ -842,26 +819,136 @@
       background-color: var(--gray3-color);
     }
   }
+}
 
-  .cs_notification_icon {
-    width: 38px;
-    height: 38px;
-    flex: none;
-    border-radius: 50%;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    @include cs-tint(var(--accent-color));
+/* Round tinted icon */
+.cs_notification_icon {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include cs-tint(var(--accent-color));
 
-    &.cs_icon_warning {
-      @include cs-tint(var(--cs-warning-color));
-    }
+  &.cs_icon_warning {
+    @include cs-tint(var(--cs-warning-color));
+  }
 
-    &.cs_icon_info {
-      @include cs-tint(var(--cs-info-color));
+  &.cs_icon_info {
+    @include cs-tint(var(--cs-info-color));
+  }
+
+  &.cs_icon_danger {
+    @include cs-tint(var(--danger-color));
+  }
+}
+
+/* Notifications page */
+.cs_notification_feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.cs_notification_item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  &:first-child {
+    border-start-start-radius: 10px;
+    border-start-end-radius: 10px;
+  }
+
+  &:last-child {
+    border-end-start-radius: 10px;
+    border-end-end-radius: 10px;
+  }
+
+  &[data-status="unread"] {
+    background-color: var(--gray3-color);
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-inline-end: 8px;
+      vertical-align: middle;
+      border-radius: 50%;
+      background-color: var(--accent-color);
     }
   }
+
+  .cs_notification_icon {
+    width: 46px;
+    height: 46px;
+    font-size: 17px;
+  }
+
+  .cs_notification_body {
+    flex: 1;
+    min-width: 0;
+
+    a:hover {
+      color: var(--accent-color);
+    }
+  }
+
+  .cs_notification_time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .cs_table_actions {
+    flex: none;
+  }
+
+  @media (max-width: 575px) {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+
+    .cs_notification_body {
+      flex-basis: calc(100% - 58px);
+    }
+
+    .cs_table_actions {
+      margin-inline-start: 58px;
+    }
+  }
+}
+
+.cs_notification_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 50px 16px;
+  text-align: center;
+
+  i {
+    font-size: 32px;
+    color: var(--border-color);
+  }
+}
+
+.cs_notification_read_all:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .cs_profile_toggle {
@@ -917,26 +1004,15 @@
     text-align: center;
   }
 
-  .cs_list_label {
-    display: block;
-    padding: 8px 12px 4px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.7;
-  }
-
   .cs_divider {
+    display: block;
     height: 1px;
     margin: 8px 4px;
     background-color: var(--border-color);
   }
 }
 
-/*------------------------------------------
- Page heading
---------------------------------------------*/
+/* Page heading */
 .cs_dashboard_heading {
   display: flex;
   align-items: flex-end;
@@ -966,9 +1042,7 @@
   }
 }
 
-/*------------------------------------------
- Cards
---------------------------------------------*/
+/* Cards */
 .cs_dashboard_card {
   padding: 24px;
   background-color: var(--cs-card-bg);
@@ -1001,7 +1075,6 @@
   }
 }
 
-// Equal-height cards in a row; stacked cards keep their own height
 .row>[class*="col"]>.cs_dashboard_card:only-child {
   height: 100%;
 }
@@ -1037,6 +1110,7 @@
     font-size: 31px;
     line-height: 1.2em;
     margin: 4px 0 0;
+    white-space: nowrap;
   }
 
   .cs_stat_trend {
@@ -1072,7 +1146,6 @@
   }
 }
 
-/* Segmented period filter (7D / 30D / 12M) */
 .cs_segmented {
   display: inline-flex;
   padding: 4px;
@@ -1131,7 +1204,6 @@
   }
 }
 
-// SVG chart drawn by main.js (Analytics Charts)
 .cs_chart_wrap {
   position: relative;
   min-height: 330px;
@@ -1139,7 +1211,7 @@
   svg {
     display: block;
     overflow: visible;
-    direction: ltr; // time runs left to right in both layouts
+    direction: ltr;
     touch-action: pan-y;
   }
 }
@@ -1318,7 +1390,17 @@
   }
 }
 
-/* Table wrapper: scrolls (scrollbar hidden) only below 1200px */
+@media (max-width: 991px) {
+  .cs_dashboard br {
+    display: inline;
+  }
+}
+
+:where(.cs_dashboard) bdi>small {
+  font-size: 0.85em;
+}
+
+/* Table wrapper */
 .cs_dashboard_content .overflow-x-auto {
   scrollbar-width: none;
 
@@ -1328,6 +1410,10 @@
 
   @media (min-width: 1200px) {
     overflow-x: visible !important;
+
+    &.cs_table_scroll {
+      overflow-x: auto !important;
+    }
   }
 }
 
@@ -1381,7 +1467,6 @@
   }
 }
 
-/* Icon action button (tables, feature lists). Label comes from data-tooltip */
 .cs_table_action {
   width: 34px;
   height: 34px;
@@ -1411,8 +1496,8 @@
     color: #fff;
   }
 
-  // Tooltip bubble + arrow, shown on hover and keyboard focus
   &[data-tooltip] {
+
     &::before,
     &::after {
       position: absolute;
@@ -1450,6 +1535,7 @@
 
     &:hover,
     &:focus-visible {
+
       &::before,
       &::after {
         opacity: 1;
@@ -1460,13 +1546,12 @@
   }
 }
 
-/* Row of table action buttons (edit / approve / reject) */
 .cs_table_actions {
   display: inline-flex;
   gap: 8px;
 }
 
-/* Table row action menu: 3-dot toggle opens a vertical icon list, tooltips on the start side */
+/* Table row action menu */
 .cs_action_menu {
   position: relative;
   display: inline-flex;
@@ -1504,7 +1589,6 @@
     }
   }
 
-  // Tooltip at the start side, vertically centered
   .cs_action_menu_list .cs_table_action[data-tooltip] {
 
     &::before,
@@ -1539,7 +1623,6 @@
   }
 }
 
-// Last rows open the menu upward so it stays inside the table
 .cs_dashboard_table tbody tr:nth-last-child(-n+2) .cs_action_menu .cs_action_menu_list {
   top: auto;
   bottom: calc(100% + 6px);
@@ -1556,6 +1639,7 @@
   border: 1px solid var(--border-color);
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 
   .cs_saved_property_thumb {
     display: block;
@@ -1628,12 +1712,8 @@
   }
 }
 
-/*==============================================================
-  Dashboard Pages
-  Components used by the inner pages of every role folder
-================================================================*/
+/* Dashboard Pages */
 
-/* Filter tabs with counts (listings, approvals, users) */
 .cs_filter_tabs {
   display: flex;
   flex-wrap: wrap;
@@ -1682,7 +1762,6 @@
   }
 }
 
-/* Search + sort row above tables and grids */
 .cs_table_toolbar {
   display: flex;
   align-items: center;
@@ -1748,7 +1827,7 @@
   }
 }
 
-/* Table cell: round avatar + name + email */
+/* Table cell */
 .cs_table_user {
   display: flex;
   align-items: center;
@@ -1768,9 +1847,7 @@
   text-align: center !important;
 }
 
-/*------------------------------------------
- Forms
---------------------------------------------*/
+/* Forms */
 .cs_dashboard_form {
   .cs_form_section:not(:last-child) {
     margin-bottom: 24px;
@@ -1836,7 +1913,6 @@
   }
 }
 
-/* Native select with an icon-font arrow (works in dark mode and RTL) */
 .cs_select {
   position: relative;
 
@@ -1880,7 +1956,7 @@
     height: 44px;
   }
 
-  // Tom Select version (main.js turns every .cs_select select into one)
+  // Tom Select version (main.js turns every .cs_select select into one) 
   &::after {
     z-index: 2;
     transition: transform 0.3s ease;
@@ -1892,7 +1968,7 @@
 
   .ts-wrapper {
     width: 100%;
-    --ts-pr-min: 40px; // Tom Select pads the arrow side with !important, so set its variable
+    --ts-pr-min: 40px;
   }
 
   .ts-control {
@@ -1964,7 +2040,6 @@
   }
 }
 
-/* Input with a leading icon (price, social links) */
 .cs_input_icon_wrap {
   position: relative;
 
@@ -2046,6 +2121,30 @@
     top: 6px;
     inset-inline-end: 6px;
   }
+
+  .cs_upload_file {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    font-size: 12px;
+    text-align: center;
+
+    i {
+      font-size: 26px;
+      color: var(--accent-color);
+    }
+
+    span {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
 }
 
 .cs_checkbox_grid {
@@ -2103,7 +2202,7 @@
   }
 }
 
-/* Setting row: text on one side, switch on the other */
+/* Setting row */
 .cs_setting_list {
   list-style: none;
   margin: 0;
@@ -2138,7 +2237,6 @@
   margin-top: 24px;
 }
 
-/* Outline button variant of .cs_btn.cs_style_1 */
 .cs_btn.cs_style_1.cs_btn_outline {
   color: var(--primary-color);
   background-color: transparent;
@@ -2200,9 +2298,7 @@
   }
 }
 
-/*------------------------------------------
- Messages (chat)
---------------------------------------------*/
+/* Messages (chat) */
 .cs_chat {
   height: calc(100vh - var(--cs-topbar-height) - 170px);
   min-height: 560px;
@@ -2338,6 +2434,15 @@
     }
   }
 
+  .cs_chat_list,
+  .cs_chat_thread {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   .cs_chat_thread {
     flex: 1;
     overflow-y: auto;
@@ -2409,7 +2514,6 @@
     }
   }
 
-  // Mobile: list first, thread slides over it
   @media (max-width: 991px) {
     position: relative;
 
@@ -2444,9 +2548,7 @@
   }
 }
 
-/*------------------------------------------
- Reviews
---------------------------------------------*/
+/* Reviews */
 .cs_rating_summary {
   text-align: center;
 
@@ -2585,7 +2687,6 @@
   }
 }
 
-/* Dashboard modal (native <dialog>, opened with [data-modal-open]) */
 .cs_dash_modal {
   width: min(100% - 30px, 560px);
   max-height: calc(100vh - 40px);
@@ -2664,7 +2765,6 @@
     border-top: 1px solid var(--border-color);
   }
 
-  // Who / what is being reviewed
   .cs_review_subject {
     display: flex;
     align-items: center;
@@ -2684,7 +2784,6 @@
   }
 }
 
-/* Clickable star rating (radios in 5 → 1 order, shown 1 → 5) */
 .cs_star_input {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -2716,7 +2815,6 @@
     color: var(--accent-color);
   }
 
-  // While hovering, preview the hovered value instead of the saved one
   &:hover input~label {
     color: var(--border-color);
   }
@@ -2733,9 +2831,7 @@
   }
 }
 
-/*------------------------------------------
- Plans, billing & payments
---------------------------------------------*/
+/* Plans, billing & payments */
 .cs_plan_card {
   height: 100%;
   display: flex;
@@ -2805,7 +2901,7 @@
   }
 }
 
-// Package editor: editable feature rows + "Add Feature" field
+// Package editor: editable feature rows + "Add Feature" field 
 .cs_feature_list {
   list-style: none;
   margin: 0 0 16px;
@@ -2893,9 +2989,7 @@
   }
 }
 
-/*------------------------------------------
- Profile settings
---------------------------------------------*/
+/* Profile settings */
 .cs_profile_card {
   text-align: center;
 
@@ -2964,7 +3058,7 @@
   }
 }
 
-/* Settings page: sticky section nav */
+/* Settings page */
 .cs_settings_nav {
   list-style: none;
   margin: 0;
@@ -3001,9 +3095,7 @@
   }
 }
 
-/*------------------------------------------
- Footer
---------------------------------------------*/
+/* Footer */
 .cs_dashboard_footer {
   display: flex;
   align-items: center;
@@ -3024,11 +3116,8 @@
     text-align: center;
   }
 }
-/*------------------------------------------
- Page transitions (dashboard pages opt in with
- @view-transition in their <head>). Sidebar and topbar
- stay in place, only the content fades and lifts in.
---------------------------------------------*/
+
+/* Page transitions */
 .cs_dashboard {
   .cs_dashboard_sidebar {
     view-transition-name: cs-dashboard-sidebar;
@@ -3073,6 +3162,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) {
@@ -3080,7 +3170,605 @@
   }
 }
 
-// Preloader only on the first dashboard page of a visit (class set in <head>)
 .cs_preloader_skip .cs_preloader {
   display: none;
+}
+
+/* Leads, tours, analytics, agents, reports */
+.cs_search_hidden {
+  display: none !important;
+}
+
+// Small tables inside half-width cards
+.cs_dashboard_table.cs_table_compact {
+  min-width: 0;
+}
+
+// Wide tables (7+ columns): from 1200px let text cells wrap so the table fits its card; 
+@media (min-width: 1200px) {
+  .cs_dashboard_table.cs_table_wrap {
+    min-width: 0;
+
+    td {
+      white-space: normal;
+    }
+
+    th,
+    td {
+      padding-inline: 10px;
+    }
+
+    .cs_status_badge,
+    .cs_tag_badge,
+    .cs_table_actions,
+    .cs_action_menu,
+    bdi {
+      white-space: nowrap;
+    }
+  }
+}
+
+.cs_dashboard_table.cs_table_fit {
+
+  .cs_table_property h3,
+  .cs_table_user h3,
+  .cs_table_user p {
+    min-width: 120px;
+    white-space: normal;
+  }
+}
+
+.cs_dashboard_table {
+  .cs_lead_message {
+    min-width: 200px;
+    max-width: 240px;
+    white-space: normal;
+  }
+
+  tr {
+    transition: background-color 0.4s ease;
+  }
+
+  .cs_row_flash td,
+  .cs_row_highlight td {
+    background-color: rgba(0, 204, 97, 0.08);
+  }
+}
+
+.cs_lead_time {
+  margin-top: 4px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.cs_status_actions {
+  display: contents;
+}
+
+.cs_upcoming_tours {
+  li {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+
+  .cs_upcoming_date {
+    width: 56px;
+    height: 56px;
+    flex: none;
+    justify-content: center;
+    line-height: 1.2em;
+    border-radius: 12px;
+    background-color: var(--gray3-color);
+    border: 1px solid var(--border-color);
+  }
+
+  .cs_upcoming_info {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+.cs_tour_type_label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+
+  i {
+    color: var(--primary-color);
+  }
+}
+
+.cs_table_user_sm {
+  align-items: center;
+
+  img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.cs_table_rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--primary-color);
+
+  i {
+    font-size: 13px;
+    color: #f5a623;
+  }
+}
+
+.cs_conversion {
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .cs_progress {
+    flex: 1;
+  }
+}
+
+.cs_top_list {
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+  }
+}
+
+.cs_agency_card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  .cs_agency_card_logo {
+    width: 52px;
+    height: 52px;
+    flex: none;
+    border-radius: 12px;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
+
+  h3 a:hover {
+    color: var(--accent-color);
+  }
+}
+
+/* Submit property wizard */
+.cs_wizard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  >.cs_dashboard_card {
+    margin: 0;
+  }
+}
+
+.cs_wizard_steps {
+  --cs-progress: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 20px 16px;
+  list-style: none;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    top: 39px;
+    inset-inline-start: 10%;
+    background-color: var(--border-color);
+  }
+
+  &::before {
+    width: 80%;
+  }
+
+  &::after {
+    width: calc(80% * var(--cs-progress));
+    background-color: var(--accent-color);
+    transition: width 0.4s ease;
+  }
+
+  li {
+    position: relative;
+    z-index: 1;
+  }
+
+  button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    font-size: 14px;
+    color: var(--secondary-color);
+    background: none;
+    border: 0;
+  }
+
+  .cs_wizard_num {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--primary-font);
+    font-weight: 600;
+    color: var(--secondary-color);
+    background-color: var(--white-color);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .done .cs_wizard_num {
+    color: #fff;
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+
+  .active {
+    button {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .cs_wizard_num {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+
+  @media (max-width: 575px) {
+    .cs_wizard_label {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      top: 38px;
+    }
+  }
+}
+
+.cs_wizard_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  .cs_form_actions {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  >.cs_form_note {
+    width: 100%;
+  }
+}
+
+.cs_wizard_review {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.cs_wizard_review_group {
+  padding: 18px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 5px 0;
+    font-size: 14px;
+
+    span:last-child {
+      text-align: end;
+    }
+  }
+}
+
+.cs_wizard_review_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cs_wizard_edit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--accent-color);
+  background: none;
+  border: 0;
+}
+
+.cs_wizard_done {
+  padding: 50px 30px;
+
+  p {
+    max-width: 460px;
+    margin-inline: auto;
+  }
+}
+
+.cs_wizard_done_icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  font-size: 30px;
+  color: #fff;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+}
+
+.cs_wizard_done_btns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Tour calendar */
+.cs_tour_calendar {
+  margin-bottom: 16px;
+}
+
+.cs_calendar_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.cs_calendar_nav {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-size: 12px;
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  i {
+    transform: scaleX(var(--cs-dir));
+  }
+}
+
+.cs_calendar_grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  text-align: center;
+}
+
+.cs_calendar_weekday {
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.cs_calendar_day {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 0;
+  font-size: 14px;
+  color: var(--primary-color);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--gray3-color);
+  }
+
+  &.cs_has_event {
+    font-weight: 600;
+    background-color: var(--gray3-color);
+  }
+
+  &.cs_today {
+    border-color: var(--border-color);
+  }
+
+  &.active {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+
+    .cs_tour_dot {
+      background-color: var(--white-color);
+    }
+  }
+}
+
+.cs_calendar_dots {
+  display: flex;
+  gap: 3px;
+}
+
+.cs_tour_dot {
+  width: 6px;
+  height: 6px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--border-color);
+
+  &.cs_pending {
+    background-color: #f5a623;
+  }
+
+  &.cs_confirmed {
+    background-color: var(--accent-color);
+  }
+}
+
+.cs_tour_legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding-top: 14px;
+  font-size: 13px;
+  border-top: 1px solid var(--border-color);
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+/* Invoice */
+.cs_invoice {
+  padding: 40px;
+
+  @media (max-width: 767px) {
+    padding: 24px 18px;
+  }
+}
+
+.cs_invoice_head,
+.cs_invoice_parties,
+.cs_invoice_bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cs_invoice_head {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-color);
+
+  .cs_invoice_logo {
+    height: 38px;
+    margin-bottom: 12px;
+  }
+}
+
+.cs_invoice_meta {
+  text-align: end;
+
+  .cs_status_badge {
+    margin-top: 8px;
+  }
+}
+
+.cs_invoice_parties {
+  margin-bottom: 28px;
+}
+
+.cs_invoice_dates,
+.cs_invoice_totals {
+  min-width: 260px;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 5px 0;
+    font-size: 15px;
+  }
+}
+
+.cs_invoice_bottom {
+  align-items: flex-end;
+  margin-top: 24px;
+
+  >p {
+    max-width: 360px;
+  }
+}
+
+.cs_invoice_total {
+  margin-top: 6px;
+  padding-top: 10px !important;
+  font-family: var(--primary-font);
+  font-size: 20px !important;
+  font-weight: 600;
+  color: var(--primary-color);
+  border-top: 1px solid var(--border-color);
+}
+
+@media print {
+  body.cs_dashboard {
+    background-color: #fff;
+
+    .cs_dashboard_sidebar,
+    .cs_dashboard_topbar,
+    .cs_dashboard_heading .cs_btn,
+    .cs_dashboard_breadcrumb,
+    .cs_dir_switch,
+    .cs_settings_panel,
+    .cs_preloader {
+      display: none !important;
+    }
+
+    .cs_dashboard_main,
+    .cs_dashboard_content {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .cs_dashboard_card {
+      box-shadow: none;
+    }
+
+    [data-aos] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 }

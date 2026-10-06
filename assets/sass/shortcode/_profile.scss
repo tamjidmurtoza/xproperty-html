@@ -1,6 +1,4 @@
-/*==============================================================
-  20. Profile
-================================================================*/
+/* 20. Profile */
 .cs_or_login span {
   padding: 0 12px;
   position: relative;
@@ -25,27 +23,7 @@
   }
 }
 
-/*------------------------------------------
- Profile page
---------------------------------------------*/
-.cs_profile_menu {
-  padding: 30px;
-  border: 1px solid var(--border-color);
-
-  .cs_profile_thumbnail {
-    width: 150px;
-    height: 150px;
-    border: 5px solid var(--gray-color);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-    }
-  }
-}
-
+/* Dashboard Nav */
 .cs_dashboard_nav {
   li {
     font-family: var(--primary-font);
@@ -81,259 +59,26 @@
   }
 }
 
-.cs_profile {
-  width: min(100%, 860px);
-  padding: 30px 30px 40px;
-  margin: 0 auto;
-
-  .cs_avatar.cs_style_2 {
-    display: flex;
-    align-items: center;
-    gap: 20px 25px;
-    flex-wrap: wrap;
-
-    .cs_avatar_icon {
-      width: 120px;
-      height: 120px;
-      background-color: transparent;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: inherit;
-      }
-
-      .cs_thumb_edit {
-        width: 30px;
-        height: 30px;
-        padding: 6px;
-        background-color: var(--primary-color);
-        font-size: 14px;
-        color: var(--white-color);
-        bottom: 0;
-        inset-inline-end: 15px;
-        cursor: pointer;
-      }
-    }
-  }
-}
-
-.cs_admin_iconbox {
-  align-items: center;
-  display: flex;
-  gap: 15px;
-  padding: 20px;
-  box-shadow: 0 0 15px 0 rgba(27, 27, 27, 0.1);
-
-  .cs_admin_iconbox_icon {
-    border: 1px solid var(--border-color);
-    color: var(--primary-color);
-    flex: none;
-    font-size: 31px;
-    height: 65px;
-    width: 65px;
-  }
-}
-
-/*------------------------------------------
- Property Table 
---------------------------------------------*/
-.cs_property_list {
-  padding: 30px;
-
-  @media (max-width: 991px) {
-    padding: 30px 15px;
-  }
-}
-
-.cs_property_table {
-  min-width: 800px;
-
-  thead {
-    background-color: var(--gray3-color);
-    padding-inline-start: 20px;
-  }
-
-  td,
-  th {
-    border-top: 0;
-    padding-inline-start: 20px;
-  }
-
-  td {
-    border-top: 0;
-    padding-block: 20px 20px;
-    padding-inline: 0 20px;
-    vertical-align: middle;
-    text-align: center;
-  }
-
-  tr {
-    .property_thumbnail {
-      padding-inline-start: 20px;
-    }
-
-    &:nth-child(even) {
-      background-color: var(--gray3-color);
-    }
-  }
-
-  .cs_property_item {
-    display: none;
-  }
-
-  .cs_property_info {
-    text-align: start;
-
-    a {
-      display: inline-block;
-      background-repeat: no-repeat;
-      background-image: linear-gradient(90deg,
-          currentColor 0,
-          currentColor 100%);
-      transition: background-size 0.4s cubic-bezier(0.49, 0.49, 0.08, 1);
-      background-position: var(--cs-x-end) calc(100% - 0px);
-      background-size: 0 1px;
-
-      &:hover {
-        background-size: 100% 1px;
-        background-position: var(--cs-x-start) calc(100% - 0px);
-      }
-    }
-  }
-
-  .property_thumbnail {
-    width: 160px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-      transition: all 0.5s ease-in-out;
-    }
-
-    a {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-
-    &:hover {
-      img {
-        transform: scale(1.06);
-      }
-    }
-  }
-
-  .cs_rating {
-    font-size: 14px;
-  }
-}
-
-.cs_change_password_form_wraper {
-  padding: 30px;
-}
-
-.cs_password_change_quote {
-  padding: 30px;
-  position: relative;
-
-  >* {
-    position: relative;
-    z-index: 1;
-  }
-
-  &::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background-color: var(--accent-color);
-    opacity: 0.07;
-    position: absolute;
-    inset-inline-start: 0;
-    top: 0;
-  }
-}
-
-/*------------------------------------------
- Dashboard Styling
---------------------------------------------*/
-.cs_dashboard_contentbox {
-  &:not(:last-child) {
-    margin-bottom: 40px;
-  }
-
-  @media (max-width: 991px) {
-    &:not(:last-child) {
-      margin-bottom: 30px;
-    }
-  }
-}
-
-.cs_reviews_list {
-  li:not(:last-child) {
-    margin-bottom: 40px;
-  }
-}
-
-.cs_customer_review {
-  max-width: 650px;
-
-  .cs_review_header {
-    display: flex;
-    gap: 20px;
-  }
-
-  .cs_customer_icon {
-    flex: none;
-    width: 72px;
-    height: 72px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: inherit;
-    }
-  }
-
-  .cs_actions_btns {
-    position: absolute;
-    top: 30px;
-    inset-inline-end: 0;
-  }
-
-  @media (max-width: 400px) {
-    .cs_review_header {
-      flex-direction: column;
-    }
-
-    .cs_actions_btns {
-      top: 115px;
-    }
-  }
-}
-
-/*======================================================================
- Add New Property Styling
-========================================================================*/
+/* Add New Property Styling */
 .cs_add_property_container {
   max-width: 860px;
   padding: 40px 30px;
   margin: 0 auto;
 
-  .cs_custom_select,
+  @media (max-width: 767px) {
+    padding-inline: 15px;
+  }
+
   .cs_form_field {
     color: var(--heading-color);
   }
 
   .cs_notification_wrapper {
     padding: 20px 30px 24px;
+
+    @media (max-width: 767px) {
+      padding-inline: 15px;
+    }
 
     &::before {
       content: "";
@@ -356,12 +101,6 @@
 
   .cs_submit_section:not(:last-child) {
     margin-bottom: 50px;
-  }
-
-  .cs_other_features_list {
-    display: flex;
-    gap: 20px 30px;
-    flex-wrap: wrap;
   }
 
   .cs_file_input_wrapper {
@@ -407,112 +146,271 @@
   }
 }
 
-/*======================================================================
- Client list table Styling
-========================================================================*/
-.cs_clients_wrapper {
-  padding: 30px 0px;
-  text-wrap: nowrap;
-  overflow-x: auto;
+/* Coming Soon, Maintenance, Verify Email */
+// Full-screen pages without header / footer
+.cs_util_page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
-.cs_user_data_table {
-  .form-check {
-    margin-bottom: 0;
-    min-height: 28px;
+.cs_util_logo {
+  display: inline-block;
 
-    label {
-      margin-bottom: 0;
-      margin-inline-end: 10px;
+  img {
+    height: 40px;
+  }
+}
+
+.cs_util_icon {
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+  box-shadow: 0px 4px 20px 0px rgba(29, 29, 29, 0.07);
+}
+
+.cs_countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 8px 12px;
+    border: 1px solid var(--gray-color);
+    font-size: 14px;
+    line-height: 1.4em;
+  }
+
+  [data-days],
+  [data-hours],
+  [data-minutes],
+  [data-seconds] {
+    line-height: 1.2em;
+  }
+
+  @media (max-width: 400px) {
+    gap: 8px;
+
+    li {
+      padding: 12px 4px 10px;
+    }
+  }
+}
+
+.cs_util_progress_head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cs_util_progress_bar {
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid var(--gray-color);
+
+  span {
+    display: block;
+    height: 100%;
+  }
+}
+
+.cs_util_contact {
+  li {
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 6px;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
     }
   }
 
-  .form-check-input {
-    width: 15px;
-    height: 15px;
-    box-shadow: none;
-    border-color: var(--primary-color);
-    background-color: transparent;
-    border-radius: 2px;
-    margin-top: 6px;
-    cursor: pointer;
+  .cs_contact_icon {
+    width: 30px;
+    height: 30px;
+    margin-inline-end: 6px;
+    font-size: 13px;
   }
+}
 
-  .form-check-input:focus {
-    box-shadow: none;
-    border-color: var(--primary-color);
-  }
+.cs_otp_inputs {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
 
-  .form-check-input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    box-shadow: none;
-  }
-
-  tr {
-    &.even {
-      background-color: var(--gray3-color);
-    }
-
-    th {
-      background-color: var(--gray3-color);
-      padding: 12px 20px !important;
-    }
-
-    .sorting_1,
-    td {
-      border-color: var(--border-color) !important;
-      box-shadow: none !important;
-    }
-  }
-
-  tbody td {
-    padding: 12px 20px !important;
-  }
-
-  td button {
+  input {
     width: 100%;
+    height: 60px;
+    padding: 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: var(--primary-font);
+
+    &:focus {
+      border-color: var(--primary-color);
+    }
+  }
+
+  @media (max-width: 400px) {
+    gap: 6px;
+
+    input {
+      height: 50px;
+    }
+  }
+}
+
+.cs_otp_resend {
+  padding: 0;
+  background: none;
+  border: 0;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+/* Agent cards link + Agent Profile (agent-details.html) */
+.cs_team.cs_style_1 {
+  .cs_team_thumbnail>a {
+    display: block;
+    border-radius: inherit;
+  }
+
+  .cs_team_title a:hover {
+    color: var(--accent-color);
+  }
+}
+
+.cs_agency_logo {
+  height: 140px;
+  padding: 30px;
+  border: 1px solid var(--gray-color);
+
+  img {
+    max-width: 100%;
+    max-height: 56px;
+  }
+}
+
+.cs_agency_agents_head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.cs_agent_sidebar {
+  @media (min-width: 992px) {
+    position: sticky;
+    top: 110px;
+  }
+}
+
+.cs_agent_rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs_agent_rating .cs_rating,
+.cs_agent_review .cs_rating {
+  width: 120px;
+}
+
+.cs_agent_meta {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px 0;
+    font-size: 15px;
+
+    span:last-child {
+      text-align: end;
+    }
+  }
+}
+
+.cs_agent_stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  li {
     text-align: center;
   }
-}
 
-.dt-container .dt-length {
-  padding-inline-start: 20px;
+  .cs_iconbox_icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 8px;
+    font-size: 24px;
+  }
 
-  select {
-    margin: 0 6px;
+  p {
+    font-size: 15px;
+  }
+
+  @media (max-width: 575px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.dt-container .dt-search input {
-  border: 1px solid var(--border-color);
-  outline: 0;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: transparent;
-  color: inherit;
-  margin-inline-start: 10px;
+.cs_agent_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 
-  &:focus {
-    border-color: var(--primary-color);
+  li {
+    padding: 6px 16px;
+    font-size: 15px;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+    border: 1px solid var(--gray-color);
   }
 }
 
-.dt-container .dt-search {
-  padding-inline-end: 20px;
+.cs_agent_review_list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.dt-container .dt-info {
-  padding-top: 20px !important;
-  margin-inline-start: 20px;
-}
+.cs_agent_review {
+  &:not(:last-child) {
+    padding-bottom: 24px;
+    border-bottom: 1px dashed var(--border-color);
+  }
 
-.dt-container .dt-paging {
-  padding-top: 20px !important;
+  .cs_agent_review_head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
 
-  .dt-paging-button {
-    line-height: 1.6em;
-    margin-inline-start: 10px;
-    padding: 5px 15px !important;
+    img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      flex: none;
+    }
+  }
+
+  .cs_agent_review_info {
+    flex: 1;
+    min-width: 0;
   }
 }

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Review, approve or decline rental applications in your Xproperty owner dashboard.">
+    <meta name="keywords" content="owner dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/owner/applications.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Rental Applications - Owner Dashboard | Xproperty">
+    <meta property="og:description" content="Review, approve or decline rental applications in your Xproperty owner dashboard.">
+    <meta property="og:url" content="https://example.com/owner/applications.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rental Applications - Owner Dashboard | Xproperty">
+    <meta name="twitter:description" content="Review, approve or decline rental applications in your Xproperty owner dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Rental Applications - Owner Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Property Owner dashboard · Rental Applications. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-3.jpg" alt="Michael Chen">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Property Owner</span>
+            </div>
+          </div>
+          <!-- Start Property Owner Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="submit-property.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-square-plus"></i>
+                  <span class="cs_menu_text">Submit Property</span>
+                </a>
+              </li>
+              <li>
+                <a href="my-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-chimney"></i>
+                  <span class="cs_menu_text">My Properties</span>
+                </a>
+              </li>
+              <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-folder-open"></i>
+                  <span class="cs_menu_text">Documents</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Rentals</span></li>
+              <li>
+                <a href="tenants.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-user"></i>
+                  <span class="cs_menu_text">Tenants &amp; Leases</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="applications.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="maintenance.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-screwdriver-wrench"></i>
+                  <span class="cs_menu_text">Maintenance</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li>
+                <a href="billing.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-credit-card"></i>
+                  <span class="cs_menu_text">Billing & Payments</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Property Owner Menu -->
+        </div>
+        <div class="cs_sidebar_footer">
+          <!-- Package usage -->
+          <div class="cs_sidebar_package cs_radius_10">
+            <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Basic Plan</p>
+            <div class="cs_progress"><span style="width: 60%"></span></div>
+            <p class="cs_fs_14 mb-0"><bdi>6 of 10 listings used</bdi></p>
+          </div>
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search your properties, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">"Northern Apartment" is now live</span>
+                        <span class="d-block cs_fs_14"><bdi>5 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-envelope"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">New inquiry from Sophia Turner</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>1 listing waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Yesterday</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-3.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Michael Chen</span>
+                  <span class="d-block cs_fs_14">Property Owner</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="my-properties.html"><i class="fa-solid fa-house-chimney"></i>My Properties</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Rental Applications</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Rental Applications</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10" data-export-table="#applicationTable" data-export-name="rental-applications.csv">
+                <span><i class="fa-solid fa-file-arrow-down"></i></span>
+                <span>Export CSV</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Start Summary Cards -->
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">New Applications</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="3"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-file-signature"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>50.0%</span>
+                  <span>vs last week</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">In Screening</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-shield-halved"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span>Results in about <bdi>24 hours</bdi></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="200">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Approval Rate</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="64"></span>%</h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-user-check"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span class="cs_trend cs_trend_up"><i class="fa-solid fa-arrow-trend-up"></i>5.2%</span>
+                  <span>vs last quarter</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-3 col-md-6">
+              <div class="cs_dashboard_card cs_stat_card" data-aos="fade-up" data-aos-delay="300">
+                <div class="cs_stat_top">
+                  <div>
+                    <p class="cs_fs_16 mb-0">Vacant Units</p>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2"></span></h2>
+                  </div>
+                  <span class="cs_stat_icon"><i class="fa-solid fa-door-open"></i></span>
+                </div>
+                <div class="cs_stat_trend">
+                  <span>Ready to rent now</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Summary Cards -->
+
+          <!-- Start Applications -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#applicationTable" aria-label="Filter applications">
+                <li><button type="button" data-filter="new" aria-pressed="true" class="active">New <span>3</span></button></li>
+                <li><button type="button" data-filter="screening" aria-pressed="false">Screening <span>2</span></button></li>
+                <li><button type="button" data-filter="approved" aria-pressed="false">Approved <span>2</span></button></li>
+                <li><button type="button" data-filter="declined" aria-pressed="false">Declined <span>2</span></button></li>
+              </ul>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search" data-table-search="#applicationTable">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input name="search_applicants" type="search" placeholder="Search applicants" aria-label="Search applicants">
+                </form>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table cs_table_fit cs_table_wrap" id="applicationTable">
+                <thead>
+                  <tr>
+                    <th scope="col">Applicant</th>
+                    <th scope="col">Applied For</th>
+                    <th scope="col">Move-in</th>
+                    <th scope="col">Income vs Rent</th>
+                    <th scope="col">Screening</th>
+                    <th scope="col">Household</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="new">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-2.jpg" alt="Olivia Chen" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Olivia Chen</h3>
+                          <p class="cs_fs_14 mb-0">olivia.chen@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-14.jpg" alt="Riverside Studio" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Riverside Studio</h3>
+                          <p class="cs_fs_14 mb-0">Unit 5 · <bdi>$1,450<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Nov 01, 2026</p><p class="cs_fs_14 mb-0">Applied Oct 05</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$5,200<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_success"><bdi>3.6x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge"><i class="fa-regular fa-clock"></i>Not screened</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>1 occupant</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>No pets</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_info">New</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><span class="cs_status_actions"><button type="button" class="cs_table_action" data-set-status="screening" data-status-label="Screening" data-status-class="pending" aria-label="Start screening for Olivia Chen" data-tooltip="Run screening"><i class="fa-solid fa-shield-halved"></i></button><button type="button" class="cs_table_action cs_action_approve" data-set-status="approved" data-status-label="Approved" data-status-class="active" aria-label="Approve Olivia Chen's application" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" data-set-status="declined" data-status-label="Declined" data-status-class="expired" aria-label="Decline Olivia Chen's application" data-tooltip="Decline"><i class="fa-solid fa-xmark"></i></button></span><a href="../rental-application.html" class="cs_table_action" aria-label="View Olivia Chen's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Olivia Chen" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="new">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-1.jpg" alt="Ryan Patel" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Ryan Patel</h3>
+                          <p class="cs_fs_14 mb-0">ryan.patel@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 3C · <bdi>$3,200<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Nov 15, 2026</p><p class="cs_fs_14 mb-0">Applied Oct 05</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$11,500<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_success"><bdi>3.6x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge"><i class="fa-regular fa-clock"></i>Not screened</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>2 occupants</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>1 cat</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_info">New</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><span class="cs_status_actions"><button type="button" class="cs_table_action" data-set-status="screening" data-status-label="Screening" data-status-class="pending" aria-label="Start screening for Ryan Patel" data-tooltip="Run screening"><i class="fa-solid fa-shield-halved"></i></button><button type="button" class="cs_table_action cs_action_approve" data-set-status="approved" data-status-label="Approved" data-status-class="active" aria-label="Approve Ryan Patel's application" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" data-set-status="declined" data-status-label="Declined" data-status-class="expired" aria-label="Decline Ryan Patel's application" data-tooltip="Decline"><i class="fa-solid fa-xmark"></i></button></span><a href="../rental-application.html" class="cs_table_action" aria-label="View Ryan Patel's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Ryan Patel" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="new">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-3.jpg" alt="Grace Kim" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Grace Kim</h3>
+                          <p class="cs_fs_14 mb-0">grace.kim@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 3C · <bdi>$3,200<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Dec 01, 2026</p><p class="cs_fs_14 mb-0">Applied Oct 04</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$7,400<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_danger"><bdi>2.3x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge"><i class="fa-regular fa-clock"></i>Not screened</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>3 occupants</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>1 dog</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_info">New</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><span class="cs_status_actions"><button type="button" class="cs_table_action" data-set-status="screening" data-status-label="Screening" data-status-class="pending" aria-label="Start screening for Grace Kim" data-tooltip="Run screening"><i class="fa-solid fa-shield-halved"></i></button><button type="button" class="cs_table_action cs_action_approve" data-set-status="approved" data-status-label="Approved" data-status-class="active" aria-label="Approve Grace Kim's application" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" data-set-status="declined" data-status-label="Declined" data-status-class="expired" aria-label="Decline Grace Kim's application" data-tooltip="Decline"><i class="fa-solid fa-xmark"></i></button></span><a href="../rental-application.html" class="cs_table_action" aria-label="View Grace Kim's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Grace Kim" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="screening">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-4.jpg" alt="Jacob Miller" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Jacob Miller</h3>
+                          <p class="cs_fs_14 mb-0">jacob.miller@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-14.jpg" alt="Riverside Studio" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Riverside Studio</h3>
+                          <p class="cs_fs_14 mb-0">Unit 5 · <bdi>$1,450<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Nov 01, 2026</p><p class="cs_fs_14 mb-0">Applied Oct 02</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$4,900<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_success"><bdi>3.4x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge cs_tag_warning"><i class="fa-solid fa-magnifying-glass"></i>Checks running</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>1 occupant</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>No pets</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_pending">Screening</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><span class="cs_status_actions"><button type="button" class="cs_table_action cs_action_approve" data-set-status="approved" data-status-label="Approved" data-status-class="active" aria-label="Approve Jacob Miller's application" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" data-set-status="declined" data-status-label="Declined" data-status-class="expired" aria-label="Decline Jacob Miller's application" data-tooltip="Decline"><i class="fa-solid fa-xmark"></i></button></span><a href="../rental-application.html" class="cs_table_action" aria-label="View Jacob Miller's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Jacob Miller" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="screening">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/team-img-6.jpg" alt="Mia Johnson" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Mia Johnson</h3>
+                          <p class="cs_fs_14 mb-0">mia.johnson@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 3C · <bdi>$3,200<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Nov 15, 2026</p><p class="cs_fs_14 mb-0">Applied Oct 01</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$9,600<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_success"><bdi>3.0x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge cs_tag_warning"><i class="fa-solid fa-magnifying-glass"></i>Checks running</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>2 occupants</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>No pets</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_pending">Screening</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><span class="cs_status_actions"><button type="button" class="cs_table_action cs_action_approve" data-set-status="approved" data-status-label="Approved" data-status-class="active" aria-label="Approve Mia Johnson's application" data-tooltip="Approve"><i class="fa-solid fa-check"></i></button><button type="button" class="cs_table_action cs_action_reject" data-set-status="declined" data-status-label="Declined" data-status-class="expired" aria-label="Decline Mia Johnson's application" data-tooltip="Decline"><i class="fa-solid fa-xmark"></i></button></span><a href="../rental-application.html" class="cs_table_action" aria-label="View Mia Johnson's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Mia Johnson" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="approved">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-6.jpg" alt="Emma Wilson" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Emma Wilson</h3>
+                          <p class="cs_fs_14 mb-0">emma.wilson@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-15.jpg" alt="Oakwood Duplex" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Oakwood Duplex</h3>
+                          <p class="cs_fs_14 mb-0">Unit A · <bdi>$2,100<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Sep 10, 2026</p><p class="cs_fs_14 mb-0">Applied Aug 28</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$7,800<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_success"><bdi>3.7x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge cs_tag_success"><i class="fa-solid fa-shield-halved"></i>Credit <bdi>781</bdi> · Passed</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>2 occupants</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>No pets</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_active">Approved</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View Emma Wilson's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="tenants.html" class="cs_table_action" aria-label="Open Emma Wilson's lease" data-tooltip="Lease"><i class="fa-solid fa-file-signature"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Emma Wilson" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="approved">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-5.jpg" alt="Lucas Martin" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lucas Martin</h3>
+                          <p class="cs_fs_14 mb-0">lucas.martin@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 2A · <bdi>$3,050<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Jun 01, 2026</p><p class="cs_fs_14 mb-0">Applied May 12</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$10,400<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_success"><bdi>3.4x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge cs_tag_success"><i class="fa-solid fa-shield-halved"></i>Credit <bdi>755</bdi> · Passed</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>2 occupants</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>1 cat</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_active">Approved</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View Lucas Martin's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="tenants.html" class="cs_table_action" aria-label="Open Lucas Martin's lease" data-tooltip="Lease"><i class="fa-solid fa-file-signature"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Lucas Martin" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="declined">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-7.jpg" alt="Kevin Brown" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Kevin Brown</h3>
+                          <p class="cs_fs_14 mb-0">kevin.brown@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-15.jpg" alt="Oakwood Duplex" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Oakwood Duplex</h3>
+                          <p class="cs_fs_14 mb-0">Unit A · <bdi>$2,100<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Sep 10, 2026</p><p class="cs_fs_14 mb-0">Applied Aug 25</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$4,200<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_danger"><bdi>2.0x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge cs_tag_danger"><i class="fa-solid fa-triangle-exclamation"></i>Credit <bdi>588</bdi> · Flagged</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>4 occupants</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>2 dogs</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_expired">Declined</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View Kevin Brown's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Kevin Brown" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr data-status="declined">
+                    <td><div class="cs_table_user">
+                        <img src="../assets/img/avatar-4.jpg" alt="Lily Evans" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lily Evans</h3>
+                          <p class="cs_fs_14 mb-0">lily.evans@mail.com</p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                          <p class="cs_fs_14 mb-0">Unit 3C · <bdi>$3,200<small>/month</small></bdi></p>
+                        </div>
+                      </div></td>
+                    <td><p class="mb-0">Nov 01, 2026</p><p class="cs_fs_14 mb-0">Applied Sep 29</p></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><bdi>$6,100<small>/month</small></bdi></p><span class="cs_tag_badge cs_tag_danger"><bdi>1.9x rent</bdi></span></td>
+                    <td><span class="cs_tag_badge cs_tag_warning"><i class="fa-solid fa-shield-halved"></i>Credit <bdi>640</bdi> · Fair</span></td>
+                    <td><p class="cs_fs_14 cs_primary_color mb-0"><i class="fa-solid fa-users"></i> <bdi>1 occupant</bdi></p><p class="cs_fs_14 mb-0"><i class="fa-solid fa-paw"></i> <bdi>No pets</bdi></p></td>
+                    <td><span class="cs_status_badge cs_status_expired">Declined</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><a href="../rental-application.html" class="cs_table_action" aria-label="View Lily Evans's application" data-tooltip="View application"><i class="fa-regular fa-file-lines"></i></a><a href="messages.html" class="cs_table_action" aria-label="Message Lily Evans" data-tooltip="Message"><i class="fa-regular fa-comment"></i></a></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="8">No applications with this status.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="cs_fs_14 mb-0 mt-3"><i class="fa-solid fa-circle-info"></i> We recommend a monthly income of at least <bdi>3x</bdi> the rent. Screening includes credit, eviction and income checks.</p>
+          </div>
+          <!-- End Applications -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

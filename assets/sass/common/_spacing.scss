@@ -1,6 +1,4 @@
-/*============================================================
-  03. Spacing
-==============================================================*/
+/* 03. Spacing */
 @media screen and (min-width: 992px) {
   @for $i from 1 through 150 {
     .cs_height_#{$i} {
@@ -17,9 +15,7 @@
   }
 }
 
-/*==========================================
- Margin Bottom Spacing
-===========================================*/
+/* Margin Bottom Spacing */
 @for $i from 1 through 70 {
   .cs_mb_#{$i} {
     margin-bottom: $i * 1px;

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Billing &amp; Payments in your Xproperty owner dashboard.">
+    <meta name="keywords" content="owner dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/owner/billing.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Billing &amp; Payments - Owner Dashboard | Xproperty">
+    <meta property="og:description" content="Billing &amp; Payments in your Xproperty owner dashboard.">
+    <meta property="og:url" content="https://example.com/owner/billing.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Billing &amp; Payments - Owner Dashboard | Xproperty">
+    <meta name="twitter:description" content="Billing &amp; Payments in your Xproperty owner dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Billing & Payments - Owner Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Property Owner dashboard · Billing & Payments. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-3.jpg" alt="Michael Chen">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Property Owner</span>
+            </div>
+          </div>
+          <!-- Start Property Owner Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="submit-property.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-square-plus"></i>
+                  <span class="cs_menu_text">Submit Property</span>
+                </a>
+              </li>
+              <li>
+                <a href="my-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-chimney"></i>
+                  <span class="cs_menu_text">My Properties</span>
+                </a>
+              </li>
+              <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-folder-open"></i>
+                  <span class="cs_menu_text">Documents</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Rentals</span></li>
+              <li>
+                <a href="tenants.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-user"></i>
+                  <span class="cs_menu_text">Tenants &amp; Leases</span>
+                </a>
+              </li>
+              <li>
+                <a href="applications.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="maintenance.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-screwdriver-wrench"></i>
+                  <span class="cs_menu_text">Maintenance</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li class="active">
+                <a href="billing.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-credit-card"></i>
+                  <span class="cs_menu_text">Billing & Payments</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Property Owner Menu -->
+        </div>
+        <div class="cs_sidebar_footer">
+          <!-- Package usage -->
+          <div class="cs_sidebar_package cs_radius_10">
+            <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Basic Plan</p>
+            <div class="cs_progress"><span style="width: 60%"></span></div>
+            <p class="cs_fs_14 mb-0"><bdi>6 of 10 listings used</bdi></p>
+          </div>
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search your properties, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">"Northern Apartment" is now live</span>
+                        <span class="d-block cs_fs_14"><bdi>5 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-envelope"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">New inquiry from Sophia Turner</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>1 listing waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Yesterday</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-3.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Michael Chen</span>
+                  <span class="d-block cs_fs_14">Property Owner</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="my-properties.html"><i class="fa-solid fa-house-chimney"></i>My Properties</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Billing &amp; Payments</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Billing &amp; Payments</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <div class="col-xl-8">
+              <!-- Start Premium Plan -->
+              <div class="cs_dashboard_card" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Premium Plan</h2>
+                    <p class="cs_fs_14 mb-0"><bdi>$49 / month</bdi> · Renews on Nov 05, 2026</p>
+                  </div>
+                  <span class="cs_status_badge cs_status_active">Active</span>
+                </div>
+                <ul class="cs_usage_list">
+                  <li><div class="cs_usage_top"><span>Active listings</span><span class="cs_primary_color cs_semibold"><bdi>34 / 50</bdi></span></div><div class="cs_progress"><span style="width: 68%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Featured listings</span><span class="cs_primary_color cs_semibold"><bdi>3 / 5</bdi></span></div><div class="cs_progress"><span style="width: 60%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Photo storage</span><span class="cs_primary_color cs_semibold"><bdi>2.1 / 5 GB</bdi></span></div><div class="cs_progress"><span style="width: 42%"></span></div></li>
+                </ul>
+                <div class="cs_form_actions">
+                  <button type="button" class="cs_btn cs_style_1 cs_btn_danger cs_medium cs_radius_10"><span>Cancel Subscription</span></button>
+                  <a href="#plans" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span><i class="fa-solid fa-arrow-up"></i></span><span>Change Plan</span></a>
+                </div>
+              </div>
+              <!-- End Premium Plan -->
+            </div>
+            <div class="col-xl-4">
+              <!-- Start Payment Method -->
+              <div class="cs_dashboard_card" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold mb-0">Payment Method</h2>
+                  </div>
+                </div>
+                <div class="cs_payment_card cs_mb_20">
+                  <i class="fa-brands fa-cc-visa"></i>
+                  <div>
+                    <p class="cs_fs_16 cs_semibold cs_primary_color mb-0">Visa ending in 4242</p>
+                    <p class="cs_fs_14 mb-0">Expires 08 / 2028</p>
+                  </div>
+                  <span class="cs_status_badge cs_status_active">Default</span>
+                </div>
+                <p class="cs_fs_14 cs_semibold cs_primary_color cs_mb_3">Billing address</p>
+                <p class="cs_fs_14 cs_mb_20">Xproperty Realty, 820 Sunset Blvd, Los Angeles, CA 90028</p>
+                <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10"><span><i class="fa-solid fa-plus"></i></span><span>Add Payment Method</span></button>
+              </div>
+              <!-- End Payment Method -->
+            </div>
+          </div>
+
+          <div id="plans" class="cs_settings_section">
+            <!-- Start Available Plans -->
+            <div class="cs_dashboard_card" data-aos="fade-up">
+              <div class="cs_card_head">
+                <div>
+                  <h2 class="cs_fs_20 cs_semibold cs_mb_3">Available Plans</h2>
+                  <p class="cs_fs_14 mb-0">Switch any time. Changes apply from your next billing date.</p>
+                </div>
+              </div>
+              <div class="row cs_gap_y_24">
+                <div class="col-lg-4">
+                  <div class="cs_plan_card">
+  
+                    <h3 class="cs_fs_20 cs_semibold mb-0">Basic</h3>
+                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold"><bdi>$0<small> / month</small></bdi></p>
+                    <p class="cs_fs_14 mb-0">For owners listing a few homes.</p>
+                    <ul class="cs_plan_features">
+                      <li><i class="fa-solid fa-check"></i><bdi>10 active listings</bdi></li>
+                      <li><i class="fa-solid fa-check"></i><bdi>10 photos per listing</bdi></li>
+                      <li><i class="fa-solid fa-check"></i>Email support</li>
+                      <li class="cs_disabled"><i class="fa-solid fa-xmark"></i>Featured listings</li>
+                      <li class="cs_disabled"><i class="fa-solid fa-xmark"></i>Lead analytics</li>
+                    </ul>
+                    <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10"><span>Downgrade</span></button>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="cs_plan_card cs_current">
+                    <span class="cs_plan_tag cs_status_badge cs_status_active">Current Plan</span>
+                    <h3 class="cs_fs_20 cs_semibold mb-0">Premium</h3>
+                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold"><bdi>$49<small> / month</small></bdi></p>
+                    <p class="cs_fs_14 mb-0">For busy agents growing their pipeline.</p>
+                    <ul class="cs_plan_features">
+                      <li><i class="fa-solid fa-check"></i><bdi>50 active listings</bdi></li>
+                      <li><i class="fa-solid fa-check"></i><bdi>30 photos per listing</bdi></li>
+                      <li><i class="fa-solid fa-check"></i><bdi>5 featured listings</bdi></li>
+                      <li><i class="fa-solid fa-check"></i>Lead analytics</li>
+                      <li class="cs_disabled"><i class="fa-solid fa-xmark"></i>Priority support</li>
+                    </ul>
+                    <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10"><span>Current Plan</span></button>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="cs_plan_card">
+  
+                    <h3 class="cs_fs_20 cs_semibold mb-0">Enterprise</h3>
+                    <p class="cs_plan_price cs_primary_color cs_primary_font cs_semibold"><bdi>$149<small> / month</small></bdi></p>
+                    <p class="cs_fs_14 mb-0">For agencies with full teams.</p>
+                    <ul class="cs_plan_features">
+                      <li><i class="fa-solid fa-check"></i>Unlimited listings</li>
+                      <li><i class="fa-solid fa-check"></i>Unlimited photos</li>
+                      <li><i class="fa-solid fa-check"></i><bdi>20 featured listings</bdi></li>
+                      <li><i class="fa-solid fa-check"></i>Team accounts</li>
+                      <li><i class="fa-solid fa-check"></i>Priority support</li>
+                    </ul>
+                    <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Upgrade</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Available Plans -->
+          </div>
+
+          <!-- Start Invoices -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_card_head">
+              <div>
+                <h2 class="cs_fs_20 cs_semibold mb-0">Invoices</h2>
+              </div>
+              <a href="#" class="cs_card_link">Download All</a>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table">
+                <thead>
+                  <tr>
+                    <th scope="col">Invoice</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Plan</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-end">Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>#INV-2041</bdi></span></td>
+                    <td>Oct 05, 2026</td>
+                    <td>Premium · Monthly</td>
+                    <td><span class="cs_primary_color cs_semibold">$49.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><a href="invoice.html" class="cs_table_action" aria-label="Download invoice INV-2041" data-tooltip="Download"><i class="fa-solid fa-download"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>#INV-1987</bdi></span></td>
+                    <td>Sep 05, 2026</td>
+                    <td>Premium · Monthly</td>
+                    <td><span class="cs_primary_color cs_semibold">$49.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><a href="invoice.html" class="cs_table_action" aria-label="Download invoice INV-1987" data-tooltip="Download"><i class="fa-solid fa-download"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>#INV-1932</bdi></span></td>
+                    <td>Aug 05, 2026</td>
+                    <td>Featured add-on</td>
+                    <td><span class="cs_primary_color cs_semibold">$15.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><a href="invoice.html" class="cs_table_action" aria-label="Download invoice INV-1932" data-tooltip="Download"><i class="fa-solid fa-download"></i></a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="cs_primary_color cs_semibold"><bdi>#INV-1880</bdi></span></td>
+                    <td>Jul 05, 2026</td>
+                    <td>Premium · Monthly</td>
+                    <td><span class="cs_primary_color cs_semibold">$49.00</span></td>
+                    <td><span class="cs_status_badge cs_status_active">Paid</span></td>
+                    <td class="text-end"><a href="invoice.html" class="cs_table_action" aria-label="Download invoice INV-1880" data-tooltip="Download"><i class="fa-solid fa-download"></i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- End Invoices -->
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

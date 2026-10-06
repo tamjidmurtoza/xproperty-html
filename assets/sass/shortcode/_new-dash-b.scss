@@ -1,0 +1,78 @@
+/* Owner dashboard: tenants, maintenance, applications, */
+
+.cs_tag_badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  white-space: nowrap;
+  color: var(--secondary-color);
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  &.cs_tag_success {
+    color: var(--cs-success-color);
+  }
+
+  &.cs_tag_warning {
+    color: var(--cs-warning-color);
+  }
+
+  &.cs_tag_danger {
+    color: var(--danger-color);
+  }
+
+  &.cs_tag_info {
+    color: var(--cs-info-color);
+  }
+}
+
+.cs_dashboard_table {
+  p + .cs_tag_badge,
+  .cs_tag_badge + p {
+    margin-top: 4px;
+  }
+}
+
+.cs_detail_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    font-size: 14px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    > span:last-child {
+      text-align: end;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+  }
+}
+
+.cs_dark .cs_dashboard input[type="date"] {
+  color-scheme: dark;
+}

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Write and edit blog posts in your Xproperty admin dashboard.">
+    <meta name="keywords" content="edit post, post editor, blog, admin dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/admin/edit-post.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Edit Post - Admin Dashboard | Xproperty">
+    <meta property="og:description" content="Write and edit blog posts in your Xproperty admin dashboard.">
+    <meta property="og:url" content="https://example.com/admin/edit-post.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edit Post - Admin Dashboard | Xproperty">
+    <meta name="twitter:description" content="Write and edit blog posts in your Xproperty admin dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Edit Post - Admin Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Site Admin dashboard · Edit Post. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-5.jpg" alt="Liam Johnson">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Liam Johnson</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Site Admin</span>
+            </div>
+          </div>
+          <!-- Start Site Admin Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Admin Dashboard</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="property-approvals.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-clipboard-check"></i>
+                  <span class="cs_menu_text">Property Approvals</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="property-approvals.html#pending">Pending <span class="cs_status_badge cs_status_pending">8</span></a></li>
+                  <li><a href="property-approvals.html#active">Active <span class="cs_status_badge cs_status_active">1,248</span></a></li>
+                  <li><a href="property-approvals.html#rejected">Rejected <span class="cs_status_badge cs_status_expired">14</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="all-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-building"></i>
+                  <span class="cs_menu_text">All Properties</span>
+                </a>
+              </li>
+              <li class="cs_has_submenu">
+                <a href="user-management.html" class="cs_menu_link" aria-expanded="false">
+                  <i class="cs_menu_icon fa-solid fa-users"></i>
+                  <span class="cs_menu_text">User Management</span>
+                  <i class="cs_menu_arrow fa-solid fa-chevron-down"></i>
+                </a>
+                <ul class="cs_submenu">
+                  <li><a href="user-management.html#agent">Agents <span class="cs_status_badge">86</span></a></li>
+                  <li><a href="user-management.html#buyer">Buyers <span class="cs_status_badge">4,602</span></a></li>
+                  <li><a href="user-management.html#owner">Owners <span class="cs_status_badge">132</span></a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="agents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-tie"></i>
+                  <span class="cs_menu_text">Agents & Agencies</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="blog-posts.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-newspaper"></i>
+                  <span class="cs_menu_text">Blog Posts</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Communication</span></li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-comments"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">4</span>
+                </a>
+              </li>
+              <li>
+                <a href="support-tickets.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-headset"></i>
+                  <span class="cs_menu_text">Support Tickets</span>
+                  <span class="cs_menu_badge">24</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Business</span></li>
+              <li>
+                <a href="subscriptions.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-layer-group"></i>
+                  <span class="cs_menu_text">Subscriptions & Packages</span>
+                </a>
+              </li>
+              <li>
+                <a href="coupons.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-ticket"></i>
+                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                </a>
+              </li>
+              <li>
+                <a href="financials.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-invoice-dollar"></i>
+                  <span class="cs_menu_text">Financials & Invoices</span>
+                </a>
+              </li>
+              <li>
+                <a href="reports.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-pie"></i>
+                  <span class="cs_menu_text">Reports & Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="listing-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-tags"></i>
+                  <span class="cs_menu_text">Listing Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="roles.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-shield"></i>
+                  <span class="cs_menu_text">Roles &amp; Permissions</span>
+                </a>
+              </li>
+              <li>
+                <a href="site-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-sliders"></i>
+                  <span class="cs_menu_text">Site Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Site Admin Menu -->
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search properties, users, invoices..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clipboard-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>8 properties waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Just now</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>12 new users signed up today</bdi></span>
+                        <span class="d-block cs_fs_14"><bdi>30 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-sack-dollar"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">Invoice <bdi>#INV-2041</bdi> paid ($49)</span>
+                        <span class="d-block cs_fs_14"><bdi>2 hours ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-5.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Liam Johnson</span>
+                  <span class="d-block cs_fs_14">Site Admin</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="site-settings.html"><i class="fa-solid fa-sliders"></i>Site Settings</a></li>
+                  <li><a href="financials.html"><i class="fa-solid fa-file-invoice-dollar"></i>Financials</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Edit Post</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="blog-posts.html">Blog Posts</a></li>
+                <li>Edit Post</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="../blog-details.html" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10">
+                <span><i class="fa-regular fa-eye"></i></span>
+                <span>Preview</span>
+              </a>
+            </div>
+          </div>
+
+          <form action="#" class="cs_dashboard_form">
+            <div class="row cs_gap_y_24">
+              <div class="col-xl-8">
+                <!-- Start Post Details -->
+                <div class="cs_dashboard_card">
+                  <div class="cs_form_section">
+                    <h2 class="cs_form_section_title cs_fs_18 cs_semibold"><i class="fa-solid fa-pen-nib"></i>Post Details</h2>
+                    <div class="row cs_gap_y_24">
+                      <div class="col-12">
+                        <label class="cs_form_label" for="postTitle">Title</label>
+                        <input type="text" id="postTitle" class="cs_form_field" placeholder="Post title" value="How to Choose the Perfect Neighborhood for Your Family" required>
+                      </div>
+                      <div class="col-12">
+                        <label class="cs_form_label" for="postSlug">Slug</label>
+                        <div class="cs_input_icon_wrap">
+                          <i class="fa-solid fa-link"></i>
+                          <input type="text" id="postSlug" class="cs_form_field" placeholder="post-url" value="perfect-neighborhood-for-your-family">
+                        </div>
+                        <span class="cs_form_hint">Post address: <bdi>example.com/blog/perfect-neighborhood-for-your-family</bdi></span>
+                      </div>
+                      <div class="col-12">
+                        <label class="cs_form_label" for="postExcerpt">Excerpt</label>
+                        <textarea id="postExcerpt" class="cs_form_field" placeholder="A short summary shown on the blog page and in search results">Schools, commute times, safety and the feel of the streets all matter. Here is how to weigh them up before you buy or rent your next family home.</textarea>
+                        <span class="cs_form_hint">Shown on blog cards. Keep it under 160 characters.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Post Details -->
+                <div class="cs_height_24 cs_height_lg_24"></div>
+                <!-- Start Content -->
+                <div class="cs_dashboard_card">
+                  <div class="cs_form_section">
+                    <h2 class="cs_form_section_title cs_fs_18 cs_semibold"><i class="fa-solid fa-align-left"></i>Content</h2>
+                    <label class="cs_form_label" for="postContent">Post Content</label>
+                    <div class="cs_editor">
+                      <div class="cs_editor_toolbar" role="toolbar" aria-label="Formatting">
+                        <button type="button" class="cs_table_action" aria-label="Heading" data-tooltip="Heading"><i class="fa-solid fa-heading"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Bold" data-tooltip="Bold"><i class="fa-solid fa-bold"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Italic" data-tooltip="Italic"><i class="fa-solid fa-italic"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Underline" data-tooltip="Underline"><i class="fa-solid fa-underline"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Strikethrough" data-tooltip="Strike"><i class="fa-solid fa-strikethrough"></i></button>
+                        <span class="cs_editor_sep" aria-hidden="true"></span>
+                        <button type="button" class="cs_table_action" aria-label="Bulleted list" data-tooltip="List"><i class="fa-solid fa-list-ul"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Numbered list" data-tooltip="Numbers"><i class="fa-solid fa-list-ol"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Quote" data-tooltip="Quote"><i class="fa-solid fa-quote-left"></i></button>
+                        <span class="cs_editor_sep" aria-hidden="true"></span>
+                        <button type="button" class="cs_table_action" aria-label="Insert link" data-tooltip="Link"><i class="fa-solid fa-link"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Insert image" data-tooltip="Image"><i class="fa-regular fa-image"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Align left" data-tooltip="Align"><i class="fa-solid fa-align-left"></i></button>
+                        <button type="button" class="cs_table_action" aria-label="Center" data-tooltip="Center"><i class="fa-solid fa-align-center"></i></button>
+                      </div>
+                      <textarea id="postContent" class="cs_form_field" placeholder="Start writing your post..." required>Choosing a neighborhood is just as important as choosing the home itself. The right area gives your family room to grow, keeps daily routines simple and protects the value of your investment.
+
+Start with your daily routine:
+Map the trips you make every week: school runs, the office, the grocery store and weekend activities. A beautiful house loses its charm quickly when every journey takes forty minutes.
+
+Look closely at the schools:
+Even if you don't have school-age children yet, good schools keep demand and prices strong. Visit them, read recent reports and talk to parents at the gate.
+
+Visit at different times of day:
+A quiet street on Sunday morning can be a busy shortcut at rush hour. Walk the area in the evening and on a weekday to get the full picture.
+
+Talk to the neighbors:
+Nobody knows an area better than the people who live there. Ask what they love about it and what they would change.
+
+Ready to start your search? Our agents know every corner of the city and can arrange viewings that fit your schedule.</textarea>
+                      <div class="cs_editor_foot">
+                        <span><bdi>642 words</bdi> &middot; <bdi>4 min read</bdi></span>
+                        <span>Draft saved at <bdi>10:42 AM</bdi></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Content -->
+                <div class="cs_height_24 cs_height_lg_24"></div>
+                <!-- Start SEO -->
+                <div class="cs_dashboard_card">
+                  <div class="cs_form_section">
+                    <h2 class="cs_form_section_title cs_fs_18 cs_semibold"><i class="fa-solid fa-magnifying-glass-chart"></i>SEO</h2>
+                    <div class="row cs_gap_y_24">
+                      <div class="col-12">
+                        <label class="cs_form_label" for="postMetaTitle">Meta Title</label>
+                        <input type="text" id="postMetaTitle" class="cs_form_field" placeholder="Meta title" value="How to Choose the Perfect Neighborhood | Xproperty Blog" maxlength="60">
+                        <span class="cs_form_hint">Up to 60 characters. Leave empty to use the post title.</span>
+                      </div>
+                      <div class="col-12">
+                        <label class="cs_form_label" for="postMetaDesc">Meta Description</label>
+                        <textarea id="postMetaDesc" class="cs_form_field" placeholder="Meta description" maxlength="160">Schools, commute, safety and community: a practical checklist for choosing the right neighborhood for your family.</textarea>
+                        <span class="cs_form_hint">Up to 160 characters. Shown under the title in search results.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End SEO -->
+              </div>
+              <div class="col-xl-4">
+                <div>
+                  <!-- Start Publish -->
+                  <div class="cs_dashboard_card">
+                    <div class="cs_card_head">
+                      <div>
+                        <h2 class="cs_fs_20 cs_semibold mb-0">Publish</h2>
+                      </div>
+                      <span class="cs_status_badge">Draft</span>
+                    </div>
+                    <ul class="cs_publish_meta">
+                      <li><span><i class="fa-regular fa-user"></i>Author</span><span class="cs_primary_color cs_medium">Amanda Jones</span></li>
+                      <li><span><i class="fa-regular fa-clock"></i>Created</span><span class="cs_primary_color cs_medium">Sep 25, 2026</span></li>
+                      <li><span><i class="fa-solid fa-clock-rotate-left"></i>Revisions</span><span class="cs_primary_color cs_medium">6</span></li>
+                    </ul>
+                    <div class="row cs_gap_y_24">
+                      <div class="col-xl-12 col-md-4">
+                        <label class="cs_form_label" for="postStatus">Status</label>
+                        <div class="cs_select">
+                          <select id="postStatus">
+                            <option selected>Draft</option>
+                            <option>Pending review</option>
+                            <option>Published</option>
+                            <option>Scheduled</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xl-12 col-md-4">
+                        <label class="cs_form_label" for="postVisibility">Visibility</label>
+                        <div class="cs_select">
+                          <select id="postVisibility">
+                            <option selected>Public</option>
+                            <option>Members only</option>
+                            <option>Private</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xl-12 col-md-4">
+                        <label class="cs_form_label" for="datePicker">Publish Date</label>
+                        <input type="text" class="cs_form_field cs_date" id="datePicker" name="publish-date" placeholder="Publish immediately">
+                      </div>
+                      <div class="col-12">
+                        <div class="cs_publish_actions">
+                          <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10"><span><i class="fa-regular fa-floppy-disk"></i></span><span>Save Draft</span></button>
+                          <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span><i class="fa-solid fa-paper-plane"></i></span><span>Publish</span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Publish -->
+                  <div class="cs_height_24 cs_height_lg_24"></div>
+                  <!-- Start Category & Tags -->
+                  <div class="cs_dashboard_card">
+                    <div class="cs_card_head">
+                      <div>
+                        <h2 class="cs_fs_20 cs_semibold mb-0">Category &amp; Tags</h2>
+                      </div>
+                    </div>
+                    <div class="row cs_gap_y_24">
+                      <div class="col-xl-12 col-md-6">
+                        <label class="cs_form_label" for="postCategory">Category</label>
+                        <div class="cs_select">
+                          <select id="postCategory">
+                            <option selected>Buying</option>
+                            <option>Selling</option>
+                            <option>Finance</option>
+                            <option>Renting</option>
+                            <option>Market Trends</option>
+                            <option>Moving</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-xl-12 col-md-6">
+                        <label class="cs_form_label" for="postTags">Tags</label>
+                        <input type="text" id="postTags" class="cs_form_field" placeholder="e.g. Mortgage, Moving" value="Neighborhoods, First-Time Buyers, Buying Tips">
+                        <span class="cs_form_hint">Separate tags with commas.</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Category & Tags -->
+                  <div class="cs_height_24 cs_height_lg_24"></div>
+                  <!-- Start Featured Image -->
+                  <div class="cs_dashboard_card">
+                    <div class="cs_card_head">
+                      <div>
+                        <h2 class="cs_fs_20 cs_semibold mb-0">Featured Image</h2>
+                      </div>
+                    </div>
+                    <div class="cs_upload_wrap">
+                      <div class="cs_upload_box">
+                        <input name="upload_featured_image" type="file" accept="image/*" aria-label="Upload featured image">
+                        <div class="cs_upload_icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <p class="cs_fs_16 cs_semibold cs_primary_color cs_mb_3">Drop an image or click to upload</p>
+                        <p class="cs_fs_14 mb-0">JPG or PNG, at least 1200 &times; 800 px</p>
+                      </div>
+                      <div class="cs_upload_previews">
+                        <div><img src="../assets/img/post-img-1.jpg" alt="Family home on a quiet tree-lined street" loading="lazy"><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Featured Image -->
+                </div>
+              </div>
+            </div>
+          </form>
+        </main>
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

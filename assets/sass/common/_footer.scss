@@ -1,6 +1,4 @@
-/*=======================================================================
- 06. Footer Section
-=========================================================================*/
+/* 06. Footer Section */
 .cs_footer.cs_style_1 {
 
   .cs_footer_main {
@@ -222,7 +220,6 @@
     border-bottom: 1px solid var(--gray-color);
   }
 
-
   .cs_footer_menu,
   .cs_contact_list {
 
@@ -370,7 +367,6 @@
       color: #fff;
     }
 
-
     .cs_footer_menu,
     .cs_contact_list {
 
@@ -439,9 +435,7 @@
   }
 }
 
-/*=======================================================
- Newsletter Form
-=========================================================*/
+/* Newsletter Form */
 .cs_newsletter_form.cs_style_1 {
   &::before {
     content: "";

@@ -1,0 +1,347 @@
+/* Admin: Roles & Permissions, Support Tickets */
+
+/* Role cards */
+.cs_role_card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &.active {
+    border-color: var(--accent-color);
+    box-shadow: inset 0 0 0 1px var(--accent-color);
+  }
+
+  .cs_role_card_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .cs_role_icon {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 18px;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  &:hover .cs_role_icon,
+  &.active .cs_role_icon {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  .cs_role_card_foot {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}
+
+/* Overlapping avatars */
+.cs_avatar_group {
+  display: flex;
+  align-items: center;
+  padding-inline-start: 8px;
+
+  img,
+  >span {
+    width: 32px;
+    height: 32px;
+    flex: none;
+    margin-inline-start: -8px;
+    border-radius: 50%;
+    border: 2px solid var(--cs-card-bg);
+    object-fit: cover;
+  }
+
+  >span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background-color: var(--gray3-color);
+  }
+}
+
+/* Permissions matrix */
+.cs_dashboard_table.cs_perm_table {
+
+  th:not(:first-child),
+  td:not(:first-child) {
+    width: 96px;
+    text-align: center;
+  }
+
+  td:first-child p {
+    white-space: normal;
+    min-width: 200px;
+  }
+
+  .cs_toggle_switch {
+    vertical-align: middle;
+  }
+
+  .cs_perm_na {
+    color: var(--secondary-color);
+    opacity: 0.5;
+  }
+}
+
+/* Ticket header */
+.cs_ticket_badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cs_ticket_meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  font-size: 14px;
+
+  i {
+    margin-inline-end: 6px;
+  }
+}
+
+/* Ticket conversation */
+.cs_ticket_thread {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  >li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.cs_ticket_msg {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  >img {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .cs_ticket_msg_body {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    overflow-wrap: anywhere;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .cs_ticket_msg_head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 12px;
+    margin-bottom: 10px;
+  }
+
+  .cs_ticket_msg_name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 10px;
+  }
+
+  &.cs_ticket_msg_staff .cs_ticket_msg_body {
+    background-color: var(--gray3-color);
+    border-color: transparent;
+  }
+
+  &.cs_ticket_msg_note .cs_ticket_msg_body {
+    border-style: dashed;
+    border-inline-start: 3px solid var(--cs-warning-color, #F5A524);
+  }
+
+  @media (max-width: 575px) {
+    gap: 10px;
+
+    >img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .cs_ticket_msg_body {
+      padding: 14px;
+    }
+  }
+}
+
+.cs_ticket_files {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background-color: var(--cs-card-bg);
+    font-size: 14px;
+    color: var(--primary-color);
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: var(--accent-color);
+    }
+
+    i {
+      font-size: 18px;
+      color: var(--accent-color);
+    }
+
+    small {
+      display: block;
+      color: var(--secondary-color);
+    }
+  }
+}
+
+/* Reply box actions */
+.cs_ticket_reply_foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+
+  .cs_ticket_reply_tools,
+  .cs_ticket_reply_btns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 16px;
+  }
+
+  .cs_ticket_attach {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+    input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  .cs_ticket_note_toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 575px) {
+    .cs_ticket_reply_btns {
+      width: 100%;
+
+      .cs_btn {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+/* Ticket info sidebar */
+.cs_ticket_info {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    font-size: 15px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    >span:first-child {
+      flex: none;
+    }
+
+    >span:last-child,
+    >a:last-child {
+      min-width: 0;
+      text-align: end;
+      color: var(--primary-color);
+      overflow-wrap: anywhere;
+    }
+  }
+}
+
+.cs_ticket_property {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--accent-color);
+  }
+
+  img {
+    width: 64px;
+    height: 48px;
+    flex: none;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  >span {
+    min-width: 0;
+  }
+}

@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upper West Side neighborhood guide: median prices, rents, schools, transport, local agents and homes for sale in the area.">
+    <meta name="keywords" content="upper west side, neighborhood guide, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/neighborhood-details.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Upper West Side Guide | Xproperty">
+    <meta property="og:description" content="Upper West Side neighborhood guide: median prices, rents, schools, transport, local agents and homes for sale in the area.">
+    <meta property="og:url" content="https://example.com/neighborhood-details.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Upper West Side Guide | Xproperty">
+    <meta name="twitter:description" content="Upper West Side neighborhood guide: median prices, rents, schools, transport, local agents and homes for sale in the area.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+   <link rel="stylesheet" href="assets/css/aos.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/flatpickr.min.css">
+    <link rel="stylesheet" href="assets/css/odometer.min.css">
+    <link rel="stylesheet" href="assets/css/lightgallery.min.css">
+    <link rel="stylesheet" href="assets/css/slick.min.css">
+    <link rel="stylesheet" href="assets/css/leaflet.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Site Title -->
+    <title>Upper West Side Guide | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+      <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "RealEstateAgent",
+          "@id": "https://example.com/#organization",
+          "name": "Xproperty",
+          "url": "https://example.com/",
+          "logo": "https://example.com/assets/img/logo.svg"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://example.com/neighborhood-details.html#webpage",
+          "url": "https://example.com/neighborhood-details.html",
+          "name": "Upper West Side Guide",
+          "description": "Upper West Side neighborhood guide: median prices, rents, schools, transport, local agents and homes for sale in the area.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://example.com/#website"
+          },
+          "publisher": {
+            "@id": "https://example.com/#organization"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com/index.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Neighborhoods",
+              "item": "https://example.com/neighborhoods.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Upper West Side",
+              "item": "https://example.com/neighborhood-details.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body>
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <!-- Start Header Section -->
+    <header class="cs_site_header cs_style_1 cs_sticky_header cs_primary_color cs_fs_14 cs_medium cs_primary_font text-uppercase">
+      <div class="cs_header_main position-relative">
+        <div class="container">
+          <div class="cs_main_header_in">
+            <div class="cs_main_header_left">
+              <a href="index.html" aria-label="Home page link" class="cs_site_brand">
+              <img src="assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+              </a>
+            </div>
+            <div class="cs_main_header_center">
+              <div class="cs_nav">
+                <div class="cs_nav_list_wrap">
+                  <ul class="cs_nav_list cs_mp_0">
+                    <li class="menu-item-has-children">
+                      <a href="index.html">Home</a>
+                      <ul class="cs_dropdown_list cs_mp_0">
+                        <li><a href="index.html" aria-label="Nav link">PROPERTY SEARCH</a></li>
+                        <li><a href="home-v2.html" aria-label="Nav link">LUXURY HOMES</a></li>
+                        <li><a href="home-v3.html" aria-label="Nav link">REAL ESTATE AGENCY</a></li>
+                        <li><a href="home-v4.html" aria-label="Nav link">PROPERTY FINDER</a></li>
+                        <li><a href="home-v5.html" aria-label="Nav link">PROPERTY BROKER</a></li>
+                        <li><a href="home-v6.html" aria-label="Nav link">RENTAL HOMES</a></li>
+                        <li><a href="commercial-residence.html" aria-label="Nav link">COMMERCIAL RESIDENCE</a></li>
+                        <li><a href="apartment-complex.html" aria-label="Nav link">APARTMENT COMPLEX</a></li>
+                        <li><a href="single-property-v1.html" aria-label="Nav link">SINGLE PROPERTY V1</a></li>
+                        <li><a href="single-property-v2.html" aria-label="Nav link">SINGLE PROPERTY V2</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                      <a href="property-listing-buy.html">Listing</a>
+                      <ul class="cs_dropdown_list cs_mp_0">
+                        <li><a href="property-listing-buy.html" aria-label="Nav link">Property Listing Buy</a></li>
+                        <li><a href="property-listing-rent.html" aria-label="Nav link">Property Listing Rent</a></li>
+                        <li><a href="property-listing-search.html" aria-label="Nav link">Property Listing Search</a></li>
+                        <li><a href="property-listing-map.html" aria-label="Nav link">Property Listing Map</a></li>
+                        <li><a href="property-details.html" aria-label="Nav link">Property Details</a></li>
+                        <li><a href="projects.html" aria-label="Nav link">New Developments</a></li>
+                        <li><a href="open-house.html" aria-label="Nav link">Open House</a></li>
+                        <li><a href="neighborhoods.html" aria-label="Nav link">Neighborhood Guides</a></li>
+                        <li><a href="compare.html" aria-label="Nav link">Compare Properties</a></li>
+                        <li><a href="mortgage-calculator.html" aria-label="Nav link">Mortgage Calculator</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="about-us.html" aria-label="Nav link">About</a></li>
+                    <li class="menu-item-has-children">
+                      <a href="#" role="button" aria-haspopup="true">Pages</a>
+                      <ul class="cs_dropdown_list cs_dropdown_2col cs_mp_0">
+                        <li><a href="services.html" aria-label="Nav link">Our Services</a></li>
+                        <li><a href="sell-property.html" aria-label="Nav link">Sell Your Property</a></li>
+                        <li><a href="agents-list.html" aria-label="Nav link">Our Agents</a></li>
+                        <li><a href="agent-details.html" aria-label="Nav link">Agent Profile</a></li>
+                        <li><a href="agencies.html" aria-label="Nav link">Our Agencies</a></li>
+                        <li><a href="agency-details.html" aria-label="Nav link">Agency Profile</a></li>
+                        <li><a href="testimonials.html" aria-label="Nav link">Testimonials</a></li>
+                        <li><a href="careers.html" aria-label="Nav link">Careers</a></li>
+                        <li><a href="pricing.html" aria-label="Nav link">Pricing Plan</a></li>
+                        <li><a href="faq.html" aria-label="Nav link">FAQ &amp; Answer</a></li>
+                        <li><a href="gallery.html" aria-label="Nav link">Property Gallery</a></li>
+                        <li><a href="rental-application.html" aria-label="Nav link">Rental Application</a></li>
+                        <li><a href="register.html" aria-label="Nav link">User Register</a></li>
+                        <li><a href="login.html" aria-label="Nav link">User Login</a></li>
+                        <li><a href="verify-email.html" aria-label="Nav link">Verify Email</a></li>
+                        <li><a href="privacy-policy.html" aria-label="Nav link">Privacy Policy</a></li>
+                        <li><a href="terms-condition.html" aria-label="Nav link">Terms &amp; Condition</a></li>
+                        <li><a href="error.html" aria-label="Nav link">Error Page</a></li>
+                        <li><a href="coming-soon.html" aria-label="Nav link">Coming Soon</a></li>
+                        <li><a href="maintenance.html" aria-label="Nav link">Maintenance</a></li>
+                      </ul>
+                    </li>
+                    <li class="menu-item-has-children">
+                      <a href="blog.html">Blog</a>
+                      <ul class="cs_dropdown_list cs_mp_0">
+                        <li><a href="blog.html" aria-label="Nav link">Our Articles</a></li>
+                        <li><a href="blog-grid.html" aria-label="Nav link">Blog Grid</a></li>
+                        <li><a href="blog-list.html" aria-label="Nav link">Blog List</a></li>
+                        <li><a href="blog-details.html" aria-label="Nav link">Article Details</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="contact.html" aria-label="Nav link">Contact</a></li>
+                  </ul>
+                  <span class="cs_close_nav"></span>
+                </div>
+              </div>
+            </div>
+            <div class="cs_main_header_right">
+              <ul class="cs_right_nav_list cs_mp_0">
+                <li class="cs_language_select">
+                  <div class="cs_language_switcher">
+                    <button type="button" name="Language-button" class="flag-btn flag-icon flag-icon-us" data-lang="EN"></button>
+                  </div>
+                  <div class="cs_language_dropdown">
+                    <button name="Language-button" data-lang="EN">
+                    <span class="flag-btn flag-icon flag-icon-us"></span>
+                    <span>ENG</span>
+                    </button>
+                    <button data-lang="BN">
+                    <span class="flag-btn flag-icon flag-icon-bd"></span>
+                    <span>BAN</span>
+                    </button>
+                    <button name="Language-button" data-lang="ES">
+                    <span class="flag-btn flag-icon flag-icon-es"></span>
+                    <span>ESP</span>
+                    </button>
+                    <button name="Language-button" data-lang="AR">
+                    <span class="flag-btn flag-icon flag-icon-sa"></span>
+                    <span>ARB</span>
+                    </button>
+                    <button name="Language-button" data-lang="ZH">
+                    <span class="flag-btn flag-icon flag-icon-cn"></span>
+                    <span>ZHC</span>
+                    </button>
+                    <button name="Language-button" data-lang="DE">
+                    <span class="flag-btn flag-icon flag-icon-de"></span>
+                    <span>GER</span>
+                    </button>
+                  </div>
+                </li>
+                <li>
+                  <a href="login.html" aria-label="Login link" class="cs_login cs_fs_16 text-capitalize">Login</a>
+                </li>
+                <li>
+                  <a href="owner/submit-property.html" aria-label="Submit property page link" class="cs_btn cs_style_1 cs_primary_bg cs_fs_16 cs_white_color cs_radius_20 text-capitalize"><span>List Your Property</span></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- End Header Section -->
+    <!-- Start Page Header Section -->
+    <section id="main-content" class="cs_page_header cs_style_1 cs_center cs_bg_filed" data-src="assets/img/page-heading.jpg">
+      <div class="container">
+        <div class="cs_page_header_content text-center">
+          <h1 class="cs_page_header_title cs_fs_49 mb-0" data-aos="fade-down">Upper West Side</h1>
+          <ol class="breadcrumb cs_center mb-0">
+            <li class="breadcrumb-item"><a href="index.html" aria-label="Back to home button">Home</a></li>
+            <li class="breadcrumb-item"><a href="neighborhoods.html" aria-label="Neighborhoods page link">Neighborhoods</a></li>
+            <li class="breadcrumb-item active">Upper West Side</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <!-- End Page Header Section -->
+    <!-- Start Neighborhood Details Section -->
+    <section>
+      <div class="cs_height_120 cs_height_lg_80"></div>
+      <div class="container">
+        <div class="row cs_gap_y_40">
+          <div class="col-lg-8">
+            <div class="cs_single_property_content cs_radius_20">
+              <div class="cs_area_overview">
+                <div class="cs_radius_10 cs_mb_30 overflow-hidden" data-aos="zoom-in">
+                  <img src="assets/img/property-banner.jpg" alt="Residential homes on the Upper West Side, New York" class="w-100 cs_radius_10">
+                </div>
+                <p class="cs_section_subtitle cs_mb_6">Manhattan, New York</p>
+                <h2 class="cs_fs_39 cs_semibold cs_mb_15" data-aos="fade-down">Living on the Upper West Side</h2>
+                <p class="cs_mb_15">Wedged between Central Park and the Hudson River, the Upper West Side is one of Manhattan's most settled neighborhoods. Pre-war co-ops and brownstones line the side streets, while Broadway, Amsterdam and Columbus Avenues keep groceries, cafes and theaters within a few blocks of every front door.</p>
+                <p class="cs_mb_20">Families come for the parks and highly rated public schools, and stay for the slower pace. Buyers in 2026 are paying a little more than last year, but well-priced homes still sell in about a month.</p>
+                <ul class="cs_agent_tags cs_mp_0">
+                  <li class="cs_radius_20">Family Friendly</li>
+                  <li class="cs_radius_20">Two Major Parks</li>
+                  <li class="cs_radius_20">Pre-war Co-ops</li>
+                  <li class="cs_radius_20">Lincoln Center</li>
+                  <li class="cs_radius_20">Quiet Streets</li>
+                </ul>
+              </div>
+              <div class="cs_area_market">
+                <h3 class="cs_fs_25 cs_semibold cs_mb_20" data-aos="fade-down">Market Snapshot</h3>
+                <ul class="cs_area_kpis cs_mp_0">
+                  <li>
+                    <span class="cs_area_kpi_value cs_fs_25 cs_semibold cs_primary_color cs_primary_font"><bdi>$1.25M</bdi></span>
+                    <p class="mb-0">Median Sale Price</p>
+                  </li>
+                  <li>
+                    <span class="cs_area_kpi_value cs_area_kpi_up cs_fs_25 cs_semibold cs_primary_font"><bdi><i class="fa-solid fa-arrow-trend-up"></i> +4.2%</bdi></span>
+                    <p class="mb-0">Yearly Change</p>
+                  </li>
+                  <li>
+                    <span class="cs_area_kpi_value cs_fs_25 cs_semibold cs_primary_color cs_primary_font"><bdi>$4,300<small class="cs_fs_14 cs_normal">/mo</small></bdi></span>
+                    <p class="mb-0">Average Rent</p>
+                  </li>
+                  <li>
+                    <span class="cs_area_kpi_value cs_fs_25 cs_semibold cs_primary_color cs_primary_font"><bdi>96/100</bdi></span>
+                    <p class="mb-0"><bdi>Walk Score&reg;</bdi></p>
+                  </li>
+                  <li>
+                    <span class="cs_area_kpi_value cs_fs_25 cs_semibold cs_primary_color cs_primary_font">128</span>
+                    <p class="mb-0">Active Listings</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="cs_area_living">
+                <h3 class="cs_fs_25 cs_semibold cs_mb_20" data-aos="fade-down">Living Here</h3>
+                <ul class="cs_area_highlights cs_mp_0">
+                  <li>
+                    <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
+                    </span>
+                    <div class="cs_iconbox_info">
+                      <h4 class="cs_fs_20 cs_semibold cs_mb_6">Schools</h4>
+                      <p class="mb-0">Several top-rated public elementary schools, plus well-known private and Montessori options.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/car-bus.svg" class="cs_svg_icon cs_icon_car_bus" alt="">
+                    </span>
+                    <div class="cs_iconbox_info">
+                      <h4 class="cs_fs_20 cs_semibold cs_mb_6">Transport</h4>
+                      <p class="mb-0">The 1, 2, 3, B and C trains reach Midtown in about 15 minutes. Crosstown buses run all night.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/walking.svg" class="cs_svg_icon cs_icon_walking" alt="">
+                    </span>
+                    <div class="cs_iconbox_info">
+                      <h4 class="cs_fs_20 cs_semibold cs_mb_6">Lifestyle</h4>
+                      <p class="mb-0">Riverside Park runs, Sunday markets, Lincoln Center concerts and the Natural History Museum.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/shield-check.svg" class="cs_svg_icon cs_icon_shield_check" alt="">
+                    </span>
+                    <div class="cs_iconbox_info">
+                      <h4 class="cs_fs_20 cs_semibold cs_mb_6">Safety</h4>
+                      <p class="mb-0">Crime rates sit well below the Manhattan average, with busy, well-lit avenues late into the evening.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="cs_property_location">
+                <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Location</h3>
+                <div class="cs_location_map cs_radius_10 cs_mb_10">
+                  <div class="cs_leaflet_map" data-map data-lat="40.7870" data-lng="-73.9754" data-zoom="14" data-title="Upper West Side" data-address="Manhattan, New York, NY 10023-10025" aria-label="Map of the Upper West Side"></div>
+                </div>
+                <p class="mb-0"><span class="cs_semibold cs_primary_color">Boundaries:</span> West 59th Street to West 110th Street, between Central Park and the Hudson River.</p>
+              </div>
+              <div class="cs_property_nearby cs_area_nearby">
+                <h3 class="cs_fs_25 cs_semibold cs_mb_15" data-aos="fade-down">Schools &amp; Amenities Nearby</h3>
+                <div class="cs_tabs">
+                  <ul class="cs_tab_links cs_style_5 cs_mb_24 list-unstyled">
+                  <li class="active"><a href="#areaSchools">Schools</a></li>
+                  <li><a href="#areaTransit">Transit</a></li>
+                  <li><a href="#areaParks">Parks</a></li>
+                  <li><a href="#areaShopping">Shopping</a></li>
+                  <li><a href="#areaHealth">Healthcare</a></li>
+                  </ul>
+                  <div class="cs_tabs_body position-relative">
+                  <div class="cs_tab active" id="areaSchools">
+                    <div class="cs_nearby_items">
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">P.S. 87 William Sherman</h3>
+                          <p class="mb-0">Elementary &middot; 0.3 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Booker T. Washington M.S. 54</h3>
+                          <p class="mb-0">Middle School &middot; 0.6 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/user-graduate.svg" class="cs_svg_icon cs_icon_user_graduate" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Frank McCourt High School</h3>
+                          <p class="mb-0">High School &middot; 0.8 mi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cs_tab" id="areaTransit">
+                    <div class="cs_nearby_items">
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/car-bus.svg" class="cs_svg_icon cs_icon_car_bus" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">86th Street Station (1 train)</h3>
+                          <p class="mb-0">Subway &middot; 0.2 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/car-bus.svg" class="cs_svg_icon cs_icon_car_bus" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">81st Street Station (B, C)</h3>
+                          <p class="mb-0">Subway &middot; 0.5 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/car-bus.svg" class="cs_svg_icon cs_icon_car_bus" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">M79 Crosstown Bus</h3>
+                          <p class="mb-0">Bus &middot; 0.1 mi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cs_tab" id="areaParks">
+                    <div class="cs_nearby_items">
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/walking.svg" class="cs_svg_icon cs_icon_walking" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Riverside Park</h3>
+                          <p class="mb-0">Waterfront park &middot; 0.2 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/walking.svg" class="cs_svg_icon cs_icon_walking" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Central Park West Entrance</h3>
+                          <p class="mb-0">Park &middot; 0.6 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/walking.svg" class="cs_svg_icon cs_icon_walking" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Theodore Roosevelt Park</h3>
+                          <p class="mb-0">Park &middot; 0.7 mi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cs_tab" id="areaShopping">
+                    <div class="cs_nearby_items">
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/tags.svg" class="cs_svg_icon cs_icon_tags" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Zabar's</h3>
+                          <p class="mb-0">Grocery &middot; 0.3 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/tags.svg" class="cs_svg_icon cs_icon_tags" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Columbus Avenue Shops</h3>
+                          <p class="mb-0">Retail street &middot; 0.4 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/tags.svg" class="cs_svg_icon cs_icon_tags" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Grand Bazaar NYC</h3>
+                          <p class="mb-0">Sunday market &middot; 0.6 mi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cs_tab" id="areaHealth">
+                    <div class="cs_nearby_items">
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/shield-check.svg" class="cs_svg_icon cs_icon_shield_check" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Mount Sinai Morningside</h3>
+                          <p class="mb-0">Hospital &middot; 1.1 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/shield-check.svg" class="cs_svg_icon cs_icon_shield_check" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">West 86th Street Medical</h3>
+                          <p class="mb-0">Clinic &middot; 0.2 mi</p>
+                        </div>
+                      </div>
+                      <div class="cs_iconbox cs_style_6">
+                        <span class="cs_iconbox_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                          <img src="assets/img/icons/ui/shield-check.svg" class="cs_svg_icon cs_icon_shield_check" alt="">
+                        </span>
+                        <div class="cs_iconbox_info">
+                          <h3 class="cs_fs_20 cs_semibold mb-0">Broadway Pharmacy</h3>
+                          <p class="mb-0">Pharmacy &middot; 0.1 mi</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <aside class="cs_sidebar cs_style_3 cs_agent_sidebar">
+              <div class="cs_sidebar_widget cs_gray3_bg cs_radius_20">
+                <h3 class="cs_widget_title cs_fs_25 cs_semibold cs_mb_15">Area at a Glance</h3>
+                <ul class="cs_agent_meta cs_mp_0 mt-0 pt-0 border-0">
+                  <li><span>City</span><span class="cs_primary_color cs_medium">New York, NY</span></li>
+                  <li><span>Zip codes</span><span class="cs_primary_color cs_medium"><bdi>10023, 10024, 10025</bdi></span></li>
+                  <li><span>Population</span><span class="cs_primary_color cs_medium">About 210,000</span></li>
+                  <li><span>Commute to Midtown</span><span class="cs_primary_color cs_medium"><bdi>15 min</bdi></span></li>
+                  <li><span>Days on market</span><span class="cs_primary_color cs_medium"><bdi>32 days</bdi></span></li>
+                  <li><span><bdi>Transit Score&reg;</bdi></span><span class="cs_primary_color cs_medium"><bdi>100/100</bdi></span></li>
+                </ul>
+              </div>
+              <div class="cs_sidebar_widget cs_gray3_bg cs_radius_20">
+                <h3 class="cs_widget_title cs_fs_25 cs_semibold cs_mb_20 text-center">Ask a Local Expert</h3>
+                <form class="cs_contact_form" action="#" data-auth-form="contact" data-success="Thanks! An Upper West Side agent will reply within one business day." novalidate>
+                  <div class="cs_input_wrapper">
+                    <input type="text" name="name" class="cs_form_field cs_radius_10" placeholder="Write your name" autocomplete="name" required>
+                  </div>
+                  <div class="cs_input_wrapper">
+                    <input type="email" name="email" class="cs_form_field cs_radius_10" placeholder="Enter email address" autocomplete="email" required>
+                  </div>
+                  <div class="cs_input_wrapper">
+                    <input type="tel" name="phone" class="cs_form_field cs_radius_10" placeholder="Phone number" autocomplete="tel">
+                  </div>
+                  <div class="cs_input_wrapper">
+                    <textarea class="cs_form_field cs_radius_10" name="message" rows="5" placeholder="I'm thinking of moving to the Upper West Side..." required></textarea>
+                  </div>
+                  <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_10">
+                  <span>Send Message</span>
+                  </button>
+                </form>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <div class="cs_height_100 cs_height_lg_70"></div>
+      <div class="container">
+        <div class="cs_section_heading cs_style_1 cs_type_1">
+          <div class="cs_section_heading_left">
+            <h2 class="cs_section_title cs_fs_49 mb-0" data-aos="fade-down">Homes for Sale in Upper West Side</h2>
+          </div>
+          <div class="cs_section_heading_right">
+            <a href="property-listing-buy.html" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_20"><span>View All 128 Homes</span></a>
+          </div>
+        </div>
+        <div class="cs_height_50 cs_height_lg_40"></div>
+        <div class="row cs_gap_y_45">
+          <div class="col-lg-4 col-md-6">
+            <div class="cs_card cs_style_1" data-id="uws-1" data-type="apartment" data-offer="buy" data-location="new-york" data-price="1350000" data-beds="3" data-baths="2" data-area="1650" data-garage="1" data-year="2016" data-amenities="elevator,security,parking" data-date="2026-09-30" data-views="914">
+              <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+              <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
+              <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-7.jpg" class="cs_card_img_front" alt="Riverside Park Residence" loading="lazy">
+                <img src="assets/img/property-img-10.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$1,350,000</bdi></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_23 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 3</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>1650 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <hr class="cs_mb_17 mt-0">
+                <div class="cs_property_info">
+                  <div class="cs_property_info_text">
+                    <h3 class="cs_property_title cs_fs_25 cs_semibold cs_mb_10">
+                      <a href="property-details.html" aria-label="View property details link">Riverside Park Residence</a>
+                    </h3>
+                    <div class="cs_property_location_text">
+                      <span>
+                        <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                      </span>
+                      <p class="mb-0"><bdi>312 Riverside Drive, Upper West Side, NY 10025</bdi></p>
+                    </div>
+                  </div>
+                  <div class="cs_property_view_btn">
+                    <a href="property-details.html" aria-label="View property details link" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_20">
+                    <span>View Details</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="cs_card cs_style_1" data-id="uws-2" data-type="apartment" data-offer="buy" data-location="new-york" data-price="895000" data-beds="2" data-baths="2" data-area="1120" data-garage="0" data-year="2019" data-amenities="elevator,fitnessCenter,security" data-date="2026-09-27" data-views="688">
+              <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+              <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
+              <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-8.jpg" class="cs_card_img_front" alt="East Tower Apartment" loading="lazy">
+                <img src="assets/img/property-img-11.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$895,000</bdi></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_23 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 2</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>1120 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <hr class="cs_mb_17 mt-0">
+                <div class="cs_property_info">
+                  <div class="cs_property_info_text">
+                    <h3 class="cs_property_title cs_fs_25 cs_semibold cs_mb_10">
+                      <a href="property-details.html" aria-label="View property details link">East Tower Apartment</a>
+                    </h3>
+                    <div class="cs_property_location_text">
+                      <span>
+                        <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                      </span>
+                      <p class="mb-0"><bdi>160 West 86th Street, Upper West Side, NY 10024</bdi></p>
+                    </div>
+                  </div>
+                  <div class="cs_property_view_btn">
+                    <a href="property-details.html" aria-label="View property details link" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_20">
+                    <span>View Details</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="cs_card cs_style_1" data-id="uws-3" data-type="house" data-offer="buy" data-location="new-york" data-price="2450000" data-beds="5" data-baths="4" data-area="3200" data-garage="1" data-year="1910" data-amenities="garden,security" data-date="2026-09-22" data-views="1135">
+              <button type="button" data-save-toggle class="cs_save_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Save property" aria-pressed="false" title="Save"><i class="fa-regular fa-heart"></i></button>
+              <button type="button" data-compare-toggle class="cs_compare_btn cs_center cs_white_bg cs_primary_color cs_radius_100 position-absolute" aria-label="Add to compare" aria-pressed="false" title="Add to compare"><i class="fa-solid fa-code-compare"></i></button>
+              <a href="property-details.html" aria-label="View property details link" class="cs_card_thumbnail cs_radius_20 cs_mb_17 position-relative">
+                <img src="assets/img/property-img-9.jpg" class="cs_card_img_front" alt="West End Townhouse" loading="lazy">
+                <img src="assets/img/property-img-12.jpg" class="cs_card_img_back" alt="" loading="lazy">
+                <span class="cs_property_price cs_primary_bg cs_fs_20 cs_white_color cs_semibold cs_primary_font cs_radius_10 position-absolute"><bdi>$2,450,000</bdi></span>
+              </a>
+              <div class="cs_card_content">
+                <ul class="cs_property_features cs_mb_23 list-unstyled">
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bed.svg" class="cs_svg_icon cs_icon_bed" alt="">
+                    </span>
+                    <span>Bed 5</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/bathtab.svg" class="cs_svg_icon cs_icon_bathtab" alt="">
+                    </span>
+                    <span>Bath 4</span>
+                  </li>
+                  <li>
+                    <span class="cs_primary_color">
+                      <img src="assets/img/icons/ui/squares.svg" class="cs_svg_icon cs_icon_squares" alt="">
+                    </span>
+                    <span><bdi>3200 Sqft</bdi></span>
+                  </li>
+                </ul>
+                <hr class="cs_mb_17 mt-0">
+                <div class="cs_property_info">
+                  <div class="cs_property_info_text">
+                    <h3 class="cs_property_title cs_fs_25 cs_semibold cs_mb_10">
+                      <a href="property-details.html" aria-label="View property details link">West End Townhouse</a>
+                    </h3>
+                    <div class="cs_property_location_text">
+                      <span>
+                        <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                      </span>
+                      <p class="mb-0"><bdi>245 West End Avenue, Upper West Side, NY 10023</bdi></p>
+                    </div>
+                  </div>
+                  <div class="cs_property_view_btn">
+                    <a href="property-details.html" aria-label="View property details link" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_20">
+                    <span>View Details</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+    </section>
+    <!-- End Neighborhood Details Section -->
+    <!-- Start Local Agents Section -->
+    <section class="cs_gray2_bg">
+      <div class="cs_height_127 cs_height_lg_80"></div>
+      <div class="container">
+        <div class="cs_section_heading cs_style_1 cs_type_1">
+          <div class="cs_section_heading_left">
+            <h2 class="cs_section_title cs_fs_49 cs_mb_10" data-aos="fade-down">Local Agents</h2>
+            <p class="mb-0">Agents who live, work and close deals on the Upper West Side.</p>
+          </div>
+          <div class="cs_section_heading_right">
+            <a href="agents-list.html" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_primary_font cs_radius_20"><span>All Agents</span></a>
+          </div>
+        </div>
+        <div class="cs_height_60 cs_height_lg_40"></div>
+        <div class="row cs_gap_y_40">
+          <div class="col-lg-4 col-sm-6">
+            <div class="cs_team cs_style_1">
+              <div class="cs_team_thumbnail cs_radius_10 cs_mb_23 position-relative" data-aos="zoom-in" data-aos-delay="0">
+                <a href="agent-details.html" aria-label="Amanda Jones profile"><img src="assets/img/team-img-2.jpg" alt="Amanda Jones" loading="lazy"></a>
+                <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
+                  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="cs_team_bio p-0">
+                <h3 class="cs_team_title cs_fs_25 cs_semibold cs_mb_3"><a href="agent-details.html">Amanda Jones</a></h3>
+                <p class="cs_mb_12">Upper West Side Specialist</p>
+                <ul class="cs_team_contact_list cs_mp_0">
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                    <i class="fa-solid fa-phone-volume"></i></span>
+                    <a href="tel:2125550147"><bdi>(212) 555-0147</bdi></a>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                    <i class="fa-regular fa-envelope"></i></span>
+                    <a href="mailto:amanda@xproperty.com">amanda@xproperty.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="cs_team cs_style_1">
+              <div class="cs_team_thumbnail cs_radius_10 cs_mb_23 position-relative" data-aos="zoom-in" data-aos-delay="100">
+                <a href="agent-details.html" aria-label="Daniel Brooks profile"><img src="assets/img/team-img-3.jpg" alt="Daniel Brooks" loading="lazy"></a>
+                <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
+                  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="cs_team_bio p-0">
+                <h3 class="cs_team_title cs_fs_25 cs_semibold cs_mb_3"><a href="agent-details.html">Daniel Brooks</a></h3>
+                <p class="cs_mb_12">Senior Listing Agent</p>
+                <ul class="cs_team_contact_list cs_mp_0">
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                    <i class="fa-solid fa-phone-volume"></i></span>
+                    <a href="tel:2125550183"><bdi>(212) 555-0183</bdi></a>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                    <i class="fa-regular fa-envelope"></i></span>
+                    <a href="mailto:daniel@xproperty.com">daniel@xproperty.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+            <div class="cs_team cs_style_1">
+              <div class="cs_team_thumbnail cs_radius_10 cs_mb_23 position-relative" data-aos="zoom-in" data-aos-delay="200">
+                <a href="agent-details.html" aria-label="Sophia Turner profile"><img src="assets/img/team-img-4.jpg" alt="Sophia Turner" loading="lazy"></a>
+                <div class="cs_social_btns cs_style_1 cs_radius_20 position-absolute">
+                  <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="cs_team_bio p-0">
+                <h3 class="cs_team_title cs_fs_25 cs_semibold cs_mb_3"><a href="agent-details.html">Sophia Turner</a></h3>
+                <p class="cs_mb_12">Buyer's Agent</p>
+                <ul class="cs_team_contact_list cs_mp_0">
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                    <i class="fa-solid fa-phone-volume"></i></span>
+                    <a href="tel:2125550129"><bdi>(212) 555-0129</bdi></a>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_primary_bg cs_white_color cs_radius_100">
+                    <i class="fa-regular fa-envelope"></i></span>
+                    <a href="mailto:sophia@xproperty.com">sophia@xproperty.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+    </section>
+    <!-- End Local Agents Section -->
+    <!-- Start CTA Section -->
+    <section>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+      <div class="container">
+        <div class="cs_cta cs_style_1 cs_bg_fixed cs_center_column cs_radius_20 text-center" data-src="assets/img/cta-bg-4.jpg">
+          <h2 class="cs_cta_title cs_fs_61 cs_white_color cs_mb_34" data-aos="fade-down">
+            Own a Home on the
+            <span class="cs_text_underline">
+              Upper West Side?
+            </span>
+            <br> Find Out What It's Worth
+          </h2>
+          <a href="sell-property.html" aria-label="Sell your property page link" class="cs_btn cs_style_1 cs_white_color cs_medium cs_primary_font cs_radius_20" data-aos="zoom-in">
+          <span>Get a Free Valuation</span>
+          <span class="cs_btn_arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+      <div class="cs_height_140 cs_height_lg_80"></div>
+    </section>
+    <!-- End CTA Section -->
+    <!-- Start Footer Section -->
+    <footer class="cs_footer cs_style_1 cs_type_2 cs_primary_bg cs_bg_filed" data-src="assets/img/footer-bg-1.svg">
+      <div class="container">
+        <div class="cs_footer_main">
+          <div class="row cs_gap_y_30">
+            <div class="col-lg-5 col-md-12">
+              <div class="cs_footer_widget cs_text_widget">
+                <div class="cs_logo" data-aos="zoom-in">
+                  <img src="assets/img/logo-2.svg" alt="Logo">
+                </div>
+                <div class="cs_newsletter cs_style_1">
+                  <h3 class="cs_newsletter_heading cs_fs_20 cs_semibold cs_white_color cs_mb_37 cs_mb_lg_24">Subscribe Our Newsletter for Update:</h3>
+                  <form action="#" class="cs_newsletter_form cs_style_1 position-relative">
+                    <input type="email" name="email" placeholder="Enter Email Address" autocomplete="email" required>
+                    <button type="submit" class="cs_send_icon cs_white_color position-absolute">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3">
+              <div class="cs_footer_widget cs_menu_widget">
+                <h3 class="cs_footer_widget_title cs_fs_20 cs_semibold cs_white_color cs_mb_17">Discover</h3>
+                <ul class="cs_footer_menu cs_gray_color cs_mp_0">
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">New York</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Tokyo</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Dubai</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Hanoi</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Jakarta</a></li>
+                  <li><a href="property-listing-search.html" aria-label="Footer menu link">Florida</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+              <div class="cs_footer_widget cs_menu_widget">
+                <h3 class="cs_footer_widget_title cs_fs_20 cs_semibold cs_white_color cs_mb_17">Quick Links</h3>
+                <ul class="cs_footer_menu cs_gray_color cs_mp_0">
+                  <li><a href="about-us.html" aria-label="Footer menu link">About Us</a></li>
+                  <li><a href="property-listing-buy.html" aria-label="Footer menu link">Buy Property</a></li>
+                  <li><a href="owner/submit-property.html" aria-label="Footer menu link">Sale Property</a></li>
+                  <li><a href="property-listing-rent.html" aria-label="Footer menu link">Rent Property</a></li>
+                  <li><a href="blog.html" aria-label="Footer menu link">Latest News</a></li>
+                  <li><a href="faq.html" aria-label="Footer menu link">Faq's</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-5">
+              <div class="cs_footer_widget cs_contact_widget">
+                <h3 class="cs_footer_widget_title cs_fs_20 cs_semibold cs_white_color cs_mb_17">Contact Us</h3>
+                <ul class="cs_contact_list cs_gray_color cs_mp_0">
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_radius_100 cs_white_color">
+                      <img src="assets/img/icons/ui/marker.svg" class="cs_svg_icon cs_icon_marker" alt="">
+                    </span>
+                    <p class="mb-0"><bdi>4325 Maplewood Drive, Evergreen Estates, CA 90210</bdi></p>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/envelop.svg" class="cs_svg_icon cs_icon_envelop" alt="">
+                    </span>
+                    <a href="mailto:info@xproperty.com" aria-label="Send Email link">info@xproperty.com</a>
+                  </li>
+                  <li>
+                    <span class="cs_contact_icon cs_center cs_white_color cs_radius_100">
+                      <img src="assets/img/icons/ui/phone.svg" class="cs_svg_icon cs_icon_phone" alt="">
+                    </span>
+                    <a href="tel:2144466668" aria-label="Make a call link">(214) 446-6668</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cs_footer_bottom cs_gray_color">
+          <div class="cs_footer_text">&copy; 2025 Xproperty. All right reserved</div>
+          <div class="cs_footer_bottom_menu">
+            <span class="cs_currency"><select name="currency" class="cs_currency_select" aria-label="Currency" data-currency-select><option value="USD">$ USD</option><option value="EUR">&euro; EUR</option><option value="GBP">&pound; GBP</option><option value="AED">AED</option></select></span>
+            <div class="cs_social_links">
+              <a href="#" aria-label="Social link">Facebook</a>
+              <a href="#" aria-label="Social link">LinkedIn</a>
+              <a href="#" aria-label="Social link">YouTube</a>
+              <a href="#" aria-label="Social link">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer Section -->
+    <!-- Start Scroll Top Button -->
+   <button type="button" name="ScrollToTopBtn" class="cs_scrollup_btn" id="scrollToTopBtn">
+      <i class="fa-solid fa-arrow-up"></i></button>
+    <!-- End Scroll Top Button -->
+   <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/odometer.min.js"></script>
+    <script src="assets/js/tom-select.min.js"></script>
+    <script src="assets/js/flatpickr.min.js"></script>
+    <script src="assets/js/lenis.min.js"></script>
+    <script src="assets/js/light-gallery.min.js"></script>
+    <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/leaflet.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

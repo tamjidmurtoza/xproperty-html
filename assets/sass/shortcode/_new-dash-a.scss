@@ -1,0 +1,458 @@
+/* Dashboard extras: documents, offers, rental applications */
+
+/* Soft colored chip */
+.cs_file_icon,
+.cs_storage_dot {
+  position: relative;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0.1;
+    z-index: -1;
+  }
+}
+
+/* Documents */
+.cs_table_file {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  h3 {
+    min-width: 160px;
+    max-width: 260px;
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+.cs_file_icon {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  color: var(--secondary-color);
+
+  &.cs_file_pdf {
+    color: var(--danger-color);
+  }
+
+  &.cs_file_doc {
+    color: var(--cs-info-color);
+  }
+
+  &.cs_file_img {
+    color: var(--cs-success-color);
+  }
+}
+
+/* Storage usage */
+.cs_storage_bar {
+  display: flex;
+  height: 10px;
+  margin: 16px 0 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: var(--border-color);
+
+  span {
+    display: block;
+    height: 100%;
+
+    &:not(:last-child) {
+      border-inline-end: 2px solid var(--cs-card-bg);
+    }
+  }
+}
+
+.cs_storage_legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cs_storage_dot {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.cs_storage_contracts {
+  color: var(--accent-color);
+}
+
+.cs_storage_agreements {
+  color: var(--cs-info-color);
+}
+
+.cs_storage_disclosures {
+  color: var(--cs-warning-color);
+}
+
+.cs_storage_ids {
+  color: var(--primary-color);
+}
+
+.cs_storage_bar {
+  .cs_storage_contracts {
+    background-color: var(--accent-color);
+  }
+
+  .cs_storage_agreements {
+    background-color: var(--cs-info-color);
+  }
+
+  .cs_storage_disclosures {
+    background-color: var(--cs-warning-color);
+  }
+
+  .cs_storage_ids {
+    background-color: var(--primary-color);
+  }
+}
+
+/* Offers (agent table) */
+.cs_ask_pct {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: var(--primary-color);
+
+  i {
+    font-size: 12px;
+  }
+
+  &.cs_above {
+    color: var(--cs-success-color);
+  }
+
+  &.cs_below {
+    color: var(--danger-color);
+  }
+}
+
+.cs_offer_note {
+  display: block;
+  max-width: 150px;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.4em;
+  white-space: normal;
+}
+
+.cs_dashboard_table .cs_td_wrap {
+  min-width: 130px;
+  white-space: normal;
+}
+
+/* My Offers (buyer cards) */
+.cs_offer_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cs_offer_card {
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--cs-card-bg);
+
+  @media (max-width: 575px) {
+    padding: 15px;
+  }
+}
+
+.cs_offer_card_main {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: 991px) {
+    flex-wrap: wrap;
+  }
+}
+
+.cs_offer_card_thumb {
+  width: 150px;
+  height: 112px;
+  flex: none;
+  border-radius: 8px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.06);
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+.cs_offer_card_info {
+  flex: 1;
+  min-width: 200px;
+
+  h3 a:hover {
+    color: var(--accent-color);
+  }
+}
+
+.cs_offer_figures {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 12px 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 14px;
+  }
+
+  strong {
+    font-family: var(--primary-font);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 991px) {
+    width: 100%;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 575px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.cs_offer_card_note {
+  margin: 16px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: var(--gray3-color);
+
+  i {
+    color: var(--cs-warning-color);
+    margin-inline-end: 4px;
+  }
+}
+
+.cs_offer_card_foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+
+}
+
+.cs_offer_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .cs_btn.cs_style_1 {
+    padding: 7px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Status timeline */
+.cs_offer_track {
+  display: flex;
+  flex: 1;
+  max-width: 520px;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4em;
+
+    &:not(:first-child)::before {
+      content: "";
+      position: absolute;
+      top: 13px;
+      inset-inline-end: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: var(--border-color);
+    }
+  }
+
+  .cs_offer_track_dot {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 12px;
+    color: var(--secondary-color);
+    border: 2px solid var(--border-color);
+    background-color: var(--cs-card-bg);
+  }
+
+  .cs_offer_track_label {
+    font-family: var(--primary-font);
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  li:not(.cs_done):not(.cs_current) .cs_offer_track_label {
+    color: var(--secondary-color);
+  }
+
+  li.cs_done:not(:first-child),
+  li.cs_current:not(:first-child) {
+    &::before {
+      background-color: var(--cs-success-color);
+    }
+  }
+
+  .cs_done .cs_offer_track_dot {
+    color: #fff;
+    border-color: var(--cs-success-color);
+    background-color: var(--cs-success-color);
+  }
+
+  .cs_current .cs_offer_track_dot {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+
+  // Result step colors
+  .cs_track_warning .cs_offer_track_dot {
+    color: #fff;
+    border-color: var(--cs-warning-color);
+    background-color: var(--cs-warning-color);
+  }
+
+  li.cs_track_danger {
+    &:not(:first-child)::before {
+      background-color: var(--danger-color);
+    }
+
+    .cs_offer_track_dot {
+      color: #fff;
+      border-color: var(--danger-color);
+      background-color: var(--danger-color);
+    }
+  }
+
+  @media (max-width: 991px) {
+    max-width: none;
+    flex-basis: 100%;
+  }
+}
+
+div.cs_empty_row {
+  padding: 40px 16px;
+  text-align: center;
+  border: 1px dashed var(--border-color);
+  border-radius: 10px;
+}
+
+/* Rental applications */
+.cs_mini_steps {
+  display: flex;
+  gap: 4px;
+  width: 120px;
+  margin-top: 8px;
+
+  span {
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--border-color);
+
+    &.cs_done {
+      background-color: var(--cs-success-color);
+    }
+
+    &.cs_current {
+      background-color: var(--cs-warning-color);
+    }
+  }
+}
+
+.cs_mini_steps_label {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.cs_empty_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  white-space: normal;
+
+  > i {
+    font-size: 32px;
+    color: var(--border-color);
+  }
+
+  p {
+    max-width: 380px;
+  }
+}

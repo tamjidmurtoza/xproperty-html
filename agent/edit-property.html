@@ -3,11 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Edit Property in your Xproperty agent dashboard.">
     <meta name="keywords" content="edit property, agent dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
     <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/agent/edit-property.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Edit Property - Agent Dashboard | Xproperty">
+    <meta property="og:description" content="Edit Property in your Xproperty agent dashboard.">
+    <meta property="og:url" content="https://example.com/agent/edit-property.html">
+    <meta property="og:image" content="https://example.com/assets/img/property-banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Edit Property - Agent Dashboard | Xproperty">
+    <meta name="twitter:description" content="Edit Property in your Xproperty agent dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/property-banner.jpg">
+    <!-- End social -->
     <!-- Favicon -->
     <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
     <!-- All CSS Files -->
     <link rel="stylesheet" href="../assets/css/aos.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
@@ -34,6 +49,7 @@
   </head>
   <!-- Agent dashboard · Edit Property. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
   <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
     <!-- Start Preloader -->
     <div class="cs_preloader">
       <div class="cs_preloader_in cs_center_column text-center">
@@ -47,7 +63,7 @@
       <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
         <div class="cs_sidebar_head">
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
-            <img src="../assets/img/logo.svg" alt="Logo">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
           </a>
           <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
             <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
@@ -97,6 +113,39 @@
                 </ul>
               </li>
               <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li>
+                <a href="documents.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-contract"></i>
+                  <span class="cs_menu_text">Documents &amp; Contracts</span>
+                </a>
+              </li>
+              <li>
                 <a href="messages.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-envelope"></i>
                   <span class="cs_menu_text">Messages</span>
@@ -107,6 +156,13 @@
                 <a href="reviews.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-star"></i>
                   <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
                 </a>
               </li>
               <li><span class="cs_menu_label">Account</span></li>
@@ -137,7 +193,7 @@
           <div class="cs_sidebar_package cs_radius_10">
             <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Premium Plan</p>
             <div class="cs_progress"><span style="width: 68%"></span></div>
-            <p class="cs_fs_14 mb-0">34 of 50 listings used · <a href="billing.html" class="cs_semibold">Upgrade</a></p>
+            <p class="cs_fs_14 mb-0"><bdi>34 of 50 listings used</bdi> · <a href="billing.html" class="cs_semibold">Upgrade</a></p>
           </div>
         </div>
       </aside>
@@ -153,7 +209,7 @@
             </button>
             <form action="#" class="cs_topbar_search" role="search">
               <i class="fa-solid fa-magnifying-glass"></i>
-              <input type="search" placeholder="Search properties, leads, messages..." aria-label="Search dashboard">
+              <input name="search" type="search" placeholder="Search properties, leads, messages..." aria-label="Search dashboard">
             </form>
           </div>
           <div class="cs_topbar_right">
@@ -175,38 +231,38 @@
               <div class="cs_dropdown_panel">
                 <div class="cs_dropdown_head">
                   <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
-                  <span class="cs_status_badge cs_status_active">3 New</span>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
                 </div>
                 <ul class="cs_notification_list" data-lenis-prevent>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">"Beach View Villa" was approved</span>
-                        <span class="d-block cs_fs_14">2 min ago</span>
+                        <span class="d-block cs_fs_14"><bdi>2 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-user-plus"></i></span>
                       <span>
                         <span class="d-block cs_fs_14 cs_primary_color">New lead from Daniel Brooks</span>
-                        <span class="d-block cs_fs_14">45 min ago</span>
+                        <span class="d-block cs_fs_14"><bdi>45 min ago</bdi></span>
                       </span>
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="notifications.html">
                       <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
                       <span>
-                        <span class="d-block cs_fs_14 cs_primary_color">2 listings expire in 3 days</span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>2 listings expire in 3 days</bdi></span>
                         <span class="d-block cs_fs_14">Today, 09:12</span>
                       </span>
                     </a>
                   </li>
                 </ul>
-                <a href="#" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
               </div>
             </div>
             <!-- Profile -->
@@ -234,7 +290,7 @@
         <!-- End Dashboard Topbar -->
 
         <!-- Start Main Content -->
-        <main class="cs_dashboard_content">
+        <main class="cs_dashboard_content" id="main-content">
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
@@ -255,7 +311,7 @@
 
           <div class="row cs_gap_y_24">
             <div class="col-xl-8">
-              <form action="#" class="cs_dashboard_form">
+              <form action="#" class="cs_dashboard_form" data-property-form="edit" novalidate>
                 <!-- Start Basic Information -->
                 <div class="cs_dashboard_card">
                   <div class="cs_form_section">
@@ -263,7 +319,7 @@
                     <div class="row cs_gap_y_24">
                       <div class="col-12">
                         <label class="cs_form_label" for="field1">Property Title</label>
-                        <input type="text" id="field1" class="cs_form_field" placeholder="e.g. Modern villa with ocean view" value="Beach View Villa">
+                        <input type="text" id="field1" class="cs_form_field" placeholder="e.g. Modern villa with ocean view" value="Beach View Villa" required>
                       </div>
                       <div class="col-md-6">
                         <label class="cs_form_label" for="field2">Listing Status</label>
@@ -291,7 +347,7 @@
                         <label class="cs_form_label" for="field4">Price</label>
                         <div class="cs_input_icon_wrap">
                           <i class="fa-solid fa-dollar-sign"></i>
-                          <input type="number" id="field4" class="cs_form_field" placeholder="1,250,000" value="1250000">
+                          <input type="number" id="field4" class="cs_form_field" placeholder="1,250,000" value="1250000" required>
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -306,7 +362,7 @@
                       </div>
                       <div class="col-md-4">
                         <label class="cs_form_label" for="field6">Area (sqft)</label>
-                        <input type="number" id="field6" class="cs_form_field" placeholder="2,450" value="3200">
+                        <input type="number" id="field6" class="cs_form_field" placeholder="2,450" value="3200" required>
                       </div>
                       <div class="col-md-4">
                         <label class="cs_form_label" for="field7">Bedrooms</label>
@@ -364,7 +420,7 @@
                     <div class="row cs_gap_y_24">
                       <div class="col-12">
                         <label class="cs_form_label" for="field12">About this property</label>
-                        <textarea id="field12" class="cs_form_field" placeholder="Describe the property, the neighbourhood and what makes it special...">Four-bedroom villa a short walk from Batu Bolong beach, with an infinity pool, open-plan living area and ocean views from the upper terrace. Fully furnished, with staff quarters, a two-car garage and a landscaped tropical garden. Close to Canggu cafes, surf spots and international schools.</textarea>
+                        <textarea id="field12" class="cs_form_field" placeholder="Describe the property, the neighbourhood and what makes it special..." required minlength="30">Four-bedroom villa a short walk from Batu Bolong beach, with an infinity pool, open-plan living area and ocean views from the upper terrace. Fully furnished, with staff quarters, a two-car garage and a landscaped tropical garden. Close to Canggu cafes, surf spots and international schools.</textarea>
                       </div>
                     </div>
                   </div>
@@ -377,15 +433,15 @@
                     <h3 class="cs_form_section_title cs_fs_18 cs_semibold"><i class="fa-solid fa-images"></i>Gallery</h3>
                     <div class="cs_upload_wrap">
                       <div class="cs_upload_box">
-                        <input type="file" accept="image/*" multiple aria-label="Upload property photos">
+                        <input name="upload_property_photos" type="file" accept="image/*" multiple aria-label="Upload property photos">
                         <div class="cs_upload_icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
                         <p class="cs_fs_16 cs_semibold cs_primary_color cs_mb_3">Drop photos here or click to upload</p>
                         <p class="cs_fs_14 mb-0">JPG or PNG, up to 10 MB each. The first photo is the cover.</p>
                       </div>
                       <div class="cs_upload_previews">
-                        <div><img src="../assets/img/property-img-1.jpg" alt=""><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
-                        <div><img src="../assets/img/bed-room.jpg" alt=""><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
-                        <div><img src="../assets/img/property-img-6.jpg" alt=""><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
+                        <div><img src="../assets/img/property-img-1.jpg" alt="" loading="lazy"><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
+                        <div><img src="../assets/img/bed-room.jpg" alt="" loading="lazy"><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
+                        <div><img src="../assets/img/property-img-6.jpg" alt="" loading="lazy"><button type="button" aria-label="Remove image"><i class="fa-solid fa-xmark"></i></button></div>
                       </div>
                     </div>
                   </div>
@@ -399,11 +455,11 @@
                     <div class="row cs_gap_y_24">
                       <div class="col-12">
                         <label class="cs_form_label" for="field13">Address</label>
-                        <input type="text" id="field13" class="cs_form_field" placeholder="Street address" value="Jl. Pantai Batu Bolong No. 88, Canggu">
+                        <input type="text" id="field13" class="cs_form_field" placeholder="Street address" value="Jl. Pantai Batu Bolong No. 88, Canggu" required>
                       </div>
                       <div class="col-md-6">
                         <label class="cs_form_label" for="field14">City</label>
-                        <input type="text" id="field14" class="cs_form_field" placeholder="City" value="Badung">
+                        <input type="text" id="field14" class="cs_form_field" placeholder="City" value="Badung" required>
                       </div>
                       <div class="col-md-6">
                         <label class="cs_form_label" for="field15">State / Province</label>
@@ -552,7 +608,7 @@
                         <p class="cs_fs_14 mb-0">Show this listing in search results</p>
                       </div>
                       <label class="cs_toggle_switch">
-                        <input type="checkbox" checked aria-label="Published">
+                        <input name="published" type="checkbox" checked aria-label="Published">
                         <span></span>
                       </label>
                     </li>
@@ -562,7 +618,7 @@
                         <p class="cs_fs_14 mb-0">Let buyers send you leads about it</p>
                       </div>
                       <label class="cs_toggle_switch">
-                        <input type="checkbox" checked aria-label="Accept inquiries">
+                        <input name="accept_inquiries" type="checkbox" checked aria-label="Accept inquiries">
                         <span></span>
                       </label>
                     </li>
@@ -572,7 +628,7 @@
                         <p class="cs_fs_14 mb-0">Uses 1 of your 5 featured slots</p>
                       </div>
                       <label class="cs_toggle_switch">
-                        <input type="checkbox" checked aria-label="Featured listing">
+                        <input name="featured_listing" type="checkbox" checked aria-label="Featured listing">
                         <span></span>
                       </label>
                     </li>
@@ -619,7 +675,6 @@
     <script src="../assets/js/flatpickr.min.js"></script>
     <script src="../assets/js/lenis.min.js"></script>
     <script src="../assets/js/light-gallery.min.js"></script>
-    <script src="../assets/js/data-tables.min.js"></script>
     <script src="../assets/js/aos.min.js"></script>
     <script src="../assets/js/main.js"></script>
   </body>

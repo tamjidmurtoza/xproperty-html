@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Store leases, sale contracts, inspections and receipts in your Xproperty owner dashboard.">
+    <meta name="keywords" content="owner dashboard, real estate dashboard, admin panel, agent dashboard, owner dashboard, buyer dashboard, xproperty, real estate, property listing, real estate HTML template, property listing template, real estate website, real estate agency, property management, buy property, rent property, real estate admin dashboard, Bootstrap 5, responsive, Laralink">
+    <meta name="author" content="Laralink">
+    <!-- Social sharing & canonical (replace example.com with your domain) -->
+    <link rel="canonical" href="https://example.com/owner/documents.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Xproperty">
+    <meta property="og:title" content="Documents &amp; Contracts - Owner Dashboard | Xproperty">
+    <meta property="og:description" content="Store leases, sale contracts, inspections and receipts in your Xproperty owner dashboard.">
+    <meta property="og:url" content="https://example.com/owner/documents.html">
+    <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Documents &amp; Contracts - Owner Dashboard | Xproperty">
+    <meta name="twitter:description" content="Store leases, sale contracts, inspections and receipts in your Xproperty owner dashboard.">
+    <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
+    <!-- End social -->
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/app-icon-192.png">
+    <!-- All CSS Files -->
+    <link rel="stylesheet" href="../assets/css/aos.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets/css/odometer.min.css">
+    <link rel="stylesheet" href="../assets/css/tom-select.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Smooth page transitions between dashboard pages -->
+    <style>@view-transition { navigation: auto; }</style>
+    <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
+    <script>
+      (function (html) {
+        try {
+          var theme = localStorage.getItem("xproperty-theme");
+          if (theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) html.classList.add("cs_dark");
+          if (localStorage.getItem("xproperty-sidebar") === "collapsed") html.classList.add("cs_sidebar_collapsed");
+          if ("onpagereveal" in window && localStorage.getItem("xproperty-dir") !== "rtl" && sessionStorage.getItem("xproperty-dashboard-visited")) html.classList.add("cs_preloader_skip");
+          sessionStorage.setItem("xproperty-dashboard-visited", "1");
+        } catch (e) {}
+      })(document.documentElement);
+    </script>
+    <!-- Site Title -->
+    <title>Documents & Contracts - Owner Dashboard | Xproperty - Property Listing & Real Estate HTML Template With Admin Dashboard | Laralink</title>
+  </head>
+  <!-- Property Owner dashboard · Documents & Contracts. Add "cs_sidebar_collapsed" to <html> to start with the mini sidebar on desktop -->
+  <body class="cs_dashboard">
+    <a href="#main-content" class="cs_skip_link">Skip to content</a>
+    <!-- Start Preloader -->
+    <div class="cs_preloader">
+      <div class="cs_preloader_in cs_center_column text-center">
+        <span class="cs_preloader_icon cs_center cs_radius_100 cs_mb_24 position-relative"></span>
+        <p class="cs_fs_20 cs_primary_font mb-0">Loading...</p>
+      </div>
+    </div>
+    <!-- End Preloader -->
+    <div class="cs_dashboard_wrapper">
+      <!-- Start Dashboard Sidebar -->
+      <aside class="cs_dashboard_sidebar" id="dashboardSidebar" aria-label="Dashboard navigation">
+        <div class="cs_sidebar_head">
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand">
+            <img src="../assets/img/logo.svg" alt="Logo" class="cs_logo_light"><img src="../assets/img/logo-2.svg" alt="Logo" class="cs_logo_dark">
+          </a>
+          <a href="../index.html" aria-label="Home page link" class="cs_sidebar_brand_mini">
+            <img src="../assets/img/favicon.png" alt="Logo" width="36" height="36">
+          </a>
+          <button type="button" class="cs_sidebar_close cs_radius_10" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="cs_sidebar_body" data-lenis-prevent>
+          <!-- Logged-in user -->
+          <div class="cs_sidebar_user cs_radius_10">
+            <div class="cs_sidebar_user_thumb cs_radius_100">
+              <img src="../assets/img/avatar-3.jpg" alt="Michael Chen">
+            </div>
+            <div class="cs_sidebar_user_info">
+              <h2 class="cs_fs_16 cs_semibold cs_mb_3">Michael Chen</h2>
+              <span class="cs_sidebar_user_role cs_radius_20">Property Owner</span>
+            </div>
+          </div>
+          <!-- Start Property Owner Menu -->
+          <nav>
+            <ul class="cs_dashboard_menu">
+              <li><span class="cs_menu_label">Main</span></li>
+              <li>
+                <a href="index.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gauge-high"></i>
+                  <span class="cs_menu_text">Dashboard Overview</span>
+                </a>
+              </li>
+              <li>
+                <a href="submit-property.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-square-plus"></i>
+                  <span class="cs_menu_text">Submit Property</span>
+                </a>
+              </li>
+              <li>
+                <a href="my-properties.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-chimney"></i>
+                  <span class="cs_menu_text">My Properties</span>
+                </a>
+              </li>
+              <li>
+                <a href="leads.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-user-plus"></i>
+                  <span class="cs_menu_text">Leads & Inquiries</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="tour-requests.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-calendar-check"></i>
+                  <span class="cs_menu_text">Tour Requests</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="offers.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-hand-holding-dollar"></i>
+                  <span class="cs_menu_text">Offers</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="analytics.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-chart-line"></i>
+                  <span class="cs_menu_text">Listing Analytics</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="documents.html" class="cs_menu_link" aria-current="page">
+                  <i class="cs_menu_icon fa-solid fa-folder-open"></i>
+                  <span class="cs_menu_text">Documents</span>
+                </a>
+              </li>
+              <li>
+                <a href="messages.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-envelope"></i>
+                  <span class="cs_menu_text">Messages</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="reviews.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-star"></i>
+                  <span class="cs_menu_text">Reviews</span>
+                </a>
+              </li>
+              <li>
+                <a href="notifications.html" class="cs_menu_link cs_menu_notifications">
+                  <i class="cs_menu_icon fa-solid fa-bell"></i>
+                  <span class="cs_menu_text">Notifications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Rentals</span></li>
+              <li>
+                <a href="tenants.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-house-user"></i>
+                  <span class="cs_menu_text">Tenants &amp; Leases</span>
+                </a>
+              </li>
+              <li>
+                <a href="applications.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-file-signature"></i>
+                  <span class="cs_menu_text">Rental Applications</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li>
+                <a href="maintenance.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-screwdriver-wrench"></i>
+                  <span class="cs_menu_text">Maintenance</span>
+                  <span class="cs_menu_badge">3</span>
+                </a>
+              </li>
+              <li><span class="cs_menu_label">Account</span></li>
+              <li>
+                <a href="billing.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-credit-card"></i>
+                  <span class="cs_menu_text">Billing & Payments</span>
+                </a>
+              </li>
+              <li>
+                <a href="profile-settings.html" class="cs_menu_link">
+                  <i class="cs_menu_icon fa-solid fa-gear"></i>
+                  <span class="cs_menu_text">Profile Settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="../login.html" class="cs_menu_link cs_logout_link">
+                  <i class="cs_menu_icon fa-solid fa-arrow-right-from-bracket"></i>
+                  <span class="cs_menu_text">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Property Owner Menu -->
+        </div>
+        <div class="cs_sidebar_footer">
+          <!-- Package usage -->
+          <div class="cs_sidebar_package cs_radius_10">
+            <p class="cs_fs_14 cs_semibold cs_primary_font mb-0">Basic Plan</p>
+            <div class="cs_progress"><span style="width: 60%"></span></div>
+            <p class="cs_fs_14 mb-0"><bdi>6 of 10 listings used</bdi></p>
+          </div>
+        </div>
+      </aside>
+      <div class="cs_sidebar_overlay"></div>
+      <!-- End Dashboard Sidebar -->
+
+      <div class="cs_dashboard_main">
+        <!-- Start Dashboard Topbar -->
+        <header class="cs_dashboard_topbar">
+          <div class="cs_topbar_left">
+            <button type="button" class="cs_topbar_btn cs_sidebar_toggle" aria-label="Toggle sidebar" aria-controls="dashboardSidebar" aria-expanded="true">
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <form action="#" class="cs_topbar_search" role="search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input name="search" type="search" placeholder="Search your properties, messages..." aria-label="Search dashboard">
+            </form>
+          </div>
+          <div class="cs_topbar_right">
+            <button type="button" class="cs_topbar_btn cs_search_toggle" aria-label="Open search" aria-expanded="false">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <!-- Dark / light switch -->
+            <button type="button" class="cs_topbar_btn cs_theme_switch" aria-label="Color mode: Device">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <i class="fa-solid fa-sun" aria-hidden="true"></i>
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <!-- Notifications -->
+            <div class="cs_topbar_dropdown">
+              <button type="button" class="cs_topbar_btn cs_dropdown_toggle" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-bell"></i>
+                <span class="cs_dot"></span>
+              </button>
+              <div class="cs_dropdown_panel">
+                <div class="cs_dropdown_head">
+                  <h3 class="cs_fs_16 cs_semibold mb-0">Notifications</h3>
+                  <span class="cs_status_badge cs_status_active"><bdi>3 New</bdi></span>
+                </div>
+                <ul class="cs_notification_list" data-lenis-prevent>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon"><i class="fa-solid fa-circle-check"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">"Northern Apartment" is now live</span>
+                        <span class="d-block cs_fs_14"><bdi>5 min ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-envelope"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color">New inquiry from Sophia Turner</span>
+                        <span class="d-block cs_fs_14"><bdi>1 hour ago</bdi></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="notifications.html">
+                      <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-clock"></i></span>
+                      <span>
+                        <span class="d-block cs_fs_14 cs_primary_color"><bdi>1 listing waiting for approval</bdi></span>
+                        <span class="d-block cs_fs_14">Yesterday</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+                <a href="notifications.html" class="cs_dropdown_foot cs_fs_14 cs_medium">View all notifications</a>
+              </div>
+            </div>
+            <!-- Profile -->
+            <div class="cs_topbar_dropdown cs_profile_dropdown">
+              <button type="button" class="cs_profile_toggle cs_dropdown_toggle" aria-label="Account menu" aria-haspopup="true" aria-expanded="false">
+                <img src="../assets/img/avatar-3.jpg" alt="">
+                <span class="cs_profile_toggle_info">
+                  <span class="d-block cs_fs_16 cs_semibold cs_primary_color cs_primary_font">Michael Chen</span>
+                  <span class="d-block cs_fs_14">Property Owner</span>
+                </span>
+                <i class="fa-solid fa-chevron-down cs_fs_14"></i>
+              </button>
+              <div class="cs_dropdown_panel">
+                <ul class="cs_profile_dropdown_list">
+                  <li><a href="profile-settings.html"><i class="fa-regular fa-user"></i>Profile Settings</a></li>
+                  <li><a href="my-properties.html"><i class="fa-solid fa-house-chimney"></i>My Properties</a></li>
+                  <li><a href="profile-settings.html#password"><i class="fa-solid fa-lock"></i>Change Password</a></li>
+                  <li><span class="cs_divider"></span></li>
+                  <li><a href="../login.html" class="cs_danger_color"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- End Dashboard Topbar -->
+
+        <!-- Start Main Content -->
+        <main class="cs_dashboard_content" id="main-content">
+          <!-- Page heading -->
+          <div class="cs_dashboard_heading">
+            <div>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Documents & Contracts</h1>
+              <ul class="cs_dashboard_breadcrumb">
+                <li><a href="index.html">Dashboard</a></li>
+                <li>Documents & Contracts</li>
+              </ul>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10" data-modal-open="uploadModal">
+                <span><i class="fa-solid fa-cloud-arrow-up"></i></span>
+                <span>Upload Document</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="row cs_gap_y_24 cs_mb_24">
+            <!-- Start Quick Upload -->
+            <div class="col-xl-8">
+              <div class="cs_dashboard_card h-100" data-aos="fade-up">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Quick Upload</h2>
+                    <p class="cs_fs_14 mb-0">Leases, contracts, inspection reports and receipts in one safe place.</p>
+                  </div>
+                </div>
+                <div class="cs_upload_wrap">
+                  <div class="cs_upload_box">
+                    <input name="upload_documents" type="file" accept=".pdf,.doc,.docx,image/*" multiple aria-label="Upload documents">
+                    <div class="cs_upload_icon"><i class="fa-solid fa-file-arrow-up"></i></div>
+                    <p class="cs_fs_16 cs_semibold cs_primary_color cs_mb_3">Drop files here or click to upload</p>
+                    <p class="cs_fs_14 mb-0">PDF, DOCX, JPG or PNG, up to 25 MB each.</p>
+                  </div>
+                  <div class="cs_upload_previews"></div>
+                </div>
+              </div>
+            </div>
+            <!-- End Quick Upload -->
+            <!-- Start Storage -->
+            <div class="col-xl-4">
+              <div class="cs_dashboard_card h-100" data-aos="fade-up" data-aos-delay="100">
+                <div class="cs_card_head">
+                  <div>
+                    <h2 class="cs_fs_20 cs_semibold cs_mb_3">Storage</h2>
+                    <p class="cs_fs_14 mb-0"><bdi>1.8 GB of 5 GB used</bdi></p>
+                  </div>
+                  <span class="cs_notification_icon"><i class="fa-solid fa-hard-drive"></i></span>
+                </div>
+                <div class="cs_progress cs_mb_24"><span style="width: 36%"></span></div>
+                <ul class="cs_usage_list">
+                  <li><div class="cs_usage_top"><span>Leases</span><span class="cs_primary_color cs_semibold"><bdi>640 MB</bdi></span></div><div class="cs_progress"><span style="width: 36%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Sale contracts</span><span class="cs_primary_color cs_semibold"><bdi>410 MB</bdi></span></div><div class="cs_progress"><span style="width: 23%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Inspections</span><span class="cs_primary_color cs_semibold"><bdi>620 MB</bdi></span></div><div class="cs_progress"><span style="width: 34%"></span></div></li>
+                  <li><div class="cs_usage_top"><span>Receipts</span><span class="cs_primary_color cs_semibold"><bdi>130 MB</bdi></span></div><div class="cs_progress"><span style="width: 7%"></span></div></li>
+                </ul>
+              </div>
+            </div>
+            <!-- End Storage -->
+          </div>
+
+          <!-- Start Documents -->
+          <div class="cs_dashboard_card" data-aos="fade-up">
+            <div class="cs_table_toolbar">
+              <ul class="cs_filter_tabs" data-target="#documentTable" aria-label="Filter documents">
+                <li><button type="button" data-filter="all" aria-pressed="true" class="active">All <span>10</span></button></li>
+                <li><button type="button" data-filter="lease" aria-pressed="false">Leases <span>4</span></button></li>
+                <li><button type="button" data-filter="sale" aria-pressed="false">Sale contracts <span>2</span></button></li>
+                <li><button type="button" data-filter="inspection" aria-pressed="false">Inspections <span>2</span></button></li>
+                <li><button type="button" data-filter="receipt" aria-pressed="false">Receipts <span>2</span></button></li>
+              </ul>
+              <div class="cs_toolbar_right">
+                <form action="#" class="cs_topbar_search" role="search" data-table-search="#documentTable">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <input name="search_documents" type="search" placeholder="Search documents" aria-label="Search documents">
+                </form>
+              </div>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="cs_dashboard_table cs_table_fit" id="documentTable">
+                <thead>
+                  <tr>
+                    <th scope="col">File</th>
+                    <th scope="col">Property</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Uploaded</th>
+                    <th scope="col">Signature</th>
+                    <th scope="col" class="text-end">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-status="lease">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lease Renewal – Unit 8.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>6 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-14.jpg" alt="Riverside Studio" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Riverside Studio</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>860 KB</bdi></td>
+                    <td>Oct 03, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending"><i class="fa-regular fa-clock"></i>Awaiting signature</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Send a signature reminder for Lease Renewal – Unit 8.pdf" data-tooltip="Remind to sign"><i class="fa-solid fa-bell"></i></button><button type="button" class="cs_table_action" aria-label="Download Lease Renewal – Unit 8.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Lease Renewal – Unit 8.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Lease Renewal – Unit 8.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="sale">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_info"><i class="fa-solid fa-file-word"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Counter Offer – Blue Seagull.docx</h3>
+                          <p class="cs_fs_14 mb-0">DOCX · <bdi>3 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-6.jpg" alt="Blue Seagull Beach House" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Blue Seagull Beach House</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>240 KB</bdi></td>
+                    <td>Oct 04, 2026</td>
+                    <td><span class="cs_status_badge cs_status_pending"><i class="fa-regular fa-clock"></i>Awaiting signature</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Send a signature reminder for Counter Offer – Blue Seagull.docx" data-tooltip="Remind to sign"><i class="fa-solid fa-bell"></i></button><button type="button" class="cs_table_action" aria-label="Download Counter Offer – Blue Seagull.docx" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Counter Offer – Blue Seagull.docx" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Counter Offer – Blue Seagull.docx" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="receipt">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Plumbing Invoice MR-215.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>1 page</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>320 KB</bdi></td>
+                    <td>Oct 02, 2026</td>
+                    <td><span class="cs_status_badge">Not required</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Plumbing Invoice MR-215.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Plumbing Invoice MR-215.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Plumbing Invoice MR-215.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="sale">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Purchase Agreement – Ranch House.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>14 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-3.jpg" alt="Single Family Ranch House" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Single Family Ranch House</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>3.1 MB</bdi></td>
+                    <td>Sep 18, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Signed</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Purchase Agreement – Ranch House.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Purchase Agreement – Ranch House.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Purchase Agreement – Ranch House.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="inspection">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Move-in Inspection – Unit A.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>22 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-15.jpg" alt="Oakwood Duplex" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Oakwood Duplex</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>5.8 MB</bdi></td>
+                    <td>Sep 10, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Signed</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Move-in Inspection – Unit A.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Move-in Inspection – Unit A.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Move-in Inspection – Unit A.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="receipt">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_warning"><i class="fa-solid fa-file-image"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Property Tax Receipt 2026.jpg</h3>
+                          <p class="cs_fs_14 mb-0">JPG · <bdi>Scanned image</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-6.jpg" alt="Blue Seagull Beach House" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Blue Seagull Beach House</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>1.6 MB</bdi></td>
+                    <td>Sep 05, 2026</td>
+                    <td><span class="cs_status_badge">Not required</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Property Tax Receipt 2026.jpg" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Property Tax Receipt 2026.jpg" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Property Tax Receipt 2026.jpg" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="inspection">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Home Inspection Report.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>36 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-3.jpg" alt="Single Family Ranch House" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Single Family Ranch House</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>8.2 MB</bdi></td>
+                    <td>Aug 30, 2026</td>
+                    <td><span class="cs_status_badge">Not required</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Home Inspection Report.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Home Inspection Report.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Home Inspection Report.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="lease">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lease Agreement – Unit 12.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>12 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-14.jpg" alt="Riverside Studio" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Riverside Studio</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>980 KB</bdi></td>
+                    <td>Mar 10, 2026</td>
+                    <td><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Signed</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Lease Agreement – Unit 12.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Lease Agreement – Unit 12.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Lease Agreement – Unit 12.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="lease">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Lease Agreement – Unit 4B.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>12 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-4.jpg" alt="Northern Apartment" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Northern Apartment</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>1.2 MB</bdi></td>
+                    <td>Dec 20, 2025</td>
+                    <td><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Signed</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Lease Agreement – Unit 4B.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Lease Agreement – Unit 4B.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Lease Agreement – Unit 4B.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr data-status="lease">
+                    <td><div class="cs_table_user">
+                        <span class="cs_notification_icon cs_icon_danger"><i class="fa-solid fa-file-pdf"></i></span>
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Commercial Lease – Suite 301.pdf</h3>
+                          <p class="cs_fs_14 mb-0">PDF · <bdi>28 pages</bdi></p>
+                        </div>
+                      </div></td>
+                    <td><div class="cs_table_property">
+                        <img src="../assets/img/property-img-8.jpg" alt="Gilliard Office Building" loading="lazy">
+                        <div>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Gilliard Office Building</h3>
+                        </div>
+                      </div></td>
+                    <td><bdi>2.4 MB</bdi></td>
+                    <td>Jan 20, 2025</td>
+                    <td><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Signed</span></td>
+                    <td class="text-end"><div class="cs_table_actions"><button type="button" class="cs_table_action" aria-label="Download Commercial Lease – Suite 301.pdf" data-tooltip="Download"><i class="fa-solid fa-download"></i></button><a href="messages.html" class="cs_table_action" aria-label="Share Commercial Lease – Suite 301.pdf" data-tooltip="Share"><i class="fa-solid fa-share-nodes"></i></a><button type="button" class="cs_table_action cs_action_reject" aria-label="Delete Commercial Lease – Suite 301.pdf" data-tooltip="Delete"><i class="fa-regular fa-trash-can"></i></button></div></td>
+                  </tr>
+                  <tr class="cs_empty_row" style="display: none"><td colspan="6">No documents in this folder.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="cs_dashboard_pagination">
+              <p class="mb-0">Showing 1&ndash;10 of 38 documents</p>
+              <ul>
+                <li><a href="#" aria-label="Previous page"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#" class="active" aria-current="page">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#" aria-label="Next page"><i class="fa-solid fa-chevron-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- End Documents -->
+        </main>
+        <!-- Start Upload Modal -->
+        <dialog class="cs_dash_modal" id="uploadModal" data-lenis-prevent aria-labelledby="uploadModalTitle">
+          <form method="dialog" class="cs_dashboard_form">
+            <div class="cs_dash_modal_head">
+              <h2 class="cs_fs_20 cs_semibold mb-0" id="uploadModalTitle">Upload Document</h2>
+              <button type="button" class="cs_dash_modal_close" aria-label="Close" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cs_dash_modal_body">
+              <div class="cs_upload_wrap cs_mb_20">
+                <div class="cs_upload_box">
+                  <input name="choose_a_document" type="file" accept=".pdf,.doc,.docx,image/*" required aria-label="Choose a document">
+                  <div class="cs_upload_icon"><i class="fa-solid fa-file-arrow-up"></i></div>
+                  <p class="cs_fs_16 cs_semibold cs_primary_color cs_mb_3">Drop a file here or click to choose</p>
+                  <p class="cs_fs_14 mb-0">PDF, DOCX, JPG or PNG, up to 25 MB.</p>
+                </div>
+                <div class="cs_upload_previews"></div>
+              </div>
+              <div class="row cs_gap_y_24 cs_mb_20">
+                <div class="col-12">
+                  <label class="cs_form_label" for="docName">Document Name</label>
+                  <input type="text" id="docName" class="cs_form_field" placeholder="e.g. Lease Agreement – Unit 3C" required>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="docType">Type</label>
+                  <div class="cs_select">
+                    <select id="docType">
+                      <option>Lease</option>
+                      <option>Sale contract</option>
+                      <option>Inspection</option>
+                      <option>Receipt</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="cs_form_label" for="docProperty">Property</label>
+                  <div class="cs_select">
+                    <select id="docProperty">
+                      <option>Northern Apartment</option>
+                      <option>Riverside Studio</option>
+                      <option>Oakwood Duplex</option>
+                      <option>Gilliard Office Building</option>
+                      <option>Blue Seagull Beach House</option>
+                      <option>Single Family Ranch House</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label class="cs_form_label" for="docSigner">Request Signature From</label>
+                  <div class="cs_select">
+                    <select id="docSigner">
+                      <option>No signature needed</option>
+                      <option>Daniel Brooks · Tenant</option>
+                      <option>Sophia Turner · Tenant</option>
+                      <option>Noah Garcia · Tenant</option>
+                      <option>Amanda Jones · Agent</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="cs_custom_checkbox">
+                <input type="checkbox" id="docShare">
+                <label for="docShare">Share with the tenant or buyer</label>
+              </div>
+            </div>
+            <div class="cs_dash_modal_foot">
+              <button type="button" class="cs_btn cs_style_1 cs_btn_outline cs_medium cs_radius_10" data-modal-close><span>Cancel</span></button>
+              <button type="submit" class="cs_btn cs_style_1 cs_primary_bg cs_white_color cs_medium cs_radius_10"><span>Upload</span></button>
+            </div>
+          </form>
+        </dialog>
+        <!-- End Upload Modal -->
+        <!-- End Main Content -->
+
+        <!-- Start Dashboard Footer -->
+        <footer class="cs_dashboard_footer">
+          <p class="mb-0">&copy; 2026 Xproperty. All right reserved</p>
+          <div class="d-flex gap-3">
+            <a href="../privacy-policy.html">Privacy Policy</a>
+            <a href="../terms-condition.html">Terms</a>
+            <a href="../contact.html">Support</a>
+          </div>
+        </footer>
+        <!-- End Dashboard Footer -->
+      </div>
+    </div>
+    <!-- All JS Files -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/slick.min.js"></script>
+    <script src="../assets/js/odometer.min.js"></script>
+    <script src="../assets/js/tom-select.min.js"></script>
+    <script src="../assets/js/flatpickr.min.js"></script>
+    <script src="../assets/js/lenis.min.js"></script>
+    <script src="../assets/js/light-gallery.min.js"></script>
+    <script src="../assets/js/aos.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
