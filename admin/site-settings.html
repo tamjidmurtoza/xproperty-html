@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../assets/css/tom-select.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Smooth page transitions between dashboard pages -->
-    <style>@view-transition { navigation: auto; }</style>
+    <link rel="stylesheet" href="../assets/css/view-transition.css">
     <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
     <script>
       (function (html) {
@@ -173,7 +173,7 @@
               <li>
                 <a href="coupons.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-ticket"></i>
-                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                  <span class="cs_menu_text">Coupons & Discounts</span>
                 </a>
               </li>
               <li>
@@ -197,7 +197,7 @@
               <li>
                 <a href="roles.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-user-shield"></i>
-                  <span class="cs_menu_text">Roles &amp; Permissions</span>
+                  <span class="cs_menu_text">Roles & Permissions</span>
                 </a>
               </li>
               <li class="active">
@@ -434,7 +434,7 @@
                         <ul class="cs_setting_list">
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Manual approval</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Manual approval</h3>
                               <p class="cs_fs_14 mb-0">Review every new listing before it goes live</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -444,7 +444,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Verified agents only</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Verified agents only</h3>
                               <p class="cs_fs_14 mb-0">Only verified agents can publish listings</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -454,7 +454,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Allow guest inquiries</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Allow guest inquiries</h3>
                               <p class="cs_fs_14 mb-0">Visitors can contact agents without an account</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -496,7 +496,7 @@
                         <ul class="cs_setting_list">
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Require moderation</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Require moderation</h3>
                               <p class="cs_fs_14 mb-0">New reviews stay hidden until an admin approves them</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -506,7 +506,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Hold reviews with contact details</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Hold reviews with contact details</h3>
                               <p class="cs_fs_14 mb-0">Always send reviews containing links, emails or phone numbers to the queue</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -516,7 +516,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Verified visitors only</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Verified visitors only</h3>
                               <p class="cs_fs_14 mb-0">Only buyers with a booked viewing can review an agent or property</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -526,7 +526,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Allow replies</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Allow replies</h3>
                               <p class="cs_fs_14 mb-0">Agents and owners can publicly reply to reviews</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -536,7 +536,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Email admins about new reviews</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Email admins about new reviews</h3>
                               <p class="cs_fs_14 mb-0">Send a daily summary of reviews waiting for approval</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -563,7 +563,7 @@
                         <ul class="cs_setting_list">
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Stripe</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Stripe</h3>
                               <p class="cs_fs_14 mb-0">Cards, Apple Pay and Google Pay</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -573,7 +573,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">PayPal</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">PayPal</h3>
                               <p class="cs_fs_14 mb-0">PayPal balance and cards</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -583,7 +583,7 @@
                           </li>
                           <li>
                             <div>
-                              <h4 class="cs_fs_16 cs_semibold cs_mb_3">Bank transfer</h4>
+                              <h3 class="cs_fs_16 cs_semibold cs_mb_3">Bank transfer</h3>
                               <p class="cs_fs_14 mb-0">Manual confirmation by an admin</p>
                             </div>
                             <label class="cs_toggle_switch">
@@ -687,7 +687,7 @@
                     <ul class="cs_setting_list">
                       <li>
                         <div>
-                          <h4 class="cs_fs_16 cs_semibold cs_mb_3">Maintenance mode</h4>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">Maintenance mode</h3>
                           <p class="cs_fs_14 mb-0">Show a maintenance page to visitors. Admins can still sign in.</p>
                         </div>
                         <label class="cs_toggle_switch">
@@ -697,7 +697,7 @@
                       </li>
                       <li>
                         <div>
-                          <h4 class="cs_fs_16 cs_semibold cs_mb_3">New registrations</h4>
+                          <h3 class="cs_fs_16 cs_semibold cs_mb_3">New registrations</h3>
                           <p class="cs_fs_14 mb-0">Allow new users to sign up</p>
                         </div>
                         <label class="cs_toggle_switch">

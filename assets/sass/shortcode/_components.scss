@@ -6,10 +6,12 @@
 @function str-replace-dash($name) {
   $name: "#{$name}";
   $index: string.index($name, "-");
+
   @while $index {
     $name: string.slice($name, 1, $index - 1) + "_" + string.slice($name, $index + 1);
     $index: string.index($name, "-");
   }
+
   @return $name;
 }
 
@@ -566,6 +568,12 @@ $cs-svg-icons: agriculture, apartment-2, arrow-right-long, arrow-up-right,
       &:nth-child(4) {
         width: auto;
       }
+    }
+  }
+
+  @media (max-width: 1399px) {
+    &.cs_type_1 {
+      padding: 30px 24px;
     }
   }
 
@@ -1757,6 +1765,7 @@ span.flatpickr-weekday {
 
 // Location Map Styling
 .cs_location_map {
+
   iframe,
   .cs_leaflet_map {
     width: 100%;
@@ -1770,6 +1779,7 @@ span.flatpickr-weekday {
   }
 
   @media (max-width: 991px) {
+
     iframe,
     .cs_leaflet_map {
       min-height: 350px;

@@ -16,8 +16,10 @@
 13. Use Cases & Why
 14. FAQ
 15. CTA & Footer
-16. Reveal Animations
-17. Media Queries
+16. Global (LTR / RTL Compare)
+17. Comparison Table
+18. Reveal Animations
+19. Media Queries
 --------------------------------------------------------------*/
 
 /*==============================================================
@@ -1696,6 +1698,11 @@ code {
 /*==============================================================
   14. FAQ
 ==============================================================*/
+/* The CTA section below already adds top spacing */
+.lp-section.lp-faq-sec {
+  padding-bottom: 0;
+}
+
 .lp-faq-wrap {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -1715,7 +1722,7 @@ code {
   transition: box-shadow 0.4s var(--ease), border-color 0.3s;
 }
 
-.lp-faq-item[open] {
+.lp-faq-item[open]:not(.is-closing) {
   border-color: transparent;
   box-shadow: var(--shadow);
 }
@@ -1766,23 +1773,29 @@ code {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.lp-faq-item[open] .lp-faq-ico {
+.lp-faq-item[open]:not(.is-closing) .lp-faq-ico {
   background: var(--accent);
   transform: rotate(180deg);
 }
 
-.lp-faq-item[open] .lp-faq-ico::before,
-.lp-faq-item[open] .lp-faq-ico::after {
+.lp-faq-item[open]:not(.is-closing) .lp-faq-ico::before,
+.lp-faq-item[open]:not(.is-closing) .lp-faq-ico::after {
   background: #fff;
 }
 
-.lp-faq-item[open] .lp-faq-ico::after {
+.lp-faq-item[open]:not(.is-closing) .lp-faq-ico::after {
   transform: translate(-50%, -50%) rotate(0deg);
 }
 
 .lp-faq-body {
   padding: 0 24px 22px;
   animation: lpFadeDown 0.45s var(--ease);
+  transition: opacity 0.3s, transform 0.4s var(--ease);
+}
+
+.lp-faq-item.is-closing .lp-faq-body {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 
 @keyframes lpFadeDown {
@@ -1944,7 +1957,296 @@ code {
 }
 
 /*==============================================================
-  16. Reveal Animations
+  16. Global (LTR / RTL Compare)
+==============================================================*/
+.lp-global {
+  background: linear-gradient(180deg, var(--cream), #fff);
+  overflow: hidden;
+}
+
+.lp-global-bg {
+  position: absolute;
+  width: 640px;
+  height: 640px;
+  left: -220px;
+  top: -160px;
+  background: radial-gradient(circle, rgba(0, 204, 97, 0.14), transparent 65%);
+  pointer-events: none;
+}
+
+.lp-global-points {
+  display: grid;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.lp-global-point {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 22px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.4s var(--ease), border-color 0.3s;
+}
+
+.lp-global-point:hover {
+  transform: translateX(4px);
+  border-color: var(--accent);
+}
+
+.lp-global-point strong {
+  min-width: 64px;
+  font-family: var(--font-head);
+  font-size: 34px;
+  line-height: 1;
+  color: var(--accent-dark);
+}
+
+.lp-global-point > span {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lp-global-point small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.lp-global-visual .lp-browser {
+  box-shadow: var(--shadow-lg);
+}
+
+.lp-compare {
+  --pos: 50%;
+  position: relative;
+  aspect-ratio: 9 / 10;
+  overflow: hidden;
+  background: var(--soft);
+  user-select: none;
+}
+
+.lp-compare img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.lp-compare-top {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 var(--pos));
+}
+
+.lp-compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3px;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.lp-compare-handle .lp-ico {
+  width: 48px;
+  height: 48px;
+  padding: 13px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.45);
+}
+
+.lp-compare:has(.lp-compare-range:focus-visible) .lp-compare-handle .lp-ico {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.lp-compare-tag {
+  position: absolute;
+  bottom: 16px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(17, 22, 20, 0.78);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.lp-compare-tag-l {
+  left: 16px;
+}
+
+.lp-compare-tag-r {
+  right: 16px;
+}
+
+.lp-compare-range {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/*==============================================================
+  17. Comparison Table
+==============================================================*/
+.lp-vs-glow {
+  right: auto;
+  left: -200px;
+}
+
+.lp-vs {
+  position: relative;
+  max-width: 940px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  overflow-x: auto;
+}
+
+.lp-vs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.lp-vs-table th,
+.lp-vs-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  vertical-align: middle;
+}
+
+.lp-vs-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.lp-vs-table thead th {
+  padding-top: 26px;
+  padding-bottom: 22px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.lp-vs-table thead th:first-child,
+.lp-vs-table tbody th {
+  text-align: left;
+}
+
+.lp-vs-table tbody th {
+  font-weight: 600;
+  color: #fff;
+}
+
+.lp-vs-table tbody tr {
+  transition: background-color 0.3s;
+}
+
+.lp-vs-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.lp-vs-table .lp-vs-us {
+  width: 26%;
+  background: rgba(0, 204, 97, 0.1);
+  box-shadow: inset 1px 0 0 rgba(0, 204, 97, 0.35), inset -1px 0 0 rgba(0, 204, 97, 0.35);
+}
+
+.lp-vs-table thead .lp-vs-us img {
+  width: 118px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.lp-vs-table td.lp-vs-us strong {
+  font-family: var(--font-head);
+  font-size: 18px;
+  color: var(--accent);
+}
+
+.lp-vs-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.lp-vs-yes {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  stroke-width: 3;
+}
+
+.lp-vs-no {
+  width: 26px;
+  height: 26px;
+  padding: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.45);
+  stroke-width: 3;
+}
+
+.lp-vs-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 44px;
+}
+
+.lp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*==============================================================
+  18. Reveal Animations
 ==============================================================*/
 .js [data-reveal] {
   opacity: 0;
@@ -1995,7 +2297,7 @@ code {
 }
 
 /*==============================================================
-  17. Media Queries
+  19. Media Queries
 ==============================================================*/
 @media (max-width: 1199px) {
   .lp-nav a:not(.lp-btn) {
@@ -2315,5 +2617,66 @@ code {
   .lp-tree pre {
     padding: 16px;
     font-size: 11px;
+  }
+
+  .lp-global-point {
+    gap: 16px;
+    padding: 14px 16px;
+  }
+
+  .lp-global-point strong {
+    min-width: 52px;
+    font-size: 28px;
+  }
+
+  .lp-compare-handle .lp-ico {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+
+  .lp-compare-tag {
+    bottom: 10px;
+    padding: 4px 10px;
+    font-size: 11px;
+  }
+
+  .lp-compare-tag-l {
+    left: 10px;
+  }
+
+  .lp-compare-tag-r {
+    right: 10px;
+  }
+
+  .lp-vs-table {
+    font-size: 13px;
+  }
+
+  .lp-vs-table th,
+  .lp-vs-table td {
+    padding: 12px 10px;
+  }
+
+  .lp-vs-table thead th {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .lp-vs-table thead .lp-vs-us img {
+    width: 84px;
+  }
+
+  .lp-vs-badge {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+
+  .lp-vs-table td.lp-vs-us strong {
+    font-size: 14px;
+  }
+
+  .lp-vs-cta .lp-btn {
+    width: 100%;
   }
 }

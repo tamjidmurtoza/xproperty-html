@@ -29,15 +29,6 @@ body {
     height: 100vh;
     overflow: hidden;
   }
-
-  &.cs_dark {
-    background-color: #0a1119;
-  }
-}
-
-html:where(.cs_dark),
-:where(.cs_dark) body {
-  background-color: #0a1119;
 }
 
 h1,

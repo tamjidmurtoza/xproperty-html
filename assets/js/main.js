@@ -12,73 +12,72 @@
   |=====================================================================
   |
   | 01. Preloader
-  | 02. Mobile Menu
-  | 03. Sticky Header
-  | 04. Dynamic Background
-  | 05. Slick Slider
-  | 06. Language Select
-  | 07. Search Modal Toggle
-  | 08. Smooth Page Scroll (Lenis)
-  | 09. Counter Animation
-  | 10. Modal Video
-  | 11. Review
-  | 12. Tabs
-  | 13. Accordian
-  | 14. heart toggle
-  | 15. Date And Time Picker
-  | 16. Apartment Finding Function
-  | 17. Pricing value Toggle
-  | 18. Light Gallery
-  | 19. Load More Portfolio Items
-  | 21. Scroll Up
-  | 22. Dynamic contact form
-  | 23. AOS Animation
-  | 24. Saved Preferences (color mode + dashboard sidebar)
-  | 25. Color Mode Switch (Device / Light / Dark)
-  | 26. Layout Direction (LTR / RTL)
-  | 27. Settings Switch (gear panel with LTR / RTL)
-  |
-  | Dashboard pages (body.cs_dashboard):
-  | 28. Sidebar (desktop collapse + mobile offcanvas)
-  | 29. Sidebar Submenus
-  | 30. Topbar Dropdowns
-  | 31. Mobile Search
-  | 32. Stat Counters
-  | 33. Analytics Charts (SVG)
-  | 34. Filter Tabs (listings, approvals, users)
-  | 35. Messages (chat)
-  | 36. File Upload Previews
-  | 37. Settings Section Nav
-  | 38. Mortgage Calculator (property details)
-  | 39. Package Editor (admin)
-  | 40. Notifications Page
-  |
-  | Property search pages:
-  | 41. Price Range Slider
-  | 42. Property Listing (filter, sort, grid / list view, pagination)
-  | 43. Property Map (Leaflet, half-map listing)
-  | 44. Property Compare (card buttons, floating bar, compare page)
-  | 45. Property Actions (share, print)
-  | 46. Hero Search (home search forms -> filtered listing)
-  | 47. Saved Properties (hearts + saved properties page)
-  | 48. Form Validation (login, register, forgot password, newsletter)
-  | 49. Countdown (coming soon)
-  | 50. One-Time Code (verify email)
-  | 51. Row Status Actions (dashboard tables)
-  | 52. Table Search + CSV Export (dashboard tables)
-  | 53. Tour Calendar (tour requests)
-  | 54. Location Maps (contact, details, home sections)
-  | 56. Property Forms (submit wizard, edit validation)
+  | 02. Tom Select (front-end .tom_select and dashboard .cs_select)
+  | 03. Location Search (selects named "property-location")
+  | 04. Mobile Menu
+  | 05. Sticky Header
+  | 06. Dynamic Background
+  | 07. Slick Slider
+  | 08. Language Select (saved choice, RTL, translated pages)
+  | 09. Search Modal Toggle
+  | 10. Smooth Page Scroll (Lenis)
+  | 11. Counter Animation
+  | 12. Modal Video
+  | 13. Review (star rating)
+  | 14. Tabs
+  | 15. Accordion
+  | 16. Heart Toggle (sidebar widget toggles)
+  | 17. Date And Time Picker
+  | 18. Apartment Finding Function
+  | 19. Pricing Value Toggle
+  | 20. Light Gallery
+  | 21. Load More Portfolio Items
+  | 22. Scroll Up
+  | 23. Dynamic Contact Form (honeypot, optional hCaptcha)
+  | 24. AOS Animation
+  | 25. Saved Preferences (color mode + dashboard sidebar)
+  | 26. Color Mode Switch (Device / Light / Dark)
+  | 27. Layout Direction (LTR / RTL)
+  | 28. Settings Switch (gear panel with LTR / RTL)
+  | 29. Sidebar (desktop collapse + mobile offcanvas)
+  | 30. Sidebar Submenus
+  | 31. Topbar Dropdowns (notifications, profile)
+  | 32. Mobile Search
+  | 33. Stat Counters
+  | 34. Analytics Charts (SVG)
+  | 35. Filter Tabs (listings, approvals, users)
+  | 36. Messages (chat)
+  | 37. File Upload Previews (gallery drop zone + avatar)
+  | 38. Settings Section Nav
+  | 39. Mortgage Calculator (property details)
+  | 40. Package Editor (admin)
+  | 41. Notifications Page
+  | 42. Property Search Helpers (shared labels and formatters)
+  | 43. Price Range Slider
+  | 44. Property Listing (filter, sort, grid / list view, pagination)
+  | 45. Saved Properties (hearts + saved properties page)
+  | 46. Form Validation (login, register, forgot password, newsletter)
+  | 47. Countdown (coming soon)
+  | 48. One-Time Code (verify email)
+  | 49. Row Status Actions (dashboard tables)
+  | 50. Table Search + CSV Export (dashboard tables)
+  | 51. Tour Calendar (tour requests)
+  | 52. Location Maps (contact, details, home sections)
+  | 53. Save Search (save search panel + saved searches page)
+  | 54. Property Reviews (details form, dashboard reply / report / sort)
+  | 55. Price History (details chart + table)
+  | 56. Currency Switcher
   | 57. Blog Filter (category, tag, search)
-  | 58. Save Search + Saved Searches page
-  | 59. Property Reviews (details form, dashboard reply / report / sort)
-  | 60. Price History (details chart + table)
-  | 61. Currency Switcher
-  | 62. Table Overflow (dashboard tables wider than their card)
-  | 63. File Inputs (show the chosen file names)
-  | 64. Role Permissions (admin roles page)
-  | 65. Ticket Replies (admin ticket details)
-  | 66. Agency Directory (search, city filter, sort)
+  | 58. Property Forms (submit wizard, edit validation)
+  | 59. Hero Search (home search forms -> filtered listing)
+  | 60. Property Map (Leaflet, half-map listing)
+  | 61. Property Compare (card buttons, floating bar, compare page)
+  | 62. Property Actions (share, print)
+  | 63. Table Overflow (dashboard tables wider than their card)
+  | 64. File Inputs (show the chosen file names)
+  | 65. Agency Directory (search, city filter, sort)
+  | 66. Role Permissions (admin roles page)
+  | 67. Ticket Replies (admin ticket details)
   |
   */
 
@@ -107,15 +106,14 @@
   layoutDirection();
   applySavedPreferences();
 
-  $(window).on("load", function () {
-    preloader();
-  });
   $(window).on("scroll", function () {
     stickyHeader();
     showScrollUp();
   });
 
   $(function () {
+    // Hide on DOM ready, not window load, so images/fonts don't block first paint
+    preloader();
     settingsSwitch();
     colorModeSwitch();
     mainNav();
@@ -198,13 +196,17 @@
     }
   });
 
-  /* 01. Preloader */
+  /*=======================================
+   01. Preloader
+  =========================================*/
   function preloader() {
     $(".cs_preloader").fadeOut();
     $(".cs_preloader_in").delay(150).fadeOut("slow");
   }
 
-  /* Tom Select (front-end .tom_select and dashboard .cs_select selects) */
+  /*=======================================
+   02. Tom Select
+  =========================================*/
   function tomSelectInit($selects) {
     if (typeof TomSelect === "undefined") return;
     $selects.each(function () {
@@ -227,7 +229,9 @@
     });
   }
 
-  /* Location search (selects named "property-location") */
+  /*=======================================
+   03. Location Search
+  =========================================*/
   var LOCATION_COUNTRIES = {
     "new-york": "United States",
     london: "United Kingdom",
@@ -269,7 +273,9 @@
     };
   }
 
-  /* 02. Mobile Menu */
+  /*=======================================
+   04. Mobile Menu
+  =========================================*/
   function mainNav() {
     $(".cs_nav").append('<span class="cs_menu_toggle"><span></span></span>');
     $(".cs_nav_list_wrap, .cs_nav_list").attr("data-lenis-prevent", "");
@@ -302,7 +308,9 @@
     });
   }
 
-  /* 03. Sticky Header */
+  /*=======================================
+   05. Sticky Header
+  =========================================*/
   function stickyHeader() {
     var scroll = $(window).scrollTop();
     if (scroll >= 10) {
@@ -312,7 +320,9 @@
     }
   }
 
-  /* 04. Dynamic Background */
+  /*=======================================
+   06. Dynamic Background
+  =========================================*/
   function dynamicBackground() {
     $("[data-src]").each(function () {
       var src = $(this).attr("data-src");
@@ -322,7 +332,9 @@
     });
   }
 
-  /* 05. Slick Slider */
+  /*=======================================
+   07. Slick Slider
+  =========================================*/
   function slickInit() {
     if ($.exists(".cs_slider")) {
       $(".cs_slider").each(function () {
@@ -428,7 +440,9 @@
       });
     }
   }
-  /* 06. Language Select */
+  /*=======================================
+   08. Language Select
+  =========================================*/
   var LANGUAGE_PAGES = {};
   var RTL_LANGUAGES = ["AR"];
 
@@ -492,7 +506,9 @@
       }
     });
   }
-  /* 07. Search Modal Toggle */
+  /*=======================================
+   09. Search Modal Toggle
+  =========================================*/
   function modalToggle() {
     $(".cs_open_modal").on("click", function () {
       $(".cs_advanced_search_modal").addClass("active");
@@ -503,7 +519,9 @@
       $("body").removeClass("scroll_off");
     });
   }
-  /* 08. Smooth Page Scroll */
+  /*=======================================
+   10. Smooth Page Scroll
+  =========================================*/
   function smoothScroll() {
     const lenis = new Lenis({
       duration: 1.5,
@@ -518,7 +536,9 @@
 
     requestAnimationFrame(raf);
   }
-  /* 09. Counter Animation */
+  /*=======================================
+   11. Counter Animation
+  =========================================*/
   function counterInit() {
     if ($.exists(".odometer")) {
       $(window).on("scroll", function () {
@@ -538,7 +558,9 @@
       });
     }
   }
-  /* 10. Modal Video */
+  /*=======================================
+   12. Modal Video
+  =========================================*/
   function modalVideo() {
     if ($.exists(".cs_video_open")) {
       $("body").append(`
@@ -576,7 +598,9 @@
       );
     }
   }
-  /* 11. Review */
+  /*=======================================
+   13. Review
+  =========================================*/
   function review() {
     $(".cs_rating").each(function () {
       var review = $(this).data("rating");
@@ -584,7 +608,9 @@
       $(this).find(".cs_rating_percentage").css("width", reviewVal);
     });
   }
-  /* 12. Tabs */
+  /*=======================================
+   14. Tabs
+  =========================================*/
   function tabs() {
     $(".cs_tab_links a").on("click", function (e) {
       var currentAttrValue = $(this).attr("href");
@@ -596,7 +622,9 @@
       e.preventDefault();
     });
   }
-  /* 13. Accordian */
+  /*=======================================
+   15. Accordion
+  =========================================*/
   function accordian() {
     $(".cs_accordian").children(".cs_accordian_body").hide();
     $(".cs_accordian.active").children(".cs_accordian_body").show();
@@ -618,7 +646,9 @@
       $(this).parent(".cs_accordian").siblings().removeClass("active");
     });
   }
-  /* 14. heart toggle */
+  /*=======================================
+   16. Heart Toggle
+  =========================================*/
   function elementToggle() {
     // Category Widget Toggle
     $(".cs_sidebar_widget_title").on("click", function () {
@@ -633,8 +663,11 @@
       $(this).addClass("active").removeClass("active");
     });
   }
-  /* 15.Date And Time Picker */
+  /*=======================================
+   17. Date And Time Picker
+  =========================================*/
   function dateTimePicker() {
+    if (typeof flatpickr === "undefined") return;
     function namePickerFields(selectedDates, dateStr, instance) {
       var base = instance.input.id || instance.input.name || "date";
       $(instance.calendarContainer)
@@ -660,7 +693,9 @@
       onReady: namePickerFields,
     });
   }
-  /* 16.Apartment Finding Function */
+  /*=======================================
+   18. Apartment Finding Function
+  =========================================*/
   function apartmentShow() {
     const apartmentShowBtn = $(".cs_apartment_btn");
     apartmentShowBtn.on("click", function () {
@@ -671,7 +706,9 @@
         .removeClass("active");
     });
   }
-  /* 17. Pricing value Toggle */
+  /*=======================================
+   19. Pricing Value Toggle
+  =========================================*/
   function pricingToggle() {
     let currentAttrValue = "monthly";
     $(".cs_pricing_control a").on("click", function (e) {
@@ -687,7 +724,9 @@
       }
     });
   }
-  /* 18. Light Gallery */
+  /*=======================================
+   20. Light Gallery
+  =========================================*/
   function lightGallery() {
     $(".cs_gallery_list").each(function () {
       $(this).lightGallery({
@@ -698,7 +737,9 @@
       });
     });
   }
-  /* 19. Load More Portfolio Items */
+  /*=======================================
+   21. Load More Portfolio Items
+  =========================================*/
   function loadMore() {
     $(".cs_property_item").slice(0, 6).show();
     $("#loadMoreProperty").on("click", function (e) {
@@ -711,7 +752,9 @@
       }
     });
   }
-  /* 21. Scroll Up */
+  /*=======================================
+   22. Scroll Up
+  =========================================*/
   function scrollUp() {
     $(".cs_scrollup_btn").on("click", function (e) {
       e.preventDefault();
@@ -732,7 +775,9 @@
       $(".cs_scrollup_btn").removeClass("show");
     }
   }
-  /* 22. Dynamic contact form */
+  /*=======================================
+   23. Dynamic Contact Form
+  =========================================*/
   if ($.exists("#cs_form")) {
     const form = document.getElementById("cs_form");
     const result = document.getElementById("cs_result");
@@ -801,7 +846,9 @@
         });
     });
   }
-  /* 23. AOS Animation */
+  /*=======================================
+   24. AOS Animation
+  =========================================*/
   function aosInit() {
     AOS.init({
       offset: 120,
@@ -811,7 +858,9 @@
       mirror: false,
     });
   }
-  /* 24. Saved Preferences */
+  /*=======================================
+   25. Saved Preferences
+  =========================================*/
   function readPref(key) {
     try {
       return localStorage.getItem(key);
@@ -863,7 +912,9 @@
     applyThemeMode();
   }
 
-  /* 25. Color Mode Switch */
+  /*=======================================
+   26. Color Mode Switch
+  =========================================*/
   function colorModeSwitch() {
     var $group = $(
       '<div class="cs_mode_switch" role="group" aria-label="Color mode"></div>',
@@ -907,7 +958,9 @@
 
     applyThemeMode();
   }
-  /* 26. Layout Direction */
+  /*=======================================
+   27. Layout Direction
+  =========================================*/
   function isDir(value) {
     return value === "rtl" || value === "ltr";
   }
@@ -993,7 +1046,9 @@
     }
   }
 
-  /* 27. Settings Switch */
+  /*=======================================
+   28. Settings Switch
+  =========================================*/
   function settingsSwitch() {
     var wrap = document.createElement("div");
     wrap.className = "cs_dir_switch cs_primary_font cs_semibold";
@@ -1067,7 +1122,9 @@
     if (!isDashboard) wrap.appendChild(toggle);
     document.body.appendChild(wrap);
   }
-  /* 28. Sidebar */
+  /*=======================================
+   29. Sidebar
+  =========================================*/
   function dashboardSidebar() {
     var $toggle = $(".cs_sidebar_toggle");
     $toggle.attr(
@@ -1110,7 +1167,9 @@
     $body.removeClass("cs_sidebar_open scroll_off");
   }
 
-  /* 29. Sidebar Submenus */
+  /*=======================================
+   30. Sidebar Submenus
+  =========================================*/
   function submenus() {
     $(".cs_submenu a.active")
       .closest(".cs_has_submenu")
@@ -1152,7 +1211,9 @@
       });
   }
 
-  /* 30. Topbar Dropdowns (notifications, profile) */
+  /*=======================================
+   31. Topbar Dropdowns
+  =========================================*/
   function dropdowns() {
     $(".cs_dropdown_toggle").on("click", function (e) {
       e.stopPropagation();
@@ -1225,7 +1286,9 @@
       .attr("aria-expanded", "false");
   }
 
-  /* 31. Mobile Search */
+  /*=======================================
+   32. Mobile Search
+  =========================================*/
   function mobileSearch() {
     $(".cs_search_toggle").on("click", function () {
       var $topbar = $(".cs_dashboard_topbar").toggleClass("cs_search_open");
@@ -1235,7 +1298,9 @@
     });
   }
 
-  /* 32. Stat Counters (odometer runs as soon as the page loads) */
+  /*=======================================
+   33. Stat Counters
+  =========================================*/
   function statCounters() {
     $(window).on("load", function () {
       $(".cs_stat_card .odometer").each(function () {
@@ -1244,7 +1309,9 @@
     });
   }
 
-  /* 33. Analytics Charts */
+  /*=======================================
+   34. Analytics Charts
+  =========================================*/
   var CHART_DATA = {
     views: {
       prefix: "",
@@ -1720,7 +1787,9 @@
     $card.find(".cs_chart_table tbody").html(rows.join(""));
   }
 
-  /* 34. Filter Tabs */
+  /*=======================================
+   35. Filter Tabs
+  =========================================*/
   function filterTabs() {
     $(".cs_filter_tabs").each(function () {
       var $tabs = $(this);
@@ -1774,7 +1843,9 @@
     });
   }
 
-  /* 35. Messages (chat) */
+  /*=======================================
+   36. Messages
+  =========================================*/
   function chat() {
     var $chat = $(".cs_chat");
     if (!$chat.length) return;
@@ -1828,7 +1899,9 @@
     });
   }
 
-  /* 36. File Upload Previews (gallery drop zone + avatar) */
+  /*=======================================
+   37. File Upload Previews
+  =========================================*/
   function uploads() {
     $(".cs_upload_box input[type='file']").on("change", function () {
       var $previews = $(this)
@@ -1886,7 +1959,9 @@
     });
   }
 
-  /* 37. Settings Section Nav (highlights the section in view) */
+  /*=======================================
+   38. Settings Section Nav
+  =========================================*/
   function settingsNav() {
     var $links = $(".cs_settings_nav a[href^='#']");
     if (!$links.length || !("IntersectionObserver" in window)) return;
@@ -1910,7 +1985,9 @@
     });
   }
 
-  /* 38. Mortgage Calculator */
+  /*=======================================
+   39. Mortgage Calculator
+  =========================================*/
   function mortgageCalculator() {
     var $form = $(".cs_mortgage_calculation_form");
     if (!$form.length) return;
@@ -2027,7 +2104,9 @@
     }
   }
 
-  /* 39. Package Editor (add / remove features + live preview card) */
+  /*=======================================
+   40. Package Editor
+  =========================================*/
   function packageEditor() {
     var $form = $("[data-package-form]");
     if (!$form.length) return;
@@ -2093,7 +2172,9 @@
     $form.on("input change", renderPreview);
   }
 
-  /* 40. Notifications Page */
+  /*=======================================
+   41. Notifications Page
+  =========================================*/
   function notifications() {
     var $list = $("#notificationList");
     if (!$list.length) return;
@@ -2142,7 +2223,9 @@
     refresh();
   }
 
-  /* Shared helpers for the property search pages */
+  /*=======================================
+   42. Property Search Helpers
+  =========================================*/
   var LOCATION_LABELS = {
     "new-york": "New York",
     london: "London",
@@ -2191,7 +2274,7 @@
   function escapeHtml(text) {
     return String(text == null ? "" : text).replace(/[&<>"']/g, function (c) {
       return {
-        "&": "&amp;",
+        "&": "&",
         "<": "&lt;",
         ">": "&gt;",
         '"': "&quot;",
@@ -2200,7 +2283,9 @@
     });
   }
 
-  /* 41. Price Range Slider */
+  /*=======================================
+   43. Price Range Slider
+  =========================================*/
   function rangeSliders() {
     $(".cs_range_slider").each(function () {
       var $slider = $(this);
@@ -2263,7 +2348,9 @@
     });
   }
 
-  /* 42. Property Listing */
+  /*=======================================
+   44. Property Listing
+  =========================================*/
   var VIEW_KEY = "xproperty-listing-view";
 
   function propertyListing() {
@@ -2605,7 +2692,9 @@
     render();
   }
 
-  /* 47. Saved Properties */
+  /*=======================================
+   45. Saved Properties
+  =========================================*/
   function savedProperties() {
     var saved = [];
     var toggles = "[data-save-toggle], .cs_heart_toggler, .cs_save_toggle";
@@ -2659,7 +2748,7 @@
         sale: /sale/i.test($card.find(".cs_status_badge").text()),
         rent: /rent/i.test($card.find(".cs_status_badge").text()),
         text:
-          $card.find("h3").text().toLowerCase() +
+          $card.find("h2, h3").text().toLowerCase() +
           " " +
           $card.find(".cs_saved_property_info p").eq(1).text().toLowerCase(),
       });
@@ -2712,7 +2801,9 @@
     refresh();
   }
 
-  /* 48. Form Validation (login / register / forgot password, newsletter) */
+  /*=======================================
+   46. Form Validation
+  =========================================*/
   var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
   function fieldError($field, message) {
@@ -2928,7 +3019,9 @@
       });
   }
 
-  /* 49. Countdown (coming-soon.html) */
+  /*=======================================
+   47. Countdown
+  =========================================*/
   function countdown() {
     $("[data-countdown]").each(function () {
       var $el = $(this);
@@ -2949,7 +3042,9 @@
     });
   }
 
-  /* 50. One-Time Code (verify-email.html) */
+  /*=======================================
+   48. One-Time Code
+  =========================================*/
   function otpForm() {
     var $form = $("[data-otp-form]");
     if (!$form.length) return;
@@ -3065,7 +3160,9 @@
     $inputs.first().trigger("focus");
   }
 
-  /* 51. Row Status Actions (leads, tours, approvals, agents) */
+  /*=======================================
+   49. Row Status Actions
+  =========================================*/
   function statusActions() {
     function recount($row) {
       var $box = $row
@@ -3139,7 +3236,9 @@
     );
   }
 
-  /* 52. Table Search + CSV Export */
+  /*=======================================
+   50. Table Search + CSV Export
+  =========================================*/
   function tableTools() {
     $("[data-table-search]").each(function () {
       var $form = $(this);
@@ -3184,7 +3283,7 @@
     $("[data-export-table]").on("click", function () {
       var $table = $($(this).data("export-table"));
       var cell = function (el) {
-        var text = $(el).find("h3").first().text() || $(el).text();
+        var text = $(el).find("h2, h3").first().text() || $(el).text();
         text = text.replace(/\s+/g, " ").trim();
         return '"' + text.replace(/"/g, '""') + '"';
       };
@@ -3243,7 +3342,9 @@
     });
   }
 
-  /* 53. Tour Calendar (tour-requests.html) */
+  /*=======================================
+   51. Tour Calendar
+  =========================================*/
   function tourCalendar() {
     $("[data-tour-calendar]").each(function () {
       var $cal = $(this);
@@ -3365,7 +3466,9 @@
     });
   }
 
-  /* 54. Location Maps (Leaflet) */
+  /*=======================================
+   52. Location Maps
+  =========================================*/
   function locationMaps() {
     if (typeof L === "undefined") return;
     $("[data-map]").each(function () {
@@ -3415,7 +3518,9 @@
     });
   }
 
-  /* 58. Save Search + Saved Searches page */
+  /*=======================================
+   53. Save Search
+  =========================================*/
   var FREQUENCIES = ["Instant", "Daily", "Weekly"];
 
   function saveSearch() {
@@ -3545,7 +3650,9 @@
     $empty.toggle($tbody.children("tr").not($empty).length === 0);
   }
 
-  /* 59. Property Reviews */
+  /*=======================================
+   54. Property Reviews
+  =========================================*/
 
   function setStars($rating, value) {
     $rating
@@ -3734,7 +3841,9 @@
       });
   }
 
-  /* 60. Price History (property-details.html) */
+  /*=======================================
+   55. Price History
+  =========================================*/
   function priceHistory() {
     var $table = $("[data-price-table]");
     var $chart = $("[data-price-history]");
@@ -3745,15 +3854,13 @@
       var price = Number($(this).data("price"));
       var prev = points.length ? points[points.length - 1].price : null;
       var cells = $(this).children("td");
-      cells
-        .eq(0)
-        .text(
-          date.toLocaleDateString("en-US", {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          }),
-        );
+      cells.eq(0).text(
+        date.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        }),
+      );
       cells
         .eq(2)
         .html(
@@ -3877,7 +3984,9 @@
     $chart.html(svg + "</svg>");
   }
 
-  /* 61. Currency Switcher */
+  /*=======================================
+   56. Currency Switcher
+  =========================================*/
   var SITE_CONFIG = {
     currencies: {
       USD: { rate: 1, symbol: "$" },
@@ -3978,7 +4087,9 @@
     apply();
   }
 
-  /* 57. Blog Filter (blog.html, blog-grid.html, blog-list.html) */
+  /*=======================================
+   57. Blog Filter
+  =========================================*/
   function blogFilter() {
     var $posts = $("[data-blog-posts]");
     if (!$posts.length) return;
@@ -4092,7 +4203,9 @@
     render();
   }
 
-  /* 56. Property Forms (submit wizard + edit validation) */
+  /*=======================================
+   58. Property Forms
+  =========================================*/
   var WIZARD_STEPS = [
     "Basics",
     "Location",
@@ -4213,7 +4326,7 @@
         '<div class="cs_dashboard_card" data-step="' +
           last +
           '"><div class="cs_form_section">' +
-          '<h3 class="cs_form_section_title cs_fs_18 cs_semibold"><i class="fa-solid fa-clipboard-check"></i>Review &amp; Submit</h3>' +
+          '<h3 class="cs_form_section_title cs_fs_18 cs_semibold"><i class="fa-solid fa-clipboard-check"></i>Review & Submit</h3>' +
           '<p class="cs_fs_14 cs_mb_20">Check the details below. Use Edit to change a step before you submit.</p>' +
           '<div class="cs_wizard_review"></div></div></div>',
       );
@@ -4380,7 +4493,9 @@
     });
   }
 
-  /* 46. Hero Search */
+  /*=======================================
+   59. Hero Search
+  =========================================*/
   function heroSearch() {
     $(".cs_search_form").on("submit", function (e) {
       if ($(this).attr("action") && $(this).attr("action") !== "#") return;
@@ -4422,7 +4537,9 @@
     });
   }
 
-  /* 43. Property Map (Leaflet + MarkerCluster) */
+  /*=======================================
+   60. Property Map
+  =========================================*/
   var MAP_TILES = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
   var MAP_ATTRIBUTION =
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
@@ -4590,7 +4707,9 @@
     });
   }
 
-  /* 44. Property Compare */
+  /*=======================================
+   61. Property Compare
+  =========================================*/
   var COMPARE_MAX = 4;
   var COMPARE_DEMO = [
     {
@@ -4651,7 +4770,7 @@
       ],
     },
   ];
-  // Kept for the current page only; the compare page shows COMPARE_DEMO
+  // Kept for the current page
   var compareList = null;
 
   function compareRead() {
@@ -5066,7 +5185,9 @@
     $("#compareDifferences").on("change", compareTable);
   }
 
-  /* 45. Property Actions (property details) */
+  /*=======================================
+   62. Property Actions
+  =========================================*/
   function propertyActions() {
     var $share = $(".cs_share_wrap");
 
@@ -5176,7 +5297,9 @@
     });
   }
 
-  /* 62. Table Overflow */
+  /*=======================================
+   63. Table Overflow
+  =========================================*/
   function tableOverflow() {
     var $wraps = $(".cs_dashboard_content .overflow-x-auto");
     if (!$wraps.length) return;
@@ -5211,7 +5334,9 @@
     checkAll();
   }
 
-  /* 63. File Inputs */
+  /*=======================================
+   64. File Inputs
+  =========================================*/
   function fileInputs() {
     $(".cs_file_input_wrapper input[type='file']")
       .each(function () {
@@ -5236,7 +5361,9 @@
       });
   }
 
-  /* 66. Agency Directory (agencies.html) */
+  /*=======================================
+   65. Agency Directory
+  =========================================*/
   function agencyDirectory() {
     var $form = $(".cs_directory_toolbar");
     var $cards = $(".cs_agency_tile");
@@ -5299,7 +5426,9 @@
     $form.find("select").on("change", apply);
   }
 
-  /* 64. Role Permissions (admin/roles.html) */
+  /*=======================================
+   66. Role Permissions
+  =========================================*/
   var ROLE_PRESETS = {
     "Super Admin": ["*"],
     Moderator: [
@@ -5386,7 +5515,9 @@
     });
   }
 
-  /* 65. Ticket Replies (admin/ticket-details.html) */
+  /*=======================================
+   67. Ticket Replies
+  =========================================*/
   function ticketReplies() {
     var $thread = $(".cs_ticket_thread");
     var $form = $("#ticketReply").closest("form");

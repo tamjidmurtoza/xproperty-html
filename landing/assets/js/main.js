@@ -10,7 +10,8 @@
 07. Page filter
 08. Dashboard tabs
 09. Hover-scroll distance
-10. Misc
+10. LTR / RTL compare slider
+11. Misc
 --------------------------------------------------------------*/
 (function () {
   "use strict";
@@ -367,10 +368,91 @@
   window.addEventListener("resize", setScrollDistances);
 
   /*============================================================
-    10. Misc
+    10. LTR / RTL compare slider
+  ============================================================*/
+  var compare = $("#lpCompare");
+  if (compare) {
+    var compareRange = $(".lp-compare-range", compare);
+    var setPos = function (v) { compare.style.setProperty("--pos", v + "%"); };
+    var hinted = false;
+
+    compareRange.addEventListener("input", function () {
+      hinted = true; // the user took over, cancel the hint
+      setPos(compareRange.value);
+    });
+
+    // Sweep the divider once when the slider first scrolls into view
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      var compareObs = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        compareObs.disconnect();
+        var start = null;
+        function sweep(ts) {
+          if (hinted) return;
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / 1800, 1);
+          var v = 50 + Math.sin(p * Math.PI * 2) * 22;
+          setPos(v);
+          compareRange.value = v;
+          if (p < 1) requestAnimationFrame(sweep);
+        }
+        setTimeout(function () { requestAnimationFrame(sweep); }, 400);
+      }, { threshold: 0.5 });
+      compareObs.observe(compare);
+    }
+  }
+
+  /*============================================================
+    11. Misc
   ============================================================*/
   var year = $("#lpYear");
   if (year) year.textContent = new Date().getFullYear();
+
+  // FAQ: smooth open / close, one item open at a time
+  var faqItems = $$(".lp-faq-item");
+
+  function faqToggle(item, open) {
+    var summary = $("summary", item);
+    if (reduceMotion || !item.animate) {
+      item.open = open;
+      return;
+    }
+    var startH = item.offsetHeight; // measured before cancel, so a reversed toggle starts mid-way
+    if (item._anim) item._anim.cancel();
+    clearTimeout(item._timer);
+
+    item.classList.toggle("is-closing", !open);
+    if (open) item.open = true;
+    var endH = open ? item.offsetHeight : summary.offsetHeight + (item.offsetHeight - item.clientHeight);
+
+    item.style.overflow = "hidden";
+    item._anim = item.animate(
+      { height: [startH + "px", endH + "px"] },
+      { duration: 420, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+    );
+    // A timer rather than onfinish, so the item always settles even if the animation is throttled
+    item._timer = setTimeout(function () {
+      item._anim = null;
+      item.style.overflow = "";
+      if (!open) {
+        item.open = false;
+        item.classList.remove("is-closing");
+      }
+    }, 420);
+  }
+
+  faqItems.forEach(function (item) {
+    $("summary", item).addEventListener("click", function (e) {
+      e.preventDefault();
+      var opening = !item.open || item.classList.contains("is-closing");
+      faqToggle(item, opening);
+      if (opening) {
+        faqItems.forEach(function (other) {
+          if (other !== item && other.open && !other.classList.contains("is-closing")) faqToggle(other, false);
+        });
+      }
+    });
+  });
 
   // Set your marketplace item URL here; every [data-purchase] button links to it
   var PURCHASE_URL = "";

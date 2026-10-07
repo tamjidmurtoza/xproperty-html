@@ -16,6 +16,10 @@
       height: 80px;
     }
 
+    &.cs_type_2 {
+      margin-top: 10px;
+    }
+
     &.cs_type_4 {
       border-color: transparent;
     }
@@ -348,6 +352,11 @@
   }
 
   @media (max-width: 1399px) {
+
+    &.cs_type_2 {
+      margin-top: 20px;
+    }
+
     .container {
       max-width: 100%;
     }
@@ -380,7 +389,15 @@
   }
 
   @media (max-width: 1199px) {
+    &.cs_type_2 {
+      margin-top: 0;
+    }
+
     &.cs_sticky_active {
+      &.cs_type_2 {
+        margin-top: 0;
+      }
+
       &.cs_type_3 {
 
         .cs_btn.cs_style_1 {

@@ -11,12 +11,12 @@
     <link rel="canonical" href="https://example.com/admin/roles.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Xproperty">
-    <meta property="og:title" content="Roles &amp; Permissions - Admin Dashboard | Xproperty">
+    <meta property="og:title" content="Roles & Permissions - Admin Dashboard | Xproperty">
     <meta property="og:description" content="Manage admin roles and permissions in your Xproperty admin dashboard.">
     <meta property="og:url" content="https://example.com/admin/roles.html">
     <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Roles &amp; Permissions - Admin Dashboard | Xproperty">
+    <meta name="twitter:title" content="Roles & Permissions - Admin Dashboard | Xproperty">
     <meta name="twitter:description" content="Manage admin roles and permissions in your Xproperty admin dashboard.">
     <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
     <!-- End social -->
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../assets/css/tom-select.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Smooth page transitions between dashboard pages -->
-    <style>@view-transition { navigation: auto; }</style>
+    <link rel="stylesheet" href="../assets/css/view-transition.css">
     <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
     <script>
       (function (html) {
@@ -173,7 +173,7 @@
               <li>
                 <a href="coupons.html" class="cs_menu_link">
                   <i class="cs_menu_icon fa-solid fa-ticket"></i>
-                  <span class="cs_menu_text">Coupons &amp; Discounts</span>
+                  <span class="cs_menu_text">Coupons & Discounts</span>
                 </a>
               </li>
               <li>
@@ -197,7 +197,7 @@
               <li class="active">
                 <a href="roles.html" class="cs_menu_link" aria-current="page">
                   <i class="cs_menu_icon fa-solid fa-user-shield"></i>
-                  <span class="cs_menu_text">Roles &amp; Permissions</span>
+                  <span class="cs_menu_text">Roles & Permissions</span>
                 </a>
               </li>
               <li>
@@ -312,10 +312,10 @@
           <!-- Page heading -->
           <div class="cs_dashboard_heading">
             <div>
-              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Roles &amp; Permissions</h1>
+              <h1 class="cs_fs_31 cs_semibold cs_mb_5">Roles & Permissions</h1>
               <ul class="cs_dashboard_breadcrumb">
                 <li><a href="index.html">Dashboard</a></li>
-                <li>Roles &amp; Permissions</li>
+                <li>Roles & Permissions</li>
               </ul>
             </div>
             <div class="d-flex flex-wrap gap-2">
@@ -488,14 +488,14 @@
                   </tr>
                   <tr>
                     <td>
-                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">Agents &amp; Agencies</h3>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">Agents & Agencies</h3>
                       <p class="cs_fs_14 mb-0">Agent profiles, agency pages and verification</p>
                     </td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][view]" checked aria-label="Agents &amp; Agencies: view"><span></span></label></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][create]" checked aria-label="Agents &amp; Agencies: create"><span></span></label></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][edit]" checked aria-label="Agents &amp; Agencies: edit"><span></span></label></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][delete]" aria-label="Agents &amp; Agencies: delete"><span></span></label></td>
-                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][approve]" checked aria-label="Agents &amp; Agencies: approve"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][view]" checked aria-label="Agents & Agencies: view"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][create]" checked aria-label="Agents & Agencies: create"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][edit]" checked aria-label="Agents & Agencies: edit"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][delete]" aria-label="Agents & Agencies: delete"><span></span></label></td>
+                    <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[agents-agencies][approve]" checked aria-label="Agents & Agencies: approve"><span></span></label></td>
                   </tr>
                   <tr>
                     <td>
@@ -503,7 +503,7 @@
                       <p class="cs_fs_14 mb-0">Property and agent reviews, replies and reports</p>
                     </td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[reviews][view]" checked aria-label="Reviews: view"><span></span></label></td>
-                    <td><span class="cs_perm_na" aria-label="Not available">&ndash;</span></td>
+                    <td><span class="cs_perm_na" role="img" aria-label="Not available">&ndash;</span></td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[reviews][edit]" checked aria-label="Reviews: edit"><span></span></label></td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[reviews][delete]" checked aria-label="Reviews: delete"><span></span></label></td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[reviews][approve]" checked aria-label="Reviews: approve"><span></span></label></td>
@@ -528,7 +528,7 @@
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[subscriptions][create]" aria-label="Subscriptions: create"><span></span></label></td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[subscriptions][edit]" aria-label="Subscriptions: edit"><span></span></label></td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[subscriptions][delete]" aria-label="Subscriptions: delete"><span></span></label></td>
-                    <td><span class="cs_perm_na" aria-label="Not available">&ndash;</span></td>
+                    <td><span class="cs_perm_na" role="img" aria-label="Not available">&ndash;</span></td>
                   </tr>
                   <tr>
                     <td>
@@ -547,10 +547,10 @@
                       <p class="cs_fs_14 mb-0">Site, payment, email and SEO settings</p>
                     </td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[settings][view]" checked aria-label="Settings: view"><span></span></label></td>
-                    <td><span class="cs_perm_na" aria-label="Not available">&ndash;</span></td>
+                    <td><span class="cs_perm_na" role="img" aria-label="Not available">&ndash;</span></td>
                     <td><label class="cs_toggle_switch"><input type="checkbox" name="perm[settings][edit]" aria-label="Settings: edit"><span></span></label></td>
-                    <td><span class="cs_perm_na" aria-label="Not available">&ndash;</span></td>
-                    <td><span class="cs_perm_na" aria-label="Not available">&ndash;</span></td>
+                    <td><span class="cs_perm_na" role="img" aria-label="Not available">&ndash;</span></td>
+                    <td><span class="cs_perm_na" role="img" aria-label="Not available">&ndash;</span></td>
                   </tr>
                   </tbody>
                 </table>

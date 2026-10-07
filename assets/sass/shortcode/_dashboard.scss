@@ -13,13 +13,6 @@
   background-color: var(--cs-dashboard-bg);
 }
 
-.cs_dark .cs_dashboard {
-  --cs-dashboard-bg: #141414;
-  --cs-card-bg: #1d1d1d;
-  --gray3-color: #262626;
-  --cs-card-shadow: none;
-}
-
 @mixin cs-tint($color) {
   color: $color;
   position: relative;
@@ -3210,7 +3203,9 @@
 
 .cs_dashboard_table.cs_table_fit {
 
+  .cs_table_property h2,
   .cs_table_property h3,
+  .cs_table_user h2,
   .cs_table_user h3,
   .cs_table_user p {
     min-width: 120px;
@@ -3348,6 +3343,7 @@
     background-color: var(--primary-color);
   }
 
+  h2 a:hover,
   h3 a:hover {
     color: var(--accent-color);
   }

@@ -1,0 +1,4 @@
+/* Smooth cross-document page transitions between dashboard pages */
+@view-transition {
+  navigation: auto;
+}

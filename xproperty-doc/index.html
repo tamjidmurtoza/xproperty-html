@@ -47,7 +47,7 @@
     <a href="#introduction" class="brand" aria-label="Xproperty documentation home">
       <img src="img/logo.svg" alt="Xproperty" class="logo-light" width="131" height="40">
       <img src="img/logo-white.svg" alt="Xproperty" class="logo-dark" width="131" height="40">
-      <span class="badge">v1.0.0</span>
+      <span class="badge">v1.3.0</span>
     </a>
     <label class="search">
       <svg class="ico"><use href="#i-search"/></svg>
@@ -146,7 +146,7 @@
       <!-- Introduction -->
       <section class="doc-section" id="introduction">
         <div class="hero">
-          <span class="badge">Version 1.0.0</span>
+          <span class="badge">Version 1.3.0</span>
           <h1>Xproperty Documentation</h1>
           <p>Thank you for choosing Xproperty, a real estate and property listing HTML template built with Bootstrap 5,
             SCSS and jQuery. This guide covers setup, customisation and every component the template ships with.</p>
@@ -225,7 +225,7 @@
         <div class="callout callout-warn">
           <svg class="ico"><use href="#i-alert"/></svg>
           <p>Before going live, add your own Web3Forms access key to the contact form (see <a href="#contact-form">Contact
-              Form</a>), replace <code>example.com</code> with your domain (see <a href="#seo-a11y">SEO &amp;
+              Form</a>), replace <code>example.com</code> with your domain (see <a href="#seo-a11y">SEO &
               Accessibility</a>) and remove pages you don't use from the navigation menu.</p>
         </div>
       </section>
@@ -251,6 +251,7 @@
 │   ├── img/       images, icons and the home-screen icon (app-icon-192.png)
 │   ├── fonts/     Font Awesome 6 and lightGallery webfonts (Cabin, Raleway: Google Fonts)
 │   └── flags/     flags for the six switcher languages
+├── landing/       product landing page (own assets/: css, img/screens, js)
 └── xproperty-doc/ this documentation</code></pre>
       </section>
 
@@ -482,8 +483,12 @@
           spacing, general, header, footer, sidebar, slider, video modal, preloader, then the component partials and the dark
           version. Styles for the newer pages are in <code>shortcode/_new-public-a/b/c.scss</code> (public pages),
           <code>_new-admin-a/b.scss</code> (admin) and <code>_new-dash-a/b.scss</code> (agent, owner and buyer), imported
-          right after the dashboard partial. Compile it to <code>assets/css/style.css</code> with Dart Sass:</p>
-<pre data-lang="Terminal"><code>npx sass assets/sass/style.scss assets/css/style.css --watch</code></pre>
+          right after the dashboard partial. Compile it to <code>assets/css/style.css</code> with the npm scripts in
+          <code>package.json</code> (run <code>npm install</code> once first):</p>
+<pre data-lang="Terminal"><code>npm run watch:css   # recompile on every save while you edit
+npm run build:css   # one-off build with Autoprefixer vendor prefixes</code></pre>
+        <p>Without Node.js, any Sass compiler works, such as the VS Code <strong>Live Sass Compiler</strong> extension or
+          <code>sass assets/sass/style.scss assets/css/style.css --watch</code>.</p>
         <div class="callout callout-warn">
           <svg class="ico"><use href="#i-alert"/></svg>
           <p>Compiling overwrites <code>style.css</code>. Pick one workflow: edit either the SCSS or the CSS, not both.</p>
@@ -746,7 +751,7 @@
         <ul>
           <li><strong>Honeypot (always on):</strong> the hidden <code>botcheck</code> checkbox is invisible to people. If a bot
             ticks it, the form shows a success message but sends nothing. Keep it in every form:
-            <code>&lt;input type="checkbox" name="botcheck" class="d-none" tabindex="-1" autocomplete="off" aria-hidden="true"&gt;</code></li>
+            <code>&lt;input type="checkbox" name="botcheck" class="d-none" tabindex="-1" aria-hidden="true"&gt;</code></li>
           <li><strong>hCaptcha (optional):</strong> <code>contact.html</code> contains commented hCaptcha markup. Uncomment it
             and turn on hCaptcha in your Web3Forms dashboard; the form then asks visitors to complete the captcha before
             sending.</li>
@@ -798,7 +803,7 @@
           <li><code>[data-listing-sort]</code> sorts by newest, popularity or price; <code>.cs_view_btn</code> switches between grid
             and list view (remembered).</li>
           <li>The home page search forms open the buy or rent listing with the choices in the URL, for example
-            <code>property-listing-buy.html?type=villa&amp;beds=3&amp;max-price=900000</code>. Set a real
+            <code>property-listing-buy.html?type=villa&beds=3&max-price=900000</code>. Set a real
             <code>action</code> on the form to send searches to your own backend instead.</li>
         </ul>
         <div class="callout callout-info">
@@ -853,8 +858,8 @@
         <h2>SEO & Social Sharing</h2>
         <ul>
           <li>Every page has its own meta description, a canonical link and Open Graph / Twitter card tags (in the block
-            marked <code>&lt;!-- Social sharing &amp; canonical --&gt;</code>).</li>
-          <li>Every public page includes schema.org structured data (JSON-LD). See <a href="#seo-a11y">SEO &amp; Accessibility</a>.</li>
+            marked <code>&lt;!-- Social sharing & canonical --&gt;</code>).</li>
+          <li>Every public page includes schema.org structured data (JSON-LD). See <a href="#seo-a11y">SEO & Accessibility</a>.</li>
           <li>Replace <code>https://example.com</code> with your domain in those tags before going live.</li>
           <li>Images below the fold use <code>loading="lazy"</code>; property and post images have descriptive alt text.</li>
         </ul>
@@ -920,7 +925,7 @@
           <li>Any other language turns RTL off. On a translated page it returns to the original page.</li>
           <li>A page with <code>&lt;html lang="ar"&gt;</code> (or <code>he</code>, <code>fa</code>, <code>ur</code>) is always RTL.</li>
         </ul>
-        <p>Translations and RTL languages are set near section 06 of <code>main.js</code>. Add an entry for each page you
+        <p>Translations and RTL languages are set in section 08 (Language Select) of <code>main.js</code>. Add an entry for each page you
           translate:</p>
 <pre data-lang="JS"><code>var LANGUAGE_PAGES = {
   // AR: { "index.html": "index-ar.html", "about-us.html": "about-us-ar.html" },
@@ -953,25 +958,36 @@ var RTL_LANGUAGES = ["AR"];                 // languages that switch the layout 
       <!-- JS -->
       <section class="doc-section" id="javascript">
         <h2>JavaScript</h2>
-        <p><code>assets/js/main.js</code> starts each feature only when its markup is on the page. Its table of contents:</p>
+        <p><code>assets/js/main.js</code> is split into 67 numbered sections, listed in the table of contents at the
+          top of the file. Each feature starts only when its markup is on the page. These run on every page:</p>
         <div class="table-wrap">
           <table>
             <thead><tr><th>#</th><th>Feature</th><th>#</th><th>Feature</th></tr></thead>
             <tbody>
-              <tr><td>01</td><td>Preloader</td><td>13</td><td>Accordion</td></tr>
-              <tr><td>02</td><td>Mobile Menu</td><td>14</td><td>Heart & sidebar toggles</td></tr>
-              <tr><td>03</td><td>Sticky Header</td><td>15</td><td>Date & Time Picker</td></tr>
-              <tr><td>04</td><td>Dynamic Background</td><td>16</td><td>Apartment Finder</td></tr>
-              <tr><td>05</td><td>Slick Slider</td><td>17</td><td>Pricing Toggle</td></tr>
-              <tr><td>06</td><td>Language Switcher (saved choice, RTL, translated pages)</td><td>18</td><td>Light Gallery</td></tr>
-              <tr><td>07</td><td>Search Modal Toggle</td><td>19</td><td>Load More</td></tr>
-              <tr><td>08</td><td>Smooth Scroll (Lenis)</td><td></td><td></td></tr>
-              <tr><td>09</td><td>Counter Animation</td><td>21</td><td>Scroll Up</td></tr>
-              <tr><td>10</td><td>Video Popup</td><td>22</td><td>Contact Form (honeypot, optional hCaptcha)</td></tr>
-              <tr><td>11</td><td>Star Rating</td><td>23</td><td>AOS Animation</td></tr>
-              <tr><td>12</td><td>Tabs</td><td>24</td><td>Saved Preferences</td></tr>
-              <tr><td>25</td><td>Color Mode Switch</td><td>26</td><td>Layout Direction (LTR / RTL)</td></tr>
-              <tr><td>27</td><td>Settings Switch (gear panel)</td><td>38</td><td>Mortgage Calculator</td></tr>
+              <tr><td>01</td><td>Preloader</td><td>25</td><td>Saved Preferences (color mode + dashboard sidebar)</td></tr>
+              <tr><td>02</td><td>Tom Select (<code>.tom_select</code>, dashboard <code>.cs_select</code>)</td><td>26</td><td>Color Mode Switch (Device / Light / Dark)</td></tr>
+              <tr><td>03</td><td>Location Search (<code>property-location</code>, <code>LOCATION_COUNTRIES</code>)</td><td>27</td><td>Layout Direction (LTR / RTL)</td></tr>
+              <tr><td>04</td><td>Mobile Menu</td><td>28</td><td>Settings Switch (gear panel with LTR / RTL)</td></tr>
+              <tr><td>05</td><td>Sticky Header</td><td>39</td><td>Mortgage Calculator (property details)</td></tr>
+              <tr><td>06</td><td>Dynamic Background</td><td>42</td><td>Property Search Helpers (labels, money formatting)</td></tr>
+              <tr><td>07</td><td>Slick Slider</td><td>43</td><td>Price Range Slider</td></tr>
+              <tr><td>08</td><td>Language Select (saved choice, RTL, translated pages)</td><td>44</td><td>Property Listing (filter, sort, view, pagination)</td></tr>
+              <tr><td>09</td><td>Search Modal Toggle</td><td>45</td><td>Saved Properties (hearts + saved properties page)</td></tr>
+              <tr><td>10</td><td>Smooth Page Scroll (Lenis)</td><td>46</td><td>Form Validation (login, register, forgot password, newsletter)</td></tr>
+              <tr><td>11</td><td>Counter Animation</td><td>47</td><td>Countdown (coming soon)</td></tr>
+              <tr><td>12</td><td>Modal Video</td><td>48</td><td>One-Time Code (verify email)</td></tr>
+              <tr><td>13</td><td>Star Rating</td><td>52</td><td>Location Maps (contact, details, home sections)</td></tr>
+              <tr><td>14</td><td>Tabs</td><td>53</td><td>Save Search (save search panel + saved searches page)</td></tr>
+              <tr><td>15</td><td>Accordion</td><td>54</td><td>Property Reviews (details form, dashboard reply / report / sort)</td></tr>
+              <tr><td>16</td><td>Heart & sidebar toggles</td><td>55</td><td>Price History (mirrored in RTL)</td></tr>
+              <tr><td>17</td><td>Date And Time Picker</td><td>56</td><td>Currency Switcher</td></tr>
+              <tr><td>18</td><td>Apartment Finding Function</td><td>57</td><td>Blog Filter (category, tag, search)</td></tr>
+              <tr><td>19</td><td>Pricing Value Toggle</td><td>59</td><td>Hero Search</td></tr>
+              <tr><td>20</td><td>Light Gallery</td><td>60</td><td>Property Map (Leaflet, half-map listing)</td></tr>
+              <tr><td>21</td><td>Load More Portfolio Items</td><td>61</td><td>Property Compare (card buttons, floating bar, compare page)</td></tr>
+              <tr><td>22</td><td>Scroll Up</td><td>62</td><td>Property Actions (share, print)</td></tr>
+              <tr><td>23</td><td>Dynamic Contact Form (honeypot, optional hCaptcha)</td><td>64</td><td>File Inputs (show the chosen file names)</td></tr>
+              <tr><td>24</td><td>AOS Animation</td><td>65</td><td>Agency Directory (search, city filter, sort)</td></tr>
             </tbody>
           </table>
         </div>
@@ -980,38 +996,19 @@ var RTL_LANGUAGES = ["AR"];                 // languages that switch the layout 
           <table>
             <thead><tr><th>#</th><th>Feature</th><th>#</th><th>Feature</th></tr></thead>
             <tbody>
-              <tr><td>28</td><td>Sidebar (collapse & off-canvas)</td><td>33</td><td>Analytics Charts (SVG, mirrored in RTL)</td></tr>
-              <tr><td>29</td><td>Sidebar Submenus</td><td>34</td><td>Filter Tabs</td></tr>
-              <tr><td>30</td><td>Topbar Dropdowns</td><td>35</td><td>Messages (chat)</td></tr>
-              <tr><td>31</td><td>Mobile Search</td><td>36</td><td>File Upload Previews (images + PDF / DOCX chips)</td></tr>
-              <tr><td>32</td><td>Stat Counters</td><td>37</td><td>Settings Section Nav</td></tr>
-              <tr><td>40</td><td>Notifications Page</td><td>39</td><td>Package Editor (admin)</td></tr>
+              <tr><td>29</td><td>Sidebar (desktop collapse + mobile offcanvas)</td><td>40</td><td>Package Editor (admin)</td></tr>
+              <tr><td>30</td><td>Sidebar Submenus</td><td>41</td><td>Notifications Page</td></tr>
+              <tr><td>31</td><td>Topbar Dropdowns (notifications, profile)</td><td>49</td><td>Row Status Actions (tables, card lists, modal forms)</td></tr>
+              <tr><td>32</td><td>Mobile Search</td><td>50</td><td>Table Search + CSV Export (dashboard tables)</td></tr>
+              <tr><td>33</td><td>Stat Counters</td><td>51</td><td>Tour Calendar (tour requests)</td></tr>
+              <tr><td>34</td><td>Analytics Charts (SVG, mirrored in RTL)</td><td>58</td><td>Property Forms (submit wizard, edit validation)</td></tr>
+              <tr><td>35</td><td>Filter Tabs (listings, approvals, users)</td><td>63</td><td>Table Overflow (scrollbar for wide tables from 1200px)</td></tr>
+              <tr><td>36</td><td>Messages (chat)</td><td>66</td><td>Role Permissions (<code>ROLE_PRESETS</code>, admin roles page)</td></tr>
+              <tr><td>37</td><td>File Upload Previews (images + PDF / DOCX chips)</td><td>67</td><td>Ticket Replies (admin ticket details)</td></tr>
+              <tr><td>38</td><td>Settings Section Nav</td><td></td><td></td></tr>
             </tbody>
           </table>
         </div>
-        <p>Search pages, forms, site extras and the newer page scripts:</p>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>#</th><th>Feature</th><th>#</th><th>Feature</th></tr></thead>
-            <tbody>
-              <tr><td>41</td><td>Price Range Slider</td><td>54</td><td>Location Maps</td></tr>
-              <tr><td>42</td><td>Property Listing (filter, sort, view, pagination)</td><td>55</td><td>(removed)</td></tr>
-              <tr><td>43</td><td>Property Map (half-map listing)</td><td>56</td><td>Property Forms (submit wizard, edit)</td></tr>
-              <tr><td>44</td><td>Property Compare</td><td>57</td><td>Blog Filter</td></tr>
-              <tr><td>45</td><td>Property Actions (share, print)</td><td>58</td><td>Save Search + Saved Searches</td></tr>
-              <tr><td>46</td><td>Hero Search</td><td>59</td><td>Property Reviews</td></tr>
-              <tr><td>47</td><td>Saved Properties</td><td>60</td><td>Price History (mirrored in RTL)</td></tr>
-              <tr><td>48</td><td>Form Validation</td><td>61</td><td>Currency Switcher</td></tr>
-              <tr><td>49</td><td>Countdown (coming soon)</td><td>62</td><td>Table Overflow (scrollbar for wide dashboard tables from 1200px)</td></tr>
-              <tr><td>50</td><td>One-Time Code (verify email)</td><td>63</td><td>File Inputs (show chosen file names)</td></tr>
-              <tr><td>51</td><td>Row Status Actions (tables, card lists, modal forms)</td><td>64</td><td>Role Permissions (<code>ROLE_PRESETS</code>, admin roles page)</td></tr>
-              <tr><td>52</td><td>Table Search + CSV Export</td><td>65</td><td>Ticket Replies (admin ticket details)</td></tr>
-              <tr><td>53</td><td>Tour Calendar</td><td>66</td><td>Agency Directory (search, city filter, sort)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p>The location search for <code>property-location</code> selects (<code>LOCATION_COUNTRIES</code>) runs together
-          with the Tom Select setup near the top of the file.</p>
         <h3 id="script-order">Script order</h3>
         <p>Keep jQuery first and <code>main.js</code> last. If you remove a plugin file from a page, also remove its
           initialisation call from <code>main.js</code>, or the browser console will show an error.</p>
@@ -1078,7 +1075,7 @@ var RTL_LANGUAGES = ["AR"];                 // languages that switch the layout 
               <li><span class="tag">New</span>Multi-step submit property wizard with validation and review step; edit forms validate.</li>
               <li><span class="tag">New</span>Save search with alert frequency; working saved searches page.</li>
               <li><span class="tag">New</span>Property reviews with rating summary and form; dashboard reply, report and sort.</li>
-              <li><span class="tag">New</span>Price history chart, cookie consent banner, WhatsApp button and currency switcher.</li>
+              <li><span class="tag">New</span>Price history chart and currency switcher.</li>
               <li><span class="tag">New</span>Blog search, categories and tags work; unique meta, Open Graph and canonical tags on every page.</li>
               <li><span class="tag">Fix</span>Menu parent links, logout links and sticky elements (sidebar nav, dashboard topbar).</li>
             </ul>
@@ -1124,7 +1121,7 @@ var RTL_LANGUAGES = ["AR"];                 // languages that switch the layout 
       </section>
 
       <footer class="doc-footer">
-        <span>&copy; Xproperty by Laralink. Documentation for version 1.0.0.</span>
+        <span>&copy; Xproperty by Laralink. Documentation for version 1.3.0.</span>
         <a href="#introduction">Back to top</a>
       </footer>
     </main>

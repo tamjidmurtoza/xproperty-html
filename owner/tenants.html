@@ -11,12 +11,12 @@
     <link rel="canonical" href="https://example.com/owner/tenants.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Xproperty">
-    <meta property="og:title" content="Tenants &amp; Leases - Owner Dashboard | Xproperty">
+    <meta property="og:title" content="Tenants & Leases - Owner Dashboard | Xproperty">
     <meta property="og:description" content="Manage tenants, leases and rent status in your Xproperty owner dashboard.">
     <meta property="og:url" content="https://example.com/owner/tenants.html">
     <meta property="og:image" content="https://example.com/assets/img/hero-bg-1.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tenants &amp; Leases - Owner Dashboard | Xproperty">
+    <meta name="twitter:title" content="Tenants & Leases - Owner Dashboard | Xproperty">
     <meta name="twitter:description" content="Manage tenants, leases and rent status in your Xproperty owner dashboard.">
     <meta name="twitter:image" content="https://example.com/assets/img/hero-bg-1.jpg">
     <!-- End social -->
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../assets/css/tom-select.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Smooth page transitions between dashboard pages -->
-    <style>@view-transition { navigation: auto; }</style>
+    <link rel="stylesheet" href="../assets/css/view-transition.css">
     <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
     <script>
       (function (html) {
@@ -162,7 +162,7 @@
               <li class="active">
                 <a href="tenants.html" class="cs_menu_link" aria-current="page">
                   <i class="cs_menu_icon fa-solid fa-house-user"></i>
-                  <span class="cs_menu_text">Tenants &amp; Leases</span>
+                  <span class="cs_menu_text">Tenants & Leases</span>
                 </a>
               </li>
               <li>
@@ -333,7 +333,7 @@
                 <div class="cs_stat_top">
                   <div>
                     <p class="cs_fs_16 mb-0">Occupied Units</p>
-                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="9"></span></h2>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="9">0</span></h2>
                   </div>
                   <span class="cs_stat_icon"><i class="fa-solid fa-house-user"></i></span>
                 </div>
@@ -348,7 +348,7 @@
                 <div class="cs_stat_top">
                   <div>
                     <p class="cs_fs_16 mb-0">Vacant Units</p>
-                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2"></span></h2>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2">0</span></h2>
                   </div>
                   <span class="cs_stat_icon"><i class="fa-solid fa-door-open"></i></span>
                 </div>
@@ -363,7 +363,7 @@
                 <div class="cs_stat_top">
                   <div>
                     <p class="cs_fs_16 mb-0">Expiring in 60 Days</p>
-                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2"></span></h2>
+                    <h2 class="cs_stat_value cs_semibold"><span class="odometer" data-count-to="2">0</span></h2>
                   </div>
                   <span class="cs_stat_icon"><i class="fa-solid fa-hourglass-half"></i></span>
                 </div>
@@ -377,7 +377,7 @@
                 <div class="cs_stat_top">
                   <div>
                     <p class="cs_fs_16 mb-0">Rent Collected (Oct)</p>
-                    <h2 class="cs_stat_value cs_semibold"><bdi>$<span class="odometer" data-count-to="22350"></span></bdi></h2>
+                    <h2 class="cs_stat_value cs_semibold"><bdi>$<span class="odometer" data-count-to="22350">0</span></bdi></h2>
                   </div>
                   <span class="cs_stat_icon"><i class="fa-solid fa-sack-dollar"></i></span>
                 </div>
@@ -639,7 +639,7 @@
                 <li><span>Security deposit</span><span><bdi data-review-field="deposit">$6,400</bdi></span></li>
                 <li><span>Rent due</span><span>1st of each month</span></li>
                 <li><span>Late fee</span><span><bdi>$75 after 5 days</bdi></span></li>
-                <li><span>Utilities</span><span>Tenant pays electricity &amp; internet</span></li>
+                <li><span>Utilities</span><span>Tenant pays electricity & internet</span></li>
                 <li><span>Notice to vacate</span><span><bdi>60 days</bdi></span></li>
                 <li><span>Signed</span><span><span class="cs_status_badge cs_status_active"><i class="fa-solid fa-signature"></i>Both parties</span></span></li>
               </ul>

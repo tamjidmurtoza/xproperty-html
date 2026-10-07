@@ -2020,6 +2020,7 @@ body.cs_compare_open .cs_scrollup_btn {
     }
   }
 
+  h2 a:hover,
   h3 a:hover {
     color: var(--accent-color);
   }
@@ -2200,18 +2201,6 @@ body.cs_compare_open .cs_scrollup_btn {
 @media print {
   @page {
     margin: 14mm;
-  }
-
-  .cs_dark {
-    --white-color: #fff;
-    --primary-color: #1D1D1D;
-    --secondary-color: #434343;
-    --border-color: #D1D1D1;
-    --gray-color: #E2E2E2;
-    --gray2-color: #F9F4F1;
-    --gray3-color: #FAFAFA;
-    --gray4-color: #FFFAF6;
-    color-scheme: light;
   }
 
   body {

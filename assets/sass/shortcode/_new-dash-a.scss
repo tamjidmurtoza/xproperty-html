@@ -23,6 +23,7 @@
   align-items: center;
   gap: 12px;
 
+  h2,
   h3 {
     min-width: 160px;
     max-width: 260px;
@@ -230,6 +231,7 @@
   flex: 1;
   min-width: 200px;
 
+  h2 a:hover,
   h3 a:hover {
     color: var(--accent-color);
   }

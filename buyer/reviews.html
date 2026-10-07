@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../assets/css/tom-select.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Smooth page transitions between dashboard pages -->
-    <style>@view-transition { navigation: auto; }</style>
+    <link rel="stylesheet" href="../assets/css/view-transition.css">
     <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
     <script>
       (function (html) {
@@ -412,11 +412,11 @@
               <fieldset class="cs_mb_20">
                 <legend class="cs_form_label">Your Rating</legend>
                 <div class="cs_star_input">
-                  <input type="radio" id="reviewStar5" name="reviewRating" value="5" required><label for="reviewStar5" aria-label="5 stars"><i class="fa-solid fa-star"></i></label>
-                  <input type="radio" id="reviewStar4" name="reviewRating" value="4"><label for="reviewStar4" aria-label="4 stars"><i class="fa-solid fa-star"></i></label>
-                  <input type="radio" id="reviewStar3" name="reviewRating" value="3"><label for="reviewStar3" aria-label="3 stars"><i class="fa-solid fa-star"></i></label>
-                  <input type="radio" id="reviewStar2" name="reviewRating" value="2"><label for="reviewStar2" aria-label="2 stars"><i class="fa-solid fa-star"></i></label>
-                  <input type="radio" id="reviewStar1" name="reviewRating" value="1"><label for="reviewStar1" aria-label="1 star"><i class="fa-solid fa-star"></i></label>
+                  <input type="radio" id="reviewStar5" name="reviewRating" value="5" required><label for="reviewStar5"><i class="fa-solid fa-star"></i><span class="visually-hidden">5 stars</span></label>
+                  <input type="radio" id="reviewStar4" name="reviewRating" value="4"><label for="reviewStar4"><i class="fa-solid fa-star"></i><span class="visually-hidden">4 stars</span></label>
+                  <input type="radio" id="reviewStar3" name="reviewRating" value="3"><label for="reviewStar3"><i class="fa-solid fa-star"></i><span class="visually-hidden">3 stars</span></label>
+                  <input type="radio" id="reviewStar2" name="reviewRating" value="2"><label for="reviewStar2"><i class="fa-solid fa-star"></i><span class="visually-hidden">2 stars</span></label>
+                  <input type="radio" id="reviewStar1" name="reviewRating" value="1"><label for="reviewStar1"><i class="fa-solid fa-star"></i><span class="visually-hidden">1 star</span></label>
                 </div>
               </fieldset>
               <div class="cs_mb_20">

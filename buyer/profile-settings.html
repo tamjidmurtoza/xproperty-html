@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../assets/css/tom-select.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <!-- Smooth page transitions between dashboard pages -->
-    <style>@view-transition { navigation: auto; }</style>
+    <link rel="stylesheet" href="../assets/css/view-transition.css">
     <!-- Apply saved theme / sidebar before first paint; preloader only on the first dashboard page of a visit -->
     <script>
       (function (html) {
@@ -275,7 +275,7 @@
                 <div class="cs_dashboard_card cs_profile_card" data-aos="fade-up">
                   <div class="cs_profile_card_thumb">
                     <img src="../assets/img/avatar-2.jpg" alt="Sophia Turner" loading="lazy">
-                    <label for="avatarUpload" aria-label="Change photo"><i class="fa-solid fa-camera"></i></label>
+                    <label for="avatarUpload"><i class="fa-solid fa-camera"></i><span class="visually-hidden">Change photo</span></label>
                     <input type="file" id="avatarUpload" accept="image/*">
                   </div>
                   <h2 class="cs_fs_20 cs_semibold cs_mb_5">Sophia Turner</h2>
@@ -375,7 +375,7 @@
                 <ul class="cs_setting_list">
                   <li>
                     <div>
-                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">New matches</h4>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">New matches</h3>
                       <p class="cs_fs_14 mb-0">When a home matches one of your saved searches</p>
                     </div>
                     <label class="cs_toggle_switch">
@@ -385,7 +385,7 @@
                   </li>
                   <li>
                     <div>
-                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Price drops</h4>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">Price drops</h3>
                       <p class="cs_fs_14 mb-0">When a saved property gets cheaper</p>
                     </div>
                     <label class="cs_toggle_switch">
@@ -395,7 +395,7 @@
                   </li>
                   <li>
                     <div>
-                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Messages</h4>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">Messages</h3>
                       <p class="cs_fs_14 mb-0">When an agent replies to you</p>
                     </div>
                     <label class="cs_toggle_switch">
@@ -405,7 +405,7 @@
                   </li>
                   <li>
                     <div>
-                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Tour reminders</h4>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">Tour reminders</h3>
                       <p class="cs_fs_14 mb-0">A day before a scheduled tour</p>
                     </div>
                     <label class="cs_toggle_switch">
@@ -415,7 +415,7 @@
                   </li>
                   <li>
                     <div>
-                      <h4 class="cs_fs_16 cs_semibold cs_mb_3">Newsletter</h4>
+                      <h3 class="cs_fs_16 cs_semibold cs_mb_3">Newsletter</h3>
                       <p class="cs_fs_14 mb-0">Market reports and tips</p>
                     </div>
                     <label class="cs_toggle_switch">

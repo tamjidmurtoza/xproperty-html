@@ -1,4 +1,23 @@
 /* 22. Dark Version */
+// Dark color variables
+.cs_dark {
+  --white-color: #1d1d1d;
+  --primary-color: #fff;
+  --secondary-color: #e2e2e2;
+  --border-color: #434343;
+  --gray-color: #262626;
+  --gray2-color: #434343;
+  --gray3-color: #232323;
+  --gray4-color: #232323;
+  color-scheme: dark;
+}
+
+body.cs_dark,
+html:where(.cs_dark),
+:where(.cs_dark) body {
+  background-color: #0a1119;
+}
+
 .cs_dark {
 
   h1,
@@ -122,8 +141,7 @@
   }
 }
 
-/* Dark mode: shared fixes for every template page */
-// Logo pair: the white version only shows in dark mode 
+/* Dark mode Logo */
 .cs_logo_dark {
   display: none;
 }
@@ -172,21 +190,21 @@
     box-shadow: inset 0 160px 90px -60px rgba(0, 0, 0, 0.6);
   }
 
-  // Map pattern section: dark copy of the SVG (its fill is baked in); 
+  // Map pattern section: dark copy of the SVG (its fill is baked in);
   .cs_bg_filed[data-src$="vector-bg-1.svg"] {
     background-image: url(../img/vector-bg-1-dark.svg) !important;
   }
 
-  .cs_slider > .cs_primary_bg {
+  .cs_slider>.cs_primary_bg {
     background-color: var(--white-color);
   }
 
-  // Light gray page sections: darker than the #1d1d1d cards on them 
+  // Light gray page sections: darker than the #1d1d1d cards on them
   section.cs_gray3_bg {
     background-color: #141414;
   }
 
-  // Beige sections: #434343 is too bright as a section background 
+  // Beige sections: #434343 is too bright as a section background
   section.cs_gray2_bg,
   footer.cs_gray2_bg {
     background-color: var(--gray-color);
@@ -281,7 +299,7 @@
     background-color: var(--gray2-color);
   }
 
-  // Pricing cards: keep them dark cards with a white button 
+  // Pricing cards: keep them dark cards with a white button
   .cs_pricing_table.cs_style_1.cs_primary_bg {
     background-color: var(--white-color);
     border: 1px solid var(--border-color);
@@ -316,6 +334,7 @@
 
   // Footer style 2 dividers
   .cs_footer.cs_style_2 {
+
     .cs_footer_top,
     .cs_footer_main {
       border-color: var(--border-color);
@@ -382,5 +401,62 @@
 
   .cs_property_map .leaflet-tile-pane {
     filter: invert(1) hue-rotate(180deg) grayscale(0.4) brightness(0.9) contrast(0.9);
+  }
+}
+
+// Hero style 6
+.cs_dark .cs_hero.cs_style_6 .cs_property_price.cs_white_color {
+  color: #fff;
+}
+
+// Hero style 1
+.cs_dark .cs_hero.cs_style_1 {
+  --cs-glass-bg: rgba(29, 29, 29, 0.6);
+  --cs-glass-border: rgba(255, 255, 255, 0.1);
+  --cs-glass-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+
+  .cs_hero_overlay {
+    background:
+      radial-gradient(ellipse 55% 45% at 50% 38%,
+        rgba(17, 17, 17, 0.75) 0%,
+        rgba(17, 17, 17, 0.35) 70%),
+      linear-gradient(180deg,
+        rgba(17, 17, 17, 0.6) 0%,
+        rgba(17, 17, 17, 0.1) 60%);
+  }
+
+  .cs_hero_popular a:hover {
+    color: #1d1d1d;
+  }
+}
+
+// Dashboard
+.cs_dark .cs_dashboard {
+  --cs-dashboard-bg: #141414;
+  --cs-card-bg: #1d1d1d;
+  --gray3-color: #262626;
+  --cs-card-shadow: none;
+
+  input[type="date"] {
+    color-scheme: dark;
+  }
+}
+
+// Print / PDF brochure: always print with the light palette
+@media print {
+  .cs_dark {
+    --white-color: #fff;
+    --primary-color: #1d1d1d;
+    --secondary-color: #434343;
+    --border-color: #d1d1d1;
+    --gray-color: #e2e2e2;
+    --gray2-color: #f9f4f1;
+    --gray3-color: #fafafa;
+    --gray4-color: #fffaf6;
+    color-scheme: light;
+  }
+
+  :where(.cs_dark) body {
+    background-color: #fff;
   }
 }
